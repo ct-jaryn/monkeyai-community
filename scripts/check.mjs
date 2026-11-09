@@ -23,6 +23,15 @@ try{
   logos=JSON.parse(read('src/data/logos.json'));
   logoSources=JSON.parse(read('docs/logo-sources.json'));
 }catch(e){console.error(`Check could not start: ${e.message}\nRun npm run build after completing source data.`);process.exit(1);}
+// Every listed product carries the date its facts were last checked against the
+// official source, so a record that was never verified cannot pass unnoticed.
+for (const tool of tools) {
+  expect(/^\d{4}-\d{2}-\d{2}$/.test(tool.reviewed || ''), `tools/${tool.slug}`, 'tool has no reviewed date');
+  expect(typeof tool.sourceUrl === 'string' && tool.sourceUrl.startsWith('https://'), `tools/${tool.slug}`, 'tool has no official source URL');
+}
+for (const model of models) {
+  expect(/^\d{4}-\d{2}-\d{2}$/.test(model.reviewed || ''), `models/${model.slug}`, 'model has no reviewed date');
+}
 let origin;
 try{origin=new URL(config.origin);expect(origin.protocol==='https:'&&origin.pathname==='/'&&!origin.search&&!origin.hash,'config','origin must be an HTTPS origin');}catch{error('config','invalid origin');}
 if(!origin){console.error(issues.join('\n'));process.exit(1);}
