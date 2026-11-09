@@ -1,0 +1,555 @@
+[
+  {
+    "slug": "connect-a-personal-model",
+    "category": "Models",
+    "docGroup": "models",
+    "reviewed": "2026-10-28",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://work.docs.baizhi.cloud/node/01a15db1-c10e-7e14-8efb-0b6b3208af8d"
+    ],
+    "en": {
+      "title": "Connect and use your own AI model in MonkeyAI",
+      "description": "Add a provider model, configure its supported capabilities, select it in a conversation, and share it deliberately.",
+      "sections": [
+        {
+          "heading": "Before you start",
+          "paragraphs": [
+            "A model is the engine; the provider hosts or supplies it; an API is the interface MonkeyAI uses to reach it. A chat subscription does not necessarily include API access. Obtain the provider’s documented API base address, exact model ID, credential and current capability limits for the specific model you intend to use.",
+            "This guide follows the official Chinese client instructions; translated UI names below include the original Chinese labels because wording can differ by client version. Confirm that the network and the component that makes model requests can reach the provider. A self-hosted workspace can still send task content to an external model service."
+          ],
+          "bullets": [
+            "Treat the API key as a secret; enter it only in the intended configuration screen.",
+            "Choose text, image input or other capabilities from the provider’s documentation for the exact model."
+          ]
+        },
+        {
+          "heading": "Find the personal model screen",
+          "paragraphs": [
+            "Open Settings → Assistant configuration → Models (设置 → 助手配置 → 模型). The documented categories are Team (团队), Mine (我的) and Shared by others (他人分享). Team resources come from an administrator; other people can share resources with you.",
+            "If a suitable authorized team model already exists, select it for your work without duplicating the provider credentials. To add a personal model, open Mine (我的) and select Add model (添加模型). If the menus differ, consult the upstream instructions for the installed client version."
+          ],
+          "bullets": [
+            "A shared model can be used by its recipient, who cannot edit or reshare it according to the official guide.",
+            "If the model list is empty, confirm your workspace and ask the administrator or owner about access."
+          ]
+        },
+        {
+          "heading": "Enter provider and model details",
+          "paragraphs": [
+            "Select the interface type that your provider supports, such as an OpenAI-compatible or Anthropic interface. Supply the exact model ID, provider-specified base address and your API key. Use the provider’s documented base address rather than guessing which version path to append.",
+            "Set context length and maximum output within the actual model’s supported limits. Enable image input only when that model and its selected interface support it. After entering interface type, address and key, the documented Get model list (获取模型列表) action can retrieve provider-returned IDs for selection and batch addition."
+          ],
+          "bullets": [
+            "A display name helps people recognize a configuration; the provider’s model ID identifies what the API calls.",
+            "Do not assume that compatibility with one OpenAI interface implies support for every endpoint."
+          ]
+        },
+        {
+          "heading": "Verify the connection in a conversation",
+          "paragraphs": [
+            "Save the configuration and open a new conversation. Use the model selector to the right of the task input to choose the model. Send a harmless short request, such as “Reply with a brief greeting,” and confirm that a response arrives. Then try the actual input type with a small approved sample.",
+            "Receiving a reply verifies that this request worked; check the provider’s response and the task result before relying on it. Image generation needs an appropriate image-generation model resource, rather than merely enabling image input for a text model."
+          ],
+          "bullets": [
+            "If the model does not appear, refresh the model list and confirm the current team and resource permissions.",
+            "If a call fails, check interface type, base address, model ID, key, provider limits and available balance."
+          ]
+        },
+        {
+          "heading": "Set defaults, adjust reasoning and share",
+          "paragraphs": [
+            "In model settings you may set a default model for new conversations; choose another model in the input selector for an individual task. For models that support reasoning depth, the documented options include low, medium and high. Higher depth can take more time and tokens, so compare results on the work you actually do.",
+            "Share a personal model only with intended members after reviewing provider terms and a budget. The official guide says usage costs for a shared personal model remain with its associated upstream service account. Recipients can find it in Shared by others (他人分享)."
+          ],
+          "bullets": [
+            "Check the authorization and upstream account before sharing.",
+            "Remove keys, tokens and sensitive prompts from screenshots, logs and issue reports."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "在 MonkeyAI 中接入并使用个人模型",
+      "description": "添加服务商模型、设置受支持的能力，在会话中验证，并按需共享给团队成员。",
+      "sections": [
+        {
+          "heading": "开始前准备什么",
+          "paragraphs": [
+            "模型是执行任务的引擎，服务商负责提供或托管模型，API 是 MonkeyAI 访问模型的接口。聊天应用订阅不一定包含 API 调用资格。先从服务商的官方说明取得对应模型的 API 基础地址、准确模型 ID、密钥及当前能力限制。",
+            "下文依据官方中文客户端教程；不同客户端版本或语言的菜单可能有差异。确认发起模型请求的组件能够访问服务商。工作台即使部署在自己的服务器上，调用外部模型时仍可能把任务内容发送给对应服务。"
+          ],
+          "bullets": [
+            "API 密钥仅填写到预期的配置界面，不要贴到公开讨论中。",
+            "文本、图片输入等能力应按所选具体模型的官方说明确认。"
+          ]
+        },
+        {
+          "heading": "找到个人模型配置入口",
+          "paragraphs": [
+            "进入「设置 → 助手配置 → 模型」。官方文档将来源分为「团队」「我的」「他人分享」：团队模型由管理员接入并授权；其他成员也可以把资源共享给你。",
+            "如果已有合适且获得授权的团队模型，可直接选用，不必重复填写接口地址和密钥。要接入个人模型，进入「我的」并点击「添加模型」。如果版本中的名称或布局不同，请对照上游文档确认。"
+          ],
+          "bullets": [
+            "接收者可使用他人分享的模型，但不能修改其配置或继续转共享。",
+            "模型列表为空时，先确认当前团队，再联系管理员或共享者核对权限。"
+          ]
+        },
+        {
+          "heading": "填写服务商与模型信息",
+          "paragraphs": [
+            "根据服务商实际支持的协议选择接口类型，例如 OpenAI 兼容接口或 Anthropic 接口。填写服务商提供的模型 ID、接口基础地址和 API 密钥。地址应以服务商对应接口的说明为准，不要自行猜测或重复追加版本路径。",
+            "按照具体模型的能力填写上下文长度和最大输出上限；只有该模型及所选接口确实支持图片输入时才开启该选项。填写接口类型、地址和密钥后，可使用「获取模型列表」选择服务商返回的模型并批量添加。"
+          ],
+          "bullets": [
+            "展示名称便于识别配置，模型 ID 则决定接口调用的是哪个模型。",
+            "一种 OpenAI 兼容接口可用，不代表其他接口和所有扩展能力也都兼容。"
+          ]
+        },
+        {
+          "heading": "在会话中验证",
+          "paragraphs": [
+            "保存配置并打开新会话，在任务输入框右侧的模型选择器中选中该模型。先发送无敏感信息的短请求，例如“请用一句话打个招呼”，确认能够收到回复，再用经过批准的小样本测试实际输入类型。",
+            "能收到回复只说明这一次请求成功，仍需检查返回内容是否符合任务。需要生成图片时，还要配置相应的生图模型资源，不能只给文本模型开启图片输入。"
+          ],
+          "bullets": [
+            "模型未出现时，刷新模型列表，核对当前团队与资源授权。",
+            "调用失败时，依次检查接口类型、地址、模型 ID、密钥、上游限制和余额。"
+          ]
+        },
+        {
+          "heading": "设置默认模型、思考深度与共享",
+          "paragraphs": [
+            "在模型设置中指定默认模型后，新会话会自动使用它；单次任务可通过输入框右侧选择器临时切换。支持思考深度的模型可选择低、中、高等选项。较高深度通常增加耗时与 Token 消耗，应结合实际任务效果调整。",
+            "将个人模型共享给他人前，确认上游服务使用范围与调用预算。官方文档说明，共享个人模型产生的上游费用仍由对应服务账号承担；接收者可在「他人分享」中查看。"
+          ],
+          "bullets": [
+            "共享前核对对象及上游账号。",
+            "提交问题或分享截图、日志前，移除 API 密钥、令牌和敏感提示词。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Conecta y usa tu propio modelo de IA en MonkeyAI",
+      "description": "Añade un modelo de proveedor, configura sus capacidades, pruébalo en una conversación y compártelo de forma deliberada.",
+      "sections": [
+        {
+          "heading": "Prepara el servicio",
+          "paragraphs": [
+            "El modelo es el motor, el proveedor lo ofrece o aloja y la API es la interfaz que utiliza MonkeyAI. Una suscripción a una app de chat no incluye necesariamente acceso a su API. Obtén en la documentación del proveedor la dirección base, el identificador exacto, la credencial y los límites actuales del modelo.",
+            "Esta guía sigue las instrucciones oficiales en chino; incluimos los nombres originales porque los menús pueden variar según la versión y el idioma. Comprueba que el componente que hace la llamada puede acceder al proveedor. Aunque alojes el espacio de trabajo, el contenido de la tarea puede enviarse a un servicio externo."
+          ],
+          "bullets": [
+            "Introduce la clave solo en la pantalla de configuración prevista y mantenla privada.",
+            "Comprueba las entradas y funciones de la versión concreta del modelo."
+          ]
+        },
+        {
+          "heading": "Abre la configuración personal",
+          "paragraphs": [
+            "Entra en Ajustes → Configuración del asistente → Modelos (设置 → 助手配置 → 模型). La guía oficial distingue Equipo (团队), Mis modelos (我的) y Compartidos por otros (他人分享). El administrador autoriza los modelos de equipo y otros miembros pueden compartir recursos contigo.",
+            "Si ya existe un modelo de equipo adecuado y autorizado, selecciónalo sin duplicar sus credenciales. Para conectar uno personal, abre Mis modelos (我的) y pulsa Añadir modelo (添加模型). Si la interfaz difiere, consulta la guía correspondiente a tu versión."
+          ],
+          "bullets": [
+            "Quien recibe un modelo compartido puede usarlo, pero no editarlo ni volver a compartirlo según la guía oficial.",
+            "Si la lista está vacía, comprueba el equipo y consulta los permisos con el administrador o propietario."
+          ]
+        },
+        {
+          "heading": "Introduce los datos del proveedor",
+          "paragraphs": [
+            "Elige una interfaz admitida por el proveedor, por ejemplo compatible con OpenAI o Anthropic. Introduce el ID exacto, la dirección base documentada y tu clave de API. Usa la dirección indicada para esa interfaz: no inventes ni dupliques rutas de versión.",
+            "Configura el contexto y el máximo de salida dentro de los límites del modelo. Activa la entrada de imágenes solo si el modelo y la interfaz elegidos la admiten. Tras indicar interfaz, dirección y clave, la opción Obtener lista de modelos (获取模型列表) puede recuperar los IDs devueltos para elegir varios a la vez."
+          ],
+          "bullets": [
+            "El nombre visible identifica tu configuración; el ID indica qué modelo solicita la API.",
+            "La compatibilidad con una interfaz no garantiza compatibilidad con todos sus extremos o funciones."
+          ]
+        },
+        {
+          "heading": "Verifica en una conversación",
+          "paragraphs": [
+            "Guarda la configuración, abre una conversación nueva y elige el modelo en el selector situado a la derecha del campo de tarea. Envía una petición breve sin datos sensibles, por ejemplo «Responde con un saludo breve», y confirma que recibes una respuesta. Después prueba el tipo de entrada real con un ejemplo autorizado.",
+            "Una respuesta solo demuestra que esa solicitud funcionó: revisa su contenido. Para generar imágenes necesitas el recurso de generación correspondiente; activar entrada de imágenes en un modelo de texto no equivale a configurarlo."
+          ],
+          "bullets": [
+            "Si no aparece el modelo, actualiza la lista y verifica el equipo y los permisos.",
+            "Si falla la llamada, comprueba interfaz, dirección, ID, clave, límites y saldo del proveedor."
+          ]
+        },
+        {
+          "heading": "Configura el valor predeterminado y comparte",
+          "paragraphs": [
+            "En los ajustes puedes definir un modelo predeterminado para conversaciones nuevas; el selector permite cambiarlo en una tarea concreta. En modelos compatibles, la profundidad de razonamiento puede ser baja, media o alta. Una profundidad mayor suele consumir más tiempo y tokens: evalúa el resultado con tus tareas.",
+            "Antes de compartir un modelo personal, revisa las condiciones del proveedor, el presupuesto y los destinatarios. La guía oficial indica que el coste externo de uso sigue correspondiendo a la cuenta del servicio asociada. Los destinatarios lo encuentran en Compartidos por otros (他人分享)."
+          ],
+          "bullets": [
+            "Revisa los destinatarios y la cuenta del proveedor antes de compartir.",
+            "Elimina claves, tokens y contenido sensible antes de compartir capturas, registros o incidencias."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "configure-team-model",
+    "category": "Models",
+    "docGroup": "models",
+    "reviewed": "2026-10-28",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
+      "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/admin/src/pages/models-page.tsx"
+    ],
+    "en": {
+      "title": "Configure and distribute a team model",
+      "description": "A practical administrator workflow for model API details, context settings, authorization and a verified first task.",
+      "sections": [
+        {
+          "heading": "Plan the team resource",
+          "paragraphs": [
+            "Choose a provider and model for a concrete team task. Confirm the service’s documented API base address, protocol, exact model ID, credential, available quota, data policies and supported context and output limits. A model provider’s charges and MonkeyAI’s internal credit rules are separate concerns.",
+            "Use an administrator account for the management console. Labels below follow the official Chinese documentation and are translated for orientation; your installed version may present different wording. Decide which members or groups need the resource before making it available."
+          ],
+          "bullets": [
+            "Do not collect or paste API keys into community posts or public issue reports.",
+            "Use sample material for the first end-to-end test."
+          ]
+        },
+        {
+          "heading": "Create a text model in the console",
+          "paragraphs": [
+            "Open Resource management → Models → System models → Add model (资源管理 → 大模型 → 系统模型 → 添加大模型), then choose the text model type. Enter the model’s display name and exact provider model ID, documented base address and API key.",
+            "Choose the protocol supported by that endpoint. The reviewed upstream admin source lists OpenAI Chat Completions, OpenAI Responses and Anthropic separately. Confirm the interface with your provider; compatibility with one option does not guarantee the others. The form also offers a system proxy setting where configured."
+          ],
+          "bullets": [
+            "Use the real provider documentation for the base URL and model ID; placeholder examples are not working endpoints.",
+            "A locally hosted workspace may still send content to the configured external model provider."
+          ]
+        },
+        {
+          "heading": "Set capabilities and credit rules",
+          "paragraphs": [
+            "For a text model, the official team guide requires context size and maximum output tokens greater than zero. In the reviewed admin code, context is entered in K units and converted to tokens by multiplying by 1,000; verify the unit in your installed form. For example, a documented 128,000-token context corresponds to 128 K in that form.",
+            "The reviewed form also accepts a positive credit multiplier and flags for image input and reasoning support. Set the multiplier according to the team’s credit and billing rules. Set capability flags according to what the specific model and interface actually support; changing a flag does not give a model a capability it lacks. Check provider limits and current pricing directly."
+          ],
+          "bullets": [
+            "Image-generation and video-generation resources have separate settings; do not use text-only parameters as their configuration.",
+            "Internal credits do not create upstream API quota or pay the provider on their own."
+          ]
+        },
+        {
+          "heading": "Authorize members and test",
+          "paragraphs": [
+            "Choose the authorization scope and save: all members, selected groups or selected users. The official resource guide says authorization of a parent group also grants access to its child-group members. Authorization allows use; it does not grant permission to edit the administrator’s resource.",
+            "Ask an authorized member to refresh the client model list, open a new conversation, select the model beside the task input and send a short non-sensitive test. Verify the returned answer and check usage in the appropriate system. If the model is missing, confirm team membership, enabled state and authorization before changing provider settings."
+          ],
+          "bullets": [
+            "Verify at least one intended recipient can select and use the model.",
+            "Share a sanitized error and timestamp with the administrator if the call fails."
+          ]
+        },
+        {
+          "heading": "Maintain and troubleshoot",
+          "paragraphs": [
+            "When a key, address, access scope or underlying model changes, update the configuration and repeat the test. Check the provider’s service availability, credential permissions, model ID, quota or balance, and interface-specific limits. Ask the operator which server, runtime or proxy initiates calls before diagnosing network reachability.",
+            "Stop providing a resource by using the available disable or authorization controls for your version. Before changing a widely shared configuration, consider effects on members and linked experts; review the upstream release-specific documentation for current management controls."
+          ],
+          "bullets": [
+            "Use a dedicated approved credential and follow your organization’s key-rotation process.",
+            "Keep API keys out of logs, screenshots and support tickets."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "配置和分发团队大模型",
+      "description": "团队管理员按步骤配置模型接口、上下文与授权范围，并通过成员的真实任务验证。",
+      "sections": [
+        {
+          "heading": "规划团队模型资源",
+          "paragraphs": [
+            "先选择能满足团队实际任务的服务商与模型，核对该服务当前的 API 基础地址、协议、准确模型 ID、密钥、可用额度、数据政策、上下文长度及输出上限。上游模型服务的费用与 MonkeyAI 内部积分规则是两件需要分别核对的事。",
+            "以团队管理员身份进入管理后台。下文使用官方中文文档中的菜单名称；实际界面可能随安装版本变化。开始前确定哪些成员或分组需要使用该资源，首次验证使用无敏感信息的示例。"
+          ],
+          "bullets": [
+            "不要在公开社区或问题报告中收集、粘贴 API 密钥。",
+            "事先确认模型服务能接受所需的输入和输出。"
+          ]
+        },
+        {
+          "heading": "在后台创建文本模型",
+          "paragraphs": [
+            "进入「资源管理 → 大模型」，选择「系统模型」页签并点击「添加大模型」，然后选择文本模型类型。填写便于识别的展示名称、服务商提供的准确模型 ID、接口基础地址和 API 密钥。",
+            "按所选服务接口支持的协议填写。当前核对的上游管理后台源码将 OpenAI Chat Completions、OpenAI Responses 和 Anthropic 分别列为选项，应以服务商对应接口文档为准；一种兼容接口可用，不代表其他接口也可用。界面还提供可配置的系统代理入口。"
+          ],
+          "bullets": [
+            "接口地址与模型 ID 应从真实服务商文档获取，示例占位符不是可调用服务。",
+            "自托管工作台连接外部模型时，相关任务内容仍可能发送给服务商。"
+          ]
+        },
+        {
+          "heading": "设置能力与积分规则",
+          "paragraphs": [
+            "官方团队资源指南要求文本模型的上下文大小和最大输出 Token 大于 0。当前核对的管理后台源码中，上下文字段以 K 为单位，保存时将输入值乘以 1,000；请确认实际版本界面显示的单位。例如，官方模型说明为 128,000 Token 时，该表单填写 128 K。",
+            "所核对的表单还包含正数的积分倍率，以及图片输入、推理能力开关。积分倍率应按团队的积分与计费规则设置；能力开关应按具体模型和接口真实支持的能力设置，打开开关不会凭空增加功能。上游模型的额度和当前价格请在服务商处另行确认。"
+          ],
+          "bullets": [
+            "生图和视频模型各有额外配置，不应套用文本模型参数。",
+            "内部积分配置不等于已经获得或支付上游 API 调用额度。"
+          ]
+        },
+        {
+          "heading": "授权成员并验证",
+          "paragraphs": [
+            "选择授权范围并保存：全员、指定分组或指定用户。官方资源指南说明，对父分组授权后，其子分组成员也可使用；资源授权表示可以使用，并不自动给予修改后台配置的权限。",
+            "请一位已获授权的成员刷新客户端模型列表，打开新会话，在输入框右侧选择该模型并发送简短、无敏感信息的测试请求。检查回复，并在相应系统查看使用情况。若未出现该模型，先确认登录的团队、启用状态和授权范围，再调整服务商配置。"
+          ],
+          "bullets": [
+            "至少确认一位预期成员能够选择并使用模型。",
+            "调用失败时向管理员提供脱敏后的错误和发生时间。"
+          ]
+        },
+        {
+          "heading": "维护与定位问题",
+          "paragraphs": [
+            "模型密钥、服务地址、授权范围或上游模型变化后，应更新对应配置并重新验证。逐项检查服务可用性、密钥权限、模型 ID、额度或余额，以及所选协议的限制。排查网络前，先向运维确认是哪个服务器、运行环境或代理实际发起模型请求。",
+            "暂时不再提供的资源，可根据当前版本提供的停用或授权管理入口处理。修改大范围共享配置前，先确认对成员和关联专家的影响，并以对应版本的官方说明为准。"
+          ],
+          "bullets": [
+            "使用经批准的专用凭据，并遵循组织的密钥轮换流程。",
+            "日志、截图及工单中不要包含 API 密钥。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Configura y distribuye un modelo para el equipo",
+      "description": "Flujo para administradores: servicio de modelo, parámetros, permisos y una primera tarea verificada.",
+      "sections": [
+        {
+          "heading": "Planifica el recurso",
+          "paragraphs": [
+            "Elige proveedor y modelo para una tarea concreta. Consulta su dirección base de API, protocolo, ID exacto, credencial, cuota, política de datos y límites de contexto y salida. Los cargos del proveedor y las reglas de créditos internas de MonkeyAI deben revisarse por separado.",
+            "Accede a la consola con una cuenta administradora. Los nombres indicados siguen la documentación oficial china y se traducen para orientarte; pueden variar según la versión instalada. Decide qué miembros o grupos necesitan el recurso y utiliza datos de ejemplo en la primera prueba."
+          ],
+          "bullets": [
+            "No publiques ni recopiles claves de API en foros o incidencias públicas.",
+            "Comprueba las entradas y salidas que admite el modelo elegido."
+          ]
+        },
+        {
+          "heading": "Crea un modelo de texto",
+          "paragraphs": [
+            "Abre Gestión de recursos → Modelos → Modelos del sistema → Añadir modelo (资源管理 → 大模型 → 系统模型 → 添加大模型) y selecciona el tipo de texto. Introduce un nombre visible, el ID exacto del proveedor, la dirección base documentada y la clave de API.",
+            "Elige el protocolo admitido por ese servicio. El código administrativo revisado enumera por separado OpenAI Chat Completions, OpenAI Responses y Anthropic. Consulta la documentación del proveedor: la compatibilidad con una opción no garantiza las demás. La interfaz también ofrece una opción de proxy del sistema cuando está configurada."
+          ],
+          "bullets": [
+            "La dirección y el ID deben proceder de la documentación real; los ejemplos de marcador no son servicios operativos.",
+            "Una instalación propia puede enviar el contenido de la tarea al proveedor externo configurado."
+          ]
+        },
+        {
+          "heading": "Ajusta capacidades y créditos",
+          "paragraphs": [
+            "La guía oficial exige que el contexto y el máximo de tokens de salida del modelo de texto sean mayores que cero. En el código administrativo revisado, el contexto se introduce en unidades K y se multiplica por 1.000 al guardarlo; confirma la unidad en tu versión. Por ejemplo, un límite documentado de 128.000 tokens corresponde a 128 K en ese formulario.",
+            "El formulario revisado también admite un multiplicador positivo de créditos y opciones para imágenes y razonamiento. Ajusta el multiplicador según las reglas de créditos y facturación del equipo. Activa las capacidades según lo que admitan el modelo y la interfaz concretos; una opción de configuración no añade por sí sola una capacidad inexistente. Consulta la cuota y los precios vigentes del proveedor."
+          ],
+          "bullets": [
+            "La generación de imágenes y vídeo tiene configuraciones adicionales distintas del modelo de texto.",
+            "Los créditos internos no crean ni pagan automáticamente la cuota del proveedor externo."
+          ]
+        },
+        {
+          "heading": "Autoriza y verifica",
+          "paragraphs": [
+            "Selecciona el alcance de autorización y guarda: todos, grupos seleccionados o usuarios seleccionados. La guía oficial indica que autorizar un grupo padre también permite el uso a sus subgrupos. El permiso de uso no concede automáticamente permiso para editar el recurso administrativo.",
+            "Pide a una persona autorizada que actualice la lista de modelos, abra una conversación, seleccione el modelo junto al campo de tarea y envíe una petición breve sin datos sensibles. Comprueba la respuesta y el consumo. Si no aparece, revisa equipo, estado y permisos antes de cambiar los datos del proveedor."
+          ],
+          "bullets": [
+            "Confirma que al menos un destinatario previsto puede seleccionar y usar el modelo.",
+            "Comparte con el administrador el error sin secretos y la hora del fallo."
+          ]
+        },
+        {
+          "heading": "Mantén y diagnostica",
+          "paragraphs": [
+            "Si cambia la clave, la dirección, el alcance o el modelo externo, actualiza la configuración y repite la prueba. Comprueba servicio, permisos de la clave, ID, cuota o saldo y límites de la interfaz. Antes de diagnosticar la red, pregunta qué servidor, entorno o proxy inicia realmente las solicitudes.",
+            "Para dejar de ofrecer un recurso, utiliza los controles de desactivación o autorización disponibles en tu versión. Antes de cambiar un recurso muy compartido, revisa el impacto en miembros y expertos vinculados; consulta las instrucciones de la versión instalada."
+          ],
+          "bullets": [
+            "Usa una credencial aprobada y sigue el proceso de rotación de tu organización.",
+            "No incluyas claves de API en registros, capturas ni solicitudes de soporte."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "troubleshoot-model-access",
+    "category": "Models",
+    "docGroup": "models",
+    "reviewed": "2026-10-28",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
+      "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7"
+    ],
+    "en": {
+      "title": "Troubleshoot an unavailable model or failed call",
+      "description": "Diagnose an empty model list, access errors and failed provider calls without exposing credentials.",
+      "sections": [
+        {
+          "heading": "First identify the failing step",
+          "paragraphs": [
+            "An empty selector, a rejected save and a failed model response are different symptoms. Record the workspace, whether the model is a team, personal or shared resource, the selected service and the approximate time. Reproduce the issue with a short non-sensitive request.",
+            "Share the exact user-visible error and time with the responsible administrator after removing secrets. Do not publish API keys, authorization headers, private prompts or complete sensitive logs when asking for help."
+          ],
+          "bullets": [
+            "Confirm which user and workspace are involved.",
+            "Compare with a known working model or authorized user when available."
+          ]
+        },
+        {
+          "heading": "The model does not appear",
+          "paragraphs": [
+            "Open Settings → Assistant configuration → Models (设置 → 助手配置 → 模型) and inspect Team (团队), Mine (我的), and Shared by others (他人分享). Team models need an administrator’s authorization; models shared by another member appear in the shared category. Refresh the client list and confirm that the account belongs to the intended team.",
+            "Ask the administrator or owner to review the resource’s enabled state, the intended recipient and group membership. The official guide says parent-group authorization includes child-group members. A recipient’s permission to use a shared personal model does not allow them to change or reshare its configuration."
+          ],
+          "bullets": [
+            "Confirm a personal model was saved under Mine.",
+            "Ask the responsible owner to check authorization; avoid creating duplicates just to bypass it."
+          ]
+        },
+        {
+          "heading": "A configured model fails to answer",
+          "paragraphs": [
+            "Check the provider’s exact model ID, interface type, base address and key, then confirm that the upstream service is reachable and that its account has the required access and available quota or balance. Do not assume an OpenAI-compatible service supports every API variant: compare the chosen protocol with the provider’s documentation.",
+            "For text models, compare context and output limits with the selected release. Enable image input only if that exact model and interface support it. Where MonkeyAI credits are enabled, check the user’s internal balance as well as the upstream account; one does not replace the other."
+          ],
+          "bullets": [
+            "Ask the operator where the model call originates before testing DNS, TLS, firewall or proxy connectivity.",
+            "Use the provider’s status and documentation to investigate current limits; avoid posting the key."
+          ]
+        },
+        {
+          "heading": "The result is not what you expected",
+          "paragraphs": [
+            "A received response can still fail a task. Compare the request, selected model, relevant settings and input type. Image generation requires a suitable image-generation resource; a text model marked for image input does not itself create images. For a supported reasoning-depth control, compare the result and time with a simpler setting.",
+            "Check a small task against clear acceptance criteria and verify facts or generated code independently. Keep a sanitized record of the model ID, error, settings and time. When a provider, key, model or authorization changes, rerun the same small test to confirm the fix."
+          ],
+          "bullets": [
+            "Preserve only the minimum non-sensitive example needed to reproduce the problem.",
+            "Use the official model guide for current labels and the provider’s documentation for its API."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "排查模型不可见或调用失败",
+      "description": "区分模型列表为空、配置失败与调用失败，按权限、接口和网络逐项定位。",
+      "sections": [
+        {
+          "heading": "先定位失败发生在哪一步",
+          "paragraphs": [
+            "模型选择器为空、保存配置失败和请求后模型没有回复，是不同的问题。记录当前工作空间、资源属于团队/个人/他人分享、选择的服务以及大致发生时间。用不含敏感信息的短请求复现，避免把任务资料暴露在排错过程中。",
+            "向负责管理员提供原始可见错误与发生时间前，应先移除密钥。不要在公开问题、截图或日志中发布 API 密钥、授权请求头、私密提示词或完整敏感日志。"
+          ],
+          "bullets": [
+            "确认涉及的账号和团队工作空间。",
+            "如果已有可用模型或获授权的成员，可用它做对照。"
+          ]
+        },
+        {
+          "heading": "模型没有出现在列表里",
+          "paragraphs": [
+            "进入「设置 → 助手配置 → 模型」，分别查看「团队」「我的」「他人分享」。团队模型需要管理员授权；其他成员共享的模型应出现在「他人分享」。刷新客户端列表，并确认账号登录的是预期团队。",
+            "请管理员或资源所有者核对启用状态、共享对象和分组。官方文档说明父分组授权会覆盖子分组成员；个人模型的被共享者可以使用，但不能修改或继续转共享。"
+          ],
+          "bullets": [
+            "确认个人模型已保存在「我的」中。",
+            "请资源负责人检查授权，不要为了绕开权限而盲目重复创建。"
+          ]
+        },
+        {
+          "heading": "模型已配置但调用失败",
+          "paragraphs": [
+            "逐项检查服务商提供的准确模型 ID、接口类型、基础地址和密钥，再确认上游服务可访问、账号具有使用权限且额度或余额充足。所谓 OpenAI 兼容不代表所有接口变体都兼容，应将选中的协议与服务商文档逐项对照。",
+            "对文本模型，检查上下文长度和输出上限是否符合具体版本能力；仅在模型和接口确实支持时启用图片输入。如果部署启用了 MonkeyAI 积分管理，还应检查用户积分余额，内部积分与上游额度需要分别确认。"
+          ],
+          "bullets": [
+            "先问清模型请求由哪个运行环境、服务器或代理发起，再从那里检查 DNS、TLS、防火墙和网络。",
+            "根据服务商状态和官方说明排查限制，不要公开密钥。"
+          ]
+        },
+        {
+          "heading": "模型回复了，但结果不符合预期",
+          "paragraphs": [
+            "收到回复并不代表任务通过。对照请求、选中的具体模型、相关设置和输入类型检查。生成图片需要合适的生图模型资源；文本模型支持图片输入，并不意味着它本身能生成图片。支持思考深度的模型可比较不同设置的效果与耗时。",
+            "用明确的验收标准检查小任务，独立核实事实或生成代码。记录脱敏后的模型 ID、错误、配置和时间。服务商、密钥、模型或授权变化后，用同一小测试确认问题是否解决。"
+          ],
+          "bullets": [
+            "只保留复现问题所必需的最少非敏感示例。",
+            "界面名称以官方模型指南为准，API 行为以实际服务商文档为准。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Soluciona un modelo ausente o una llamada fallida",
+      "description": "Diagnostica la lista vacía, los permisos y las llamadas al proveedor sin revelar credenciales.",
+      "sections": [
+        {
+          "heading": "Identifica en qué paso falla",
+          "paragraphs": [
+            "Una lista vacía, un guardado rechazado y una llamada sin respuesta son síntomas diferentes. Anota el espacio, si el recurso es de equipo, personal o compartido, el servicio seleccionado y la hora aproximada. Reproduce el problema con una solicitud corta sin datos sensibles.",
+            "Comparte el error visible y la hora con el administrador responsable después de quitar los secretos. No publiques claves de API, cabeceras de autorización, instrucciones privadas ni registros sensibles completos."
+          ],
+          "bullets": [
+            "Confirma qué usuario y espacio están afectados.",
+            "Si existe un modelo funcional o un usuario autorizado, úsalo como referencia."
+          ]
+        },
+        {
+          "heading": "El modelo no aparece",
+          "paragraphs": [
+            "Abre Ajustes → Configuración del asistente → Modelos (设置 → 助手配置 → 模型) y revisa Equipo (团队), Mis modelos (我的) y Compartidos por otros (他人分享). Un modelo de equipo requiere autorización administrativa; los modelos compartidos se muestran en la categoría correspondiente. Actualiza la lista y comprueba el equipo activo.",
+            "Pide al administrador o propietario que revise el estado, los destinatarios y la pertenencia a los grupos. La guía oficial indica que la autorización de un grupo padre incluye a sus subgrupos. Quien recibe un modelo personal puede usarlo, pero no editarlo ni volver a compartirlo."
+          ],
+          "bullets": [
+            "Comprueba que el modelo personal se guardó en Mis modelos.",
+            "Pide al responsable que revise los permisos antes de crear duplicados."
+          ]
+        },
+        {
+          "heading": "El modelo configurado no responde",
+          "paragraphs": [
+            "Comprueba el ID exacto, el tipo de interfaz, la dirección base y la clave. Confirma después que el servicio externo es accesible, la cuenta está autorizada y dispone de cuota o saldo. Una interfaz compatible con OpenAI no implica que todas sus variantes estén disponibles: compara el protocolo elegido con la documentación del proveedor.",
+            "Para modelos de texto, contrasta el contexto y la salida con la versión concreta. Activa imágenes solo si ese modelo e interfaz las admiten. Si el despliegue usa créditos de MonkeyAI, comprueba también el saldo interno; no sustituye la cuota del proveedor."
+          ],
+          "bullets": [
+            "Pregunta desde qué entorno, servidor o proxy se realiza la llamada antes de revisar DNS, TLS, cortafuegos y red.",
+            "Consulta el estado y los límites actuales del proveedor sin publicar la clave."
+          ]
+        },
+        {
+          "heading": "Hay respuesta, pero no sirve para la tarea",
+          "paragraphs": [
+            "Una respuesta recibida todavía puede fallar los criterios. Compara la solicitud, el modelo exacto, la configuración y el tipo de entrada. Generar imágenes requiere un recurso apropiado; habilitar imágenes de entrada en un modelo de texto no significa que pueda generarlas. En modelos compatibles, compara el resultado y el tiempo entre niveles de razonamiento.",
+            "Revisa una tarea pequeña con criterios claros y comprueba los hechos o el código de forma independiente. Guarda el ID, el error, la configuración y la hora sin secretos. Cuando cambien proveedor, clave, modelo o permisos, repite la misma prueba para confirmar la solución."
+          ],
+          "bullets": [
+            "Conserva solo el ejemplo no sensible mínimo necesario para reproducir el problema.",
+            "Consulta la guía oficial para los nombres de interfaz y al proveedor para su API."
+          ]
+        }
+      ]
+    }
+  }
+]

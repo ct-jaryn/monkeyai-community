@@ -1,0 +1,10 @@
+{
+  "asset": "monkeyai-logo.png",
+  "officialWebsiteAsset": "https://work.baizhi.cloud/monkeyai-logo.png",
+  "repositoryAsset": "https://github.com/chaitin/MonkeyCode/blob/main/monkeyai/landing/public/monkeyai-logo.png",
+  "downloadedFrom": "https://raw.githubusercontent.com/chaitin/MonkeyCode/main/monkeyai/landing/public/monkeyai-logo.png",
+  "sha256": "fd0812ed97ec7e4f057ae37978a85884bcbf65388f40907377af06139de1fdec",
+  "dimensions": "256x256",
+  "modifications": "None; official PNG stored byte-for-byte. Site layout scales display size only.",
+  "reviewed": "2026-10-27"
+}

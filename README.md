@@ -1,0 +1,50 @@
+# MonkeyAI Community
+
+[![Build and check](https://github.com/ct-jaryn/monkeyai-community/actions/workflows/check.yml/badge.svg)](https://github.com/ct-jaryn/monkeyai-community/actions/workflows/check.yml)
+
+An independent, multilingual community for practical MonkeyAI guides, AI tools and model discovery. Explore the website at [monkeyai.online](https://monkeyai.online/). English, 简体中文 and Español are available.
+
+**Everyone is welcome to help maintain the site.** Suggest an AI tool or a GitHub repository, report a problem, improve a guide or translation, or open a pull request:
+
+- [Suggest a tool or GitHub repository](https://github.com/ct-jaryn/monkeyai-community/issues/new?template=tool-suggestion.yml)
+- [Report a website issue](https://github.com/ct-jaryn/monkeyai-community/issues/new?template=bug-report.yml)
+- [Browse issues](https://github.com/ct-jaryn/monkeyai-community/issues) and [pull requests](https://github.com/ct-jaryn/monkeyai-community/pulls)
+- Read [CONTRIBUTING.md](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md), and the [security policy](SECURITY.md)
+
+欢迎推荐 AI 工具和 GitHub 仓库，也欢迎提交 Issue、PR、文档与翻译。Puedes proponer herramientas y repositorios, informar de problemas y mejorar el sitio en español.
+
+This is an enthusiast community, independent of Chaitin and the upstream [MonkeyCode](https://github.com/chaitin/MonkeyCode) project. Product issues belong in the upstream tracker; this repository maintains the community website and directory. A listing or contribution does not imply endorsement by the original project or its maintainers.
+
+## Run locally
+
+Requires Node.js 20+ and Python 3. There are no npm dependencies to install.
+
+```sh
+npm run build
+npm run check
+npm run dev
+```
+
+Open `http://127.0.0.1:4173/`. Build generates static output in `dist/` and `route-manifest.json`. **It clears `dist/` on every build:** work in a clean checkout and back up any local-only files there first. The preview server handles directory URLs and missing pages.
+
+Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials. The public repository does not contain production server configuration or account data.
+
+## Project layout
+
+| Path | Purpose |
+| --- | --- |
+| `site.config.json` | Site origin, upstream and community repository links |
+| `src/i18n.mjs`, `src/community-ui.mjs` | English, Chinese and Spanish interface text |
+| `src/data/tools.json`, `src/data/logos.json` | Tool listings and logo metadata |
+| `src/data/guides.json`, `src/data/docs-*.json` | Community guides and their translations |
+| `src/data/models-*.json` | Sourced model-family profiles |
+| `src/*-pages.mjs`, `scripts/build.mjs` | Static page templates and generator |
+| `public/` | Styles, browser interactions, fonts and attributed assets |
+| `scripts/check*.mjs` | Site and robots validation |
+| `docs/logo-sources.json`, `docs/research/` | Asset provenance and source research |
+
+## Privacy, licensing and safety
+
+The site has no account system. Saved tools use browser localStorage and search runs locally. The hosting provider may process request logs or provide analytics; see the live site's About page. Never submit credentials, private URLs, personal data or confidential logs to this public repository.
+
+Original repository contributions are available under the [MIT License](LICENSE). Third-party logos, trademarks and fonts have separate terms; see [THIRD_PARTY.md](THIRD_PARTY.md). Guides are independent summaries and do not replace the official documentation. Tool listings are reviewed and are not endorsements or paid rankings.

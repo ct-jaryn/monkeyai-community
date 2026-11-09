@@ -1,0 +1,217 @@
+[
+  {
+    "key": "chatgpt",
+    "file": "public/logos/chatgpt.png",
+    "sourceUrl": "https://cdn.oaistatic.com/assets/favicon-eex17e9e.ico",
+    "pageUrl": "https://chatgpt.com/",
+    "sha256": "4ff1718a15cf0bbf3a089ea72a95247a48ba291e59c5fac75f6f4cc3637a7034",
+    "bytes": 1591,
+    "type": "image/png",
+    "verified": "2026-10-27",
+    "originalSha256": "def0730c050afcd86acd21bd1edf54f0ee3638c9e642f0e4107f7d666bc292a9",
+    "originalBytes": 15086,
+    "note": "Official ICO decoded at largest embedded size and saved as PNG; no recoloring or shape change.",
+    "dimensions": [
+      48,
+      48
+    ]
+  },
+  {
+    "key": "gemini",
+    "file": "public/logos/gemini.png",
+    "sourceUrl": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png",
+    "pageUrl": "https://gemini.google.com/",
+    "sha256": "5e7cfecaa53f4f65a313fe89b0f389548126544a78fad8489510c70ae641a4a1",
+    "bytes": 61823,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "cursor",
+    "file": "public/logos/cursor.svg",
+    "sourceUrl": "https://cursor.com/marketing-static/favicon-light.svg",
+    "pageUrl": "https://cursor.com/",
+    "sha256": "78f169abca311d70e18ada789ccf1a55b4ca0306822f21a9ab0c2658ed88dbe0",
+    "bytes": 4388,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "comfyui",
+    "file": "public/logos/comfyui.svg",
+    "sourceUrl": "https://comfy.org/favicon.svg",
+    "pageUrl": "https://comfy.org/",
+    "sha256": "cb6ecf47c411345e68af2f2134747ad6dd72fc266b774a14e61c16c5b31dc6e1",
+    "bytes": 1194,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "adobe-firefly",
+    "file": "public/logos/adobe-firefly.png",
+    "sourceUrl": "https://firefly.adobe.com/releases/a5533ca32996f1652cbadd1b72f18e6a049cc80c/assets/fi_android_192-DXlUnW6D.png",
+    "pageUrl": "https://firefly.adobe.com/",
+    "sha256": "a1bfa88c8ccf656beff5b54e947e0b9240ab36025fdac858c729b78e8c529ed8",
+    "bytes": 7195,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "blender",
+    "file": "public/logos/blender.svg",
+    "sourceUrl": "https://www.blender.org/wp-content/themes/bthree/assets/icons/favicon.svg",
+    "pageUrl": "https://www.blender.org/",
+    "sha256": "3b4106f45b8998f5115355073e22624b81232a46b1cf7de5de37b21b668cede2",
+    "bytes": 4311,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "perplexity",
+    "file": "public/logos/perplexity.svg",
+    "sourceUrl": "https://www.perplexity.ai/favicon.svg",
+    "pageUrl": "https://www.perplexity.ai/",
+    "sha256": "77a1408d0e44463874042542c6d2f332a6154be02a6071bb1896cfb57d2f5c73",
+    "bytes": 2325,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27",
+    "originalSha256": "00180a688c194d684a69b247769cdf24a7720712256dbe0f334f97e8a15821e4",
+    "note": "Official favicon SVG; external DOCTYPE removed without changing its graphic."
+  },
+  {
+    "key": "notebooklm",
+    "file": "public/logos/notebooklm.svg",
+    "sourceUrl": "https://notebook.google/_/static/branding/v6/light_mode/favicon/favicon.svg",
+    "pageUrl": "https://notebook.google/",
+    "sha256": "0e369abeda7894c1d9762e9ae709c07d9007574ecc439fff95c675f9a7adf563",
+    "bytes": 2470,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "hugging-face",
+    "file": "public/logos/hugging-face.svg",
+    "sourceUrl": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+    "pageUrl": "https://huggingface.co/",
+    "sha256": "3613c73f07ccae19118bfe6d2f8cd127183d08cf99468a708e090953e116ed0a",
+    "bytes": 4634,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "deepseek",
+    "file": "public/logos/deepseek.png",
+    "sourceUrl": "https://www.deepseek.com/favicon.ico",
+    "pageUrl": "https://www.deepseek.com/",
+    "sha256": "cba0168e484cf74016847e09aff47c839f4198000a52f19e76f44a73dafe24e4",
+    "bytes": 6370,
+    "type": "image/png",
+    "verified": "2026-10-27",
+    "originalSha256": "30a4420e6e4dcb17fd7de560c5004346c2bc8cd971d2d5f5ee15326603e51321",
+    "originalBytes": 209762,
+    "note": "Official ICO decoded at largest embedded size and saved as PNG; no recoloring or shape change.",
+    "dimensions": [
+      225,
+      225
+    ]
+  },
+  {
+    "key": "qwen",
+    "file": "public/logos/qwen.png",
+    "sourceUrl": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+    "pageUrl": "https://qwen.ai/",
+    "sha256": "cd9390bc4209c319121d111f3a1f535b3c7dd909b8f860d41acc9744138d58df",
+    "bytes": 1658,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "llama",
+    "file": "public/logos/llama.png",
+    "sourceUrl": "https://dev.meta.ai/favicon.ico?favicon.0__pei86aoyzg.ico",
+    "pageUrl": "https://www.llama.com/",
+    "sha256": "9798cf7f10eee9085b0a7b4b52e3c5555da7d784d37a8d7eec099c9d51ac6805",
+    "bytes": 4485,
+    "type": "image/png",
+    "verified": "2026-10-27",
+    "originalSha256": "778876a7aae08af4cad55ffebe07e9ec1f2b04507c54cc823a15d236b0aad1fe",
+    "originalBytes": 32038,
+    "note": "Official ICO decoded at largest embedded size and saved as PNG; no recoloring or shape change.",
+    "dimensions": [
+      64,
+      64
+    ]
+  },
+  {
+    "key": "mistral",
+    "file": "public/logos/mistral.svg",
+    "sourceUrl": "https://mistral.ai/favicon.svg",
+    "pageUrl": "https://mistral.ai/brand/",
+    "sha256": "66ceaf186f2075da38e5a3c2e46fc0015936e0cb57692d1f8ae0ba565354874d",
+    "bytes": 717,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "kimi",
+    "file": "public/logos/kimi.png",
+    "sourceUrl": "https://www.kimi.com/pwa-192.png",
+    "pageUrl": "https://www.kimi.com/",
+    "sha256": "6c14f9c3062e953b3ed57ae3e19db931c1c1bba38d4d8d55550544f31d55e469",
+    "bytes": 21645,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "glm",
+    "file": "public/logos/glm.svg",
+    "sourceUrl": "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    "pageUrl": "https://chat.z.ai/",
+    "sha256": "07a45e8e35b0b631ed2c68cd1cb041f9721b1ceeb0bd0e34f1459b0304a741c7",
+    "bytes": 11037,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "github-copilot",
+    "file": "public/logos/github-copilot.svg",
+    "sourceUrl": "https://github.com/features/copilot",
+    "pageUrl": "https://github.com/features/copilot",
+    "sha256": "6a03e0e58c1fc0f7efdab63eec71076c6377e203daa024acbd06a064e285bbb5",
+    "bytes": 1762,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27",
+    "note": "Official octicon-copilot inline SVG extracted unchanged in shape; xmlns added for standalone SVG."
+  },
+  {
+    "key": "ollama",
+    "file": "public/logos/ollama.png",
+    "sourceUrl": "https://ollama.com/public/ollama-nav.png",
+    "pageUrl": "https://ollama.com/",
+    "sha256": "ab2a93aa7f3756a87c9429e4056e6405ce9f94d5cb0aa188c19d3e4ca2d04b68",
+    "bytes": 4782,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "grok",
+    "file": "public/logos/grok.png",
+    "sourceUrl": "https://grok.com/images/apple-touch-icon.png",
+    "pageUrl": "https://grok.com/",
+    "sha256": "a3487e9bfbe49df853c51c5bdbf980bfb3bec782bfdd398a9bf333bb648b832f",
+    "bytes": 8579,
+    "type": "image/png",
+    "verified": "2026-10-27"
+  },
+  {
+    "key": "claude",
+    "file": "public/logos/claude.svg",
+    "sourceUrl": "https://claude.com/",
+    "pageUrl": "https://claude.com/",
+    "sha256": "f47d598d4b2fb0d9a6fa40bf87d15f58a173b2fadb609cc15e7e0ca278387ad4",
+    "bytes": 2012,
+    "type": "image/svg+xml",
+    "verified": "2026-10-27",
+    "note": "Official Claude icon path isolated from the header wordmark SVG. Path geometry and currentColor fill preserved; viewBox restricted to standalone icon region. High-resolution vector instead of 32px favicon."
+  }
+]

@@ -1,0 +1,530 @@
+[
+  {
+    "slug": "install-with-official-installer",
+    "category": "Installation and deployment",
+    "docGroup": "install",
+    "reviewed": "2026-10-28",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
+      "https://release.monkeycode-ai.com/public/monkeyai-install.sh",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md"
+    ],
+    "en": {
+      "title": "Install MonkeyAI on Linux with the official installer",
+      "description": "Prepare a Linux server, review the installer, and complete the first administrator login.",
+      "sections": [
+        {
+          "heading": "Prepare the server",
+          "paragraphs": [
+            "The Chinese installation tutorial describes Linux on amd64 or arm64, root access, at least 1 CPU core, 1 GB RAM and 15 GB free disk as a starting point. Capacity depends on your workload. Reserve host ports 8080 and 8443, including when automatic TLS is disabled, and allow access to the release service and container registry."
+          ],
+          "bullets": [
+            "Confirm the server architecture, available disk and port conflicts.",
+            "Use a test server first and arrange backups before changing an existing deployment."
+          ]
+        },
+        {
+          "heading": "Download and inspect the official installer",
+          "paragraphs": [
+            "The official tutorial runs a script from the release service. This equivalent download-and-review sequence keeps TLS certificate verification enabled and lets you inspect the script before running it as root. Only proceed if you trust the downloaded script and its release service. The script selects a release and checks its downloaded package checksum; that does not independently authenticate the script itself. Record the installed version for later upgrades."
+          ],
+          "bullets": [
+            "Read the current upstream instructions in case prompts or release packaging change."
+          ],
+          "code": "curl -fsSL -o monkeyai-install.sh https://release.monkeycode-ai.com/public/monkeyai-install.sh\nless monkeyai-install.sh\nsudo sh monkeyai-install.sh"
+        },
+        {
+          "heading": "Answer the setup prompts",
+          "paragraphs": [
+            "Choose an absolute installation directory; the tutorial defaults to /data/monkeyai. It must be empty or previously managed by the installer. Enter the full browser-visible public URL, including a nonstandard port where needed. The default HTTP listener port is 8080. Provide the initial administrator email and display name.",
+            "The address must start with http:// or https://; configure a reverse proxy and certificate before using an HTTPS address. The administrator name field is prefilled, so clear it with Ctrl+U if you want a different name."
+          ],
+          "bullets": [
+            "Set an administrator password of at least 12 bytes, or leave it blank to generate a random 32-character password.",
+            "Treat the installation .env and any generated password as secrets; restrict access and never publish them."
+          ]
+        },
+        {
+          "heading": "Sign in and start a first task",
+          "paragraphs": [
+            "When installation completes, the screen shows the access address and account; the password is masked. The installer log is written to /tmp/installer-<timestamp>.log. Quit the completed interface with q or Ctrl+C; the service continues in the background. Open the supplied address, sign in as the administrator and configure a model and team access before creating a small test task."
+          ],
+          "bullets": [
+            "An administrator must create or invite other members before they can sign in.",
+            "External model and tool providers can receive task content even when the server is self-hosted."
+          ]
+        },
+        {
+          "heading": "If installation or login fails",
+          "paragraphs": [
+            "Check the installer log, whether ports are occupied, free disk space and outbound network access to the release service and registry. Confirm the URL and port match what your browser can reach. Share sanitized diagnostics only: logs and configuration may contain private information."
+          ],
+          "bullets": [
+            "Consult the current official installation and login documentation for the version you installed."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "使用官方安装器在 Linux 上安装 MonkeyAI",
+      "description": "准备 Linux 服务器、检查安装器并完成首次管理员登录。",
+      "sections": [
+        {
+          "heading": "准备服务器",
+          "paragraphs": [
+            "中文安装教程给出的起步条件为 Linux amd64 或 arm64、root 权限、至少 1 核 CPU、1 GB 内存和 15 GB 可用磁盘。实际容量取决于负载。预留宿主机 8080 和 8443 端口，即使没有启用自动 TLS 也需预留，并确保能访问发布服务和容器镜像仓库。"
+          ],
+          "bullets": [
+            "检查服务器架构、磁盘空间和端口占用。",
+            "先在测试服务器熟悉流程；修改已有部署前安排备份。"
+          ]
+        },
+        {
+          "heading": "下载并检查官方安装器",
+          "paragraphs": [
+            "官方教程通过发布服务提供安装脚本。下面将下载和执行分开，保留 TLS 证书校验，并在以 root 权限运行前检查脚本。只有信任下载的脚本及发布服务时才继续。脚本会选择版本并校验下载包的摘要，但这不能独立证明脚本本身的真实性。记录实际安装版本，供以后升级核对。"
+          ],
+          "bullets": [
+            "参照当前上游文档，提示和发布包可能发生变化。"
+          ],
+          "code": "curl -fsSL -o monkeyai-install.sh https://release.monkeycode-ai.com/public/monkeyai-install.sh\nless monkeyai-install.sh\nsudo sh monkeyai-install.sh"
+        },
+        {
+          "heading": "填写安装参数",
+          "paragraphs": [
+            "选择绝对安装目录，教程默认 /data/monkeyai；目录应为空或由该安装器管理。填写浏览器实际访问的完整对外地址，非标准端口须写明。HTTP 默认监听端口为 8080。填写初始管理员邮箱及显示名称。",
+            "地址必须以 http:// 或 https:// 开头；使用 HTTPS 地址之前先配置反向代理和证书。管理员名称已预填，如需修改可先按 Ctrl+U 清空。"
+          ],
+          "bullets": [
+            "管理员密码至少 12 字节；留空可生成 32 位随机密码。",
+            "安装目录中的 .env 和生成的密码均属敏感信息，应限制读取，不要公开。"
+          ]
+        },
+        {
+          "heading": "登录并开始第一个任务",
+          "paragraphs": [
+            "安装完成界面显示访问地址和账号，密码被隐藏；安装日志位于 /tmp/installer-<timestamp>.log。完成后可用 q 或 Ctrl+C 退出界面，服务继续在后台运行。打开给出的地址，以管理员身份登录，配置模型并授权团队，然后创建一个小型测试任务。"
+          ],
+          "bullets": [
+            "其他成员需先由管理员创建或邀请才能登录。",
+            "即使服务器自托管，外部模型和工具服务仍可能收到任务内容。"
+          ]
+        },
+        {
+          "heading": "安装或登录失败时",
+          "paragraphs": [
+            "检查安装日志、端口占用、可用磁盘和到发布服务及镜像仓库的网络连通性；确认地址和端口能从浏览器访问。日志及配置可能包含私有信息，分享排错信息前应脱敏。"
+          ],
+          "bullets": [
+            "针对实际安装的版本查阅当前官方安装和登录说明。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Instala MonkeyAI en Linux con el instalador oficial",
+      "description": "Prepara Linux, revisa el instalador e inicia sesión como administrador.",
+      "sections": [
+        {
+          "heading": "Prepara el servidor",
+          "paragraphs": [
+            "El tutorial chino indica Linux amd64 o arm64, acceso root y un punto de partida de al menos 1 núcleo, 1 GB de RAM y 15 GB libres. La capacidad real depende de la carga. Reserva los puertos 8080 y 8443 del host incluso sin TLS automático y permite acceso al servicio de versiones y al registro de imágenes."
+          ],
+          "bullets": [
+            "Comprueba arquitectura, espacio y puertos ocupados.",
+            "Practica primero en un servidor de prueba y prepara copias antes de modificar una instalación existente."
+          ]
+        },
+        {
+          "heading": "Descarga y revisa el instalador oficial",
+          "paragraphs": [
+            "El tutorial oficial usa un script del servicio de versiones. Esta secuencia equivalente mantiene la validación TLS y permite revisar el script antes de ejecutarlo como root. Continúa solo si confías en el script y el servicio. El script elige una versión y verifica el resumen del paquete descargado; eso no autentica por sí solo el script. Anota la versión instalada para futuras actualizaciones."
+          ],
+          "bullets": [
+            "Consulta las instrucciones actuales: los pasos y paquetes pueden cambiar."
+          ],
+          "code": "curl -fsSL -o monkeyai-install.sh https://release.monkeycode-ai.com/public/monkeyai-install.sh\nless monkeyai-install.sh\nsudo sh monkeyai-install.sh"
+        },
+        {
+          "heading": "Responde a la configuración",
+          "paragraphs": [
+            "Elige una ruta absoluta para la instalación; el tutorial propone /data/monkeyai. Debe estar vacía o ser una instalación administrada por el instalador. Indica la URL pública completa visible desde el navegador y el puerto si no es estándar. El puerto HTTP predeterminado es 8080. Introduce correo y nombre del administrador inicial.",
+            "La dirección debe comenzar por http:// o https://; configura un proxy inverso y un certificado antes de usar HTTPS. El nombre del administrador viene rellenado; usa Ctrl+U para borrarlo si deseas cambiarlo."
+          ],
+          "bullets": [
+            "Usa una contraseña de al menos 12 bytes o deja el campo vacío para generar una aleatoria de 32 caracteres.",
+            "Protege el archivo .env de instalación y las contraseñas generadas; no las publiques."
+          ]
+        },
+        {
+          "heading": "Inicia sesión y realiza una primera tarea",
+          "paragraphs": [
+            "Al terminar se muestran la dirección y la cuenta, con la contraseña oculta. El registro se guarda en /tmp/installer-<timestamp>.log. Sal de la pantalla con q o Ctrl+C; el servicio sigue en segundo plano. Abre la dirección, entra como administrador, configura un modelo y concede acceso al equipo antes de probar una tarea pequeña."
+          ],
+          "bullets": [
+            "Un administrador debe crear o invitar a los demás miembros antes de que entren.",
+            "Los proveedores externos de modelos y herramientas pueden recibir contenido incluso con un servidor propio."
+          ]
+        },
+        {
+          "heading": "Si falla la instalación o el acceso",
+          "paragraphs": [
+            "Revisa el registro, los puertos, el espacio libre y la conexión al servicio de versiones y al registro. Confirma que la URL y el puerto sean accesibles desde el navegador. Los registros y la configuración pueden contener datos privados: elimina información sensible antes de compartirlos."
+          ],
+          "bullets": [
+            "Consulta la documentación oficial actual para la versión instalada."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "install-from-source-docker-compose",
+    "category": "Installation and deployment",
+    "docGroup": "install",
+    "reviewed": "2026-10-28",
+    "readMinutes": 10,
+    "sourceUrls": [
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
+      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d"
+    ],
+    "en": {
+      "title": "Build and deploy MonkeyAI with Docker Compose",
+      "description": "Install a pinned upstream source revision, prepare credentials and storage, then configure the public address.",
+      "sections": [
+        {
+          "heading": "Use a matching source revision",
+          "paragraphs": [
+            "This guide was checked on 28 October 2026 against the upstream revision shown below. It describes that revision’s source-based Compose deployment, which is distinct from the packaged installer. You need Git, Docker and Docker Compose. Work in a new deployment directory; do not overwrite an existing .env or data directory."
+          ],
+          "bullets": [
+            "Review the linked README and Compose file when selecting a newer version."
+          ],
+          "code": "git clone https://github.com/chaitin/MonkeyCode.git\ncd MonkeyCode\ngit checkout 0d525d063d54efe2788c2b7e4c29980d0b82c17e\ncd monkeyai\ncp .env.example .env"
+        },
+        {
+          "heading": "Set credentials and prepare storage",
+          "paragraphs": [
+            "Edit .env before startup. Replace the example POSTGRES_PASSWORD, MONKEYAI_INITIAL_ADMIN_EMAIL, MONKEYAI_INITIAL_ADMIN_PASSWORD, RUSTFS_ACCESS_KEY and RUSTFS_SECRET_KEY with your own values. Use strong independent secrets and restrict access to the file. The initial administrator is created only when the user table is empty; changing these variables later does not reset an existing account.",
+            "Before startup, set MONKEYAI_PUBLIC_URL to the full browser-visible address, including a nonstandard port."
+          ],
+          "bullets": [
+            "The following ownership command is for the two RustFS directories in this deployment; check the target paths before using recursive chown.",
+            "The service runs RustFS as UID/GID 10001:10001 and needs these directories writable."
+          ],
+          "code": "sudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d\ndocker compose ps -a"
+        },
+        {
+          "heading": "Open the workspace and inspect startup",
+          "paragraphs": [
+            "On the server itself the default address is http://localhost:8080. On another computer localhost refers to that computer, so use the reachable public URL or a suitable secure tunnel. Set MONKEYAI_PUBLIC_URL to the full address users actually visit, including any nonstandard port; it controls authentication callbacks and redirects. Use HTTPS for production."
+          ],
+          "bullets": [
+            "Check docker compose ps -a and, if needed, docker compose logs --tail=100 db rustfs migrate backend admin.",
+            "If RustFS cannot start, check both bind-directory permissions and the configured access and secret keys. Sanitize logs before sharing."
+          ]
+        },
+        {
+          "heading": "Optional: enable built-in automatic HTTPS",
+          "paragraphs": [
+            "The settings below are examples for a dedicated public domain. Replace the email and domain. Enabling automatic TLS accepts the selected certificate authority’s terms; the default is Let’s Encrypt. The public URL must be an HTTPS root URL with a real domain, without a path, query, IP address, localhost or wildcard."
+          ],
+          "bullets": [
+            "Point DNS A and, if present, AAAA records to reachable addresses. HTTP-01 needs public port 80 and HTTPS needs port 443. Do not take these ports if an existing gateway uses them; use a properly configured external gateway instead.",
+            "After editing .env, run docker compose up -d backend admin to apply changes. Certificate issuance is asynchronous; inspect admin logs and test the actual HTTPS URL. A health check alone does not prove a valid certificate."
+          ],
+          "code": "MONKEYAI_AUTO_TLS_ENABLED=true\nMONKEYAI_AUTO_TLS_EMAIL=admin@example.com\nMONKEYAI_PUBLIC_URL=https://ai.example.com\nMONKEYAI_ADMIN_PORT=80\nMONKEYAI_HTTPS_PORT=443"
+        },
+        {
+          "heading": "Keep data and access safe",
+          "paragraphs": [
+            "Back up database data and RustFS objects consistently, plus runtime identity and any required license state. Automatic TLS stores certificate and ACME account data in the named acme volume; protect its private keys. The Compose file binds runtime to ./data/runtime on the host. A self-hosted server can still send task content to configured external models and tools."
+          ],
+          "bullets": [
+            "Record the revision and test the login and model connection before inviting the team."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "使用 Docker Compose 从源码部署 MonkeyAI",
+      "description": "使用固定上游版本，准备凭据和存储，并配置对外地址。",
+      "sections": [
+        {
+          "heading": "使用匹配的源码版本",
+          "paragraphs": [
+            "本指南于 2026 年 10 月 28 日依据以下上游版本核对，适用于该版本的源码 Compose 部署，与安装器发布包是不同路径。需要 Git、Docker 和 Docker Compose。请在新的部署目录操作，不要覆盖现有 .env 或数据目录。"
+          ],
+          "bullets": [
+            "选择较新版本时，应重新阅读对应 README 和 Compose 文件。"
+          ],
+          "code": "git clone https://github.com/chaitin/MonkeyCode.git\ncd MonkeyCode\ngit checkout 0d525d063d54efe2788c2b7e4c29980d0b82c17e\ncd monkeyai\ncp .env.example .env"
+        },
+        {
+          "heading": "设置凭据并准备存储",
+          "paragraphs": [
+            "启动前编辑 .env，将示例中的 POSTGRES_PASSWORD、MONKEYAI_INITIAL_ADMIN_EMAIL、MONKEYAI_INITIAL_ADMIN_PASSWORD、RUSTFS_ACCESS_KEY 和 RUSTFS_SECRET_KEY 改成自己的值。使用相互独立的强密钥并限制文件访问。初始管理员仅在用户表为空时创建，后来修改这些变量不会重置已有账号。",
+            "启动前将 MONKEYAI_PUBLIC_URL 设置为浏览器实际访问的完整地址，非标准端口也应写明。"
+          ],
+          "bullets": [
+            "以下递归 chown 只针对本部署的两个 RustFS 目录；执行前检查目标路径。",
+            "RustFS 以 UID/GID 10001:10001 运行，需要这些目录可写。"
+          ],
+          "code": "sudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d\ndocker compose ps -a"
+        },
+        {
+          "heading": "打开工作空间并检查启动",
+          "paragraphs": [
+            "在服务器本机默认访问 http://localhost:8080；其他电脑上的 localhost 指向该电脑自身，应使用可访问的公共地址或合适的安全隧道。将 MONKEYAI_PUBLIC_URL 设置成用户实际访问的完整地址，包括非标准端口；它影响认证回调和跳转。生产环境使用 HTTPS。"
+          ],
+          "bullets": [
+            "运行 docker compose ps -a；必要时查看 docker compose logs --tail=100 db rustfs migrate backend admin。",
+            "RustFS 无法启动时检查挂载目录权限及访问密钥。分享日志前脱敏。"
+          ]
+        },
+        {
+          "heading": "可选：启用内置自动 HTTPS",
+          "paragraphs": [
+            "以下配置仅是独立公网域名的示例，请替换邮箱和域名。启用自动 TLS 表示同意所选证书颁发机构的条款，默认为 Let’s Encrypt。公共地址必须是 HTTPS 域名根地址，不能含路径、查询参数、IP、localhost 或通配符。"
+          ],
+          "bullets": [
+            "DNS 的 A 记录及存在时的 AAAA 记录均应指向可访问的地址。HTTP-01 验证需要公网 80，HTTPS 需要公网 443；已有网关占用时不要抢占端口，应配置现有外部网关。",
+            "修改 .env 后运行 docker compose up -d backend admin 才能应用。证书异步签发，应检查 admin 日志并测试实际 HTTPS 地址；健康检查本身不能证明证书有效。"
+          ],
+          "code": "MONKEYAI_AUTO_TLS_ENABLED=true\nMONKEYAI_AUTO_TLS_EMAIL=admin@example.com\nMONKEYAI_PUBLIC_URL=https://ai.example.com\nMONKEYAI_ADMIN_PORT=80\nMONKEYAI_HTTPS_PORT=443"
+        },
+        {
+          "heading": "保护数据和访问",
+          "paragraphs": [
+            "协调一致地备份数据库与 RustFS 对象，并保存运行时身份及所需许可证状态。自动 TLS 的证书和 ACME 账户保存在 acme 命名卷，需保护私钥。Compose 将运行时绑定到宿主机 ./data/runtime。自托管服务仍可能把任务内容发送到配置的外部模型和工具。"
+          ],
+          "bullets": [
+            "邀请团队前记录版本，测试登录和模型连接。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Despliega MonkeyAI desde código con Docker Compose",
+      "description": "Usa una revisión fija, prepara credenciales y almacenamiento, y configura la dirección pública.",
+      "sections": [
+        {
+          "heading": "Usa una revisión de código coherente",
+          "paragraphs": [
+            "Esta guía se revisó el 28 de octubre de 2026 con la revisión indicada. Describe el despliegue Compose desde código de esa revisión, distinto del instalador empaquetado. Necesitas Git, Docker y Docker Compose. Usa un directorio nuevo y no sobrescribas una instalación o un archivo .env existente."
+          ],
+          "bullets": [
+            "Si eliges una versión más reciente, revisa su README y su archivo Compose."
+          ],
+          "code": "git clone https://github.com/chaitin/MonkeyCode.git\ncd MonkeyCode\ngit checkout 0d525d063d54efe2788c2b7e4c29980d0b82c17e\ncd monkeyai\ncp .env.example .env"
+        },
+        {
+          "heading": "Configura credenciales y almacenamiento",
+          "paragraphs": [
+            "Edita .env antes del inicio. Sustituye POSTGRES_PASSWORD, MONKEYAI_INITIAL_ADMIN_EMAIL, MONKEYAI_INITIAL_ADMIN_PASSWORD, RUSTFS_ACCESS_KEY y RUSTFS_SECRET_KEY por tus propios valores. Usa secretos fuertes e independientes y restringe el acceso al archivo. El administrador inicial solo se crea con la tabla de usuarios vacía; modificar estas variables después no restablece una cuenta existente.",
+            "Antes de iniciar, define MONKEYAI_PUBLIC_URL con la dirección completa visible desde el navegador, incluido cualquier puerto no estándar."
+          ],
+          "bullets": [
+            "El cambio recursivo de propietario siguiente afecta solo a los dos directorios RustFS de este despliegue; verifica las rutas antes de ejecutarlo.",
+            "RustFS funciona con UID/GID 10001:10001 y necesita poder escribir en ellos."
+          ],
+          "code": "sudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d\ndocker compose ps -a"
+        },
+        {
+          "heading": "Abre el espacio y comprueba el inicio",
+          "paragraphs": [
+            "En el propio servidor la dirección predeterminada es http://localhost:8080. En otro equipo localhost apunta a ese equipo, así que utiliza la URL pública accesible o un túnel seguro apropiado. Define MONKEYAI_PUBLIC_URL con la dirección completa que visitarán los usuarios, incluido el puerto no estándar; controla retornos y redirecciones de autenticación. Usa HTTPS en producción."
+          ],
+          "bullets": [
+            "Comprueba docker compose ps -a y, si hace falta, docker compose logs --tail=100 db rustfs migrate backend admin.",
+            "Si RustFS no arranca, revisa permisos de las carpetas montadas y sus claves. Elimina datos sensibles antes de compartir registros."
+          ]
+        },
+        {
+          "heading": "Opcional: activa HTTPS automático integrado",
+          "paragraphs": [
+            "Estos valores son ejemplos para un dominio público dedicado; cambia correo y dominio. Activar TLS automático implica aceptar las condiciones de la autoridad de certificación elegida; por defecto es Let’s Encrypt. La URL pública debe ser una raíz HTTPS con dominio real, sin ruta, consulta, IP, localhost ni comodín."
+          ],
+          "bullets": [
+            "Los registros DNS A y, si existe, AAAA deben apuntar a direcciones accesibles. HTTP-01 necesita el puerto público 80 y HTTPS el 443; si ya los usa una pasarela, configura esa pasarela en su lugar.",
+            "Tras editar .env ejecuta docker compose up -d backend admin para aplicar los cambios. El certificado se emite de forma asíncrona: revisa el registro de admin y prueba la URL HTTPS. Una comprobación de salud no prueba la validez del certificado."
+          ],
+          "code": "MONKEYAI_AUTO_TLS_ENABLED=true\nMONKEYAI_AUTO_TLS_EMAIL=admin@example.com\nMONKEYAI_PUBLIC_URL=https://ai.example.com\nMONKEYAI_ADMIN_PORT=80\nMONKEYAI_HTTPS_PORT=443"
+        },
+        {
+          "heading": "Protege datos y acceso",
+          "paragraphs": [
+            "Respalda de forma coherente la base de datos y los objetos RustFS, además de la identidad de ejecución y el estado de licencia necesario. TLS automático guarda certificados y datos ACME en el volumen con nombre acme; protege sus claves privadas. Compose monta la identidad en ./data/runtime del host. Los modelos y herramientas externos configurados todavía pueden recibir el contenido de las tareas."
+          ],
+          "bullets": [
+            "Registra la revisión y prueba acceso y conexión al modelo antes de invitar al equipo."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "backup-and-upgrade-self-hosted-monkeyai",
+    "category": "Installation and deployment",
+    "docGroup": "install",
+    "reviewed": "2026-10-28",
+    "readMinutes": 9,
+    "sourceUrls": [
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/migrations/README.md",
+      "https://www.postgresql.org/docs/current/app-pgdump.html",
+      "https://docs.docker.com/reference/cli/docker/compose/down/"
+    ],
+    "en": {
+      "title": "Back up and upgrade a self-hosted MonkeyAI deployment",
+      "description": "Identify persistent data, create a database export, and check migration compatibility before an upgrade.",
+      "sections": [
+        {
+          "heading": "Identify the data you must protect",
+          "paragraphs": [
+            "For the pinned source Compose revision reviewed on 28 October 2026, PostgreSQL uses ./data/postgres, RustFS objects use ./data/rustfs, runtime identity and signing keys use ./data/runtime, and license state uses ./data/license. Optional automatic TLS stores certificate and ACME account keys in the named acme volume. These paths are specific to that Compose revision, not a promise about the packaged installer or future versions.",
+            "If MONKEYAI_DATABASE_URL or MONKEYAI_S3_ENDPOINT points to an external service, back up the actual database or object store instead; the local mounts alone are insufficient."
+          ],
+          "bullets": [
+            "Treat database dumps, object data, runtime keys, certificates and configuration as sensitive.",
+            "Arrange a maintenance window and stop writes so the database and object copies represent the same state."
+          ]
+        },
+        {
+          "heading": "Make a database export",
+          "paragraphs": [
+            "From the source deployment’s monkeyai directory, this example creates a new private backup directory and a PostgreSQL custom-format dump of the configured application database. It does not back up RustFS objects, cluster-wide roles or every other persistent item. Check the command succeeds and the output is nonempty. Keep the matching RustFS and required identity, license and certificate backups separately, with restricted access.",
+            "This command applies only when the application uses the default Compose db service and its POSTGRES_USER and POSTGRES_DB values; it does not export an external database configured through MONKEYAI_DATABASE_URL. Keep db running for the dump while stopping all application and other writers, and keep object writes stopped until the matching object copy is complete."
+          ],
+          "bullets": [
+            "Use a backup destination with sufficient disk space; mkdir intentionally fails if the directory already exists.",
+            "Follow your PostgreSQL and object-storage backup procedures and test a full restoration in an isolated environment."
+          ],
+          "code": "umask 077\nmkdir monkeyai-backup && docker compose exec -T db sh -c 'exec pg_dump -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\" -Fc' > monkeyai-backup/database.dump"
+        },
+        {
+          "heading": "Know what Compose removes",
+          "paragraphs": [
+            "The pinned Compose file uses host bind mounts for ./data/runtime and the other data directories above. The acme store is a named volume. Ordinary docker compose down leaves named volumes intact; docker compose down -v removes named volumes such as acme but does not itself delete the host bind directories. The upstream README describes runtime as a volume; the actual Compose mount determines its behavior."
+          ],
+          "bullets": [
+            "Do not delete host data directories or named volumes as routine cleanup.",
+            "Store an encrypted off-host copy and verify its restore procedure and access controls."
+          ]
+        },
+        {
+          "heading": "Check upgrades and migrations first",
+          "paragraphs": [
+            "Record the deployed revision, read the matching release and migration notes, schedule downtime and take a tested backup before changing a live system. Use backend and migration images from the same release. Older databases with a different 000001–000013 migration history cannot be switched to the consolidated history by force; retaining their data requires a separate migration plan."
+          ],
+          "bullets": [
+            "The reviewed migration notes describe version 14, dirty=false to version 29 for deployments already using the consolidated history; this is not a universal upgrade path.",
+            "Do not assume an older image automatically reverses a database migration. Validate the restored service and key workflows after a change."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "备份和升级自托管 MonkeyAI",
+      "description": "识别持久数据、导出数据库，并在升级前检查迁移兼容性。",
+      "sections": [
+        {
+          "heading": "确认需要保护的数据",
+          "paragraphs": [
+            "对于 2026 年 10 月 28 日核对的固定源码 Compose 版本，PostgreSQL 使用 ./data/postgres，RustFS 对象使用 ./data/rustfs，运行时身份与签名密钥使用 ./data/runtime，许可证状态使用 ./data/license。启用自动 TLS 时，证书和 ACME 账户密钥保存在 acme 命名卷。这些路径只适用于该 Compose 版本，不代表安装器发布包或未来版本。",
+            "如果 MONKEYAI_DATABASE_URL 或 MONKEYAI_S3_ENDPOINT 指向外部服务，应备份实际使用的数据库或对象存储；仅保存本地挂载目录不够。"
+          ],
+          "bullets": [
+            "数据库导出、对象、运行时密钥、证书和配置都可能含敏感信息。",
+            "安排维护窗口并停止写入，使数据库和对象备份对应同一状态。"
+          ]
+        },
+        {
+          "heading": "导出数据库",
+          "paragraphs": [
+            "在源码部署的 monkeyai 目录运行以下示例，创建新的私有备份目录并以 PostgreSQL 自定义格式导出配置的应用数据库。该导出不包含 RustFS 对象、集群级角色或其他持久数据。检查命令成功且输出非空；另行保存与之匹配的 RustFS、所需身份、许可证及证书备份，并限制访问。",
+            "此命令仅适用于应用使用默认 Compose db 服务及其 POSTGRES_USER 和 POSTGRES_DB 值的情况，不会导出通过 MONKEYAI_DATABASE_URL 指定的外部数据库。导出时保持 db 运行，同时停止应用和其他所有写入方，并持续停止对象写入直到对应对象副本完成。"
+          ],
+          "bullets": [
+            "确保目标有足够空间；目录已存在时 mkdir 会故意失败。",
+            "遵循 PostgreSQL 和对象存储备份流程，并在隔离环境测试完整恢复。"
+          ],
+          "code": "umask 077\nmkdir monkeyai-backup && docker compose exec -T db sh -c 'exec pg_dump -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\" -Fc' > monkeyai-backup/database.dump"
+        },
+        {
+          "heading": "了解 Compose 的删除范围",
+          "paragraphs": [
+            "固定版本的 Compose 文件使用宿主机绑定目录保存上述数据，包括 ./data/runtime；acme 则是命名卷。普通 docker compose down 保留命名卷；docker compose down -v 会删除 acme 等命名卷，但不会自动删除宿主机绑定目录。上游 README 将 runtime 称为卷，实际删除行为应以 Compose 挂载配置为准。"
+          ],
+          "bullets": [
+            "不要把删除宿主机数据目录或命名卷作为常规清理。",
+            "保存加密的异地副本，并验证恢复步骤和访问控制。"
+          ]
+        },
+        {
+          "heading": "升级前检查迁移",
+          "paragraphs": [
+            "记录当前版本，阅读对应发布和迁移说明，安排停机，并在修改正式环境前制作经过恢复验证的备份。backend 和迁移镜像应来自同一版本。使用另一套 000001–000013 迁移历史的旧数据库不能用 force 直接切换到合并后的历史；保留旧数据需要单独制定迁移方案。"
+          ],
+          "bullets": [
+            "所核对的迁移文档描述了已使用合并历史、version 14 且 dirty=false 到 version 29 的路径；这不是通用升级路径。",
+            "不要假定换回旧镜像会自动撤销数据库迁移。更新后验证服务和关键工作流。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Copia y actualiza una instalación propia de MonkeyAI",
+      "description": "Identifica los datos persistentes, exporta la base de datos y revisa la compatibilidad de las migraciones.",
+      "sections": [
+        {
+          "heading": "Identifica los datos que debes proteger",
+          "paragraphs": [
+            "En la revisión Compose fijada y revisada el 28 de octubre de 2026, PostgreSQL usa ./data/postgres, los objetos RustFS ./data/rustfs, la identidad y claves de firma ./data/runtime y el estado de licencia ./data/license. Con TLS automático, los certificados y claves ACME usan el volumen con nombre acme. Estas rutas corresponden a esa revisión de Compose, no necesariamente al instalador ni a versiones futuras.",
+            "Si MONKEYAI_DATABASE_URL o MONKEYAI_S3_ENDPOINT apunta a un servicio externo, respalda la base de datos o el almacén de objetos realmente utilizado; las carpetas locales no bastan."
+          ],
+          "bullets": [
+            "Considera sensibles el volcado, los objetos, las claves, los certificados y la configuración.",
+            "Planifica mantenimiento y detén las escrituras para que las copias de base de datos y objetos representen el mismo estado."
+          ]
+        },
+        {
+          "heading": "Exporta la base de datos",
+          "paragraphs": [
+            "Desde el directorio monkeyai del despliegue desde código, este ejemplo crea una carpeta privada nueva y exporta la base de datos configurada en formato personalizado de PostgreSQL. No incluye los objetos RustFS, los roles de todo el clúster ni otros datos persistentes. Comprueba que el comando termine bien y el archivo no esté vacío. Guarda por separado copias coherentes de RustFS y de la identidad, licencia y certificados necesarios, con acceso restringido.",
+            "Este comando solo sirve cuando la aplicación usa el servicio db de Compose predeterminado y sus valores POSTGRES_USER y POSTGRES_DB; no exporta una base externa configurada mediante MONKEYAI_DATABASE_URL. Mantén db en ejecución para el volcado y detén la aplicación y los demás escritores; mantén detenidas las escrituras de objetos hasta completar la copia correspondiente."
+          ],
+          "bullets": [
+            "Comprueba que haya espacio; mkdir falla a propósito si la carpeta ya existe.",
+            "Sigue tus procedimientos de copia de PostgreSQL y objetos y prueba una restauración completa en un entorno aislado."
+          ],
+          "code": "umask 077\nmkdir monkeyai-backup && docker compose exec -T db sh -c 'exec pg_dump -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\" -Fc' > monkeyai-backup/database.dump"
+        },
+        {
+          "heading": "Entiende lo que elimina Compose",
+          "paragraphs": [
+            "El Compose fijado monta en carpetas del host los datos anteriores, incluido ./data/runtime; acme es un volumen con nombre. docker compose down conserva los volúmenes con nombre; docker compose down -v elimina volúmenes como acme pero no borra por sí mismo las carpetas montadas del host. Aunque el README llama volumen a runtime, la configuración de montaje real determina su comportamiento."
+          ],
+          "bullets": [
+            "No elimines carpetas del host ni volúmenes como limpieza rutinaria.",
+            "Guarda una copia cifrada fuera del servidor y verifica la restauración y sus permisos."
+          ]
+        },
+        {
+          "heading": "Revisa las migraciones antes de actualizar",
+          "paragraphs": [
+            "Anota la revisión desplegada, lee las notas de versión y migración correspondientes, programa mantenimiento y prepara una copia cuya restauración se haya probado. Usa imágenes de backend y migración de la misma versión. Las bases antiguas con otra historia de migraciones 000001–000013 no pueden cambiar a la historia consolidada mediante force; conservar sus datos requiere un plan específico."
+          ],
+          "bullets": [
+            "Las notas revisadas describen el paso de versión 14, dirty=false a versión 29 para instalaciones que ya usan la historia consolidada; no es una ruta universal.",
+            "No supongas que volver a una imagen anterior revierte la migración automáticamente. Verifica el servicio y los flujos principales después del cambio."
+          ]
+        }
+      ]
+    }
+  }
+]

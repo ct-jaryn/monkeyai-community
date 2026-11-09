@@ -1,0 +1,284 @@
+[
+  {
+    "slug": "qwen",
+    "name": "Qwen",
+    "provider": "Alibaba / Qwen Team",
+    "officialUrl": "https://qwen.ai/",
+    "apiDocsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
+    "access": "hybrid",
+    "reviewed": "2026-10-27",
+    "relatedTools": ["ollama", "hugging-face"],
+    "sourceUrls": ["https://qwen.readthedocs.io/en/latest/", "https://github.com/QwenLM/Qwen3", "https://www.alibabacloud.com/help/en/model-studio/models"],
+    "en": {
+      "tagline": "Multilingual models with hosted and open-weight paths",
+      "description": "Explore Alibaba’s Qwen model family for multilingual assistants, coding, and selected multimodal tasks, with API and downloadable-model options.",
+      "overview": [
+        "Qwen is a family of language and multimodal models developed by Alibaba’s Qwen team. It offers more than a single chat experience: developers can choose hosted models through Alibaba Cloud Model Studio or work with downloadable releases documented by the team. Depending on the model, useful starting tasks include multilingual drafting, code assistance, structured extraction, and reasoning. Qwen Chat is an application built around models; access to that application does not establish the capabilities, billing, or data handling of a separate API deployment.",
+        "For a prototype, begin with the exact release that matches the input you need, then compare it on a small set of your own examples. The official documentation covers local runners, deployment engines, and tool-use integrations, but support depends on the checkpoint and software version. Some releases distinguish thinking and non-thinking behavior; vision or audio support also belongs to a particular model. Record the model ID, serving method, license, and review date before turning a successful experiment into a repeatable team workflow."
+      ],
+      "strengths": ["Draft and revise content across supported languages", "Prototype coding or tool-assisted workflows with a compatible release", "Compare a hosted API with an appropriate self-managed checkpoint"],
+      "limitations": ["A family name does not guarantee that every release accepts images, audio, or tools.", "Local deployment needs compatible inference software and sufficient hardware; check the actual checkpoint license."],
+      "accessNote": "Hosted access is documented in Alibaba Cloud Model Studio; downloadable releases have their own model cards, runtime requirements, and licenses. Qwen Chat and API access are separate products.",
+      "selectionTip": "Choose Qwen when multilingual work or a hosted-versus-self-managed comparison matters, then test the specific release on your real task."
+    },
+    "zh": {
+      "tagline": "兼具托管服务与开放权重路径的多语言模型",
+      "description": "了解阿里巴巴 Qwen 模型家族的多语言、编程与部分多模态用途，以及 API 和可下载模型两种使用路径。",
+      "overview": [
+        "Qwen 是阿里巴巴 Qwen 团队开发的语言与多模态模型家族。它并不等同于一个聊天应用：开发者可以通过阿里云 Model Studio 选择托管模型，也可以研究团队发布的可下载模型。根据具体型号，可从多语言写作、编程辅助、结构化提取和推理等任务入手。Qwen Chat 是使用模型的应用；能使用聊天应用，并不代表单独的 API 部署拥有相同能力、计费方式或数据处理规则。",
+        "做原型时，先确认输入类型和目标任务，再选择对应版本，用自己的少量样例比较结果。官方文档介绍了本地运行器、部署引擎和工具调用集成，但是否支持某个检查点，要看具体模型与软件版本。有些版本区分思考和非思考行为，图像、音频能力也不能从家族名称推断。将实验变成团队工作流前，应记录模型 ID、运行方式、许可证和核验日期，避免把一次成功结果当成所有版本通用的能力。"
+      ],
+      "strengths": ["在支持的语言之间起草和修改内容", "用兼容版本探索编程或工具辅助工作流", "对比托管 API 与合适的自主管理模型"],
+      "limitations": ["同属 Qwen 不代表所有版本都支持图像、音频或工具调用。", "本地运行需要兼容的推理软件和足够硬件，许可证应以具体检查点为准。"],
+      "accessNote": "托管服务入口见阿里云 Model Studio。可下载版本各有模型卡、运行要求和许可证；Qwen Chat 与 API 访问是不同产品。",
+      "selectionTip": "如果你重视多语言任务，或希望比较托管与自主部署，Qwen 值得纳入候选，但应测试具体版本。"
+    },
+    "es": {
+      "tagline": "Modelos multilingües con API y pesos descargables",
+      "description": "Conoce la familia Qwen de Alibaba para asistentes multilingües, programación y tareas multimodales seleccionadas, con API y modelos descargables.",
+      "overview": [
+        "Qwen es una familia de modelos de lenguaje y multimodales desarrollada por el equipo Qwen de Alibaba. No se limita a una aplicación de chat: puedes elegir modelos alojados en Alibaba Cloud Model Studio o trabajar con versiones descargables documentadas por el equipo. Según el modelo, puedes empezar con redacción multilingüe, ayuda con código, extracción estructurada o razonamiento. Qwen Chat es una aplicación; utilizarla no demuestra que una implementación por API tenga las mismas capacidades, facturación o condiciones de tratamiento de datos.",
+        "Para un prototipo, elige una versión que admita tus entradas y compárala con ejemplos de tu propio trabajo. La documentación cubre ejecución local, motores de despliegue e integración de herramientas, pero la compatibilidad depende del modelo y del software. Algunas versiones distinguen entre modos de razonamiento y respuesta directa; la visión y el audio también corresponden a modelos concretos. Registra el identificador, el método de ejecución, la licencia y la fecha de revisión antes de convertir un experimento satisfactorio en un flujo de trabajo repetible."
+      ],
+      "strengths": ["Redactar y revisar contenido en idiomas compatibles", "Probar programación o herramientas con una versión adecuada", "Comparar una API alojada con un modelo autogestionado"],
+      "limitations": ["No todas las versiones aceptan imágenes, audio o herramientas.", "La ejecución local requiere software compatible y hardware suficiente; comprueba la licencia del modelo concreto."],
+      "accessNote": "Model Studio documenta el acceso alojado. Cada versión descargable tiene su ficha, requisitos y licencia. Qwen Chat y el acceso por API son productos distintos.",
+      "selectionTip": "Incluye Qwen si te importa el trabajo multilingüe o comparar API y alojamiento propio; evalúa la versión elegida con tus tareas."
+    }
+  },
+  {
+    "slug": "llama",
+    "name": "Llama",
+    "provider": "Meta",
+    "officialUrl": "https://www.llama.com/",
+    "apiDocsUrl": "https://github.com/meta-llama/llama-models",
+    "access": "open-weights",
+    "reviewed": "2026-10-27",
+    "relatedTools": ["hugging-face", "ollama"],
+    "sourceUrls": ["https://github.com/meta-llama/llama-models", "https://github.com/meta-llama/llama-cookbook", "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"],
+    "en": {
+      "tagline": "An open-weight foundation for a model stack you operate",
+      "description": "Understand Meta’s Llama family, its downloadable model ecosystem, and the deployment and licensing decisions behind a self-managed assistant.",
+      "overview": [
+        "Llama is Meta’s model family for developers building language-model applications. Its downloadable weights make it relevant when you want to choose the inference environment, inspect a model card, or adapt a model-based workflow. The official model repository and cookbook cover inference, fine-tuning, retrieval-augmented generation, and provider-based examples. Selected releases support images as well as text, while other releases are text-focused. Llama is the underlying model family; a chat application or hosting provider can add a different interface, retrieval system, and operational policies.",
+        "A useful evaluation starts with the task and the deployment budget rather than the largest model name. Check memory requirements, runtime support, prompt formatting, and the license and acceptable-use policy for your chosen release. Open weights do not mean every release uses a permissive software license or fits on a personal laptop. If you rely on a provider, check its own supported models and data policies. Compare results against a controlled set of questions before deciding whether self-management offers enough benefit for the maintenance work."
+      ],
+      "strengths": ["Build an assistant around infrastructure you control", "Explore retrieval or adaptation using the official cookbook", "Evaluate text or selected vision releases with your own datasets"],
+      "limitations": ["Model weights are subject to the applicable Llama license and acceptable-use policy.", "Hardware, quantization, and inference support differ by release; downloadable does not mean lightweight."],
+      "accessNote": "Weights and technical resources are available through Meta’s official repositories and linked model pages. Downloads may require license acceptance; provider API access has separate terms.",
+      "selectionTip": "Consider Llama when operating or adapting a model is part of the requirement, and include infrastructure and maintenance in the comparison."
+    },
+    "zh": {
+      "tagline": "为自主运行的模型系统提供开放权重基础",
+      "description": "了解 Meta Llama 模型家族、可下载模型生态，以及自主管理 AI 助手时需要考虑的部署与许可证问题。",
+      "overview": [
+        "Llama 是 Meta 面向模型应用开发者的模型家族。可下载的权重，使它适合希望选择推理环境、阅读模型卡，或调整模型工作流的团队。官方模型仓库和 cookbook 提供推理、微调、检索增强生成以及不同服务提供商的使用示例。部分版本能够理解图像与文本，其他版本则主要处理文本。Llama 指底层模型家族；聊天应用或托管服务商可以在其上增加不同的界面、检索系统和运维政策，两者不能混为一谈。",
+        "选型应先看任务和部署预算，而不是只挑最大的型号。需要核对内存要求、推理软件兼容性、提示词格式，以及所选版本的许可证和可接受使用政策。开放权重并不意味着所有版本都采用宽松软件许可证，也不意味着可以在普通笔记本上运行。如果采用第三方托管服务，还要查看其支持的模型和数据政策。用固定问题集比较结果，再判断自主运行带来的控制能力，是否值得相应的硬件和维护投入。"
+      ],
+      "strengths": ["在自己掌握的基础设施上构建助手", "借助官方 cookbook 探索检索与模型适配", "用自有数据比较文本或指定视觉版本"],
+      "limitations": ["模型权重受适用的 Llama 许可证和可接受使用政策约束。", "不同版本的硬件、量化与推理支持不同，可下载不等于轻量。"],
+      "accessNote": "Meta 官方仓库和其链接的模型页提供权重及技术资源，下载可能需要接受许可证。托管服务商的 API 访问另有条款。",
+      "selectionTip": "如果需求包含运行或适配模型，可考虑 Llama，同时把基础设施和维护成本纳入比较。"
+    },
+    "es": {
+      "tagline": "Pesos abiertos para una infraestructura que tú gestionas",
+      "description": "Descubre la familia Llama de Meta, sus modelos descargables y las decisiones de despliegue y licencia de un asistente autogestionado.",
+      "overview": [
+        "Llama es la familia de modelos de Meta para quienes desarrollan aplicaciones de lenguaje. Los pesos descargables resultan útiles si necesitas elegir el entorno de inferencia, estudiar una ficha o adaptar un flujo de trabajo. El repositorio oficial y el cookbook incluyen inferencia, ajuste de modelos, generación con recuperación de información y ejemplos con proveedores. Algunas versiones aceptan imágenes y texto; otras se centran en texto. Llama es el modelo subyacente: una aplicación de chat o un proveedor puede añadir otra interfaz, recuperación de documentos y políticas operativas.",
+        "Una evaluación útil empieza por la tarea y el presupuesto de despliegue. Comprueba memoria, software compatible, formato de instrucciones, licencia y política de uso aceptable de la versión elegida. Los pesos abiertos no implican que todas las versiones tengan una licencia permisiva ni que funcionen en un portátil. Si utilizas un proveedor, revisa sus modelos disponibles y sus reglas de datos. Compara resultados con preguntas controladas antes de decidir si el control obtenido compensa la infraestructura y el mantenimiento necesarios."
+      ],
+      "strengths": ["Crear un asistente en infraestructura propia", "Explorar recuperación y adaptación con el cookbook oficial", "Evaluar modelos de texto o visión con datos propios"],
+      "limitations": ["Los pesos están sujetos a la licencia Llama y a su política de uso aceptable.", "El hardware, la cuantización y la compatibilidad dependen de la versión; descargable no significa ligero."],
+      "accessNote": "Los repositorios oficiales y sus fichas enlazadas ofrecen pesos y recursos. La descarga puede requerir aceptar una licencia; las API de proveedores tienen otras condiciones.",
+      "selectionTip": "Considera Llama si gestionar o adaptar el modelo es un requisito e incluye infraestructura y mantenimiento en la comparación."
+    }
+  },
+  {
+    "slug": "mistral",
+    "name": "Mistral",
+    "provider": "Mistral AI",
+    "officialUrl": "https://mistral.ai/",
+    "apiDocsUrl": "https://docs.mistral.ai/models",
+    "access": "hybrid",
+    "reviewed": "2026-10-27",
+    "relatedTools": ["hugging-face"],
+    "sourceUrls": ["https://docs.mistral.ai/models", "https://docs.mistral.ai/studio/conversations/chat-completion", "https://docs.mistral.ai/inference/deployment/local-deployment"],
+    "en": {
+      "tagline": "Choose between a hosted platform and self-deployable releases",
+      "description": "Explore Mistral AI’s language-model range for assistants, coding, extraction, and deployment choices, with model-specific capabilities and licenses.",
+      "overview": [
+        "Mistral AI offers a range of language models and related services rather than one interchangeable model. Its catalog includes hosted commercial offerings and open-weight releases, with general-purpose, coding, and multimodal options. The chat-completions documentation describes tasks such as classification, extraction, summarization, question answering, and code generation. Le Chat is the user-facing assistant, while API integration is a separate way to build your own application. A feature in the assistant should not be assumed to exist in every model or deployment endpoint.",
+        "Mistral is useful to evaluate when you want a documented path from a managed API experiment to a self-deployment decision. The official deployment guide discusses supported inference engines, but you must still match the exact model, license, hardware, and runtime version. Separate language-model selection from specialized OCR or audio services in the catalog. For a first comparison, use one representative document task or coding change, check the output, and record latency and operating effort yourself. This profile describes the available paths; it does not assert a universal performance ranking."
+      ],
+      "strengths": ["Prototype extraction, summarization, or question-answering services", "Evaluate coding and general-purpose models by task", "Compare managed inference with an eligible self-deployed release"],
+      "limitations": ["The catalog mixes model types and services; text, vision, OCR, and audio support are not interchangeable.", "Open-weight availability and licenses vary by model; check requirements before self-hosting."],
+      "accessNote": "Use the official model catalog for hosted access and the deployment guide for self-managed releases. Le Chat, API usage, and downloadable weights have distinct access conditions.",
+      "selectionTip": "Shortlist Mistral when deployment flexibility matters, then choose the exact model and evaluate a concrete workflow rather than the vendor name alone."
+    },
+    "zh": {
+      "tagline": "在托管平台与可自主部署版本之间选择",
+      "description": "了解 Mistral AI 模型系列在助手、编程、信息提取和部署选择中的用途，并核对各型号的能力与许可证。",
+      "overview": [
+        "Mistral AI 提供多个语言模型和相关服务，而不是一个可以覆盖所有用途的统一模型。其目录包含托管商业服务与开放权重版本，也有通用、编程和多模态方向。聊天补全文档列出分类、信息提取、摘要、问答和代码生成等应用。Le Chat 是面向用户的助手，API 则是自行构建应用的另一条路径；聊天助手中出现的某项功能，不应直接推断为每个模型或部署端点都具备的能力。",
+        "如果希望从托管 API 原型进一步评估自主部署，Mistral 提供了可查阅的官方路径。部署指南介绍推理引擎，但仍需逐项匹配模型、许可证、硬件和软件版本。还要区分语言模型与目录中的专用 OCR、音频服务。第一次比较可以选择一项代表性的文档任务或代码修改，人工检查成果，并自行记录响应时间和运维投入。本介绍说明的是可选择的使用方式，并不意味着所有任务中存在同一个最优型号或性能排名。"
+      ],
+      "strengths": ["开发提取、摘要或问答服务的原型", "按实际任务比较编程与通用模型", "对比托管推理和允许自主部署的版本"],
+      "limitations": ["目录包含不同模型和服务，文本、视觉、OCR 与音频能力不能互相代替。", "是否提供权重及其许可证因型号而异，自部署前需确认运行要求。"],
+      "accessNote": "托管访问见官方模型目录，自主管理版本见部署指南。Le Chat、API 和可下载权重分别有不同的访问条件。",
+      "selectionTip": "重视部署灵活性时，可以把 Mistral 列为候选；再围绕具体工作流测试具体型号。"
+    },
+    "es": {
+      "tagline": "Elige entre plataforma alojada y versiones autogestionadas",
+      "description": "Explora los modelos de Mistral AI para asistentes, código y extracción, con opciones de despliegue y condiciones propias de cada modelo.",
+      "overview": [
+        "Mistral AI ofrece varios modelos de lenguaje y servicios relacionados, no un único modelo intercambiable. Su catálogo combina servicios comerciales alojados y versiones con pesos abiertos, con opciones generales, de programación y multimodales. La documentación de chat describe clasificación, extracción, resumen, preguntas y respuestas y generación de código. Le Chat es el asistente para usuarios; la API permite crear una aplicación propia. Una función del asistente no demuestra que esté disponible en todos los modelos ni en cada forma de despliegue.",
+        "Mistral merece una evaluación cuando buscas una ruta documentada entre un prototipo con API y una posible instalación propia. La guía oficial explica motores de inferencia, pero aún debes comprobar modelo, licencia, hardware y versión del software. Distingue los modelos de lenguaje de los servicios especializados de OCR o audio del catálogo. Empieza con una tarea documental o un cambio de código representativo, revisa la entrega y mide por tu cuenta la latencia y el esfuerzo operativo. Este perfil describe alternativas, sin afirmar una clasificación universal de rendimiento."
+      ],
+      "strengths": ["Crear prototipos de extracción, resumen o preguntas y respuestas", "Comparar modelos de código y uso general según la tarea", "Evaluar inferencia alojada frente a una versión autogestionada"],
+      "limitations": ["El catálogo combina modelos y servicios; texto, visión, OCR y audio no son equivalentes.", "Los pesos y las licencias dependen del modelo; verifica los requisitos antes de alojarlo."],
+      "accessNote": "Consulta el catálogo para acceso alojado y la guía de despliegue para versiones propias. Le Chat, la API y los pesos descargables tienen condiciones diferentes.",
+      "selectionTip": "Incluye Mistral si valoras la flexibilidad de despliegue y evalúa un modelo concreto con un flujo de trabajo real."
+    }
+  },
+  {
+    "slug": "grok",
+    "name": "Grok",
+    "provider": "xAI",
+    "officialUrl": "https://grok.com/",
+    "apiDocsUrl": "https://docs.x.ai/developers/models",
+    "access": "hosted",
+    "reviewed": "2026-10-27",
+    "relatedTools": [],
+    "sourceUrls": ["https://docs.x.ai/developers/models", "https://docs.x.ai/developers/tools/web-search", "https://github.com/xai-org/grok-1"],
+    "en": {
+      "tagline": "Hosted reasoning and tool workflows with explicit search controls",
+      "description": "Understand the Grok model family, the distinction between its chat app and developer API, and when external search tools are needed for current information.",
+      "overview": [
+        "Grok is the model family behind the Grok assistant and xAI’s developer offering. The hosted API documents text generation, reasoning, structured output, image understanding, and tool workflows, depending on the selected model. Developers can connect supported search tools or their own functions to a request rather than treating a model response as a live information feed. Grok’s consumer application and API are different access routes: a subscription, feature, or result in one does not establish identical behavior or entitlement in the other.",
+        "Current-information tasks need particular care. The official model documentation states that models do not gain access to real-time events simply by being called; search tools must be enabled when the workflow needs fresh external information. Ask for sources and inspect them. For coding or analysis, compare outputs against requirements and tests instead of relying on the family’s reputation. An older Grok-1 open-weight release exists, but its license and capabilities must not be applied to current hosted models. Choose a concrete API model and record the tools enabled for a reproducible evaluation."
+      ],
+      "strengths": ["Prototype reasoning or coding workflows through the hosted API", "Combine supported search tools with source checking", "Use structured outputs and function tools where the model supports them"],
+      "limitations": ["Real-time information requires the relevant search tools; model knowledge alone is not live data.", "The Grok-1 open release does not establish download rights or equivalent capabilities for current API models."],
+      "accessNote": "Use Grok’s app for the consumer experience or the developer console and API documentation for integrations. This profile classifies the current developer path as hosted; historical open releases are separate.",
+      "selectionTip": "Consider Grok for a hosted tool-assisted experiment, and record the model, search settings, sources, and review criteria alongside the prompt."
+    },
+    "zh": {
+      "tagline": "明确配置搜索工具的托管推理与工具工作流",
+      "description": "了解 Grok 模型家族、聊天应用与开发者 API 的区别，以及处理最新信息时为何需要单独启用搜索工具。",
+      "overview": [
+        "Grok 是 Grok 助手及 xAI 开发者服务所使用的模型家族。托管 API 文档介绍文本生成、推理、结构化输出、图像理解和工具工作流，但实际能力取决于所选型号。开发者可以为请求连接受支持的搜索工具或自己的函数，而不应把普通模型回答当成实时信息流。消费者聊天应用与 API 是不同访问方式：其中一方的订阅、功能或结果，不代表另一方具有完全相同的权限和行为。",
+        "涉及最新信息时尤其要确认工具配置。官方模型文档明确说明，调用模型并不会自动获得实时事件信息；工作流需要新资料时，应启用对应搜索工具，并检查给出的来源。编程或分析任务则应按需求和测试审查结果，不能只依赖模型家族的知名度。上游曾发布 Grok-1 开放权重，但该版本的许可证与能力不能套用到当前托管模型。要获得可复现的比较，应记录具体 API 型号，以及请求中实际启用的工具。"
+      ],
+      "strengths": ["通过托管 API 探索推理或编程工作流", "结合受支持的搜索工具核对资料来源", "在支持的型号上使用结构化输出和函数工具"],
+      "limitations": ["实时信息需要对应搜索工具，模型已有知识本身并不是实时数据。", "Grok-1 开放发布不等于当前 API 型号也可下载或具备相同能力。"],
+      "accessNote": "消费者体验请访问 Grok 应用，集成开发请使用开发者控制台和 API 文档。本介绍将当前开发者路径归为托管服务，历史开放发布另行区分。",
+      "selectionTip": "希望尝试托管工具工作流时可考虑 Grok，并将模型、搜索设置、资料来源和验收标准与提示词一并记录。"
+    },
+    "es": {
+      "tagline": "Razonamiento y herramientas alojadas con búsqueda explícita",
+      "description": "Conoce la familia Grok, distingue la aplicación de su API y comprende cuándo debes activar herramientas de búsqueda para obtener información reciente.",
+      "overview": [
+        "Grok es la familia de modelos del asistente Grok y de la oferta para desarrolladores de xAI. Su API alojada documenta generación de texto, razonamiento, salida estructurada, comprensión de imágenes y herramientas, según el modelo. Puedes conectar búsquedas compatibles o funciones propias a una solicitud; una respuesta del modelo no es por sí misma un flujo de información en directo. La aplicación y la API tienen accesos diferentes: una suscripción o una función en una no garantiza el mismo comportamiento o permiso en la otra.",
+        "Los temas de actualidad necesitan especial atención. La documentación indica que llamar al modelo no le da acceso automático a eventos en tiempo real: hay que habilitar las herramientas de búsqueda pertinentes. Solicita fuentes y revísalas. Para código o análisis, compara la entrega con requisitos y pruebas, no solo con la reputación de la familia. Existe una publicación histórica de pesos de Grok-1, pero su licencia y capacidades no se aplican a los modelos alojados actuales. Registra el modelo y las herramientas activas para que la evaluación sea reproducible."
+      ],
+      "strengths": ["Probar razonamiento o programación mediante la API", "Combinar búsquedas compatibles con revisión de fuentes", "Usar salidas estructuradas y funciones en modelos compatibles"],
+      "limitations": ["La información en tiempo real necesita herramientas de búsqueda; el conocimiento del modelo no es información en directo.", "La publicación abierta de Grok-1 no demuestra derechos de descarga ni capacidades equivalentes de las API actuales."],
+      "accessNote": "La aplicación ofrece la experiencia de usuario; la consola y documentación de API sirven para integrar. Aquí la ruta actual se clasifica como alojada y se distingue de publicaciones históricas.",
+      "selectionTip": "Evalúa Grok en una prueba alojada con herramientas y registra modelo, búsquedas, fuentes y criterios de revisión junto a la instrucción."
+    }
+  },
+  {
+    "slug": "kimi",
+    "name": "Kimi",
+    "provider": "Moonshot AI",
+    "officialUrl": "https://www.kimi.com/",
+    "apiDocsUrl": "https://platform.kimi.ai/docs/get-your-api-key",
+    "access": "hybrid",
+    "reviewed": "2026-10-27",
+    "relatedTools": ["hugging-face"],
+    "sourceUrls": ["https://platform.kimi.ai/docs/get-your-api-key", "https://platform.kimi.ai/docs/guide/use-kimi-api-to-complete-tool-calls", "https://github.com/MoonshotAI/Kimi-K2", "https://github.com/MoonshotAI/Kimi-K2/blob/main/LICENSE"],
+    "en": {
+      "tagline": "Models for coding, analysis, and tool-driven tasks",
+      "description": "Explore Moonshot AI’s Kimi family, its hosted developer platform and selected open-weight releases, with practical distinctions between app and model access.",
+      "overview": [
+        "Kimi is Moonshot AI’s model and assistant family. Its developer platform provides model access through documented APIs, while selected releases have downloadable weights in official repositories. The API documentation covers conversation, reasoning, vision for supported models, and tool-calling workflows. The Kimi application is a separate product experience: its interface, built-in tools, and account entitlements should not be assumed to carry over to a standalone API call. Start by choosing the exact model and the integration format described in the current platform documentation.",
+        "Tool calling makes Kimi a candidate for experiments that connect a model to your application’s functions, such as looking up a record or proposing a code change. The application still owns tool execution, permissions, and verification. With open-weight releases, check the model card, inference-engine support, memory needs, and the actual license rather than assuming all Kimi models share one deployment route. For example, the Kimi K2 release has a modified license that must be read on its own terms. Evaluate a small, reproducible task before connecting a broader workflow."
+      ],
+      "strengths": ["Prototype coding or analytical assistance with a specified model", "Connect documented tool calls to controlled application functions", "Compare hosted use with a suitable downloadable release"],
+      "limitations": ["API formats, input types, and tool support depend on the selected model and runtime.", "A downloadable release has its own license and hardware requirements; the Kimi app does not grant equivalent API access."],
+      "accessNote": "Use the Kimi application for its built-in experience, the developer platform for API access, and official model repositories for particular downloadable releases. These routes have distinct requirements.",
+      "selectionTip": "Consider Kimi for coding or multi-step tool experiments and verify tool execution and output quality before expanding the scope."
+    },
+    "zh": {
+      "tagline": "面向编程、分析和工具驱动任务的模型家族",
+      "description": "了解 Moonshot AI 的 Kimi 家族、托管开发平台和指定开放权重版本，并区分聊天应用与模型访问方式。",
+      "overview": [
+        "Kimi 是 Moonshot AI 的模型与助手家族。开发者平台通过文档化 API 提供模型访问，部分版本也在官方仓库发布可下载权重。API 文档涵盖会话、推理、受支持型号的视觉输入和工具调用工作流。Kimi 应用是另一种产品体验，其界面、内置工具和账户权益，不应直接推断为单独 API 请求也具备的能力。开始集成时，应先选择具体模型，并按照当前平台文档确认调用格式。",
+        "工具调用让 Kimi 可以参与连接应用函数的实验，例如查询一条记录，或提出代码修改方案。但执行工具、管理权限和检查结果仍由你的应用负责。使用开放权重时，应核对模型卡、推理引擎支持、内存要求和实际许可证，不能假定所有 Kimi 模型采用同一部署方式。例如 Kimi K2 的发布附有修改版许可证，需要单独阅读其条件。先完成一个可复现的小任务，再把模型接入范围更大的工作流，会更容易定位实际收益与边界。"
+      ],
+      "strengths": ["用指定型号探索编程或分析辅助", "将文档化工具调用连接到受控的应用函数", "比较托管方式与合适的可下载版本"],
+      "limitations": ["调用格式、输入类型和工具支持取决于具体型号与运行环境。", "可下载版本有自己的许可证与硬件要求，应用账户不等于相同的 API 访问权限。"],
+      "accessNote": "内置产品体验使用 Kimi 应用，API 访问使用开发者平台，指定可下载版本查看官方模型仓库；这些路径各有要求。",
+      "selectionTip": "编程或多步骤工具实验可将 Kimi 列为候选，扩大任务范围前先验证工具执行和成果质量。"
+    },
+    "es": {
+      "tagline": "Modelos para código, análisis y tareas con herramientas",
+      "description": "Explora Kimi de Moonshot AI, su plataforma alojada y versiones con pesos abiertos, distinguiendo la aplicación del acceso a modelos.",
+      "overview": [
+        "Kimi es la familia de modelos y asistentes de Moonshot AI. Su plataforma para desarrolladores ofrece API documentadas y algunas versiones publican pesos descargables en repositorios oficiales. La documentación cubre conversación, razonamiento, visión en modelos compatibles y llamadas a herramientas. La aplicación Kimi es otra experiencia de producto: su interfaz, sus herramientas y sus permisos no se trasladan automáticamente a una solicitud de API. Empieza eligiendo el modelo y el formato de integración que aparecen en la documentación actual de la plataforma.",
+        "Las llamadas a herramientas permiten probar Kimi con funciones de tu aplicación, por ejemplo consultar un registro o proponer un cambio de código. Tu aplicación sigue siendo responsable de ejecutar las operaciones, controlar permisos y verificar resultados. Para pesos descargables, comprueba ficha, motor de inferencia, memoria y licencia; no todas las versiones comparten la misma ruta de despliegue. Por ejemplo, Kimi K2 tiene una licencia modificada cuyas condiciones deben revisarse. Evalúa primero una tarea pequeña y reproducible antes de conectarlo a un proceso más amplio."
+      ],
+      "strengths": ["Probar asistencia de código o análisis con un modelo concreto", "Conectar herramientas documentadas a funciones controladas", "Comparar el servicio alojado con una versión descargable adecuada"],
+      "limitations": ["Los formatos de API, entradas y herramientas dependen del modelo y del entorno.", "Cada versión descargable tiene licencia y requisitos propios; la aplicación no concede un acceso equivalente a la API."],
+      "accessNote": "Usa la aplicación para su experiencia integrada, la plataforma para API y los repositorios oficiales para versiones descargables concretas. Sus requisitos son distintos.",
+      "selectionTip": "Incluye Kimi en pruebas de código o procesos con herramientas y comprueba ejecución y calidad antes de ampliar su alcance."
+    }
+  },
+  {
+    "slug": "glm",
+    "name": "GLM",
+    "provider": "Z.ai",
+    "officialUrl": "https://z.ai/",
+    "apiDocsUrl": "https://docs.z.ai/guides/overview/quick-start",
+    "access": "hybrid",
+    "reviewed": "2026-10-27",
+    "relatedTools": ["hugging-face"],
+    "sourceUrls": ["https://docs.z.ai/guides/overview/quick-start", "https://docs.z.ai/guides/llm/glm-4.5", "https://github.com/zai-org/GLM-4.5", "https://github.com/zai-org/GLM-4.5/blob/main/LICENSE"],
+    "en": {
+      "tagline": "A model family oriented toward reasoning, coding, and agents",
+      "description": "Understand Z.ai’s GLM model family, developer APIs, and selected downloadable releases before choosing a coding or tool-assisted workflow.",
+      "overview": [
+        "GLM is the model family offered by Z.ai through its developer platform and selected open-weight releases. The official documentation describes reasoning, coding, structured output, and tool-oriented applications, with capabilities assigned to specific models. Some releases offer thinking and non-thinking settings, while visual input belongs to supported variants. The consumer chat experience, standard API service, and coding-plan integrations are distinct access routes; their endpoints, entitlements, and operational requirements should be checked separately before connecting an editor or a team workspace.",
+        "A practical evaluation can focus on one code change or a small tool-assisted task. Provide the expected behavior, constrain the operations the application can execute, and check the result against tests or source records. If self-deployment is relevant, inspect the precise repository, checkpoint, actual license file, and inference requirements; do not infer a family-wide license from a general description. Hosted and downloaded releases may also differ. This guide treats GLM as a family to investigate, with links to the vendor’s documentation, rather than a claim that any particular version is best for every agent workflow."
+      ],
+      "strengths": ["Evaluate reasoning and code changes with explicit acceptance criteria", "Prototype agents using documented tool-call interfaces", "Compare API integration with a specific open-weight release"],
+      "limitations": ["Thinking controls, visual input, and endpoint support are model-specific.", "Standard API and coding-plan access differ; verify the exact release’s license and requirements for self-deployment."],
+      "accessNote": "Z.ai documents hosted API and coding integration paths. Selected GLM releases also publish weights; the license and serving requirements must be checked for the exact artifact.",
+      "selectionTip": "Consider GLM for a controlled reasoning or coding evaluation and keep the endpoint, model ID, tools, and tests in the evaluation record."
+    },
+    "zh": {
+      "tagline": "围绕推理、编程和智能体任务的模型家族",
+      "description": "了解 Z.ai GLM 模型家族、开发者 API 与指定可下载版本，再选择适合的编程或工具辅助工作流。",
+      "overview": [
+        "GLM 是 Z.ai 通过开发者平台和部分开放权重版本提供的模型家族。官方文档介绍推理、编程、结构化输出和工具导向应用，但具体能力应对应到某个型号。有些版本具有思考与非思考设置，视觉输入也仅属于支持的变体。消费者聊天体验、标准 API 服务与编程套餐集成是不同访问路径；将其接入编辑器或团队工作台前，需要分别核对端点、账户权益与运行要求。",
+        "实际评估可以从一个代码改动或小型工具任务开始。先写清预期行为，限定应用可以执行的操作，再通过测试或源系统记录检查结果。如果考虑自主部署，应查看准确的仓库、检查点、实际许可证文件及推理要求，不能仅凭概括性介绍推断整个家族的授权方式。托管服务与下载模型也可能不同。本指南提供的是一个有官方资料可核对的模型家族入口，不代表某一版本在所有智能体工作流中都是最佳选择。"
+      ],
+      "strengths": ["按明确验收标准评估推理与代码改动", "通过文档化工具接口构建智能体原型", "比较 API 集成与指定开放权重发布"],
+      "limitations": ["思考设置、视觉输入和端点支持取决于具体型号。", "标准 API 与编程套餐权限不同，自部署需核对实际版本的许可证和运行要求。"],
+      "accessNote": "Z.ai 文档介绍托管 API 和编程集成路径，部分 GLM 版本也发布权重；具体文件的许可证与推理要求应逐一核实。",
+      "selectionTip": "可以用 GLM 开展受控的推理或编程评估，并记录端点、模型 ID、启用工具与测试结果。"
+    },
+    "es": {
+      "tagline": "Una familia centrada en razonamiento, código y agentes",
+      "description": "Conoce GLM de Z.ai, sus API y versiones descargables antes de elegir un flujo de programación o trabajo asistido por herramientas.",
+      "overview": [
+        "GLM es la familia de modelos que Z.ai ofrece mediante su plataforma y algunas publicaciones de pesos abiertos. La documentación describe razonamiento, programación, salida estructurada y aplicaciones con herramientas, con capacidades propias de cada modelo. Algunas versiones incluyen controles de razonamiento y respuesta directa; las entradas visuales corresponden a variantes compatibles. La aplicación de chat, la API estándar y los planes de programación son rutas distintas. Comprueba por separado sus endpoints, permisos y requisitos antes de integrar un editor o un espacio de trabajo de equipo.",
+        "Una evaluación práctica puede empezar con un cambio de código o una tarea pequeña con herramientas. Define el comportamiento esperado, limita las operaciones que ejecuta la aplicación y contrasta el resultado con pruebas o registros originales. Para alojamiento propio, revisa repositorio, modelo, archivo real de licencia y requisitos de inferencia; no deduzcas una licencia para toda la familia a partir de una descripción general. El servicio alojado y una versión descargada también pueden diferir. Este perfil ofrece una entrada documentada a GLM, sin afirmar que una versión sea la mejor para todos los flujos de agentes."
+      ],
+      "strengths": ["Evaluar razonamiento y código con criterios de aceptación", "Crear agentes mediante interfaces documentadas de herramientas", "Comparar una API con una publicación concreta de pesos abiertos"],
+      "limitations": ["El razonamiento, la visión y los endpoints compatibles dependen del modelo.", "La API estándar y el plan de programación tienen accesos diferentes; verifica licencia y requisitos del archivo descargado."],
+      "accessNote": "Z.ai documenta rutas de API alojada e integración de código. Algunas versiones publican pesos; revisa la licencia y los requisitos del archivo concreto.",
+      "selectionTip": "Evalúa GLM en una tarea controlada de razonamiento o código y registra endpoint, modelo, herramientas y pruebas."
+    }
+  }
+]

@@ -1,0 +1,632 @@
+[
+  {
+    "slug": "mcp-team-connector-setup",
+    "category": "MCP & connectors",
+    "docGroup": "mcp",
+    "reviewed": "2026-10-28",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
+      "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/remote.go",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/tools.go"
+    ],
+    "en": {
+      "title": "Set up an MCP connector for your team",
+      "description": "Create a team MCP connector, choose an authorization mode, expose tools, and verify access with a real task.",
+      "sections": [
+        {
+          "heading": "Prepare the service and access",
+          "paragraphs": [
+            "A team administrator needs the MCP service address and the authentication instructions from its provider. Confirm that the service is running and the MonkeyAI server can reach it; a model API endpoint is not automatically an MCP endpoint. Use HTTPS when credentials or sensitive data are sent."
+          ],
+          "bullets": [
+            "Identify a test account and a small sample of data it is allowed to access.",
+            "Choose which people and groups need each tool before granting access."
+          ]
+        },
+        {
+          "heading": "Create the connector and choose authorization",
+          "paragraphs": [
+            "In the administration console, open Resource management → Connectors (资源管理 → 连接器). Add the MCP address and a useful description. Choose the mode required for your service: no authorization, centralized authorization, or independent authorization."
+          ],
+          "bullets": [
+            "No authorization: no credential is required for the configured service.",
+            "Centralized authorization: an administrator configures the credential centrally; access is subject to the configured permissions.",
+            "Independent authorization: each member supplies their own authorization in the client."
+          ]
+        },
+        {
+          "heading": "Configure credentials and grant resources",
+          "paragraphs": [
+            "Follow the service provider’s instructions for OAuth or HTTP Header authentication. For OAuth, register the correct callback address for your actual instance with the provider. For header authentication, enter the exact header name and value specified by that service; avoid putting secrets in the description.",
+            "Configure the connector’s resource authorization and save it. Grants can cover everyone, selected groups, or selected users; a grant to a parent group also applies to its child groups. Access to use a resource does not automatically grant the right to edit its configuration."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Help members authorize and run a test",
+          "paragraphs": [
+            "For centralized authorization, an administrator configures the shared credential, runs the connection test, and selects the tools to expose. For independent authorization, each member opens Settings → Assistant configuration → Connectors (设置 → 助手配置 → 连接器), selects the connector and completes authorization in Credentials & Tools (凭证与工具). The credential owner tests the connection to discover tools; in the reviewed backend, an administrator cannot run that test on their behalf. Members with multiple credentials can select one in the conversation. Tool controls can vary by installed version.",
+            "Start a small task using an enabled tool and data the account may access. Check the returned result against the service. A successful connection test shows connectivity and tool discovery; it does not by itself establish that every operation or data set is permitted."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Private services and version differences",
+          "paragraphs": [
+            "In the upstream backend source reviewed on 2026-10-28, remote MCP connections reject private and other restricted network addresses by default. An administrator can configure MONKEYAI_MCP_ALLOWED_CIDRS in the backend process environment with the smallest required comma-separated CIDR ranges, according to the deployment’s own configuration and restart procedure. Verify the effective configuration and network policy with the operator.",
+            "The reviewed backend blocks redirects and implements an HTTP MCP exchange that can return JSON or event-stream responses. Use the final service URL and check transport compatibility with your installed release; an older or SSE-only endpoint should not be assumed to work."
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "zh": {
+      "title": "为团队配置 MCP 连接器",
+      "description": "创建团队 MCP 连接器，选择授权方式、开放工具，并用实际任务验证访问。",
+      "sections": [
+        {
+          "heading": "准备服务与访问范围",
+          "paragraphs": [
+            "团队管理员需要向服务提供方取得 MCP 服务地址和认证说明。确认服务正在运行，MonkeyAI 服务端能够访问；模型 API 地址并不自动等同于 MCP 地址。传输凭证或敏感数据时使用 HTTPS。"
+          ],
+          "bullets": [
+            "准备有权访问少量测试数据的账号。",
+            "在授权前确定哪些人员和分组需要使用哪些工具。"
+          ]
+        },
+        {
+          "heading": "创建连接器并选择授权方式",
+          "paragraphs": [
+            "在管理后台打开「资源管理 → 连接器」，填写 MCP 地址和便于识别的描述。根据服务要求选择无需授权、集中授权或独立授权。"
+          ],
+          "bullets": [
+            "无需授权：所配置的服务不需要凭证。",
+            "集中授权：管理员集中配置凭证，成员在配置的权限范围内使用。",
+            "独立授权：每位成员在客户端完成自己的授权。"
+          ]
+        },
+        {
+          "heading": "配置凭证并分配资源",
+          "paragraphs": [
+            "按照服务提供方的要求配置 OAuth 或 HTTP Header。使用 OAuth 时，向提供方登记当前实例实际使用的回调地址；使用 Header 时，填写服务要求的准确名称和值，不要把密钥写进描述。",
+            "配置连接器的资源授权范围并保存。可以授权给全体、指定分组或指定用户；父分组授权也适用于子分组成员。资源使用权并不自动包含配置编辑权。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "协助成员授权并验证任务",
+          "paragraphs": [
+            "集中授权时，由管理员配置共享凭证、测试连接并选择开放的工具。独立授权时，每位成员在客户端打开「设置 → 助手配置 → 连接器」，选择连接器并进入「凭证与工具」完成个人授权；凭证所有者测试连接以发现工具。在查阅的后端版本中，管理员不能代替凭证所有者执行该测试。存在多个凭证时，成员可在对话中选择凭证。工具控制方式可能随安装版本变化。",
+            "使用已开放的工具和该账号有权访问的数据执行一个小任务，并对照服务中的数据核对结果。连接测试成功表示连接和工具发现成功，并不代表所有操作或数据集都已获授权。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "内网服务与版本差异",
+          "paragraphs": [
+            "在 2026-10-28 查阅的上游后端源码中，远程 MCP 连接默认拒绝私网等受限网络地址。管理员可根据实际部署的配置和重启方式，在后端进程环境中设置 MONKEYAI_MCP_ALLOWED_CIDRS，使用逗号分隔且尽可能小的必要 CIDR 网段；与运维人员确认生效配置及网络策略。",
+            "查阅的后端实现禁止重定向，并实现可以返回 JSON 或事件流响应的 HTTP MCP 交互。请使用最终服务地址，并确认当前安装版本支持服务的传输方式；不能默认仅支持旧版 SSE 的端点可用。"
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "es": {
+      "title": "Configurar un conector MCP para el equipo",
+      "description": "Crea un conector MCP de equipo, elige la autorización, habilita herramientas y verifica el acceso con una tarea real.",
+      "sections": [
+        {
+          "heading": "Prepara el servicio y el alcance",
+          "paragraphs": [
+            "Un administrador del equipo necesita la dirección del servicio MCP y las instrucciones de autenticación del proveedor. Comprueba que el servicio esté activo y que el servidor de MonkeyAI pueda acceder a él; un endpoint de API de modelo no es automáticamente un endpoint MCP. Usa HTTPS al transmitir credenciales o datos sensibles."
+          ],
+          "bullets": [
+            "Prepara una cuenta de prueba y una pequeña muestra de datos a los que pueda acceder.",
+            "Decide qué personas y grupos necesitan cada herramienta antes de conceder acceso."
+          ]
+        },
+        {
+          "heading": "Crea el conector y elige la autorización",
+          "paragraphs": [
+            "En la consola de administración, abre Gestión de recursos → Conectores (资源管理 → 连接器). Añade la dirección MCP y una descripción útil. Selecciona el modo requerido: sin autorización, autorización centralizada o autorización independiente."
+          ],
+          "bullets": [
+            "Sin autorización: el servicio configurado no requiere credenciales.",
+            "Centralizada: el administrador configura las credenciales y los miembros actúan dentro de los permisos establecidos.",
+            "Independiente: cada miembro realiza su propia autorización en el cliente."
+          ]
+        },
+        {
+          "heading": "Configura las credenciales y asigna recursos",
+          "paragraphs": [
+            "Sigue las instrucciones del proveedor para OAuth o HTTP Header. Con OAuth, registra en el proveedor la dirección de retorno real de tu instancia. Con encabezados HTTP, introduce exactamente el nombre y valor indicados por el servicio; no pongas secretos en la descripción.",
+            "Configura la autorización del conector y guarda. Puedes conceder acceso a todos, a grupos o a usuarios concretos; la concesión a un grupo padre también se aplica a sus subgrupos. El derecho de uso no concede automáticamente el de editar la configuración."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Ayuda a los miembros a autorizar y verificar",
+          "paragraphs": [
+            "Con autorización centralizada, el administrador configura la credencial compartida, prueba la conexión y selecciona las herramientas que se ofrecerán. Con autorización independiente, cada miembro abre Ajustes → Configuración del asistente → Conectores (设置 → 助手配置 → 连接器), elige el conector y completa la autorización en Credenciales y herramientas (凭证与工具). El propietario de la credencial prueba la conexión para descubrir herramientas; en el backend revisado el administrador no puede ejecutar esa prueba en su nombre. Si hay varias credenciales, el miembro puede elegir una en la conversación. Los controles de herramientas pueden variar según la versión instalada.",
+            "Ejecuta una tarea pequeña con una herramienta habilitada y datos accesibles para la cuenta; compara el resultado con el servicio. Una prueba de conexión satisfactoria confirma la conexión y el descubrimiento de herramientas, pero no garantiza permiso para todas las operaciones o datos."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Servicios privados y diferencias de versión",
+          "paragraphs": [
+            "En el código del backend revisado el 28-10-2026, las conexiones MCP remotas rechazan por defecto direcciones privadas y otras redes restringidas. El administrador puede configurar MONKEYAI_MCP_ALLOWED_CIDRS en el entorno del proceso backend con los rangos CIDR necesarios, separados por comas y lo más limitados posible, siguiendo la configuración y el procedimiento de reinicio del despliegue. Verifica el ajuste efectivo y la política de red con el operador.",
+            "El backend revisado bloquea redirecciones e implementa un intercambio MCP por HTTP que puede devolver JSON o un flujo de eventos. Usa la URL final del servicio y comprueba la compatibilidad del transporte con tu versión instalada; no des por supuesto que funcionará un endpoint antiguo que solo admita SSE."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  },
+  {
+    "slug": "mcp-personal-connectors",
+    "category": "MCP & connectors",
+    "docGroup": "mcp",
+    "reviewed": "2026-10-28",
+    "readMinutes": 7,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552"
+    ],
+    "en": {
+      "title": "Connect personal MCP services and local tools",
+      "description": "Add a personal MCP service or a local tool, test the connection, save it, and use its credentials in a conversation.",
+      "sections": [
+        {
+          "heading": "Find your connectors",
+          "paragraphs": [
+            "Open Settings → Assistant configuration → Connectors (设置 → 助手配置 → 连接器). Team connectors are maintained by administrators; Mine (我的) contains your own; Shared by others (他人分享) contains resources shared with you. You can use a shared resource but cannot edit or share it again."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Add a remote MCP service",
+          "paragraphs": [
+            "Under Mine, choose Add connection (添加连接). Enter a recognizable name, the MCP service URL supplied by the provider, and a description. Configure the required authorization using the service’s instructions; store credentials in the credential fields rather than the description.",
+            "Choose Test connection (测试连接) and inspect the tools returned. A test does not save the configuration: save after the test. If the service asks for authentication, complete it before trying a task."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Add a tool that runs on your computer",
+          "paragraphs": [
+            "Under Mine, choose Add local tool (添加本机工具). Enter the name, startup command, arguments and environment variables according to that tool provider’s installation instructions. The tool runs a command on your computer, so inspect the provider and command before using it.",
+            "The official guide says the name cannot contain spaces, slashes or consecutive underscores, and the reserved name monkeyai_browser cannot be used. Test the connection, inspect discovered tools and save the configuration."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Authorize and use it in a conversation",
+          "paragraphs": [
+            "If a connector shows Authorization pending (待授权), open Credentials & Tools (凭证与工具), provide the required credential or complete authorization, and check that the status changes to Authorized (已授权). Independent authorization can contain multiple credentials; select the one appropriate to the task in your conversation.",
+            "Choose the connector in the task conversation and clearly describe the service, desired operation and output. The assistant can use enabled tools when appropriate, subject to the service and credential permissions. Check the result before relying on it."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Update credentials carefully",
+          "paragraphs": [
+            "The client guide says existing secret values are not displayed. When editing a client credential, leave an existing value blank to retain it, or remove the row to delete that item. Other administrative credential editors may behave differently; follow the labels in the interface you are using."
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "zh": {
+      "title": "接入个人 MCP 服务和本机工具",
+      "description": "添加个人 MCP 服务或本机工具，测试、保存并在对话中选择凭证。",
+      "sections": [
+        {
+          "heading": "找到连接器",
+          "paragraphs": [
+            "打开「设置 → 助手配置 → 连接器」。「团队」连接器由管理员维护；「我的」是自己创建的连接器；「他人分享」展示别人分享给你的资源。被分享的资源可以使用，但不能编辑或再次分享。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "添加远程 MCP 服务",
+          "paragraphs": [
+            "在「我的」中选择「添加连接」。填写易于识别的名称、服务提供方给出的 MCP 服务地址和描述，按照该服务的说明配置所需授权；凭证填写在凭证字段，不要写进描述。",
+            "点击「测试连接」并检查返回的工具。测试不会保存配置：测试后还要保存。服务需要身份验证时，先完成授权再尝试任务。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "添加在本机运行的工具",
+          "paragraphs": [
+            "在「我的」中选择「添加本机工具」。按照工具提供方的安装说明填写名称、启动命令、命令参数和环境变量。工具会在你的电脑上运行命令，使用前应核实提供方和命令。",
+            "官方文档规定名称不能包含空格、斜杠或连续下划线，也不能使用保留名称 monkeyai_browser。测试连接、检查发现的工具，再保存配置。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "授权并在对话中使用",
+          "paragraphs": [
+            "如果连接器显示「待授权」，进入「凭证与工具」，填写所需凭证或完成授权，并确认状态变为「已授权」。独立授权可以保存多个凭证；在对话中选择适合该任务的凭证。",
+            "在任务对话中选择连接器，清楚说明要使用的服务、操作和输出。助手可在适当情况下使用已启用的工具，实际能力取决于服务和凭证权限。使用结果前请核对。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "谨慎更新凭证",
+          "paragraphs": [
+            "客户端文档说明现有密钥值不会显示。编辑客户端凭证时，已有值留空表示保留该值，删除一行表示删除该项。其他管理端凭证编辑器的行为可能不同，请以当前界面的提示为准。"
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "es": {
+      "title": "Conectar servicios MCP personales y herramientas locales",
+      "description": "Añade un servicio MCP personal o una herramienta local, prueba y guarda la conexión, y selecciona credenciales en la conversación.",
+      "sections": [
+        {
+          "heading": "Encuentra tus conectores",
+          "paragraphs": [
+            "Abre Ajustes → Configuración del asistente → Conectores (设置 → 助手配置 → 连接器). Los conectores del equipo los mantienen los administradores; Mis conectores (我的) contiene los tuyos; Compartidos por otros (他人分享) contiene recursos compartidos contigo. Puedes utilizar un recurso compartido, pero no editarlo ni volver a compartirlo."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Añade un servicio MCP remoto",
+          "paragraphs": [
+            "En Mis conectores, elige Añadir conexión (添加连接). Introduce un nombre reconocible, la URL del servicio MCP facilitada por el proveedor y una descripción. Configura la autorización requerida según sus instrucciones; guarda las credenciales en sus campos, no en la descripción.",
+            "Pulsa Probar conexión (测试连接) y revisa las herramientas devueltas. La prueba no guarda la configuración: guárdala después. Si el servicio requiere autenticación, complétala antes de iniciar una tarea."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Añade una herramienta que se ejecuta en tu equipo",
+          "paragraphs": [
+            "En Mis conectores, elige Añadir herramienta local (添加本机工具). Introduce el nombre, comando de inicio, argumentos y variables de entorno según las instrucciones de instalación del proveedor. La herramienta ejecuta un comando en tu equipo, así que revisa el proveedor y el comando antes de usarla.",
+            "La guía oficial indica que el nombre no puede contener espacios, barras ni guiones bajos consecutivos, y que monkeyai_browser es un nombre reservado. Prueba la conexión, comprueba las herramientas detectadas y guarda la configuración."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Autoriza y úsala en una conversación",
+          "paragraphs": [
+            "Si aparece Autorización pendiente (待授权), abre Credenciales y herramientas (凭证与工具), proporciona la credencial o completa la autorización y comprueba que el estado cambie a Autorizado (已授权). La autorización independiente admite varias credenciales; selecciona la adecuada para la tarea en la conversación.",
+            "Selecciona el conector en la conversación y describe el servicio, la operación y el resultado deseado. El asistente puede usar herramientas habilitadas cuando corresponda, dentro de los permisos del servicio y de la credencial. Verifica el resultado antes de utilizarlo."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Actualiza las credenciales con cuidado",
+          "paragraphs": [
+            "La guía del cliente indica que los valores secretos existentes no se muestran. Al editar una credencial en el cliente, deja vacío un valor existente para conservarlo o elimina la fila para borrar ese elemento. Otros editores de credenciales administrativos pueden funcionar de otra forma; sigue las indicaciones de la interfaz que utilizas."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  },
+  {
+    "slug": "mcp-connector-troubleshooting",
+    "category": "Troubleshooting",
+    "docGroup": "faq",
+    "reviewed": "2026-10-28",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
+      "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/credential.go"
+    ],
+    "en": {
+      "title": "MCP connector troubleshooting and FAQ",
+      "description": "Resolve pending authorization, failed connection tests, missing tools, private network access, and local command errors.",
+      "sections": [
+        {
+          "heading": "Why is the connector waiting for authorization?",
+          "paragraphs": [
+            "For independent authorization, open the connector’s Credentials & Tools (凭证与工具), enter the required credential or complete the provider’s authorization flow, then check for Authorized (已授权). Expired or revoked credentials may require authorization again. Select the intended credential in the conversation if you have more than one."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why does the connection test fail?",
+          "paragraphs": [
+            "Confirm that the address is the provider’s actual MCP endpoint, the service is running, and the relevant machine has network access. Check the authentication mode and credentials, then run Test connection again. For a local tool, also check that its command, arguments and dependencies match the provider’s instructions.",
+            "HTTP Header names and values must match the service requirements. The reviewed backend rejects invalid, duplicate and certain protocol-reserved headers; use the provider’s authentication header instead of trying to override protocol headers such as Host or Content-Type."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why does the test succeed but my task fail?",
+          "paragraphs": [
+            "Check that the tool was discovered and enabled, that the correct connector and credential are selected in the conversation, and that the credential has permission for the target data and operation. An expert may also need its required connector assigned and authorized. Try a small task with accessible sample data and compare the error with the service logs."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why can a private MCP address be blocked?",
+          "paragraphs": [
+            "The upstream backend source reviewed on 2026-10-28 blocks private and certain other restricted destinations by default. Contact your server administrator to check network access and, when appropriate, configure the smallest required CIDR in MONKEYAI_MCP_ALLOWED_CIDRS for the backend process. This is a server-side setting, not a change a member can make by editing the connector URL."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why does OAuth return an error?",
+          "paragraphs": [
+            "Ask the service provider and workspace administrator to verify the callback address registered with the provider matches the actual instance and that the authentication configuration is correct. Retry authorization in Credentials & Tools; do not post the authorization code or token in a support request."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "What should I send support?",
+          "paragraphs": [
+            "Record the time, affected team, connector type, sanitized endpoint, the step that failed, the error text and whether a test task reproduces it. Include the app and server versions when available. Remove tokens, header values and confidential data from logs and screenshots."
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "zh": {
+      "title": "MCP 连接器故障排查与常见问题",
+      "description": "排查待授权、连接测试失败、工具缺失、内网访问和本机命令错误。",
+      "sections": [
+        {
+          "heading": "为什么连接器显示待授权？",
+          "paragraphs": [
+            "独立授权时，打开连接器的「凭证与工具」，填写所需凭证或完成服务提供方的授权流程，然后检查状态是否变为「已授权」。凭证过期或被撤销后可能需要重新授权。如果有多个凭证，还要在对话中选择正确的凭证。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么连接测试失败？",
+          "paragraphs": [
+            "确认地址是提供方实际的 MCP 端点、服务正在运行，且相关机器具有网络访问能力。核对授权模式和凭证，再重新「测试连接」。本机工具还要检查命令、参数和依赖是否符合提供方说明。",
+            "HTTP Header 名称和值必须符合服务要求。查阅的后端源码会拒绝无效、重复和部分协议保留的 Header；应使用提供方指定的认证 Header，不要试图覆盖 Host 或 Content-Type 等协议字段。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么测试成功但任务仍失败？",
+          "paragraphs": [
+            "检查工具是否已被发现并启用，对话中是否选中了正确的连接器和凭证，以及凭证是否有目标数据与操作的权限。专家还可能需要配置并授权其依赖的连接器。用有权访问的少量测试数据重试，并对照服务日志查看错误。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么内网 MCP 地址会被阻止？",
+          "paragraphs": [
+            "2026-10-28 查阅的上游后端源码默认阻止私网及其他部分受限地址。联系服务端管理员检查网络访问，并在确有需要时为后端进程配置 MONKEYAI_MCP_ALLOWED_CIDRS，范围以完成任务所需的最小 CIDR 为准。这是服务端设置，成员修改连接器地址不能自行绕过。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么 OAuth 返回错误？",
+          "paragraphs": [
+            "请服务提供方和工作区管理员核对：提供方登记的回调地址是否与当前实例实际地址一致，认证配置是否正确。然后在「凭证与工具」中重新授权；向支持人员反馈时不要发送授权码或令牌。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "联系支持时应该提供什么？",
+          "paragraphs": [
+            "记录发生时间、所属团队、连接器类型、脱敏后的端点、失败步骤、错误文本，以及测试任务能否复现；如能获取，也提供客户端和服务端版本。发送日志和截图前，移除令牌、Header 值和保密数据。"
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "es": {
+      "title": "Solución de problemas y preguntas frecuentes de MCP",
+      "description": "Resuelve autorizaciones pendientes, pruebas de conexión fallidas, herramientas ausentes, acceso privado y errores de comandos locales.",
+      "sections": [
+        {
+          "heading": "¿Por qué está pendiente la autorización?",
+          "paragraphs": [
+            "Con autorización independiente, abre Credenciales y herramientas (凭证与工具), introduce la credencial requerida o completa el proceso del proveedor y comprueba que figure Autorizado (已授权). Una credencial caducada o revocada puede requerir una nueva autorización. Si tienes varias, selecciona la correcta en la conversación."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué falla la prueba de conexión?",
+          "paragraphs": [
+            "Confirma que la dirección sea el endpoint MCP real del proveedor, que el servicio esté activo y que la máquina correspondiente tenga acceso a la red. Revisa el modo de autorización y las credenciales, y vuelve a probar. Para una herramienta local, comprueba también el comando, los argumentos y las dependencias según las instrucciones del proveedor.",
+            "Los nombres y valores de HTTP Header deben coincidir con los requisitos del servicio. El backend revisado rechaza encabezados inválidos, duplicados y algunos reservados para el protocolo; utiliza el encabezado de autenticación del proveedor en vez de sobrescribir campos como Host o Content-Type."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué falla la tarea si la prueba funciona?",
+          "paragraphs": [
+            "Comprueba que la herramienta se haya detectado y habilitado, que hayas elegido el conector y la credencial correctos en la conversación y que la credencial permita acceder a los datos y realizar la operación. Un experto también puede necesitar que su conector requerido esté asignado y autorizado. Prueba una tarea pequeña con datos accesibles y compara el error con los registros del servicio."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué se bloquea una dirección MCP privada?",
+          "paragraphs": [
+            "El código backend revisado el 28-10-2026 bloquea por defecto destinos privados y otros restringidos. Pide al administrador del servidor que compruebe el acceso de red y, cuando corresponda, configure el CIDR mínimo necesario en MONKEYAI_MCP_ALLOWED_CIDRS para el proceso backend. Es un ajuste del servidor; un miembro no lo evita cambiando la URL del conector."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué devuelve un error OAuth?",
+          "paragraphs": [
+            "Pide al proveedor y al administrador del espacio que verifiquen que la dirección de retorno registrada coincide con la instancia real y que la configuración de autenticación es correcta. Después vuelve a autorizar en Credenciales y herramientas; no compartas el código de autorización ni el token con soporte."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Qué información necesita soporte?",
+          "paragraphs": [
+            "Anota la hora, el equipo afectado, el tipo de conector, el endpoint sin datos sensibles, el paso fallido, el mensaje de error y si se reproduce con una tarea de prueba. Añade las versiones del cliente y del servidor si están disponibles. Elimina tokens, valores de encabezados y datos confidenciales de registros y capturas."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  },
+  {
+    "slug": "account-resource-credits-faq",
+    "category": "Troubleshooting",
+    "docGroup": "faq",
+    "reviewed": "2026-10-28",
+    "readMinutes": 7,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a15361-2b73-7c79-8e64-a533a648648e",
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5"
+    ],
+    "en": {
+      "title": "Account, permissions, models, and credits FAQ",
+      "description": "Find out why resources are missing, how team switching affects tasks, and where to check account credits.",
+      "sections": [
+        {
+          "heading": "Why can’t I see a model or connector?",
+          "paragraphs": [
+            "First check that you are in the intended team. The list depends on resources available to your account: team resources granted to you, resources you created, and resources shared by others. Ask an administrator to check your user or group authorization; a resource visible to another member may not be granted to you."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why does an expert not have access to its tools?",
+          "paragraphs": [
+            "Permission to use an expert does not automatically grant access to its model, skills, rules or connectors. Ask the administrator to check each required resource and its authorization separately. If a connector requires personal credentials, complete its authorization too."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Why does a configured model still fail?",
+          "paragraphs": [
+            "Check the service address, API key, exact model name, upstream availability, provider balance and usage limits. Confirm that the selected model supports the task, such as image input or the context size you need. Record the error time and message without sharing the key."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Can I switch teams during a task?",
+          "paragraphs": [
+            "In Settings → Account (设置 → 账号), you can add or switch teams. The official guide says switching interrupts the current task, so finish or safely stop the task before switching, then confirm the active team and available resources."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Does signing out delete my data?",
+          "paragraphs": [
+            "The official account guide distinguishes signing out, which retains local data, from removing an account, which can offer an option to clean local data. Check the option carefully: local conversations, workspace files, skills and embedded browser data may be affected. Back up anything you need before selecting a cleanup option; the guide says server-side data is not removed by that local cleanup."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "Where do I check credits and usage?",
+          "paragraphs": [
+            "Open Settings → Credits (设置 → 积分) to inspect your balance and usage or refunds. Team credits and an external model provider’s balance are separate, so check both when a model request fails. For an unexpected charge or refund, provide the transaction ID and time to the administrator without exposing credentials.",
+            "If your team sets periodic limits, their reset cadence and available amount depend on the administrator’s configuration. The official guide describes daily, weekly or monthly resets and says unused allowance does not carry over."
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "zh": {
+      "title": "账号、权限、模型和积分常见问题",
+      "description": "了解资源不可见的原因、切换团队对任务的影响，以及如何查看积分。",
+      "sections": [
+        {
+          "heading": "为什么看不到模型或连接器？",
+          "paragraphs": [
+            "先确认当前是否处于正确的团队。列表取决于账号可用的资源，包括授权给你的团队资源、自己创建的资源和他人分享的资源。请管理员检查用户或分组授权；其他成员可见的资源未必已授权给你。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么专家不能使用所需工具？",
+          "paragraphs": [
+            "可以使用专家，不代表自动获得其模型、技能、规则或连接器的使用权。请管理员逐项检查所需资源及授权。连接器需要个人凭证时，还要完成个人授权。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "为什么已配置的模型仍然失败？",
+          "paragraphs": [
+            "检查服务地址、API Key、准确的模型名称、上游服务是否可用、提供方余额和调用限制。确认所选模型支持当前任务，例如图片输入或所需上下文长度。记录错误时间和信息，但不要提供密钥。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "任务进行中可以切换团队吗？",
+          "paragraphs": [
+            "可以在「设置 → 账号」中添加或切换团队。官方文档说明切换会中断当前任务，因此应先完成或安全停止任务，再切换并确认当前团队和可用资源。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "退出登录会删除数据吗？",
+          "paragraphs": [
+            "官方账号文档区分了退出登录和移除账号：退出登录保留本地数据；移除账号时可能提供清理本地数据的选项。仔细检查该选项，本地对话、工作区文件、技能和内置浏览器数据可能受到影响。选择清理前备份所需内容；文档说明这类本地清理不会删除服务端数据。"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "在哪里查看积分和使用记录？",
+          "paragraphs": [
+            "打开「设置 → 积分」查看余额、消费或退款记录。团队积分与外部模型提供方余额是两回事，模型请求失败时两者都应检查。遇到不明消费或退款，可向管理员提供交易编号和时间，不要暴露凭证。",
+            "如果团队设置了周期额度，重置周期和可用数量取决于管理员配置。官方文档说明周期可按日、周或月重置，未使用的额度不结转。"
+          ],
+          "bullets": []
+        }
+      ]
+    },
+    "es": {
+      "title": "Preguntas frecuentes sobre cuentas, permisos, modelos y créditos",
+      "description": "Descubre por qué faltan recursos, cómo afecta cambiar de equipo a una tarea y dónde consultar tus créditos.",
+      "sections": [
+        {
+          "heading": "¿Por qué no veo un modelo o conector?",
+          "paragraphs": [
+            "Comprueba primero que estás en el equipo correcto. La lista depende de los recursos disponibles para tu cuenta: recursos del equipo autorizados para ti, recursos que creaste y recursos compartidos por otros. Pide al administrador que compruebe los permisos de tu usuario o grupo; un recurso visible para otra persona puede no estar autorizado para ti."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué un experto no puede usar sus herramientas?",
+          "paragraphs": [
+            "El permiso para usar un experto no concede automáticamente acceso a su modelo, habilidades, reglas o conectores. Pide al administrador que revise cada recurso requerido y su autorización por separado. Si un conector necesita credenciales personales, completa también su autorización."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Por qué falla un modelo ya configurado?",
+          "paragraphs": [
+            "Revisa la dirección del servicio, la clave API, el nombre exacto del modelo, la disponibilidad del proveedor, su saldo y sus límites de uso. Confirma que el modelo elegido admite la tarea, por ejemplo entrada de imágenes o el tamaño de contexto necesario. Anota la hora y el mensaje de error sin compartir la clave."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Puedo cambiar de equipo durante una tarea?",
+          "paragraphs": [
+            "En Ajustes → Cuenta (设置 → 账号) puedes añadir o cambiar de equipo. La guía oficial indica que el cambio interrumpe la tarea actual, así que termínala o detenla de forma segura antes de cambiar y comprueba después el equipo activo y los recursos disponibles."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Cerrar sesión elimina mis datos?",
+          "paragraphs": [
+            "La guía distingue cerrar sesión, que conserva los datos locales, de quitar una cuenta, que puede ofrecer una opción para limpiar datos locales. Revisa esa opción: pueden verse afectados conversaciones locales, archivos del espacio, habilidades y datos del navegador integrado. Guarda lo necesario antes de elegir la limpieza; la guía indica que esa limpieza local no elimina datos del servidor."
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "¿Dónde consulto créditos y uso?",
+          "paragraphs": [
+            "Abre Ajustes → Créditos (设置 → 积分) para consultar el saldo y los registros de uso o reembolso. Los créditos del equipo y el saldo de un proveedor externo de modelos son distintos, por lo que conviene revisar ambos si falla una solicitud. Para una operación inesperada, facilita al administrador el identificador y la hora sin revelar credenciales.",
+            "Si el equipo establece límites periódicos, la frecuencia de reinicio y la cantidad disponible dependen de la configuración del administrador. La guía oficial describe reinicios diarios, semanales o mensuales y señala que la asignación no utilizada no se acumula."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  }
+]

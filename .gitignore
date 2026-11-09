@@ -1,0 +1,17 @@
+node_modules/
+.openai/deploy.tar.gz
+.openai/*.log
+.DS_Store
+
+# Local settings and credentials must never enter a public commit.
+site.config.local.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.openai/
+
+# Generated outputs are recreated from source.
+dist/
+route-manifest.json

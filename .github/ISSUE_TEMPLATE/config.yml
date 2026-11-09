@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/ct-jaryn/monkeyai-community/security/advisories/new
+    about: Please do not disclose vulnerabilities in public issues.
+  - name: MonkeyAI product issues
+    url: https://github.com/chaitin/MonkeyCode/issues
+    about: Report issues with the upstream product in its own tracker.

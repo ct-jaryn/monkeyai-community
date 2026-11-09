@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "choosing-an-ai-model",
+    "category": "Model selection",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/",
+      "https://ai.google.dev/gemini-api/docs/models",
+      "https://developers.openai.com/api/docs/models"
+    ],
+    "en": {
+      "title": "How to choose an AI model for your workflow",
+      "description": "Compare model families, delivery options, and task quality with a small evaluation you can repeat.",
+      "sections": [
+        {
+          "heading": "Start with the task and the delivery route",
+          "paragraphs": [
+            "Write down what you need to produce, the inputs you can provide, and who will review the result. Drafting a short email, debugging a repository, and extracting figures from a document call for different evaluations. Include the languages and output formats your actual users need, rather than choosing a model from an overall ranking.",
+            "Distinguish the model family from the product used to access it. A chat application, a hosted API, and a local open-weight checkpoint can offer different versions, tools, settings, and data policies. Record the exact service and model ID you intend to use. Do not assume that a feature in a consumer application is available through every API."
+          ],
+          "bullets": [
+            "Describe an outcome you can independently check.",
+            "Confirm the required inputs, outputs, integrations, and access before comparing quality."
+          ]
+        },
+        {
+          "heading": "Build a small evaluation set",
+          "paragraphs": [
+            "Collect a handful of representative tasks and write an acceptance checklist for each. Include ordinary cases and one or two difficult cases that could expose missing context or unsupported assumptions. Use sample or appropriately approved data, and keep the instructions and materials consistent across candidates.",
+            "Review the output itself: factual correctness, working code, usable formatting, traceable sources where relevant, and the effort needed to finish the task. Ask another person to review consequential results. Save both useful answers and failures so a polished example does not hide recurring problems."
+          ],
+          "bullets": [
+            "For coding, run the relevant checks in a suitable environment.",
+            "For research, open the cited sources and check whether they support the claim.",
+            "For structured output, validate the structure and values you depend on."
+          ]
+        },
+        {
+          "heading": "Check the operational tradeoffs",
+          "paragraphs": [
+            "Compare the current terms of the specific release: access controls, data handling, regional availability, and permitted use. Open weights describe a distribution method; they do not guarantee a single license or remove hardware and maintenance work. Hosted access also does not guarantee identical tools, quotas, or features across products.",
+            "Measure response time and usage with your own inputs. Read the current official pricing and model documentation before estimating ongoing cost. Include retries, human review, and integration work. A result that needs extensive correction may be less useful for your workflow even if the initial response looks impressive."
+          ],
+          "bullets": [
+            "Check the license of the exact checkpoint you plan to deploy.",
+            "Confirm what an integration can read or change before connecting private systems."
+          ]
+        },
+        {
+          "heading": "Document a choice and revisit it",
+          "paragraphs": [
+            "Keep a short decision record with the model ID, provider, date, settings, test cases, reviewed results, and limitations. Explain why the choice fits this task and when a person should take over. This gives your team a more useful reference than a universal ‘best model’ label.",
+            "If you use MonkeyAI, confirm the available model services and resource permissions with your workspace administrator. Start with a small task in the configured environment and verify that the intended workflow works end to end. Recheck your decision after a model, connector, policy, or task changes; the family profiles and comparison table are starting points for this review."
+          ],
+          "bullets": [
+            "Keep a fallback for tasks that fail your acceptance criteria.",
+            "Update decisions from new evidence rather than silently switching versions."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "如何为你的工作流选择 AI 大模型",
+      "description": "通过小规模、可重复的任务，对比模型家族、使用方式与成果质量，做出有依据的选型。",
+      "sections": [
+        {
+          "heading": "先定义任务与使用入口",
+          "paragraphs": [
+            "写清你希望产出什么、能提供哪些输入，以及由谁检查结果。起草邮件、修复代码仓库问题和从文档提取数字，需要不同的评估方式。把实际用户使用的语言、格式和流程也写进去，不要只根据一份综合榜单选模型。",
+            "区分模型家族与使用它的产品。聊天应用、托管 API 和本地开放权重检查点，可能提供不同的版本、工具、设置和数据政策。记录计划使用的具体服务和模型标识；不要假设某款应用中的功能在每个 API 中都存在。先确认任务能在目标环境中完成，再比较输出好坏。"
+          ],
+          "bullets": [
+            "定义能够独立验收的成果。",
+            "确认需要的输入、输出、集成和使用权限。"
+          ]
+        },
+        {
+          "heading": "建立一组小而真实的测试任务",
+          "paragraphs": [
+            "收集几项有代表性的工作，为每项写下验收清单。除了常见场景，也加入一两个容易暴露上下文不足或假设错误的案例。使用示例资料或已获准处理的数据，让不同候选模型看到一致的指令和材料，减少输入差异带来的误判。",
+            "检查成果本身：事实是否正确、代码是否可用、格式能否交付、引用是否支持结论，以及还需要多少人工修改。重要成果请交由另一位人员复核。保存成功案例与失败案例，避免一个漂亮的展示掩盖重复出现的问题。"
+          ],
+          "bullets": [
+            "编程任务应在合适环境中运行相关检查。",
+            "研究任务要打开引用来源，确认它支持对应结论。",
+            "结构化输出应验证依赖的格式、字段和值。"
+          ]
+        },
+        {
+          "heading": "核对部署与长期使用的取舍",
+          "paragraphs": [
+            "查看具体版本的访问控制、数据处理、地区可用性和使用条款。“开放权重”说明了一种分发方式，并不代表只有一种许可证，也不会免除硬件配置和维护工作。托管入口同样不保证不同产品拥有相同的工具、额度或功能。",
+            "用自己的材料测量响应时间和用量；估算长期成本前，阅读当前官方价格与型号说明。把重试、人工检查和接入维护的成本一并考虑。如果结果需要大量返工，即使第一眼很出色，也未必适合你的工作流程。"
+          ],
+          "bullets": [
+            "部署前检查所选检查点的实际许可证。",
+            "接入私有系统前，确认工具能读取或修改哪些内容。"
+          ]
+        },
+        {
+          "heading": "记录选择依据，并在变化后复查",
+          "paragraphs": [
+            "保存一份简短决策记录，包含具体型号、服务商、日期、设置、测试任务、人工审阅结果和限制。说明它为什么适合当前任务，以及什么情况下需要人工接手。这比给出适合所有工作的“最佳模型”结论更能帮助团队重复使用经验。",
+            "使用 MonkeyAI 时，请与工作空间管理员确认可用的模型服务和资源权限。先在配置好的环境中完成一个小任务，确认整个流程可以工作。模型、连接器、政策或工作内容变化后，再次检查原来的选择；本站模型介绍与对比表可以作为复查的起点。"
+          ],
+          "bullets": [
+            "为无法通过验收的任务准备备选流程。",
+            "根据新证据更新选型，不要无记录地切换版本。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Cómo elegir un modelo de IA para tu flujo de trabajo",
+      "description": "Compara familias, formas de acceso y calidad con una evaluación pequeña que puedas repetir y revisar.",
+      "sections": [
+        {
+          "heading": "Define la tarea y la vía de acceso",
+          "paragraphs": [
+            "Escribe qué necesitas producir, qué materiales puedes aportar y quién revisará la entrega. Redactar un correo, depurar un repositorio y extraer cifras de un documento requieren evaluaciones diferentes. Incluye los idiomas y los formatos que utilizan tus usuarios, en lugar de elegir solo por una clasificación general.",
+            "Distingue la familia del producto que permite acceder a ella. Una aplicación de chat, una API alojada y un modelo de pesos abiertos pueden ofrecer versiones, herramientas, opciones y políticas diferentes. Registra el servicio y el identificador exactos. Una función disponible en una aplicación no está necesariamente incluida en todas las API."
+          ],
+          "bullets": [
+            "Define un resultado que puedas comprobar de forma independiente.",
+            "Confirma entradas, salidas, integraciones y acceso antes de comparar la calidad."
+          ]
+        },
+        {
+          "heading": "Prepara una evaluación pequeña y representativa",
+          "paragraphs": [
+            "Reúne algunas tareas reales y escribe criterios de aceptación para cada una. Incluye casos habituales y uno o dos difíciles que revelen falta de contexto o supuestos incorrectos. Utiliza datos de ejemplo o autorizados y conserva las mismas instrucciones y materiales para todos los candidatos.",
+            "Revisa la entrega: exactitud, código funcional, formato útil, fuentes comprobables cuando corresponda y trabajo necesario para terminar. Pide una segunda revisión para resultados importantes. Guarda los fallos junto con los aciertos para que una demostración atractiva no oculte problemas recurrentes."
+          ],
+          "bullets": [
+            "En programación, ejecuta las comprobaciones pertinentes en un entorno adecuado.",
+            "En investigación, abre las fuentes y verifica que respalden la afirmación.",
+            "En salidas estructuradas, valida el formato y los valores que utiliza tu proceso."
+          ]
+        },
+        {
+          "heading": "Comprueba las condiciones operativas",
+          "paragraphs": [
+            "Consulta el acceso, el tratamiento de datos, la disponibilidad regional y las condiciones de la versión concreta. Los pesos abiertos describen una forma de distribución: no garantizan una licencia única ni eliminan el trabajo de hardware y mantenimiento. El acceso alojado tampoco asegura herramientas, cuotas o funciones idénticas entre productos.",
+            "Mide tiempo de respuesta y consumo con tus propios materiales. Revisa los precios y la documentación actuales antes de estimar el coste. Incluye reintentos, revisión humana e integración. Una respuesta que exige muchas correcciones puede resultar menos útil aunque su primera impresión sea buena."
+          ],
+          "bullets": [
+            "Comprueba la licencia del modelo exacto antes de desplegarlo.",
+            "Confirma qué puede consultar o cambiar una integración antes de conectar sistemas privados."
+          ]
+        },
+        {
+          "heading": "Documenta la decisión y revísala",
+          "paragraphs": [
+            "Conserva el identificador, proveedor, fecha, configuración, casos, resultados revisados y límites. Explica por qué la elección funciona para esa tarea y cuándo debe intervenir una persona. Esta referencia ayuda más al equipo que una etiqueta de ‘mejor modelo’ para todo.",
+            "Si utilizas MonkeyAI, consulta con el administrador los servicios y permisos disponibles. Prueba una tarea pequeña en el entorno configurado y verifica el proceso completo. Revisa la elección cuando cambien el modelo, los conectores, las políticas o el trabajo. Los perfiles de familias y la tabla comparativa sirven como punto de partida para esa revisión."
+          ],
+          "bullets": [
+            "Prepara una alternativa para las tareas que no superen los criterios.",
+            "Actualiza la decisión a partir de evidencia y registra los cambios de versión."
+          ]
+        }
+      ]
+    }
+  }
+]

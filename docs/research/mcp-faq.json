@@ -1,0 +1,43 @@
+{
+  "reviewed": "2026-10-28",
+  "sources": [
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
+      "scope": "Client connector lists, personal remote/local setup, naming, test versus save, credential and task use."
+    },
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
+      "scope": "Team connector configuration, authorization modes, OAuth/HTTP Header, tool and resource grants."
+    },
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "scope": "Model, expert, skill and connector troubleshooting."
+    },
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a15361-2b73-7c79-8e64-a533a648648e",
+      "scope": "Team switching, logout versus removal, resource permissions and credits."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
+      "scope": "Current backend source: destination IP filtering, allowlist and redirects; behavior may vary by deployed release."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/remote.go",
+      "scope": "Current backend source: MCP HTTP exchanges and response handling; no claim of universal legacy SSE compatibility."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/credential.go",
+      "scope": "Current backend source: HTTP header validation and protocol-reserved header names."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/tools.go",
+      "scope": "Pinned backend source: centralized connection tests are run by administrators; independent-authorization tests are run by credential owners, and discovered independent tools are enabled by default in this revision."
+    }
+  ],
+  "uncertainties": [
+    "Feature availability, UI wording, callback URL, transport compatibility, configuration and allowed network ranges depend on the deployed release and service provider.",
+    "No universal MCP endpoint, credential format or OAuth callback URL is provided; obtain these from the service and actual instance.",
+    "The pinned upstream commit does not establish that a particular deployed server uses the same revision."
+  ],
+  "upstreamCommit": "0d525d063d54efe2788c2b7e4c29980d0b82c17e"
+}

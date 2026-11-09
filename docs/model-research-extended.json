@@ -1,0 +1,71 @@
+{
+  "reviewed": "2026-10-27",
+  "researchScope": "Official documentation, official repositories and publisher-controlled model cards for six model families. Not a hands-on benchmark or an availability test in user accounts.",
+  "egressRegion": "unknown",
+  "editorialDecisions": [
+    "Use durable family names rather than unverified latest-model claims.",
+    "Separate consumer applications, hosted developer APIs and downloadable checkpoints.",
+    "Describe candidate tasks and evaluation boundaries without inventing benchmark rankings, current prices, context sizes or regional availability.",
+    "Access labels describe the documented family paths, not a promise that every release supports every route.",
+    "Related tools are discovery links, not a guarantee that any particular runner or model hub supports the current checkpoint."
+  ],
+  "families": [
+    {
+      "slug": "qwen",
+      "sources": [
+        {"url": "https://qwen.readthedocs.io/en/latest/", "observed": "Qwen Team / Alibaba model family, multilingual and multimodal scope; local-runner and deployment documentation. The page discusses Qwen3 release branches."},
+        {"url": "https://github.com/QwenLM/Qwen3", "observed": "Official Qwen3 repository documents open-weight releases and their licensing. Its statements are limited to that repository and should not be generalized to all hosted Qwen products."},
+        {"url": "https://www.alibabacloud.com/help/en/model-studio/models", "observed": "Current official hosted catalog, last-updated label Oct 27 2026, includes Qwen text and multimodal services. Hosted catalog is distinct from downloadable releases."}
+      ],
+      "limitations": ["Qwen Chat landing page is largely client rendered in the research tool.", "Specific input support, tool behavior, local hardware fit and API entitlements were not tested.", "No latest-version, price, benchmark or family-wide license claims were placed in the profile."]
+    },
+    {
+      "slug": "llama",
+      "sources": [
+        {"url": "https://github.com/meta-llama/llama-models", "observed": "Official Meta model repository lists downloadable versions, release-specific licenses and acceptable-use policies; describes download approval, inference formats and hardware requirements."},
+        {"url": "https://github.com/meta-llama/llama-cookbook", "observed": "Official cookbook covers inference, fine-tuning, retrieval-augmented generation and service-provider examples."},
+        {"url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct", "observed": "Publisher-controlled model card shows a particular image-text-to-text release with a Llama-specific license, not a blanket Apache-style license."}
+      ],
+      "limitations": ["www.llama.com/docs/overview redirected to developer.meta.com and was inaccessible in the text research tool; official GitHub/model-card evidence was used instead.", "No claim that a particular model runs on a consumer laptop or that all releases support vision.", "Provider APIs and the Meta consumer assistant were not tested or equated with Llama weights."]
+    },
+    {
+      "slug": "mistral",
+      "sources": [
+        {"url": "https://docs.mistral.ai/models", "observed": "Current model catalog distinguishes commercial and open-weight offerings and text/multimodal/OCR/audio model types."},
+        {"url": "https://docs.mistral.ai/studio/conversations/chat-completion", "observed": "Official chat-completions documentation describes classification, extraction, summarization, question answering and code generation; related capabilities are model dependent."},
+        {"url": "https://docs.mistral.ai/inference/deployment/local-deployment", "observed": "Current self-deployment documentation identifies supported serving-engine paths and own-infrastructure deployment."}
+      ],
+      "limitations": ["The historical mistralai/mistral-inference repository is archived as of Jun 16 2026; it was not recommended as the current installation route.", "The model catalog contains multiple license types; the profile does not assign one license to the whole family.", "No untested latency, quality ranking, pricing or feature parity between Le Chat and APIs is asserted."]
+    },
+    {
+      "slug": "grok",
+      "sources": [
+        {"url": "https://docs.x.ai/developers/models", "observed": "Official current model documentation describes hosted model options, input and feature differences, and states that models have no real-time event access without search tools."},
+        {"url": "https://docs.x.ai/developers/tools/web-search", "observed": "Search is an explicit developer tool capability rather than an intrinsic guarantee that model knowledge is current."},
+        {"url": "https://github.com/xai-org/grok-1", "observed": "Historical Grok-1 open-weight release; its license expressly applies to that release, not the whole current Grok family."}
+      ],
+      "limitations": ["The current developer route is labeled hosted; the old open release is distinguished explicitly.", "Grok app subscriptions and API entitlements were not tested or treated as equivalent.", "No latest-model rank or real-time accuracy claim is made; search outputs need source review."]
+    },
+    {
+      "slug": "kimi",
+      "sources": [
+        {"url": "https://platform.kimi.ai/docs/get-your-api-key", "observed": "The former platform.moonshot.ai quickstart redirects here. Documents current model choice and integration formats; distinguishes the developer platform from the consumer app."},
+        {"url": "https://platform.kimi.ai/docs/guide/use-kimi-api-to-complete-tool-calls", "observed": "Official tool-calling workflow documentation, with application-owned tool execution."},
+        {"url": "https://github.com/MoonshotAI/Kimi-K2", "observed": "Official selected downloadable release, with its own inference and tool-parsing requirements."},
+        {"url": "https://github.com/MoonshotAI/Kimi-K2/blob/main/LICENSE", "observed": "The Kimi K2 release uses Modified MIT terms; not represented as a generic unchanged MIT license."}
+      ],
+      "limitations": ["Current hosted model capabilities are not automatically assigned to the Kimi K2 downloadable checkpoint.", "Application interface features and API access are separate.", "No tested hardware compatibility, costs or superiority claim is made."]
+    },
+    {
+      "slug": "glm",
+      "sources": [
+        {"url": "https://docs.z.ai/guides/overview/quick-start", "observed": "Official developer quickstart lists model selection and HTTP/SDK integration. Standard API access and coding-plan endpoints have distinct setup instructions."},
+        {"url": "https://docs.z.ai/guides/llm/glm-4.5", "observed": "A documented release with text inputs, reasoning modes, structured outputs and function calling; not proof that all GLM releases have identical modalities or controls."},
+        {"url": "https://github.com/zai-org/GLM-4.5", "observed": "Official selected downloadable release repository. README license wording and the current actual license file were not consistent in the fetched material."},
+        {"url": "https://github.com/zai-org/GLM-4.5/blob/main/LICENSE", "observed": "Fetched current file begins Apache License Version 2.0 while README described MIT; profile therefore does not assign a blanket license and directs readers to the actual artifact terms."}
+      ],
+      "limitations": ["The GLM license discrepancy is recorded rather than resolved by assumption.", "Hosted service and downloaded releases can differ in behavior and licensing.", "No latest-model, pricing, benchmark or endpoint entitlement promise is made."]
+    }
+  ],
+  "validation": {"families": 6, "languages": ["en", "zh", "es"], "localizedProfiles": 18, "englishOverviewWords": {"qwen": 165, "llama": 167, "mistral": 170, "grok": 173, "kimi": 171, "glm": 174}, "jsonValid": true, "requiredFieldsComplete": true}
+}

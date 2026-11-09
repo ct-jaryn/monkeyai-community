@@ -1,0 +1,809 @@
+[
+  {
+    "slug": "getting-started",
+    "category": "Start here",
+    "readMinutes": 5,
+    "sourceUrls": [
+      "https://github.com/chaitin/MonkeyCode",
+      "https://work.baizhi.cloud/",
+      "https://work.docs.baizhi.cloud/"
+    ],
+    "en": {
+      "title": "Your first task with MonkeyAI",
+      "description": "Connect to a workspace, give AI a clear brief, and review your first useful result.",
+      "sections": [
+        {
+          "heading": "Understand the workspace",
+          "paragraphs": [
+            "MonkeyAI, called 百智办公 in Chinese, is an open-source AI workspace for teams maintained in the chaitin/MonkeyCode repository. It brings office work, coding, and creative tasks into a shared environment. Instead of only asking a question, you can provide materials, describe an outcome, and continue refining the result in the same conversation.",
+            "This is an independent community guide. Product behavior, available models, and access depend on the server and resources your team configures. For the authoritative product instructions, follow the upstream documentation linked below."
+          ],
+          "bullets": [
+            "Choose a small first task with a result you can check.",
+            "Use sample files rather than sensitive business data while learning."
+          ]
+        },
+        {
+          "heading": "Choose how to connect",
+          "paragraphs": [
+            "The upstream project provides a browser demo and desktop download links for Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64. Open the official downloads section to choose the current build for your device. Android, iOS, Linux ARM64, and HarmonyOS desktop are listed as coming soon in the reviewed upstream information.",
+            "To try the desktop client, the upstream README instructs users to enter https://demo.work.baizhi.cloud/ as the server address and sign in using an email verification code. For an existing team, use the server address and access method supplied by your administrator."
+          ],
+          "bullets": [
+            "Get installers through upstream links.",
+            "Check that the server address belongs to the workspace you intend to use."
+          ]
+        },
+        {
+          "heading": "Write an outcome-focused brief",
+          "paragraphs": [
+            "Start by explaining your goal, the materials to use, the intended audience, and the expected deliverable. A practical first task is turning a short set of notes into a document outline. For a spreadsheet task, describe the columns, calculations, and questions you want answered. For code, identify the project and the behavior you expect.",
+            "A useful example is: ‘Using these event notes, draft a five-slide presentation for our weekly team meeting. Include goals, progress, risks, and next steps. Mark missing information instead of inventing numbers.’ Add constraints such as language, tone, or file format when they matter."
+          ],
+          "bullets": [
+            "State what a successful result must contain.",
+            "Ask the assistant to identify assumptions and missing inputs."
+          ]
+        },
+        {
+          "heading": "Review, revise, and keep the result",
+          "paragraphs": [
+            "Open the generated output and check its facts, calculations, links, and formatting. AI output still needs human review, especially for technical, financial, or other consequential decisions. Follow up in the same conversation with concrete edits: which section to shorten, which figure to correct, or which requirement is still missing.",
+            "Before using confidential materials, ask your administrator which models and tools will process the task. Self-hosting stores team data on your server, but configured external model and tool services may still receive relevant content. Keep a checked example brief so your next task starts with a clearer standard."
+          ],
+          "bullets": [
+            "Verify the deliverable against your original brief.",
+            "Share reusable instructions through the resources available to your team."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "用 MonkeyAI 完成第一个任务",
+      "description": "连接工作空间，写清任务要求，并检查你的第一份 AI 成果。",
+      "sections": [
+        {
+          "heading": "先了解工作空间",
+          "paragraphs": [
+            "MonkeyAI 的中文产品名是百智办公，上游由 chaitin/MonkeyCode 仓库维护，是面向团队的开源 AI 办公工作台。它把办公、编程和创作任务放在同一个协作环境中。你可以提供资料、说明希望得到的成果，并在同一会话里继续修改。",
+            "本篇由独立爱好者社区编写。具体界面、可用模型和访问方式取决于团队服务器与管理员配置。权威产品说明请查阅文末的上游文档；本指南提供经过整理的入门路径，不代表官方完整文档的逐字翻译。"
+          ],
+          "bullets": [
+            "第一个任务选小一些，确保你能判断结果是否正确。",
+            "学习阶段优先使用示例文件，先熟悉流程再处理业务资料。"
+          ]
+        },
+        {
+          "heading": "选择连接方式",
+          "paragraphs": [
+            "上游提供浏览器演示入口，以及 Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64 的客户端下载链接。请从官方客户端下载区域选择当前版本。在本次核对的上游信息中，Android、iOS、Linux ARM64 和鸿蒙桌面仍标为敬请期待，不应理解为已经发布。",
+            "根据上游 README，体验桌面客户端时可填写 https://demo.work.baizhi.cloud/ 作为演示服务器地址，再通过邮箱验证码登录。如果加入现有团队，请向管理员获取服务器地址和团队采用的登录方式，不要把演示空间当成自己的正式团队环境。"
+          ],
+          "bullets": [
+            "从上游页面进入下载安装链接。",
+            "登录前核对服务器地址，确认连接的是预期工作空间。"
+          ]
+        },
+        {
+          "heading": "把需求写成可检查的交付要求",
+          "paragraphs": [
+            "先说明目标、使用哪些材料、成果给谁看，以及希望交付什么。可以从把一页会议笔记整理成文档大纲开始；处理表格时，说清字段、计算规则和希望回答的问题；编程任务则说明项目背景、预期行为和约束。清楚的要求通常比一句笼统的“帮我做一下”更容易得到可用结果。",
+            "示例：“根据这些活动笔记，为周会起草五页汇报 PPT，包含目标、进度、风险和下一步。缺少的数据请标注，不要编造数字。” 如果对语言、篇幅、风格或文件格式有要求，也应一并写明。可以要求 AI 先列出假设和待确认的问题，再开展后续工作。"
+          ],
+          "bullets": [
+            "明确一份合格成果必须包含什么。",
+            "让助手标记缺失输入和未经证实的假设。"
+          ]
+        },
+        {
+          "heading": "检查、修改并保存成果",
+          "paragraphs": [
+            "打开生成的成果，逐项检查事实、计算、链接和排版。涉及技术、财务或其他重要判断时，需要人工核对。继续在同一会话中提出具体修改，例如缩短某一段、修正某个数字、补充遗漏的要求。把成果与最初的任务说明对照，可以更容易发现偏差。",
+            "使用机密资料前，应向管理员确认任务会调用哪些模型和工具。私有化部署让团队数据保存在自己的服务器，但配置的外部模型或工具仍可能接收相关内容。完成一个小任务后，可以保存已经验证的任务说明，让下一次请求更清楚，也便于团队复用经验。"
+          ],
+          "bullets": [
+            "交付前按原始要求逐条验收。",
+            "通过团队可用的资源共享方式沉淀经过检查的指令。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Tu primera tarea con MonkeyAI",
+      "description": "Conecta un espacio de trabajo, explica el resultado que necesitas y revisa tu primera entrega.",
+      "sections": [
+        {
+          "heading": "Conoce el espacio de trabajo",
+          "paragraphs": [
+            "MonkeyAI, llamado 百智办公 en chino, es un espacio de trabajo de IA de código abierto para equipos. Su repositorio de referencia es chaitin/MonkeyCode. Reúne tareas de oficina, programación y creación: puedes aportar materiales, describir el resultado deseado y seguir ajustándolo dentro de la misma conversación.",
+            "Esta es una guía de una comunidad independiente. La interfaz, los modelos disponibles y el acceso dependen del servidor y de los recursos que configure cada equipo. Consulta la documentación del proyecto para las instrucciones oficiales. Empieza con una tarea pequeña cuyo resultado puedas comprobar."
+          ],
+          "bullets": [
+            "Utiliza archivos de ejemplo mientras aprendes.",
+            "Define una entrega concreta antes de empezar."
+          ]
+        },
+        {
+          "heading": "Elige cómo conectarte",
+          "paragraphs": [
+            "El proyecto ofrece una demostración en el navegador y enlaces de descarga para Windows x64, macOS Apple Silicon, macOS Intel y Linux x64. Visita la sección oficial de descargas para obtener la versión actual de tu plataforma. Android, iOS, Linux ARM64 y el escritorio de HarmonyOS figuran como próximos lanzamientos en la información revisada.",
+            "Para probar el cliente de escritorio, el README indica introducir https://demo.work.baizhi.cloud/ como dirección del servidor y acceder mediante un código de verificación enviado por correo electrónico. Si te incorporas a un equipo existente, utiliza la dirección y el método de acceso proporcionados por su administrador."
+          ],
+          "bullets": [
+            "Descarga los instaladores mediante los enlaces del proyecto.",
+            "Comprueba a qué servidor te conectas antes de iniciar sesión."
+          ]
+        },
+        {
+          "heading": "Describe una entrega verificable",
+          "paragraphs": [
+            "Explica el objetivo, los materiales, el público y el formato esperado. Una buena primera tarea consiste en convertir unas notas en un esquema de documento. Para una hoja de cálculo, identifica las columnas y los cálculos necesarios. Para código, explica el proyecto y el comportamiento que debe cambiar.",
+            "Por ejemplo: ‘Con estas notas del evento, prepara un borrador de cinco diapositivas para la reunión semanal. Incluye objetivos, avances, riesgos y próximos pasos. Señala los datos que faltan sin inventar cifras’. Añade restricciones de idioma, extensión o estilo cuando afecten a la calidad de la entrega."
+          ],
+          "bullets": [
+            "Explica qué debe contener un resultado satisfactorio.",
+            "Pide que se indiquen los supuestos y la información que falta."
+          ]
+        },
+        {
+          "heading": "Revisa y mejora el resultado",
+          "paragraphs": [
+            "Abre la entrega y comprueba hechos, cálculos, enlaces y presentación. Los resultados de IA requieren revisión humana, especialmente cuando afectan a decisiones importantes. Continúa en la misma conversación con cambios concretos: acortar una sección, corregir una cifra o completar un requisito que no se haya cumplido.",
+            "Antes de aportar información confidencial, pregunta qué modelos y herramientas procesarán la tarea. El alojamiento propio conserva los datos del equipo en tu servidor, pero los servicios externos configurados pueden recibir contenido relevante. Guarda un ejemplo revisado de tus instrucciones para reutilizarlo en el siguiente trabajo."
+          ],
+          "bullets": [
+            "Contrasta la entrega con el encargo original.",
+            "Comparte instrucciones comprobadas mediante los recursos de tu equipo."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "ai-workflows",
+    "category": "Workflows",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://work.baizhi.cloud/",
+      "https://github.com/chaitin/MonkeyCode"
+    ],
+    "en": {
+      "title": "Build an AI workflow that you can verify",
+      "description": "Turn office, coding, and creative tasks into a repeatable process with clear review points.",
+      "sections": [
+        {
+          "heading": "Start with the outcome and the evidence",
+          "paragraphs": [
+            "A useful AI workflow begins with a task you already understand. Name the deliverable, gather the source materials, and decide how you will verify the result. MonkeyAI supports office, coding, and design scenarios, but a successful task still depends on available models, tools, and clear instructions.",
+            "Create a short brief with four parts: goal, inputs, constraints, and acceptance criteria. For example, a weekly report may need a fixed date range, specified source files, a particular audience, and a list of unanswered questions. Ask the assistant to distinguish source facts from suggestions, rather than filling gaps with confident guesses."
+          ],
+          "bullets": [
+            "Keep the input files relevant to the task.",
+            "Define the checks before requesting a polished final output."
+          ]
+        },
+        {
+          "heading": "Use stages for office work",
+          "paragraphs": [
+            "For presentations and documents, first request an outline based on the supplied materials. Check the narrative, evidence, and intended audience before asking for a complete draft. Then review the actual deliverable, including formatting and missing information. The upstream product describes support for slides, documents, spreadsheets, and file organization.",
+            "For spreadsheet work, ask for the method as well as the answer: which fields were used, how missing values were handled, and which assumptions affect the calculation. Compare key totals with the source. A clean chart or confident explanation does not establish that the underlying data is correct."
+          ],
+          "bullets": [
+            "Review the outline before expanding it.",
+            "Check numbers against the original files."
+          ]
+        },
+        {
+          "heading": "Give coding and design their own checks",
+          "paragraphs": [
+            "For a coding task, describe the existing behavior, expected behavior, and how to reproduce the problem. Provide relevant project context and ask for a bounded change. Review the diff and run checks appropriate to the affected behavior before using the result. Upstream lists architecture design, code generation, and bug fixes as supported scenarios.",
+            "For creative work, define the audience, message, dimensions, language, and required assets. Request a concept or structure before the final version when the direction is uncertain. Upstream also describes posters, graphic and interface design, and video-related creation. Availability depends on your configured resources; review the actual output for accuracy and suitability."
+          ],
+          "bullets": [
+            "For code, verify behavior rather than trusting a completion message.",
+            "For design, inspect legibility and the final export dimensions."
+          ]
+        },
+        {
+          "heading": "Make a checked workflow reusable",
+          "paragraphs": [
+            "Continue revisions in the same conversation so that corrections remain connected to the original goal. Once a workflow works, save a concise version of the brief and its review checklist. Team resources can include models, knowledge bases, skills, experts, MCP connectors, and rules; administrators manage access and usage.",
+            "Treat a reusable workflow as a starting point rather than a guarantee. Update its instructions when inputs, tools, or requirements change. Keep confidential inputs within the boundaries set by your team, and confirm external model and tool data flows before applying the workflow to sensitive work."
+          ],
+          "bullets": [
+            "Record what must be checked by a person.",
+            "Improve the brief when a repeated error reveals an unclear requirement."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "建立可以验证的 AI 工作流",
+      "description": "为办公、编程和创作任务设置清晰步骤与检查点，让经验可以复用。",
+      "sections": [
+        {
+          "heading": "从成果与依据开始",
+          "paragraphs": [
+            "有效的 AI 工作流应从你已经了解的真实任务开始。先确定交付物，收集资料，再说明如何判断结果合格。MonkeyAI 支持办公、编程和设计场景，但实际成果仍取决于配置的模型、工具和任务说明。不要把产品支持某类任务理解为每次都能自动得到正确结果。",
+            "可以把需求分成四部分：目标、输入、约束和验收标准。例如周报要说明统计时间、来源文件、阅读对象，以及需要保留哪些待确认事项。要求 AI 把资料中的事实与自己的建议分开，缺少依据时明确标注，比补出看似完整的数字更可靠。"
+          ],
+          "bullets": [
+            "只提供与本次任务相关的输入。",
+            "在追求最终排版前，先确定内容检查标准。"
+          ]
+        },
+        {
+          "heading": "给办公任务分阶段",
+          "paragraphs": [
+            "制作演示文稿或文档时，先根据资料生成大纲，检查叙述顺序、证据和受众是否合适，再扩展成完整草稿。最后打开实际交付文件，核对排版与遗漏信息。上游介绍的办公能力包括 PPT、文档、表格处理和文件整理，适合围绕明确成果组织任务。",
+            "处理表格时，除了要答案，还要询问处理方法：使用了哪些字段、如何处理空值、计算中有哪些假设。对重要合计、比例或时间范围，应与原始资料交叉核对。图表美观、说明流畅，并不能证明底层数据与计算方法正确。"
+          ],
+          "bullets": [
+            "先检查大纲，再展开全文。",
+            "用原始文件复核关键数字。"
+          ]
+        },
+        {
+          "heading": "分别验收代码与设计",
+          "paragraphs": [
+            "编程任务要说清当前行为、预期行为和复现方法，提供必要项目背景，并限定修改范围。收到代码后检查差异，并运行适合该变化的验证，再决定是否使用。上游列出的编程场景包括架构设计、代码编写和问题修复，具体任务仍需要开发者判断。",
+            "创作任务应说明受众、主题、尺寸、语言和必须使用的素材。方向不确定时，可以先看概念或结构，再制作最终版本。上游也介绍了海报、平面设计、交互设计和视频相关创作；实际可用性取决于资源配置，应检查最终输出的内容、清晰度和适用性。"
+          ],
+          "bullets": [
+            "代码验收看实际行为，不只看完成说明。",
+            "设计验收检查文字可读性与导出尺寸。"
+          ]
+        },
+        {
+          "heading": "沉淀经过检查的流程",
+          "paragraphs": [
+            "在同一会话中继续修改，使补充要求与原始目标保持关联。流程跑通后，保存简明的任务说明与检查清单。团队可以共享模型、知识库、技能、专家、MCP 连接器和规则，具体资源访问及用量由管理员管理。资源共享适合沉淀经验，但不能代替每次任务的验收。",
+            "可复用流程是一份起点，不是正确性的保证。资料类型、模型、工具或业务要求发生变化时，应同步更新说明。处理敏感材料前，先确认团队规定，以及外部模型和工具的数据流向。重复出现的错误往往提示任务要求还不够明确，可以据此改进流程。"
+          ],
+          "bullets": [
+            "记录哪些步骤必须由人检查。",
+            "发现重复错误时，修改造成歧义的任务说明。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Crea un flujo de IA que puedas comprobar",
+      "description": "Organiza las tareas de oficina, programación y diseño con etapas y puntos de revisión claros.",
+      "sections": [
+        {
+          "heading": "Empieza por la entrega y sus fuentes",
+          "paragraphs": [
+            "Un flujo de trabajo útil comienza con una tarea que entiendes. Define la entrega, reúne los materiales y decide cómo comprobarás el resultado. MonkeyAI contempla tareas de oficina, programación y diseño; su ejecución depende de los modelos, las herramientas y las instrucciones disponibles en tu equipo.",
+            "Prepara un encargo con cuatro elementos: objetivo, entradas, restricciones y criterios de aceptación. Un informe semanal puede necesitar un periodo concreto, archivos específicos y una lista de asuntos pendientes. Pide que se distingan los hechos documentados de las sugerencias y que no se completen los vacíos con datos inventados."
+          ],
+          "bullets": [
+            "Aporta solamente archivos pertinentes.",
+            "Decide las comprobaciones antes de solicitar la versión definitiva."
+          ]
+        },
+        {
+          "heading": "Divide el trabajo de oficina en etapas",
+          "paragraphs": [
+            "Para documentos y presentaciones, solicita primero un esquema basado en los materiales. Revisa el orden, las fuentes y el público antes de ampliar el borrador. Después abre la entrega real y comprueba el formato y los detalles que faltan. El proyecto describe tareas con presentaciones, documentos, hojas de cálculo y organización de archivos.",
+            "En una hoja de cálculo, pide también el método: campos utilizados, tratamiento de valores vacíos y supuestos que afectan a los cálculos. Contrasta los totales principales con los archivos originales. Un gráfico cuidado o una explicación convincente no demuestran por sí solos que los datos sean correctos."
+          ],
+          "bullets": [
+            "Revisa el esquema antes de ampliar el contenido.",
+            "Comprueba las cifras con las fuentes originales."
+          ]
+        },
+        {
+          "heading": "Comprueba código y diseño por separado",
+          "paragraphs": [
+            "Para programar, explica el comportamiento actual, el esperado y los pasos para reproducir el problema. Aporta contexto del proyecto y limita el alcance del cambio. Revisa las diferencias y ejecuta comprobaciones adecuadas antes de utilizarlo. El proyecto incluye arquitectura, generación de código y corrección de errores entre sus escenarios.",
+            "Para diseño, concreta el público, el mensaje, las dimensiones, el idioma y los materiales obligatorios. Si la dirección no está clara, pide primero un concepto. El proyecto también describe carteles, diseño gráfico, interfaces y creación relacionada con vídeo. Comprueba la entrega final y las capacidades realmente configuradas en tu espacio."
+          ],
+          "bullets": [
+            "Verifica el comportamiento del código.",
+            "Inspecciona la legibilidad y las dimensiones de la exportación."
+          ]
+        },
+        {
+          "heading": "Reutiliza lo que ya has revisado",
+          "paragraphs": [
+            "Continúa las revisiones en la misma conversación para mantener las correcciones ligadas al objetivo. Cuando un proceso funcione, guarda sus instrucciones y sus comprobaciones. Los recursos compartidos pueden incluir modelos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas, con permisos gestionados por el administrador.",
+            "Un flujo reutilizable sigue necesitando revisión. Actualízalo cuando cambien las entradas, los modelos o los requisitos. Antes de aplicarlo a información confidencial, confirma las normas del equipo y qué datos llegarán a servicios externos. Un error repetido puede indicar que falta una condición en las instrucciones."
+          ],
+          "bullets": [
+            "Anota qué requiere revisión humana.",
+            "Mejora las instrucciones cuando detectes ambigüedades."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "models-and-mcp",
+    "category": "Connect & extend",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://github.com/chaitin/MonkeyCode",
+      "https://work.docs.baizhi.cloud/",
+      "https://github.com/chaitin/MonkeyCode/blob/main/monkeyai/README.md"
+    ],
+    "en": {
+      "title": "Understand models, MCP, and shared resources",
+      "description": "Learn what each resource does before connecting AI services and business tools to your team.",
+      "sections": [
+        {
+          "heading": "Models and tools do different jobs",
+          "paragraphs": [
+            "A model interprets your instructions and generates responses. A connected tool gives the assistant a way to work with another capability or system. MonkeyAI lets teams configure their own model services and connect business tools through MCP connectors. Which options you see depends on the resources your administrator has made available.",
+            "Choose a model according to the task and the services your team has approved. Do not assume every connected model supports the same inputs or outputs. For a first trial, use a simple request and sample data, then inspect the result before using that setup in a larger workflow."
+          ],
+          "bullets": [
+            "Ask which model service processes your request.",
+            "Confirm the required capability with a small task."
+          ]
+        },
+        {
+          "heading": "Treat an MCP connection as access to a tool",
+          "paragraphs": [
+            "MCP means Model Context Protocol. In MonkeyAI, MCP connectors are one way to bring tools into a team's workflow. Connecting a service does not by itself explain what actions it can perform. Read the connector's instructions and identify what it can read or change before using it.",
+            "Start with a read-only task when possible, such as looking up an item you already know. Compare the returned information with the source system. If a connector can change records or publish content, establish the intended scope and review process before asking the assistant to perform those actions."
+          ],
+          "bullets": [
+            "Connect only services you need for the task.",
+            "Check permissions and the identity used by the connection."
+          ]
+        },
+        {
+          "heading": "Organize resources for a team",
+          "paragraphs": [
+            "The upstream project describes shared models, knowledge bases, skills, experts, MCP connectors, and rules. These resources help a team reuse context and instructions instead of rebuilding every task from scratch. Availability and configuration details belong to your server's documentation and administrator settings.",
+            "Keep resource descriptions clear: what the resource is for, who maintains it, what inputs it expects, and what must be reviewed. Give a reusable workflow a specific name rather than an overly broad promise. Administrators can manage resource access, audit usage, view statistics, and handle resource usage and billing."
+          ],
+          "bullets": [
+            "Make ownership and intended use easy to understand.",
+            "Review shared instructions when the underlying service changes."
+          ]
+        },
+        {
+          "heading": "Check data flow and troubleshoot methodically",
+          "paragraphs": [
+            "Self-hosting does not mean every AI operation stays on your own server. The upstream FAQ explains that relevant content can be sent to the external model or tool services you configure. Before connecting private data, map the service, the content it receives, and the access allowed by your organization.",
+            "If a request fails, identify whether the problem involves the model, connector, permissions, or input. Reproduce it with a minimal non-sensitive example and record the error and the relevant configuration without secrets. Use the official help documentation for current setup details; this community guide does not invent interface fields or provider compatibility."
+          ],
+          "bullets": [
+            "Do not put API keys or tokens into public issue reports.",
+            "Ask your administrator to check access and service configuration."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "理解模型、MCP 与团队共享资源",
+      "description": "先弄清各类资源的作用，再把模型服务与业务工具接入团队工作流。",
+      "sections": [
+        {
+          "heading": "模型与工具承担不同工作",
+          "paragraphs": [
+            "模型负责理解任务说明并生成响应；连接的工具让助手能够使用其他能力或业务系统。MonkeyAI 允许团队配置自己的模型服务，并通过 MCP 连接器接入业务工具。你实际看到的选项，取决于管理员已经提供的资源以及你的访问权限。",
+            "选择模型时，应结合任务需要和团队已经批准的服务。不要默认所有模型都支持相同的输入、输出与工具能力。首次连接后，先用简单请求和示例数据做小规模验证，检查真实成果，再把这个配置用于更复杂的流程。具体配置字段应以当前官方文档和部署版本为准。"
+          ],
+          "bullets": [
+            "先确认本次请求由哪一个模型服务处理。",
+            "用小任务验证需要的能力是否可用。"
+          ]
+        },
+        {
+          "heading": "把 MCP 连接理解为工具访问",
+          "paragraphs": [
+            "MCP 是 Model Context Protocol，即模型上下文协议。MonkeyAI 通过 MCP 连接器把工具接入团队流程。连接成功本身并不能说明工具能做什么；使用前应阅读连接器说明，了解它能读取什么、能修改什么，以及使用哪个账号或身份访问目标服务。",
+            "条件允许时，先尝试只读任务，例如查询一条你已经知道的记录，再和来源系统核对结果。如果连接器能修改记录或发布内容，应先明确任务范围和审核方式。工具权限、任务要求和人工检查要相互对应，不能把一次连接误认为任意操作都已经获得授权。"
+          ],
+          "bullets": [
+            "只连接本次工作确实需要的服务。",
+            "核对连接权限与它代表的账号身份。"
+          ]
+        },
+        {
+          "heading": "让团队资源便于复用",
+          "paragraphs": [
+            "上游介绍的共享资源包括模型、知识库、技能、专家、MCP 连接器和规则。这些资源帮助团队复用背景和指令，减少每次从零说明任务的成本。具体可用类型和配置方法，应结合服务器版本、管理员设置与官方文档确认。",
+            "共享资源的说明应写清用途、维护者、所需输入和验收要求。给流程起一个具体名称，通常比承诺“解决所有问题”更有帮助。管理员可以控制资源访问，记录使用审计、查看统计，并进行资源用量和计费管理。底层服务变化后，应重新检查依赖它的共享指令。"
+          ],
+          "bullets": [
+            "让使用者一眼看懂资源由谁维护、适合什么任务。",
+            "模型或服务发生变化时，更新相关说明。"
+          ]
+        },
+        {
+          "heading": "核对数据流向，有步骤地排错",
+          "paragraphs": [
+            "私有化部署并不意味着所有 AI 操作都留在自己的服务器。上游常见问题明确说明，使用配置的外部模型和工具时，相关内容仍可能发送到对应服务。接入私有资料前，应梳理服务提供方、发送的内容，以及组织允许的访问范围。",
+            "请求失败时，先区分模型、连接器、权限与输入问题。用不含敏感数据的最小示例复现，记录报错与相关配置，但不要公开凭据。需要最新配置步骤时请查官方帮助文档；本社区指南不会凭空编造界面字段或未经核实的服务商兼容性。"
+          ],
+          "bullets": [
+            "公开问题报告中不要包含 API Key、访问令牌或密码。",
+            "请管理员协助检查访问权限和服务配置。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Modelos, MCP y recursos compartidos",
+      "description": "Comprende cada recurso antes de conectar servicios de IA y herramientas de negocio al equipo.",
+      "sections": [
+        {
+          "heading": "Los modelos y las herramientas cumplen funciones distintas",
+          "paragraphs": [
+            "Un modelo interpreta instrucciones y genera respuestas. Una herramienta conectada permite trabajar con otra capacidad o sistema. MonkeyAI permite configurar servicios de modelos propios del equipo y conectar herramientas mediante conectores MCP. Las opciones visibles dependen de los recursos y permisos que haya preparado el administrador.",
+            "Elige el modelo según la tarea y los servicios aprobados por tu equipo. No presupongas que todos admiten las mismas entradas, salidas o herramientas. Empieza con una petición sencilla y datos de ejemplo; inspecciona el resultado antes de incorporar esa configuración a un proceso más amplio."
+          ],
+          "bullets": [
+            "Identifica qué servicio procesa la solicitud.",
+            "Comprueba la capacidad necesaria con una prueba pequeña."
+          ]
+        },
+        {
+          "heading": "Una conexión MCP da acceso a una herramienta",
+          "paragraphs": [
+            "MCP significa Model Context Protocol. Los conectores MCP permiten incorporar herramientas al flujo del equipo en MonkeyAI. Una conexión activa no explica por sí sola las operaciones disponibles. Lee su documentación y averigua qué información puede consultar o modificar y con qué identidad accede al servicio.",
+            "Cuando sea posible, comienza con una tarea de consulta: busca un elemento conocido y contrasta la respuesta con el sistema original. Si el conector permite modificar registros o publicar contenido, define antes el alcance y el proceso de revisión. Los permisos deben corresponder al trabajo que quieres realizar."
+          ],
+          "bullets": [
+            "Conecta únicamente los servicios necesarios.",
+            "Revisa la identidad y los permisos de cada conexión."
+          ]
+        },
+        {
+          "heading": "Organiza recursos comprensibles para el equipo",
+          "paragraphs": [
+            "El proyecto describe modelos compartidos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas. Sirven para reutilizar contexto e instrucciones. La disponibilidad y los detalles de configuración dependen del servidor y de los ajustes del administrador; consulta su documentación para conocer las opciones concretas.",
+            "Describe para qué sirve cada recurso, quién lo mantiene, qué entradas espera y qué debe comprobarse. Un nombre específico ayuda más que una promesa demasiado amplia. Los administradores pueden controlar el acceso, auditar el uso, consultar estadísticas y gestionar el consumo y la facturación de los recursos."
+          ],
+          "bullets": [
+            "Documenta el responsable y el uso previsto.",
+            "Revisa las instrucciones cuando cambie el servicio conectado."
+          ]
+        },
+        {
+          "heading": "Comprueba los datos y diagnostica por partes",
+          "paragraphs": [
+            "El alojamiento propio no mantiene necesariamente todas las operaciones de IA dentro del servidor. Las preguntas frecuentes del proyecto explican que los modelos y herramientas externos configurados pueden recibir contenido relacionado con la tarea. Identifica el servicio, los datos enviados y el acceso permitido antes de conectar información privada.",
+            "Si algo falla, distingue entre modelo, conector, permisos y entrada. Reproduce el problema con un ejemplo mínimo sin datos confidenciales. Registra el error y la configuración relevante sin incluir secretos. Consulta la ayuda oficial para los campos y compatibilidades actuales; esta guía no presupone opciones de interfaz."
+          ],
+          "bullets": [
+            "No publiques claves de API, contraseñas ni tokens.",
+            "Solicita al administrador que revise permisos y configuración."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "self-hosting",
+    "category": "Self-hosting",
+    "readMinutes": 7,
+    "sourceUrls": [
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
+      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d"
+    ],
+    "en": {
+      "title": "Plan a self-hosted MonkeyAI workspace",
+      "description": "Prepare a team server, understand the upstream installation paths, and protect persistent data.",
+      "sections": [
+        {
+          "heading": "Decide what your server will own",
+          "paragraphs": [
+            "Self-hosting lets your team manage the server, stored team data, access, backups, and upgrades. The upstream README describes a lightweight starting configuration of one CPU core and 1 GB of memory. Treat this as a starting point, not a capacity guarantee: actual requirements depend on team size, storage, configured services, and workload.",
+            "Before installation, choose an administrator, a server address, and a plan for backups and maintenance. Review the current official deployment documentation. This community guide explains the decisions and checks around deployment; it does not replace the upstream operating instructions or claim that an installation has been tested on your infrastructure."
+          ],
+          "bullets": [
+            "Use a test environment for your first deployment.",
+            "Confirm which external model and tool services the team will use."
+          ]
+        },
+        {
+          "heading": "Choose an upstream installation path",
+          "paragraphs": [
+            "The main README offers an installation script through the official release service. Review the current instructions and the script before running commands on a server. Another documented path is building from the repository with Docker Compose. Use a consistent checkout and follow the matching monkeyai/README.md rather than combining instructions from different versions.",
+            "For the pinned source revision, copy the environment example and replace the database password, administrator email and password, and RustFS access and secret keys before starting. Restrict access to .env. In the repository’s monkeyai directory, prepare the two RustFS directories for UID/GID 10001:10001. Check paths before the recursive ownership change; back up existing data before maintenance."
+          ],
+          "bullets": [
+            "Keep credentials out of source control and shared screenshots.",
+            "Read the upstream configuration notes before exposing the service."
+          ],
+          "code": "cp .env.example .env\n# Edit .env and set database, admin and RustFS credentials.\nsudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d"
+        },
+        {
+          "heading": "Configure the address and persistent storage",
+          "paragraphs": [
+            "The operations README uses http://localhost:8080 for the initial source-based startup. MONKEYAI_PUBLIC_URL is the external address shared by administration and API behavior, including authentication callbacks and redirects. Configure it for the address users will actually visit; upstream recommends HTTPS for production.",
+            "For this pinned Compose revision, coordinate backups of the database in ./data/postgres and objects in ./data/rustfs. Runtime identity and signing keys are bind-mounted at ./data/runtime; preserve license state in ./data/license where needed. Automatic TLS uses the named acme volume for certificates and account data. Compose down -v removes named volumes such as acme but does not itself delete host bind directories. If MONKEYAI_DATABASE_URL or MONKEYAI_S3_ENDPOINT points elsewhere, back up the actual services too. Protect secrets in all copies and test restoration."
+          ],
+          "bullets": [
+            "Test the real public address and sign-in flow.",
+            "Keep backup access restricted and test a restoration process."
+          ]
+        },
+        {
+          "heading": "Verify the service before inviting a team",
+          "paragraphs": [
+            "Check administrator access, a non-sensitive task, configured model connectivity, and any required connector. Confirm that team permissions and resource access match your intended setup. Record the deployment version and configuration changes so that later upgrades can be evaluated against a known baseline.",
+            "A self-hosted server is only part of the data path: external models and tools can still receive task content. Explain that boundary to users. Read the upstream upgrade and operations notes before changing a live instance, preserve required persistent state, and validate the same key workflows after an update."
+          ],
+          "bullets": [
+            "Avoid using the demonstration server as your production team space.",
+            "Use upstream issues for reproducible product problems without including secrets."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "规划一个自托管 MonkeyAI 工作空间",
+      "description": "准备团队服务器，理解上游安装路径，并保护需要持久保存的数据。",
+      "sections": [
+        {
+          "heading": "确定自己负责的运行范围",
+          "paragraphs": [
+            "自托管让团队自行管理服务器、团队数据、访问权限、备份和升级。上游 README 给出的轻量起步配置是 1 核 CPU、1 GB 内存。这是起点，不是容量保证；真实资源需求还取决于团队人数、存储量、配置服务和任务负载。正式使用前应按实际情况评估。",
+            "安装前先确定管理员、服务器访问地址，以及备份和维护安排。请阅读当前官方部署文档。本社区指南解释部署前后的决策与检查，不替代上游运维说明，也不表示已经在你的基础设施上完成安装验证。第一次部署适合先放在测试环境，熟悉流程后再接入团队资料。"
+          ],
+          "bullets": [
+            "首次部署先使用测试环境。",
+            "确认团队将使用哪些外部模型和工具服务。"
+          ]
+        },
+        {
+          "heading": "选择与版本一致的上游安装方式",
+          "paragraphs": [
+            "主 README 提供通过官方发布服务获取的安装脚本。运行服务器命令前，应阅读当前说明并检查脚本。仓库还记录了使用 Docker Compose 从源码启动的方式。选择一份一致的代码版本，并跟随对应的 monkeyai/README.md，不要混用不同时期的安装说明。",
+            "针对固定源码版本，先复制环境变量示例，修改数据库密码、初始管理员邮箱和密码，以及 RustFS 访问和秘密密钥，然后再启动。限制 .env 的访问权限。在仓库 monkeyai 目录准备两个 RustFS 目录供 UID/GID 10001:10001 使用。递归修改所有权前检查目标路径；维护现有部署前先备份。"
+          ],
+          "bullets": [
+            "凭据文件应限制访问并排除在版本控制之外。",
+            "将服务暴露到公网前，完整阅读上游配置说明。"
+          ],
+          "code": "cp .env.example .env\n# Edit .env and set database, admin and RustFS credentials.\nsudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d"
+        },
+        {
+          "heading": "配置访问地址与持久存储",
+          "paragraphs": [
+            "上游运维 README 使用 http://localhost:8080 说明源码启动后的初始访问方式。MONKEYAI_PUBLIC_URL 是管理页面与 API 共用的对外地址，也影响认证回调和页面跳转。它应与用户实际访问的地址一致；上游建议生产环境使用 HTTPS，具体代理与证书步骤请以当前文档为准。",
+            "在此固定 Compose 版本中，应协调备份 ./data/postgres 中的数据库和 ./data/rustfs 中的对象。运行时身份与签名密钥绑定在宿主机 ./data/runtime；必要时保留 ./data/license 中的许可证状态。自动 TLS 的证书和账户数据使用 acme 命名卷。Compose down -v 会删除 acme 等命名卷，但不会自动删除宿主机绑定目录。如果 MONKEYAI_DATABASE_URL 或 MONKEYAI_S3_ENDPOINT 指向外部服务，还须备份实际使用的服务。备份包含密钥，应限制访问并验证恢复。"
+          ],
+          "bullets": [
+            "从真实对外地址测试访问与登录流程。",
+            "不仅保存备份，也要确认能够恢复。"
+          ]
+        },
+        {
+          "heading": "邀请团队前验证关键流程",
+          "paragraphs": [
+            "检查管理员登录、非敏感示例任务、模型连通性，以及实际需要的连接器。确认团队权限与资源访问符合预期。记录部署版本与配置修改，让后续升级有一份可对照的基线。演示服务器用于了解产品，不应代替自己的正式团队环境。",
+            "自托管服务器只是数据路径的一部分，外部模型和工具仍可能接收任务内容，应向使用者说明这一边界。修改正式实例前先阅读上游升级与运维说明，保留需要的持久状态；更新后重复检查相同的关键工作流。遇到可复现问题时，可向上游提交不含秘密信息的报告。"
+          ],
+          "bullets": [
+            "不要把演示环境当作正式业务空间。",
+            "公开排错信息前移除密码、令牌和私有资料。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Prepara un espacio MonkeyAI con alojamiento propio",
+      "description": "Planifica el servidor, sigue una vía de instalación oficial y protege los datos persistentes.",
+      "sections": [
+        {
+          "heading": "Define qué administrará tu equipo",
+          "paragraphs": [
+            "El alojamiento propio permite gestionar el servidor, los datos del equipo, el acceso, las copias y las actualizaciones. El README describe una configuración inicial ligera de un núcleo de CPU y 1 GB de memoria. Es un punto de partida, no una garantía de capacidad: la demanda depende del equipo, el almacenamiento y las tareas.",
+            "Antes de instalar, asigna un administrador, elige una dirección y prepara un plan de mantenimiento y copias. Lee la documentación de despliegue vigente. Esta guía explica decisiones y comprobaciones; no sustituye las instrucciones operativas ni afirma que la instalación se haya validado en tu infraestructura."
+          ],
+          "bullets": [
+            "Empieza en un entorno de prueba.",
+            "Identifica los modelos y herramientas externos que utilizarás."
+          ]
+        },
+        {
+          "heading": "Elige una vía de instalación del proyecto",
+          "paragraphs": [
+            "El README principal ofrece un script desde el servicio oficial de versiones. Revisa las instrucciones y el script antes de ejecutarlo. También existe una vía desde el código fuente con Docker Compose. Usa una versión coherente del repositorio y su archivo monkeyai/README.md, sin mezclar pasos de versiones distintas.",
+            "En la revisión de código fijada, copia el ejemplo y cambia la contraseña de la base de datos, el correo y contraseña del administrador y las claves de acceso y secreta de RustFS antes de iniciar. Restringe el acceso a .env. En el directorio monkeyai prepara las dos carpetas RustFS para UID/GID 10001:10001. Verifica las rutas antes de cambiar el propietario de forma recursiva y respalda datos existentes."
+          ],
+          "bullets": [
+            "No incluyas credenciales en el repositorio ni en capturas compartidas.",
+            "Lee los ajustes antes de exponer el servidor."
+          ],
+          "code": "cp .env.example .env\n# Edit .env and set database, admin and RustFS credentials.\nsudo mkdir -p ./data/rustfs ./data/rustfs-logs\nsudo chown -R 10001:10001 ./data/rustfs ./data/rustfs-logs\ndocker compose up --build -d"
+        },
+        {
+          "heading": "Configura la dirección y los datos persistentes",
+          "paragraphs": [
+            "La documentación utiliza http://localhost:8080 para el primer inicio desde código fuente. MONKEYAI_PUBLIC_URL representa la dirección externa utilizada por administración y API, incluidas las devoluciones de autenticación y redirecciones. Debe coincidir con la dirección real de acceso; el proyecto recomienda HTTPS en producción.",
+            "En esta revisión de Compose, coordina las copias de la base de datos en ./data/postgres y los objetos en ./data/rustfs. La identidad y claves de firma se montan desde ./data/runtime; conserva cuando corresponda el estado de licencia en ./data/license. TLS automático usa el volumen con nombre acme para certificados y la cuenta. Compose down -v elimina volúmenes como acme, pero no borra por sí mismo las carpetas montadas del host. Si MONKEYAI_DATABASE_URL o MONKEYAI_S3_ENDPOINT apunta a servicios externos, respalda también los servicios realmente usados. Protege los secretos y prueba la restauración."
+          ],
+          "bullets": [
+            "Prueba el acceso y la autenticación en la dirección pública.",
+            "Comprueba que puedes restaurar una copia."
+          ]
+        },
+        {
+          "heading": "Verifica antes de incorporar al equipo",
+          "paragraphs": [
+            "Comprueba el acceso administrativo, una tarea sin datos sensibles, la conexión al modelo y los conectores necesarios. Revisa permisos y recursos. Anota la versión y los cambios de configuración para disponer de una referencia al actualizar. El servidor de demostración no sustituye a tu entorno de producción.",
+            "Los modelos y herramientas externos pueden recibir contenido aunque alojes el servidor. Explica ese límite a los usuarios. Consulta las notas de operación antes de actualizar una instancia, conserva el estado persistente y vuelve a comprobar los mismos flujos principales después del cambio."
+          ],
+          "bullets": [
+            "Separa demostración y producción.",
+            "Elimina secretos al comunicar problemas reproducibles al proyecto."
+          ]
+        }
+      ]
+    },
+    "reviewed": "2026-10-28"
+  },
+  {
+    "slug": "contributing",
+    "category": "Community",
+    "readMinutes": 5,
+    "sourceUrls": [
+      "https://github.com/ct-jaryn/monkeyai-community",
+      "https://github.com/ct-jaryn/monkeyai-community/blob/main/CONTRIBUTING.md",
+      "https://github.com/chaitin/MonkeyCode",
+      "https://github.com/chaitin/MonkeyCode/issues",
+      "https://github.com/chaitin/MonkeyCode/blob/main/LICENSE",
+      "https://work.docs.baizhi.cloud/"
+    ],
+    "en": {
+      "title": "Contribute to the community and upstream project",
+      "description": "Suggest AI tools and GitHub repositories, improve the website, and contribute to the upstream project.",
+      "sections": [
+        {
+          "heading": "Know which project you are contributing to",
+          "paragraphs": [
+            "This independent community website has its own GitHub repository for tool and repository suggestions, website issues, documentation, translations, and pull requests. Include an official project link, a useful description, and sources. The maintainers review suggestions; submitting a link does not guarantee inclusion.",
+            "MonkeyAI Community is not the official product or its support team. Report problems with the MonkeyAI product itself in the upstream chaitin/MonkeyCode issue tracker; use the community tracker for this website and its directory."
+          ],
+          "bullets": [
+            "Link to the exact page or repository involved.",
+            "Describe what you observed rather than guessing at the cause."
+          ]
+        },
+        {
+          "heading": "Write a useful issue report",
+          "paragraphs": [
+            "Before opening an issue in either repository, search existing reports. For website bugs, include the affected page, steps, expected and actual results, and browser details. For tool suggestions, share the official website or repository and explain its relevance.",
+            "Include only the logs and screenshots needed to explain the behavior. Remove passwords, API keys, access tokens, private server details, and confidential files. If the problem depends on an external service, identify the service and the observed response without publishing credentials. Do not invent a reproduction or claim a fix was tested when it was not."
+          ],
+          "bullets": [
+            "Make the reproduction short enough for another person to follow.",
+            "Distinguish confirmed facts from a possible explanation."
+          ]
+        },
+        {
+          "heading": "Share knowledge and improve translations",
+          "paragraphs": [
+            "You can contribute a checked workflow, a clearer example, a corrected link, a translation, or a pull request to this community repository. Explain what changed and cite sources. Use examples that do not reveal private information.",
+            "For translations, preserve the meaning of product terms and important limits. Keep code, environment variable names, and URLs unchanged unless the technical instructions require a change. Link to the source and record what was reviewed. These community guides summarize and explain verified upstream information; they are not a complete official documentation translation."
+          ],
+          "bullets": [
+            "Use synthetic or openly shareable examples.",
+            "Update all affected language versions when correcting a factual claim."
+          ]
+        },
+        {
+          "heading": "Respect licenses and keep claims verifiable",
+          "paragraphs": [
+            "The upstream MonkeyCode repository identifies its license as AGPL-3.0. Read the actual license and the repository's current instructions before reusing or distributing its code. Product names, third-party tools, images, and contributed materials may have their own terms; do not assume one repository license covers everything linked by a community directory.",
+            "Prefer contributions with a clear source, a concrete benefit, and a realistic limit. Avoid invented usage statistics, unsupported compatibility claims, and promises about AI accuracy or search rankings. Keep version-sensitive instructions tied to their sources so that another contributor can update them when the project changes."
+          ],
+          "bullets": [
+            "Credit the original source and author where appropriate.",
+            "Label untested suggestions so readers can assess them honestly."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "参与社区和上游项目",
+      "description": "推荐 AI 工具及 GitHub 仓库、改进网站，并参与上游项目。",
+      "sections": [
+        {
+          "heading": "先分清贡献对象",
+          "paragraphs": [
+            "这个独立社区网站有自己的 GitHub 仓库，欢迎推荐工具和 GitHub 项目、反馈网站问题、完善文档与翻译，或提交 Pull Request。推荐时请提供项目官方链接、用途说明和可靠来源；提交并不保证收录，维护者会审核。",
+            "MonkeyAI Community 不是官方产品或支持团队。MonkeyAI 产品本身的问题请提交至上游 chaitin/MonkeyCode；本网站和工具导航的问题请提交至社区仓库。"
+          ],
+          "bullets": [
+            "提供涉及的具体页面或仓库链接。",
+            "描述实际观察到的行为，不要把猜测当成原因。"
+          ]
+        },
+        {
+          "heading": "写一份有帮助的问题报告",
+          "paragraphs": [
+            "在任一仓库提交问题前，请先搜索是否已有相同反馈。网站问题请附页面、复现步骤、预期与实际结果以及浏览器信息；推荐工具时请提供官方网站或仓库，并说明相关用途。",
+            "只提供解释问题必需的日志和截图，移除密码、API Key、访问令牌、私有服务器信息和机密文件。问题依赖外部服务时，可以说明服务与响应，但不要公开凭据。没有真正复现的现象应如实标注，未运行过的修复也不能声称已经通过验证。"
+          ],
+          "bullets": [
+            "让另一个人能够按简短步骤复现。",
+            "把确定事实与可能原因分开。"
+          ]
+        },
+        {
+          "heading": "分享方法并改进翻译",
+          "paragraphs": [
+            "你可以为社区仓库贡献经过检查的工作流、清晰示例、链接修正、翻译或 Pull Request。说明改动并提供来源，示例不得包含私人信息。",
+            "翻译时保留产品术语和重要限制的含义，代码、环境变量名和 URL 不应随意改动。链接到原始来源，并记录核对范围。这些社区指南是根据已核实信息整理的解释，不是完整官方文档翻译。修改事实时，也应检查其他语言版本，避免读者因语言不同得到相互冲突的说明。"
+          ],
+          "bullets": [
+            "优先提供可公开复用的示例资料。",
+            "修正事实时同步受影响的语言版本。"
+          ]
+        },
+        {
+          "heading": "尊重许可证，保留可验证依据",
+          "paragraphs": [
+            "上游 MonkeyCode 仓库标明采用 AGPL-3.0 许可证。复用或分发代码前，应阅读实际许可证及仓库当前说明。产品名称、第三方工具、图片和投稿材料可能有各自条款，不要认为一个仓库许可证自动覆盖导航站链接到的所有内容。",
+            "好的贡献应有明确来源、具体用途和真实限制。不要虚构用户数量、未经核实的兼容性，也不要承诺 AI 一定正确或搜索排名一定提升。容易随版本变化的步骤应保留来源，便于下一位贡献者在上游更新后重新核对。未经测试的建议需要明确标注。"
+          ],
+          "bullets": [
+            "适当注明原始来源与作者。",
+            "如实区分已验证步骤和待验证建议。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Contribuye a la comunidad y al proyecto original",
+      "description": "Sugiere herramientas de IA y repositorios de GitHub, mejora el sitio y contribuye al proyecto original.",
+      "sections": [
+        {
+          "heading": "Identifica el proyecto al que contribuyes",
+          "paragraphs": [
+            "Este sitio comunitario independiente tiene su propio repositorio de GitHub para proponer herramientas y repositorios, informar de problemas y mejorar documentación, traducciones o código mediante pull requests. Incluye el enlace oficial, una descripción útil y fuentes; el equipo revisará cada propuesta y su envío no garantiza la inclusión.",
+            "MonkeyAI Community no es el producto oficial ni su equipo de soporte. Comunica los problemas del producto MonkeyAI al proyecto original chaitin/MonkeyCode; usa el repositorio comunitario para el sitio y el directorio."
+          ],
+          "bullets": [
+            "Enlaza la página o el repositorio concreto.",
+            "Describe lo observado sin presentar una suposición como causa."
+          ]
+        },
+        {
+          "heading": "Prepara un informe útil",
+          "paragraphs": [
+            "Antes de abrir una incidencia en cualquiera de los repositorios, busca informes existentes. Para errores del sitio indica la página, pasos, resultado esperado y real y navegador. Para una propuesta, comparte el sitio oficial o repositorio y explica su utilidad.",
+            "Incluye solamente registros y capturas necesarios. Elimina contraseñas, claves de API, tokens, datos privados del servidor y archivos confidenciales. Si interviene un servicio externo, identifica el servicio y su respuesta sin publicar credenciales. No inventes una reproducción ni afirmes haber probado una corrección que no has ejecutado."
+          ],
+          "bullets": [
+            "Escribe pasos breves que otra persona pueda seguir.",
+            "Separa hechos confirmados de explicaciones posibles."
+          ]
+        },
+        {
+          "heading": "Comparte métodos y mejora traducciones",
+          "paragraphs": [
+            "Puedes aportar al repositorio de la comunidad un flujo comprobado, un ejemplo más claro, una corrección, una traducción o una pull request. Explica el cambio y cita sus fuentes; no incluyas información privada.",
+            "Al traducir, conserva el significado de los términos y sus límites. Mantén código, variables de entorno y direcciones salvo que exista una razón técnica para cambiarlos. Enlaza la fuente e indica qué revisaste. Estas guías explican información verificada del proyecto; no constituyen una traducción oficial y completa de su documentación."
+          ],
+          "bullets": [
+            "Utiliza ejemplos sintéticos o compartibles públicamente.",
+            "Corrige también las versiones lingüísticas afectadas por un cambio factual."
+          ]
+        },
+        {
+          "heading": "Respeta las licencias y las evidencias",
+          "paragraphs": [
+            "El repositorio MonkeyCode indica la licencia AGPL-3.0. Lee su texto y las instrucciones actuales antes de reutilizar o distribuir código. Los nombres, herramientas externas, imágenes y aportaciones pueden tener condiciones propias; una licencia de repositorio no cubre automáticamente todo el contenido enlazado por un directorio.",
+            "Una buena contribución tiene una fuente clara, una utilidad concreta y límites realistas. Evita estadísticas inventadas, compatibilidades sin verificar y promesas de precisión de IA o de posiciones en buscadores. Vincula las instrucciones sensibles a versiones con sus fuentes para facilitar su actualización cuando cambie el proyecto."
+          ],
+          "bullets": [
+            "Reconoce la fuente y la autoría cuando corresponda.",
+            "Marca las sugerencias no probadas para que puedan evaluarse con honestidad."
+          ]
+        }
+      ]
+    }
+  }
+]

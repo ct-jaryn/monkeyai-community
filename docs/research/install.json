@@ -1,0 +1,50 @@
+{
+  "reviewed": "2026-10-28",
+  "upstreamRevision": "0d525d063d54efe2788c2b7e4c29980d0b82c17e",
+  "sources": [
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
+      "evidence": "Linux prerequisites, official TLS-verified installer command, prompts and login flow."
+    },
+    {
+      "url": "https://release.monkeycode-ai.com/public/monkeyai-install.sh",
+      "evidence": "Bootstrap script was read, never executed; downloads and checks release-package SHA-256. Script provenance is not independently verified."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "evidence": "Source deployment, credentials, RustFS ownership, public URL, automatic HTTPS, migrations."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
+      "evidence": "Authoritative mounts ./data/postgres, ./data/rustfs, ./data/runtime and ./data/license; acme is a named volume."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
+      "evidence": "Default environment variable names and placeholders."
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/migrations/README.md",
+      "evidence": "Consolidated migration history and version-specific upgrade constraints."
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/app-pgdump.html",
+      "evidence": "pg_dump custom-format database export; cluster-wide roles require separate handling."
+    },
+    {
+      "url": "https://docs.docker.com/reference/cli/docker/compose/down/",
+      "evidence": "Compose down -v removes named volumes, while bind mounts are host paths."
+    }
+  ],
+  "corrections": [
+    "Previous self-hosting copy called runtime a persistent volume. The pinned Compose definition binds ./data/runtime; README prose misleadingly says down -v deletes that identity. The actual bind mount governs deletion.",
+    "Previous instructions omitted RustFS access and secret keys and directory permissions required for first startup.",
+    "Database alone is not a complete backup: object data, runtime identity, license state and optional ACME state may be needed."
+  ],
+  "limitations": [
+    "Source deployment paths and example are pinned to the listed upstream revision; installer release contents may differ.",
+    "Installer and deployment commands were inspected, not executed against production.",
+    "No universal upgrade path or independent signature verification is asserted.",
+    "Database export applies only when MONKEYAI_DATABASE_URL is not overridden to another database; external PostgreSQL or S3 endpoints require their own coordinated backups. Keep db running for pg_dump and stop all application/object writers through the consistent backup window.",
+    "The downloaded bootstrap begins with #!/bin/sh, explicitly instructs sudo sh on non-root invocation, and invokes the packaged install.sh with sh. The official tutorial invokes the same bootstrap with bash; its POSIX shell entrypoint also supports the documented sudo sh sequence."
+  ]
+}

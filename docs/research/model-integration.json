@@ -1,0 +1,57 @@
+{
+  "reviewed": "2026-10-28",
+  "collection": "Official document pages fetched as raw HTML via curl; their Next.js server-rendered RSC payload contains article body. Egress region unknown. No product sign-in or live model execution.",
+  "upstreamCommit": "0d525d063d54efe2788c2b7e4c29980d0b82c17e",
+  "sources": [
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
+      "name": "模型配置与使用",
+      "evidence": [
+        "Settings > Assistant configuration > Models: Team, Mine, Shared by others.",
+        "Mine > Add model: interface, model ID, base URL, API key, context, output limit, image input.",
+        "Get model list after interface, URL and key; model selector beside conversation input.",
+        "Default applies to new conversations; reasoning depth only for supported models.",
+        "Sharing personal models leaves upstream charges with owner; recipients cannot edit or reshare."
+      ]
+    },
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
+      "name": "团队资源配置与分发",
+      "evidence": [
+        "Resource management > Models > System models > Add model.",
+        "For text models context and output limits must be positive.",
+        "All, selected groups, selected users; parent group grant includes child groups.",
+        "Refresh model list after save; provider charges and internal credits separate."
+      ]
+    },
+    {
+      "url": "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "name": "模型、技能与连接器问题",
+      "evidence": [
+        "Empty model list: correct workspace and authorization.",
+        "Failed call: interface address, API key, model name, reachability, balance and supported parameters."
+      ]
+    },
+    {
+      "url": "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/admin/src/pages/models-page.tsx",
+      "name": "Pinned current MonkeyAI administrator models UI source",
+      "evidence": [
+        "OpenAI Chat Completions, OpenAI Responses and Anthropic are distinct text protocol choices.",
+        "Text context entry is labeled K; submitted field is multiplied by 1000.",
+        "Current validation requires positive context, max output and credit multiplier, and authorization selection."
+      ]
+    }
+  ],
+  "limitations": [
+    "The pages describe the observed version; UI labels, model protocols and provider capabilities may change.",
+    "We did not authenticate, configure models, obtain keys, send prompts, or test network connectivity to model providers.",
+    "The administrator React form does not establish that every save runs a health check; no such claim was made.",
+    "Interface compatibility does not establish feature compatibility, model availability, pricing or region availability.",
+    "The official text is referenced and summarized; guides are independently written and are not full official translations."
+  ],
+  "guides": [
+    "connect-a-personal-model",
+    "configure-team-model",
+    "troubleshoot-model-access"
+  ]
+}

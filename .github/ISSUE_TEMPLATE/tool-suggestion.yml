@@ -1,0 +1,36 @@
+name: Suggest an AI tool or GitHub repository
+description: Recommend a useful AI tool or open-source project for the directory.
+title: "[Tool]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for contributing! 中文和西班牙语也欢迎。Please do not share secrets, private URLs or personal data."
+  - type: input
+    id: name
+    attributes:
+      label: Tool or project name
+    validations:
+      required: true
+  - type: input
+    id: official_url
+    attributes:
+      label: Official website or GitHub repository URL
+      placeholder: https://github.com/owner/project
+    validations:
+      required: true
+  - type: textarea
+    id: usefulness
+    attributes:
+      label: What does it do, and who is it useful for?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official documentation and sources
+      description: Link to sources supporting important features and licensing information.
+  - type: textarea
+    id: affiliation
+    attributes:
+      label: Affiliation and other context
+      description: Please disclose if you maintain, work for, or are otherwise connected to the project.

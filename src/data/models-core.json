@@ -1,0 +1,304 @@
+[
+  {
+    "slug": "openai-gpt",
+    "name": "OpenAI GPT",
+    "provider": "OpenAI",
+    "officialUrl": "https://developers.openai.com/api/docs/models",
+    "apiDocsUrl": "https://developers.openai.com/api/docs/guides/latest-model",
+    "access": "hosted",
+    "reviewed": "2026-10-27",
+    "relatedTools": [
+      "chatgpt"
+    ],
+    "sourceUrls": [
+      "https://developers.openai.com/api/docs/models",
+      "https://developers.openai.com/api/docs/guides/latest-model",
+      "https://developers.openai.com/api/docs/guides/tools",
+      "https://developers.openai.com/api/docs/guides/structured-outputs"
+    ],
+    "en": {
+      "tagline": "General-purpose models for reasoning, software, and tool-connected work",
+      "description": "OpenAI’s GPT family offers hosted models for working with language, images, code, and connected tools. Choose a specific API model for your application; ChatGPT is the separate user-facing product.",
+      "overview": [
+        "OpenAI GPT is a model family, rather than another name for the ChatGPT interface. The current API catalog offers different model choices for demanding reasoning, everyday work, visual tasks, and high-volume processing. Supported inputs and tools belong to the particular model and API configuration. For a useful first experiment, supply a small document or coding problem, define the expected output, and keep a checked reference answer so that a fluent response is not mistaken for a correct one.",
+        "For an application, the Responses API can combine model responses with configured tools. Structured Outputs can constrain the response to a supported JSON schema, which helps when another program consumes the result. Your workflow still needs to validate the values and decide what actions are allowed. Start with one repeatable task, record the exact model identifier, and compare answer quality, total task time, and actual usage on your examples. This is a practical selection method, not a ranking of models."
+      ],
+      "strengths": [
+        "Draft and revise a document against an explicit brief",
+        "Explain code or propose a change for human review",
+        "Extract structured fields or connect an approved application tool"
+      ],
+      "limitations": [
+        "A schema-valid response can still contain incorrect facts or values.",
+        "Web access and external actions depend on the tools you configure; model output alone does not prove a source was checked."
+      ],
+      "accessNote": "Access the hosted models through OpenAI’s API and SDKs. ChatGPT features and API model capabilities should be checked separately.",
+      "selectionTip": "Test a difficult example and a routine example with the same acceptance criteria. Pick the model that completes your task reliably within your constraints."
+    },
+    "zh": {
+      "tagline": "面向推理、软件开发与工具协作的通用模型",
+      "description": "OpenAI 的 GPT 家族提供托管模型，处理语言、图像、代码及连接工具的任务。开发应用时需要选择具体 API 型号；ChatGPT 则是另一个面向用户的产品。",
+      "overview": [
+        "OpenAI GPT 是模型家族，并不等同于 ChatGPT 界面。当前 API 目录提供面向复杂推理、日常任务、视觉工作和大批量处理的不同选择。可接收哪些输入、能够调用哪些工具，要以具体型号和 API 配置为准。首次试用可以选一小段文档或一道代码问题，写明预期成果，并准备人工核对过的参考答案，避免把流畅表达误当作正确结果。",
+        "开发应用时，可以通过 Responses API 组合模型回答与已配置工具。Structured Outputs 能让输出符合受支持的 JSON Schema，方便后续程序处理，但业务仍须验证字段内容，并规定哪些操作允许执行。先建立一个可重复的小任务，记录确切模型标识，再用相同样例比较成果质量、完成整个任务所需的时间和实际用量。这是实践性的选型方法，而不是模型排行榜。"
+      ],
+      "strengths": [
+        "根据明确要求起草和修改文档",
+        "解释代码，或提出供人工审阅的修改方案",
+        "提取结构化字段，连接已获授权的业务工具"
+      ],
+      "limitations": [
+        "符合结构约束的结果，也可能包含错误的事实或字段值。",
+        "联网和外部操作取决于所配置的工具；仅有模型回答不能证明已经核对来源。"
+      ],
+      "accessNote": "通过 OpenAI API 和 SDK 使用托管模型。ChatGPT 产品功能与 API 型号能力需要分别核对。",
+      "selectionTip": "用同一验收标准测试一项复杂任务和一项日常任务，选择能在约束内可靠完成工作的型号。"
+    },
+    "es": {
+      "tagline": "Modelos generales para razonar, programar y trabajar con herramientas",
+      "description": "La familia GPT de OpenAI ofrece modelos alojados para lenguaje, imágenes, código y herramientas conectadas. Elige un modelo de API concreto para tu aplicación; ChatGPT es el producto orientado al usuario.",
+      "overview": [
+        "OpenAI GPT es una familia de modelos, no otro nombre de la interfaz de ChatGPT. El catálogo actual de la API ofrece opciones para razonamiento exigente, tareas cotidianas, trabajo visual y procesamiento de gran volumen. Las entradas y herramientas admitidas dependen del modelo y de su configuración. Para una primera prueba útil, proporciona un documento breve o un problema de código, define la entrega y conserva una respuesta de referencia revisada: una explicación fluida no demuestra que el resultado sea correcto.",
+        "En una aplicación, la Responses API permite combinar respuestas con herramientas configuradas. Structured Outputs puede ajustar la respuesta a un esquema JSON compatible, útil cuando otro programa consume los datos. El flujo todavía debe validar los valores y decidir qué acciones permite. Empieza con una tarea repetible, registra el identificador exacto y compara calidad, tiempo total de trabajo y consumo real con tus ejemplos. Es una forma práctica de elegir, no una clasificación de modelos."
+      ],
+      "strengths": [
+        "Redactar y revisar documentos con requisitos claros",
+        "Explicar código o proponer cambios para revisión humana",
+        "Extraer campos estructurados o conectar una herramienta autorizada"
+      ],
+      "limitations": [
+        "Una respuesta válida según el esquema puede contener datos incorrectos.",
+        "El acceso web y las acciones externas dependen de las herramientas configuradas; una respuesta no demuestra que se haya comprobado una fuente."
+      ],
+      "accessNote": "Utiliza los modelos alojados mediante la API y los SDK de OpenAI. Comprueba por separado las funciones de ChatGPT y las capacidades del modelo de API.",
+      "selectionTip": "Prueba un caso difícil y otro habitual con los mismos criterios. Elige el modelo que complete tu tarea de forma fiable dentro de tus límites."
+    }
+  },
+  {
+    "slug": "claude",
+    "name": "Claude",
+    "provider": "Anthropic",
+    "officialUrl": "https://claude.com/product/overview",
+    "apiDocsUrl": "https://platform.claude.com/docs/en/models/overview",
+    "access": "hosted",
+    "reviewed": "2026-10-27",
+    "relatedTools": [
+      "claude"
+    ],
+    "sourceUrls": [
+      "https://platform.claude.com/docs/en/models/overview",
+      "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
+      "https://platform.claude.com/docs/en/build-with-claude/vision",
+      "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    ],
+    "en": {
+      "tagline": "A model family for writing, coding, and multi-step knowledge work",
+      "description": "Claude is Anthropic’s model family for language and image-based tasks, including coding and tool use. The Claude app and the developer API offer different ways to work with that family.",
+      "overview": [
+        "Claude names both a model family and a user-facing assistant, so choose the level you actually need. A writer may start in the app, while a developer needs a specific API model and its supported features. The current model catalog documents text and image input, text output, multilingual work, and tool use. This makes a document explanation, a code review, or a question about a supplied screenshot useful trial tasks. Provide the source material and ask for uncertainties rather than filling gaps with guesses.",
+        "Tool use is an explicit contract between your application and the model. With client-executed tools, Claude requests a structured operation and your code runs it; server-executed tools have a different execution path. Structured outputs are also available for supported models and schemas. Treat these as building blocks, not permission to act without review. For a serious evaluation, use your own documents or repository examples, include incomplete inputs, and check whether the result respects constraints as well as producing a readable answer."
+      ],
+      "strengths": [
+        "Turn supplied notes into a clearly structured document",
+        "Review a code change against stated behavior and constraints",
+        "Explain a screenshot or request a defined external tool"
+      ],
+      "limitations": [
+        "Image interpretation can be imperfect; verify small text, counts, and important visual details.",
+        "Tool execution and structured-output support depend on the selected model, platform, and integration."
+      ],
+      "accessNote": "Use the Claude app for an end-user workflow or choose a hosted model through the Claude API and supported provider platforms.",
+      "selectionTip": "Compare a reasoning-heavy document task with a short extraction task. Evaluate completeness and constraint following using your own examples."
+    },
+    "zh": {
+      "tagline": "面向写作、编程与多步骤知识工作的模型家族",
+      "description": "Claude 是 Anthropic 的模型家族，可处理语言与图像任务，并支持编程和工具调用。Claude 应用和开发者 API 提供不同的使用方式。",
+      "overview": [
+        "Claude 同时用于命名模型家族和面向用户的助手，因此选型时先确定自己需要哪一层：写作者可以从应用开始，开发者则需要具体的 API 型号及其功能说明。当前模型目录列明了文字和图像输入、文字输出、多语言及工具使用能力。可以用文档解释、代码审阅，或针对提供的截图提问作为试用任务。请给出原始材料，让模型说明不确定之处，而不是靠猜测补齐缺失信息。",
+        "工具使用是应用与模型之间的明确约定。对于由客户端执行的工具，Claude 返回结构化操作请求，再由你的代码执行；服务器执行的工具则走不同流程。受支持型号也提供符合限定 Schema 的结构化输出。它们是工作流组件，不代表自动获得操作权限。评估时使用自己的文档或代码库样例，加入输入不完整的情况，检查成果是否遵守约束、覆盖要求，而不只看表达是否顺畅。"
+      ],
+      "strengths": [
+        "把提供的笔记整理成结构清晰的文档",
+        "按预期行为与约束审阅代码修改",
+        "解释截图，或请求调用已定义的外部工具"
+      ],
+      "limitations": [
+        "图像理解可能出错，小字、数量和关键视觉细节需要核对。",
+        "工具执行与结构化输出支持情况取决于所选型号、平台及接入方式。"
+      ],
+      "accessNote": "面向个人任务可使用 Claude 应用；开发集成则通过 Claude API 或受支持的服务平台选择托管模型。",
+      "selectionTip": "用一项推理较多的文档任务和一项简短提取任务进行对照，以自己的样例检查完整性和遵守要求的情况。"
+    },
+    "es": {
+      "tagline": "Una familia para escribir, programar y trabajar con conocimiento",
+      "description": "Claude es la familia de modelos de Anthropic para tareas con lenguaje e imágenes, programación y uso de herramientas. La aplicación Claude y la API ofrecen formas distintas de acceder a ella.",
+      "overview": [
+        "Claude da nombre tanto a una familia de modelos como a un asistente para usuarios. Por eso conviene elegir primero el nivel que necesitas: una persona que escribe puede empezar en la aplicación, mientras un desarrollador necesita un modelo de API y sus funciones concretas. El catálogo actual documenta entrada de texto e imágenes, salida de texto, trabajo multilingüe y herramientas. Explicar un documento, revisar código o responder sobre una captura son pruebas útiles. Aporta los materiales y pide que señale incertidumbres sin inventar lo que falta.",
+        "El uso de herramientas establece un contrato explícito con tu aplicación. En las herramientas ejecutadas por el cliente, Claude solicita una operación estructurada y tu código la realiza; las ejecutadas en el servidor siguen otra ruta. También existen salidas estructuradas para modelos y esquemas compatibles. Son componentes de un flujo, no permisos automáticos para actuar. Evalúa con documentos o repositorios propios, incluye entradas incompletas y comprueba que el resultado respete las restricciones además de ser legible."
+      ],
+      "strengths": [
+        "Transformar notas aportadas en un documento organizado",
+        "Revisar cambios de código según el comportamiento esperado",
+        "Explicar una captura o solicitar una herramienta definida"
+      ],
+      "limitations": [
+        "La interpretación de imágenes puede fallar; comprueba texto pequeño, cantidades y detalles importantes.",
+        "Las herramientas y salidas estructuradas dependen del modelo, la plataforma y la integración seleccionados."
+      ],
+      "accessNote": "Utiliza la aplicación Claude para tareas de usuario, o un modelo alojado mediante la API de Claude y los proveedores compatibles.",
+      "selectionTip": "Compara una tarea documental exigente con una extracción breve. Evalúa integridad y cumplimiento de requisitos con ejemplos propios."
+    }
+  },
+  {
+    "slug": "gemini",
+    "name": "Gemini",
+    "provider": "Google DeepMind",
+    "officialUrl": "https://deepmind.google/models/gemini/",
+    "apiDocsUrl": "https://ai.google.dev/gemini-api/docs/models",
+    "access": "hosted",
+    "reviewed": "2026-10-27",
+    "relatedTools": [
+      "gemini",
+      "notebooklm"
+    ],
+    "sourceUrls": [
+      "https://ai.google.dev/gemini-api/docs/models",
+      "https://ai.google.dev/gemini-api/docs/tools",
+      "https://ai.google.dev/gemini-api/docs/image-understanding",
+      "https://ai.google.dev/gemini-api/docs/structured-output"
+    ],
+    "en": {
+      "tagline": "Multimodal models for understanding information and building connected workflows",
+      "description": "Gemini is Google DeepMind’s model family, offered through developer services as well as Google products. Select a concrete model for your input types and tools; the Gemini app is a separate product experience.",
+      "overview": [
+        "Gemini covers a range of models, so a family name alone does not specify the interface or the output you will receive. The Gemini API catalog separates models and release states, including stable and preview offerings. Its image-understanding documentation describes tasks such as interpreting images and answering visual questions. A practical trial is to combine a short written brief with a supplied image and ask for an explanation that identifies which details come from the material and which are assumptions.",
+        "The API offers managed tools such as Google Search grounding and code execution, alongside custom function calling. These execution paths are different: a custom function requires your application to perform the operation. Structured outputs can produce data matching a supported JSON schema, but the values still need checking. Choose an endpoint whose documented modalities and tools fit your task, and test the same examples before and after a model update. Do not assume that a feature shown in the consumer Gemini app is exposed identically by every API model."
+      ],
+      "strengths": [
+        "Explain supplied visual material together with a written brief",
+        "Build an answer workflow with an explicitly enabled grounding tool",
+        "Extract structured information for an application to validate"
+      ],
+      "limitations": [
+        "Input types, tools, and release stability vary across model endpoints.",
+        "Grounding and schema compliance do not remove the need to check sources and factual values."
+      ],
+      "accessNote": "Prototype with Google AI Studio and integrate through the Gemini API. Check the selected endpoint rather than inferring API access from an app feature.",
+      "selectionTip": "Create a small test set with text-only and visual examples. Check source fidelity and output format before comparing task time or usage."
+    },
+    "zh": {
+      "tagline": "理解多模态信息，构建连接工具的工作流",
+      "description": "Gemini 是 Google DeepMind 的模型家族，通过开发者服务和 Google 产品提供。应根据输入类型与工具需求选择具体型号，Gemini 应用则是另一种产品体验。",
+      "overview": [
+        "Gemini 包含多种模型，只有家族名称不足以确定实际接口与输出能力。Gemini API 目录区分具体型号及发布状态，包括稳定版与预览版。图像理解文档介绍了分析图像、回答视觉问题等任务。试用时，可以把简短文字要求与一张图片一起提供，让模型解释材料，并区分哪些细节来自输入、哪些属于假设，这比只看一段流畅回答更容易检查实际价值。",
+        "API 提供 Google Search grounding、代码执行等托管工具，也支持自定义函数调用。这些执行路径不同：自定义函数需要由应用执行操作。结构化输出可以符合受支持的 JSON Schema，但字段值仍须校验。请按文档中的输入模态、工具与发布状态选择端点，并在型号更新前后用相同样例复测。不能因为 Gemini 消费者应用展示了某项功能，就认为每个 API 模型都以相同方式提供该功能。"
+      ],
+      "strengths": [
+        "结合文字要求解释用户提供的视觉材料",
+        "使用明确启用的 grounding 工具构建回答流程",
+        "提取结构化信息，交给业务程序继续校验"
+      ],
+      "limitations": [
+        "不同模型端点的输入类型、工具和发布稳定性存在差异。",
+        "Grounding 或符合结构约束的输出，不能替代来源核对和事实校验。"
+      ],
+      "accessNote": "可在 Google AI Studio 中试验，再通过 Gemini API 集成。请核对具体端点，不要由应用功能推断 API 权限。",
+      "selectionTip": "准备包含纯文本与视觉样例的小型测试集，先检查是否忠实于材料和输出格式，再比较任务时间与用量。"
+    },
+    "es": {
+      "tagline": "Modelos multimodales para comprender información y conectar flujos",
+      "description": "Gemini es la familia de modelos de Google DeepMind, disponible en servicios para desarrolladores y productos de Google. Elige un modelo según las entradas y herramientas; la aplicación Gemini es una experiencia de producto distinta.",
+      "overview": [
+        "Gemini reúne varios modelos, por lo que el nombre de la familia no define una interfaz o una salida concreta. El catálogo de la API distingue modelos y estados de publicación, incluidas versiones estables y preliminares. La documentación de comprensión de imágenes describe interpretación visual y preguntas sobre material gráfico. Una prueba práctica consiste en combinar un encargo breve con una imagen y pedir una explicación que distinga los detalles observados de los supuestos. Así resulta más fácil comprobar qué aporta realmente la respuesta.",
+        "La API ofrece herramientas gestionadas, como fundamentación con Google Search y ejecución de código, además de funciones personalizadas. Sus rutas de ejecución son distintas: tu aplicación debe ejecutar las funciones que define. Las salidas estructuradas pueden respetar un esquema JSON compatible, pero todavía debes comprobar los valores. Elige un endpoint con las modalidades y herramientas adecuadas, y repite los mismos ejemplos cuando cambie el modelo. Una función de la aplicación de consumo Gemini no está necesariamente disponible de la misma forma en todos los modelos de API."
+      ],
+      "strengths": [
+        "Explicar material visual aportado junto con un encargo escrito",
+        "Crear respuestas con una herramienta de fundamentación habilitada",
+        "Extraer información estructurada que la aplicación pueda validar"
+      ],
+      "limitations": [
+        "Las entradas, herramientas y estabilidad de publicación varían entre endpoints.",
+        "La fundamentación y el cumplimiento del esquema no sustituyen la verificación de fuentes y valores."
+      ],
+      "accessNote": "Haz pruebas en Google AI Studio e integra mediante la API de Gemini. Comprueba cada endpoint sin deducir sus permisos de una función de la aplicación.",
+      "selectionTip": "Prepara un conjunto pequeño con ejemplos de texto e imágenes. Comprueba fidelidad al material y formato antes de comparar tiempo o consumo."
+    }
+  },
+  {
+    "slug": "deepseek",
+    "name": "DeepSeek",
+    "provider": "DeepSeek",
+    "officialUrl": "https://www.deepseek.com/",
+    "apiDocsUrl": "https://api-docs.deepseek.com/",
+    "access": "hybrid",
+    "reviewed": "2026-10-27",
+    "relatedTools": [
+      "ollama",
+      "hugging-face"
+    ],
+    "sourceUrls": [
+      "https://api-docs.deepseek.com/",
+      "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "https://api-docs.deepseek.com/guides/tool_calls/",
+      "https://github.com/deepseek-ai/DeepSeek-R1"
+    ],
+    "en": {
+      "tagline": "Reasoning-oriented API models alongside separately released model weights",
+      "description": "DeepSeek offers hosted models through its API and has also released downloadable model checkpoints. Evaluate the API endpoint or the exact released checkpoint you intend to use; these delivery options are not interchangeable.",
+      "overview": [
+        "DeepSeek is a model family with more than one delivery path. Its hosted API documents chat, thinking controls, and tool calling. Separately, releases such as DeepSeek-R1 provide model weights and self-hosting information. A checkpoint release does not mean that every current hosted endpoint has identical downloadable weights, features, or behavior. Keep the API model name or checkpoint identifier in your test notes. For a first comparison, use a coding explanation or a multi-step problem whose final result you can check independently.",
+        "The API supports documented compatibility formats, but compatibility does not remove provider-specific parameters or conversation requirements. Thinking-mode tool workflows, for example, require the client to preserve the relevant reasoning content as instructed by the documentation. For local deployment, check the exact checkpoint license, inference setup, and available hardware before choosing it. Compare the effort of operating the model with the needs of your task, not only the appeal of local control. Whether hosted or self-managed, validate answers and put explicit limits on external actions."
+      ],
+      "strengths": [
+        "Work through a multi-step task with a checked final answer",
+        "Explore coding tasks through the hosted API and approved tools",
+        "Evaluate a released checkpoint when self-managed inference is required"
+      ],
+      "limitations": [
+        "Hosted API endpoints and downloadable checkpoints can differ in features and behavior.",
+        "Local inference needs a suitable runtime and hardware; tool conversations must follow provider-specific requirements."
+      ],
+      "accessNote": "Choose the hosted API or a specific released checkpoint. Verify its own documentation and license; the DeepSeek chat app is a separate user interface.",
+      "selectionTip": "First decide whether you need an API service or to operate inference yourself. Then test the exact endpoint or checkpoint on your own workload."
+    },
+    "zh": {
+      "tagline": "提供推理型 API，也有独立发布的模型权重",
+      "description": "DeepSeek 通过 API 提供托管模型，同时也发布过可下载的模型检查点。应评估真正准备使用的 API 端点或具体权重，两种交付方式不能直接等同。",
+      "overview": [
+        "DeepSeek 模型家族有不止一种交付方式。托管 API 文档介绍了对话、思考控制和工具调用；DeepSeek-R1 等独立发布则提供模型权重与自行部署资料。发布过权重，并不意味着所有当前 API 端点都存在功能、行为完全相同的可下载版本。测试时应记录 API 模型名称或具体检查点标识。首次比较可使用代码解释，或最终答案能够独立核对的多步骤问题。",
+        "API 提供文档列出的兼容格式，但兼容并不代表可以忽略厂商特有的参数与会话要求。例如，思考模式下的工具工作流，需要客户端按说明保留相关推理内容。自行部署前，请核对具体检查点的许可证、推理配置和可用硬件，再评估运维投入是否符合任务需求，不能只看本地控制的吸引力。无论使用托管服务还是自管推理，都应验证结果，并对外部操作规定明确边界。"
+      ],
+      "strengths": [
+        "处理最终答案能够核对的多步骤任务",
+        "通过托管 API 和获准工具探索编程任务",
+        "在需要自管推理时评估明确发布的检查点"
+      ],
+      "limitations": [
+        "托管 API 端点与可下载检查点的功能和行为可能不同。",
+        "本地推理需要合适的运行环境和硬件，工具会话也必须符合厂商的具体要求。"
+      ],
+      "accessNote": "选择托管 API 或具体已发布检查点，并分别核对文档与许可证；DeepSeek 对话应用是另一层用户界面。",
+      "selectionTip": "先决定需要现成 API 服务还是自行运维推理，再用自己的任务测试确切端点或检查点。"
+    },
+    "es": {
+      "tagline": "Modelos de API orientados al razonamiento y pesos publicados por separado",
+      "description": "DeepSeek ofrece modelos alojados mediante API y también ha publicado checkpoints descargables. Evalúa el endpoint o el checkpoint exacto que vas a utilizar: las dos formas de entrega no son intercambiables.",
+      "overview": [
+        "DeepSeek es una familia con varias formas de distribución. Su API alojada documenta conversación, controles de razonamiento y llamadas a herramientas. Por separado, publicaciones como DeepSeek-R1 ofrecen pesos e información para alojamiento propio. La existencia de un checkpoint no implica que todos los endpoints actuales tengan pesos descargables, funciones o comportamiento idénticos. Registra el nombre de API o identificador del checkpoint utilizado. Para una primera comparación, elige una explicación de código o un problema de varios pasos con una respuesta final comprobable de forma independiente.",
+        "La API admite los formatos de compatibilidad documentados, pero siguen existiendo parámetros y requisitos propios del proveedor. Los flujos con razonamiento y herramientas, por ejemplo, exigen conservar el contenido de razonamiento indicado en la documentación. Para despliegue local, comprueba licencia, configuración de inferencia y hardware del checkpoint concreto. Compara el esfuerzo operativo con las necesidades reales de la tarea, además del atractivo del control local. En ambos casos, valida las respuestas y establece límites explícitos para las acciones externas."
+      ],
+      "strengths": [
+        "Resolver tareas de varios pasos con un resultado verificable",
+        "Explorar programación mediante la API y herramientas autorizadas",
+        "Evaluar un checkpoint publicado para inferencia autogestionada"
+      ],
+      "limitations": [
+        "Los endpoints alojados y los checkpoints descargables pueden diferir en funciones y comportamiento.",
+        "La inferencia local necesita entorno y hardware adecuados; las conversaciones con herramientas tienen requisitos específicos."
+      ],
+      "accessNote": "Elige la API alojada o un checkpoint publicado concreto. Revisa su documentación y licencia; la aplicación de chat es una interfaz de usuario distinta.",
+      "selectionTip": "Decide primero si necesitas un servicio de API o gestionar la inferencia. Después prueba el endpoint o checkpoint concreto con tu propia carga de trabajo."
+    }
+  }
+]

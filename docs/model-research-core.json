@@ -1,0 +1,104 @@
+{
+  "reviewed": "2026-10-27",
+  "evidenceLevel": "L0 official public documentation research; no API calls, paid-account tests, benchmark runs, or region-availability tests",
+  "egressRegion": "unknown",
+  "method": "Official pages opened with the web tool; OpenAI Docs skill used for OpenAI topic; copied marketing superlatives, prices, benchmark results, and numeric limits are intentionally excluded.",
+  "observations": [
+    {
+      "slug": "openai-gpt",
+      "catalogUrl": "https://developers.openai.com/api/docs/models",
+      "observedModelNames": [
+        "GPT-6 Astra",
+        "GPT-6.1 Sol",
+        "GPT-6.1 Terra",
+        "GPT-6 Luna"
+      ],
+      "verifiedFacts": [
+        "Current catalog describes text/image input, text output, multilingual and vision capabilities.",
+        "Responses API tools are explicitly configured; exact support belongs to model and API.",
+        "Structured Outputs supports specified JSON schemas; a schema does not establish factual correctness."
+      ],
+      "editorialBoundary": "Entry is about the hosted GPT family, not a promise that every ChatGPT app feature exists on every API model."
+    },
+    {
+      "slug": "claude",
+      "catalogUrl": "https://platform.claude.com/docs/en/models/overview",
+      "observedModelNames": [
+        "Claude Fable 5.1",
+        "Claude Opus 5.5",
+        "Claude Sonnet 5.5",
+        "Claude Haiku 5.5"
+      ],
+      "verifiedFacts": [
+        "Current catalog documents text/image input, text output, multilingual capabilities, vision, and tools.",
+        "Client tools execute in the application; Anthropic also documents server-executed tools.",
+        "Vision limitations and structured-output compatibility are documented separately."
+      ],
+      "editorialBoundary": "No cost/latency superiority claims; model-family entry is separate from the Claude app tool entry."
+    },
+    {
+      "slug": "gemini",
+      "catalogUrl": "https://ai.google.dev/gemini-api/docs/models",
+      "observedModelNames": [
+        "Gemini 4 Argon",
+        "Gemini 3.8 Flash"
+      ],
+      "verifiedFacts": [
+        "API catalog labels stable and preview releases and provides per-model endpoints.",
+        "Gemini API has image-understanding documentation and managed tools including Google Search grounding and code execution.",
+        "Custom function calls are executed by the application; structured output values still need validation."
+      ],
+      "editorialBoundary": "No assumption that every endpoint offers every modality or feature from the consumer app."
+    },
+    {
+      "slug": "deepseek",
+      "catalogUrl": "https://api-docs.deepseek.com/",
+      "observedModelNames": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "verifiedFacts": [
+        "The current API first-call documentation lists compatible API formats and current model identifiers.",
+        "Thinking mode supports tool calls with provider-specific conversation-state requirements.",
+        "The official R1 repository publishes model weights and license information, including notes on distilled derivatives."
+      ],
+      "editorialBoundary": "Hybrid means the family includes hosted and separately downloadable options; it does not mean every current API endpoint is an identical open checkpoint."
+    }
+  ],
+  "sourceUrls": {
+    "openai-gpt": [
+      "https://developers.openai.com/api/docs/models",
+      "https://developers.openai.com/api/docs/guides/latest-model",
+      "https://developers.openai.com/api/docs/guides/tools",
+      "https://developers.openai.com/api/docs/guides/structured-outputs"
+    ],
+    "claude": [
+      "https://platform.claude.com/docs/en/models/overview",
+      "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
+      "https://platform.claude.com/docs/en/build-with-claude/vision",
+      "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    ],
+    "gemini": [
+      "https://ai.google.dev/gemini-api/docs/models",
+      "https://ai.google.dev/gemini-api/docs/tools",
+      "https://ai.google.dev/gemini-api/docs/image-understanding",
+      "https://ai.google.dev/gemini-api/docs/structured-output"
+    ],
+    "deepseek": [
+      "https://api-docs.deepseek.com/",
+      "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "https://api-docs.deepseek.com/guides/tool_calls/",
+      "https://github.com/deepseek-ai/DeepSeek-R1"
+    ]
+  },
+  "originalEditorialGuidance": [
+    "Use repeatable examples and explicit acceptance criteria.",
+    "Record exact model or checkpoint identifiers and validate facts and task completion.",
+    "Separate interface, model, deployment route, and tool execution when choosing a system."
+  ],
+  "limits": [
+    "No claim of complete market coverage or objective top-model ranking.",
+    "Provider model catalogs change; model names above are dated observations, not hard-coded performance promises.",
+    "Prices, numeric context windows, unsupported geographic availability, partner affiliations, and hands-on scores were not added."
+  ]
+}

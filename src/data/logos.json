@@ -1,0 +1,143 @@
+{
+  "chatgpt": {
+    "src": "/logos/chatgpt.png",
+    "sourceUrl": "https://cdn.oaistatic.com/assets/favicon-eex17e9e.ico",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "gemini": {
+    "src": "/logos/gemini.png",
+    "sourceUrl": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "cursor": {
+    "src": "/logos/cursor.svg",
+    "sourceUrl": "https://cursor.com/marketing-static/favicon-light.svg",
+    "background": "#ffffff",
+    "padding": "3px",
+    "kind": "official-favicon"
+  },
+  "comfyui": {
+    "src": "/logos/comfyui.svg",
+    "sourceUrl": "https://comfy.org/favicon.svg",
+    "background": "#211927",
+    "padding": "3px",
+    "kind": "official-favicon"
+  },
+  "adobe-firefly": {
+    "src": "/logos/adobe-firefly.png",
+    "sourceUrl": "https://firefly.adobe.com/releases/a5533ca32996f1652cbadd1b72f18e6a049cc80c/assets/fi_android_192-DXlUnW6D.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "blender": {
+    "src": "/logos/blender.svg",
+    "sourceUrl": "https://www.blender.org/wp-content/themes/bthree/assets/icons/favicon.svg",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "perplexity": {
+    "src": "/logos/perplexity.svg",
+    "sourceUrl": "https://www.perplexity.ai/favicon.svg",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "notebooklm": {
+    "src": "/logos/notebooklm.svg",
+    "sourceUrl": "https://notebook.google/_/static/branding/v6/light_mode/favicon/favicon.svg",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "hugging-face": {
+    "src": "/logos/hugging-face.svg",
+    "sourceUrl": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo"
+  },
+  "deepseek": {
+    "src": "/logos/deepseek.png",
+    "sourceUrl": "https://www.deepseek.com/favicon.ico",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "qwen": {
+    "src": "/logos/qwen.png",
+    "sourceUrl": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "llama": {
+    "src": "/logos/llama.png",
+    "sourceUrl": "https://dev.meta.ai/favicon.ico?favicon.0__pei86aoyzg.ico",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon",
+    "note": "Meta provider logo from the official Meta AI developer site to which llama.com redirects."
+  },
+  "mistral": {
+    "src": "/logos/mistral.svg",
+    "sourceUrl": "https://mistral.ai/favicon.svg",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  },
+  "kimi": {
+    "src": "/logos/kimi.png",
+    "sourceUrl": "https://www.kimi.com/pwa-192.png",
+    "background": "#ffffff",
+    "padding": "3px",
+    "kind": "official-favicon"
+  },
+  "glm": {
+    "src": "/logos/glm.svg",
+    "sourceUrl": "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    "background": "#ffffff",
+    "padding": "3px",
+    "kind": "official-favicon"
+  },
+  "github-copilot": {
+    "src": "/logos/github-copilot.svg",
+    "sourceUrl": "https://github.com/features/copilot",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo"
+  },
+  "ollama": {
+    "src": "/logos/ollama.png",
+    "sourceUrl": "https://ollama.com/public/ollama-nav.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo"
+  },
+  "grok": {
+    "src": "/logos/grok.png",
+    "sourceUrl": "https://grok.com/images/apple-touch-icon.png",
+    "background": "#ffffff",
+    "padding": "3px",
+    "kind": "official-favicon"
+  },
+  "claude": {
+    "src": "/logos/claude.svg",
+    "sourceUrl": "https://claude.com/",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo"
+  },
+  "openai-gpt": {
+    "src": "/logos/chatgpt.png",
+    "sourceUrl": "https://cdn.oaistatic.com/assets/favicon-eex17e9e.ico",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon"
+  }
+}

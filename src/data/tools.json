@@ -1,0 +1,362 @@
+[
+  {
+    "slug": "claude",
+    "name": "Claude",
+    "url": "https://claude.ai/",
+    "category": "chat",
+    "mark": "Cl",
+    "color": "#b66a4d",
+    "sourceUrl": "https://claude.ai/",
+    "en": {
+      "tagline": "Think, write, and build in conversation",
+      "seoDescription": "Explore Claude, Anthropic’s AI assistant for discussing ideas, drafting documents, and working with code. Review its answers and generated code.",
+      "description": "Claude is Anthropic’s AI assistant for working through ideas, documents, and code. Bring a clearly scoped question or a draft, then refine the result through conversation. It is a useful starting point for outlining an explanation, revising writing, or exploring a small prototype. Review generated details against your own requirements before using the result.",
+      "useCases": ["Outline a technical explanation", "Revise a document draft", "Explore a code prototype"],
+      "caveat": "Check account availability and current feature limits; review factual claims and generated code."
+    },
+    "zh": {
+      "tagline": "在对话中思考、写作与构建",
+      "seoDescription": "了解 Anthropic 的 Claude：通过对话整理思路、撰写文档和探索代码，并在使用前核验事实与生成结果。",
+      "description": "Claude 是 Anthropic 的 AI 助手，可围绕想法、文档和代码展开工作。提供范围明确的问题或一份草稿，再通过对话逐步调整结果。你可以从整理技术说明、修改文章或探索小型原型入手。使用前仍需对照自己的需求检查内容、事实和代码，不应把生成结果直接视为已验证答案。",
+      "useCases": ["整理技术说明提纲", "修改文档草稿", "探索代码原型"],
+      "caveat": "请查看账户可用性与当前功能限制，并复核事实和生成代码。"
+    },
+    "es": {
+      "tagline": "Piensa, escribe y construye conversando",
+      "seoDescription": "Conoce Claude, el asistente de Anthropic para pensar, redactar documentos y trabajar con código. Revisa los resultados antes de usarlos.",
+      "description": "Claude es el asistente de IA de Anthropic para trabajar con ideas, documentos y código. Empieza con una pregunta concreta o un borrador y mejora el resultado mediante la conversación. Puede servir para organizar una explicación técnica, revisar un texto o explorar un prototipo pequeño. Comprueba los detalles y tus requisitos antes de utilizar lo generado.",
+      "useCases": ["Organizar una explicación técnica", "Revisar un borrador", "Explorar un prototipo de código"],
+      "caveat": "Consulta la disponibilidad de tu cuenta y los límites actuales; revisa los datos y el código."
+    }
+  },
+  {
+    "slug": "chatgpt",
+    "name": "ChatGPT",
+    "url": "https://chatgpt.com/",
+    "category": "chat",
+    "mark": "G",
+    "color": "#17816c",
+    "sourceUrl": "https://chatgpt.com/",
+    "en": {
+      "tagline": "A flexible starting point for everyday AI work",
+      "seoDescription": "Explore ChatGPT, OpenAI’s conversational AI for drafts, explanations, and coding questions. Available tools depend on your account.",
+      "description": "ChatGPT is OpenAI’s conversational AI service. Use it to turn an initial question into an outline, draft, explanation, or coding discussion. Depending on the tools available in your account, you can also work with files or web information. Give the assistant context and a clear output format, then inspect the answer before sharing or acting on it.",
+      "useCases": ["Turn notes into a first draft", "Explain an unfamiliar concept", "Discuss a coding problem"],
+      "caveat": "Available tools vary by account and region. Verify information and review data controls before uploading sensitive material."
+    },
+    "zh": {
+      "tagline": "从日常问题开始使用 AI",
+      "seoDescription": "了解 OpenAI 的 ChatGPT：用对话整理草稿、解释概念和讨论代码；可用工具取决于账户，答案需自行核验。",
+      "description": "ChatGPT 是 OpenAI 的对话式 AI 服务。你可以把一个初步问题逐步变成提纲、草稿、解释或编程讨论。根据账户中可用的工具，也能处理文件或网络信息。先交代背景和希望得到的格式，再检查答案是否满足需求；分享内容或据此行动前，仍应核实相关事实。",
+      "useCases": ["把笔记整理为初稿", "理解陌生概念", "讨论编程问题"],
+      "caveat": "工具随账户和地区而异。上传敏感材料前请查看数据设置，并核实生成信息。"
+    },
+    "es": {
+      "tagline": "Un punto de partida para el trabajo diario con IA",
+      "seoDescription": "Conoce ChatGPT de OpenAI para crear borradores, explicar conceptos y hablar de código. Las herramientas disponibles dependen de tu cuenta.",
+      "description": "ChatGPT es el servicio de IA conversacional de OpenAI. Permite desarrollar una pregunta inicial hasta obtener un esquema, borrador, explicación o conversación sobre código. Según las herramientas de tu cuenta, también puedes trabajar con archivos o información web. Aporta contexto y un formato de salida claro; después revisa la respuesta antes de compartirla o actuar.",
+      "useCases": ["Convertir notas en un borrador", "Entender un concepto nuevo", "Analizar un problema de programación"],
+      "caveat": "Las herramientas varían por cuenta y región. Verifica los datos y revisa los controles antes de subir material sensible."
+    }
+  },
+  {
+    "slug": "gemini",
+    "name": "Gemini",
+    "url": "https://gemini.google.com/",
+    "category": "chat",
+    "mark": "Ge",
+    "color": "#5577ce",
+    "sourceUrl": "https://gemini.google/gp/overview/?hl=en",
+    "en": {
+      "tagline": "Explore ideas with Google’s AI assistant",
+      "seoDescription": "Explore Google’s Gemini assistant for learning, planning, and creative ideas. Check its answers against original sources when accuracy matters.",
+      "description": "Gemini is Google’s AI assistant for learning, planning, and creating. Start with a concrete task such as organizing a study plan or comparing possible approaches to a project. Follow-up questions help make an answer more specific. Treat its suggestions as material to evaluate, and use primary sources when a task depends on accurate or current information.",
+      "useCases": ["Create a study outline", "Explore project approaches", "Develop a writing brief"],
+      "caveat": "Account, age, language, and regional restrictions may apply; confirm current features on Google’s site."
+    },
+    "zh": {
+      "tagline": "用 Google AI 助手探索想法",
+      "seoDescription": "了解 Google Gemini 助手如何帮助学习、规划和创作，并在需要准确或最新信息时查阅原始来源。",
+      "description": "Gemini 是 Google 面向学习、规划和创作的 AI 助手。可以从整理学习计划、比较项目思路等具体任务开始，再用追问让答案贴近需求。它适合提供待筛选的建议与初稿；任务涉及准确性或时效性时，应回到原始资料核对，而不是仅凭生成文字下结论。",
+      "useCases": ["整理学习提纲", "探索项目方案", "完善写作任务说明"],
+      "caveat": "可能存在账户、年龄、语言和地区限制，请在 Google 官网确认当前功能。"
+    },
+    "es": {
+      "tagline": "Explora ideas con el asistente de Google",
+      "seoDescription": "Descubre Gemini de Google para aprender, planificar y explorar ideas creativas. Contrasta sus respuestas con fuentes originales.",
+      "description": "Gemini es el asistente de IA de Google para aprender, planificar y crear. Empieza con una tarea concreta, como organizar un plan de estudio o comparar enfoques para un proyecto. Las preguntas de seguimiento permiten precisar el resultado. Evalúa sus propuestas y consulta fuentes originales cuando necesites información exacta, actual o relevante para tomar una decisión.",
+      "useCases": ["Preparar un esquema de estudio", "Explorar enfoques de proyecto", "Desarrollar un encargo de escritura"],
+      "caveat": "Puede haber restricciones de cuenta, edad, idioma y región; confirma las funciones actuales en Google."
+    }
+  },
+  {
+    "slug": "cursor",
+    "name": "Cursor",
+    "url": "https://cursor.com/",
+    "category": "coding",
+    "mark": "Cu",
+    "color": "#52535b",
+    "sourceUrl": "https://cursor.com/",
+    "en": {
+      "tagline": "AI assistance inside a software development workflow",
+      "seoDescription": "Explore Cursor’s AI coding assistance for discussing, generating, and reviewing changes in a development environment. Inspect and test each diff.",
+      "description": "Cursor brings AI coding assistance into the development environment. It is designed for working with software projects, from discussing a change to generating and reviewing code. A focused task, relevant repository context, and clear acceptance criteria make a better starting brief. Keep changes reviewable, run appropriate checks, and inspect the diff before integrating generated work into your project.",
+      "useCases": ["Understand an existing codebase", "Draft a focused feature change", "Investigate a bug with context"],
+      "caveat": "Generated changes need review and testing. Check repository access, permissions, and current product requirements."
+    },
+    "zh": {
+      "tagline": "把 AI 辅助融入软件开发流程",
+      "seoDescription": "了解 Cursor 如何在开发环境中辅助讨论、生成和审阅代码；合入项目之前应检查差异并运行适当测试。",
+      "description": "Cursor 将 AI 编程辅助带入开发环境，支持围绕软件项目讨论修改、生成代码并审阅结果。开始任务时，提供必要仓库背景、明确范围和验收标准会更有帮助。把修改控制在便于检查的规模，运行适当检查，并在合入项目之前阅读差异，确认实现符合真实需求。",
+      "useCases": ["理解现有代码库", "起草范围明确的功能修改", "结合上下文排查缺陷"],
+      "caveat": "生成修改需要审阅与测试，请确认仓库访问权限和当前产品要求。"
+    },
+    "es": {
+      "tagline": "Asistencia de IA en el flujo de desarrollo",
+      "seoDescription": "Conoce Cursor y su asistencia de IA para debatir, generar y revisar código en el entorno de desarrollo. Comprueba y prueba los cambios.",
+      "description": "Cursor incorpora asistencia de programación con IA al entorno de desarrollo. Está pensado para trabajar con proyectos de software, desde comentar un cambio hasta generar y revisar código. Una tarea acotada, contexto del repositorio y criterios de aceptación claros ayudan a empezar. Mantén los cambios fáciles de revisar, ejecuta las comprobaciones pertinentes e inspecciona las diferencias antes de integrarlas.",
+      "useCases": ["Entender un repositorio existente", "Preparar un cambio de funcionalidad", "Investigar un error con contexto"],
+      "caveat": "Revisa y prueba los cambios generados. Comprueba los permisos y los requisitos actuales del producto."
+    }
+  },
+  {
+    "slug": "github-copilot",
+    "name": "GitHub Copilot",
+    "url": "https://github.com/features/copilot",
+    "category": "coding",
+    "mark": "Co",
+    "color": "#7654bd",
+    "sourceUrl": "https://github.com/features/copilot",
+    "en": {
+      "tagline": "Coding assistance around your existing GitHub work",
+      "seoDescription": "Explore GitHub Copilot’s coding assistance in supported editors and GitHub workflows. Explain tasks clearly and review generated changes.",
+      "description": "GitHub Copilot provides AI assistance across coding workflows, including supported editors and GitHub. It can be a starting point when explaining code, drafting a change, or planning implementation work. Describe the intended behavior and constraints rather than accepting the first suggestion. Review the resulting patch in the same way you would review any other contribution to the repository.",
+      "useCases": ["Explain a code section", "Draft an implementation approach", "Prepare a reviewable code change"],
+      "caveat": "Availability depends on the environment and account. Follow your project’s review, security, and licensing requirements."
+    },
+    "zh": {
+      "tagline": "围绕 GitHub 工作流使用编程辅助",
+      "seoDescription": "了解 GitHub Copilot 如何在受支持的编辑器和 GitHub 工作流中辅助编程，并对生成的修改进行审阅。",
+      "description": "GitHub Copilot 在受支持的编辑器、GitHub 等开发流程中提供 AI 辅助。可以用它解释代码、起草修改或讨论实施方案。先说明预期行为与约束，再判断建议是否合适；对最终补丁应采用与其他仓库贡献相同的审阅标准，确认逻辑、权限与项目规范。",
+      "useCases": ["解释一段代码", "讨论实施思路", "准备便于审阅的修改"],
+      "caveat": "可用功能取决于环境与账户，请遵循项目的审阅、安全和许可要求。"
+    },
+    "es": {
+      "tagline": "Ayuda para programar dentro de tu trabajo con GitHub",
+      "seoDescription": "Descubre GitHub Copilot para ayudar a programar en editores compatibles y en GitHub. Define la tarea y revisa los cambios generados.",
+      "description": "GitHub Copilot ofrece asistencia de IA en flujos de programación, incluidos editores compatibles y GitHub. Puede ayudarte a empezar a explicar código, preparar un cambio o planificar una implementación. Describe el comportamiento esperado y las restricciones en lugar de aceptar la primera sugerencia. Revisa el parche resultante con los mismos criterios que cualquier otra contribución al repositorio.",
+      "useCases": ["Explicar una sección de código", "Preparar un enfoque de implementación", "Crear un cambio revisable"],
+      "caveat": "La disponibilidad depende del entorno y la cuenta. Respeta las normas de revisión, seguridad y licencias del proyecto."
+    }
+  },
+  {
+    "slug": "ollama",
+    "name": "Ollama",
+    "url": "https://ollama.com/",
+    "category": "coding",
+    "mark": "Ol",
+    "color": "#79746d",
+    "sourceUrl": "https://ollama.com/",
+    "en": {
+      "tagline": "A practical entry into running open models",
+      "seoDescription": "Explore Ollama for running supported open models locally. Choose a model for your hardware and check the data flow of connected tools.",
+      "description": "Ollama provides tools for working with open models, including running supported models locally. It is useful when exploring a model-backed prototype or learning how inference fits into an application. Choose a model that matches your hardware and task, then evaluate it on your own examples. Local operation still requires careful configuration of any connected services or external tools.",
+      "useCases": ["Try an open model locally", "Explore an AI application prototype", "Compare outputs on your own examples"],
+      "caveat": "Hardware requirements and model licenses vary. Cloud models and external connections have separate data boundaries."
+    },
+    "zh": {
+      "tagline": "从运行开放模型开始探索",
+      "seoDescription": "了解 Ollama 如何在本地运行受支持的开放模型；选择适合硬件的模型，并检查外部工具的数据流。",
+      "description": "Ollama 提供使用开放模型的工具，包括在本地运行受支持模型。适合学习模型推理如何接入应用，或探索基于模型的原型。先根据硬件和任务选择模型，再使用自己的样例评估结果。即使采用本地运行，也应逐项检查所连接的外部服务与工具的数据边界。",
+      "useCases": ["在本地尝试开放模型", "探索 AI 应用原型", "用自己的样例比较输出"],
+      "caveat": "硬件要求与模型许可各不相同，云模型及外部连接具有独立的数据边界。"
+    },
+    "es": {
+      "tagline": "Un acceso práctico a los modelos abiertos",
+      "seoDescription": "Descubre Ollama para ejecutar modelos abiertos compatibles en local. Elige según tu equipo y revisa los servicios conectados.",
+      "description": "Ollama ofrece herramientas para trabajar con modelos abiertos, incluida la ejecución local de modelos compatibles. Resulta útil para explorar prototipos o aprender cómo integrar la inferencia en una aplicación. Elige un modelo adecuado para tu equipo y tarea, y evalúalo con ejemplos propios. La ejecución local también exige revisar los servicios conectados y las herramientas externas.",
+      "useCases": ["Probar un modelo abierto en local", "Explorar un prototipo de aplicación", "Comparar resultados con ejemplos propios"],
+      "caveat": "Los requisitos de hardware y las licencias varían. Los modelos en la nube y conexiones externas tienen límites de datos distintos."
+    }
+  },
+  {
+    "slug": "comfyui",
+    "name": "ComfyUI",
+    "url": "https://comfy.org/",
+    "category": "creative",
+    "mark": "Cf",
+    "color": "#3c9364",
+    "sourceUrl": "https://comfy.org/",
+    "en": {
+      "tagline": "Make visual AI workflows visible and reusable",
+      "seoDescription": "Explore ComfyUI’s node-based canvas for reusable visual AI workflows. Results depend on the models, settings, and resources you choose.",
+      "description": "ComfyUI organizes visual AI work as connected steps on a canvas. This makes it useful for learning how models, processing operations, and outputs fit together, or for developing a repeatable creative workflow. Begin with a simple example and inspect each stage before adding complexity. Your results depend on the selected models, settings, and resources available to the workflow.",
+      "useCases": ["Explore image generation pipelines", "Inspect individual processing steps", "Build a repeatable visual workflow"],
+      "caveat": "Review model and extension licenses, hardware needs, and the trustworthiness of any third-party nodes."
+    },
+    "zh": {
+      "tagline": "让视觉 AI 工作流清晰、可复用",
+      "seoDescription": "了解 ComfyUI 如何用节点画布组织可复用的视觉 AI 工作流；结果取决于所选模型、配置和资源。",
+      "description": "ComfyUI 通过画布上相互连接的步骤组织视觉 AI 工作。它适合用来理解模型、处理操作和输出之间的关系，也能帮助搭建可重复执行的创作流程。建议先从简单示例入手，检查每一步的输入与结果后再增加复杂度。最终效果取决于所选模型、配置和可用资源。",
+      "useCases": ["探索图像生成流程", "检查各个处理步骤", "搭建可重复的视觉工作流"],
+      "caveat": "请查看模型及扩展许可、硬件要求，并评估第三方节点的可信程度。"
+    },
+    "es": {
+      "tagline": "Flujos de IA visual que puedes inspeccionar y reutilizar",
+      "seoDescription": "Descubre ComfyUI y sus flujos visuales de IA con nodos. Los resultados dependen de los modelos, ajustes y recursos elegidos.",
+      "description": "ComfyUI organiza el trabajo con IA visual mediante pasos conectados en un lienzo. Sirve para aprender cómo encajan los modelos, las operaciones de procesamiento y los resultados, o para crear un flujo repetible. Empieza con un ejemplo sencillo e inspecciona cada etapa antes de añadir complejidad. El resultado depende de los modelos, ajustes y recursos elegidos.",
+      "useCases": ["Explorar procesos de generación de imágenes", "Inspeccionar cada etapa", "Crear un flujo visual repetible"],
+      "caveat": "Revisa las licencias de modelos y extensiones, los requisitos de hardware y la confianza en nodos de terceros."
+    }
+  },
+  {
+    "slug": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "url": "https://www.adobe.com/products/firefly.html",
+    "category": "creative",
+    "mark": "Fi",
+    "color": "#c76667",
+    "sourceUrl": "https://www.adobe.com/products/firefly.html",
+    "en": {
+      "tagline": "Explore generative ideas for visual projects",
+      "seoDescription": "Explore Adobe Firefly for generative image creation and editing. Review outputs and check the relevant usage terms before publishing.",
+      "description": "Adobe Firefly brings generative AI tools to creative work, including image creation and editing. Use it to explore the visual direction of a project, develop a mood board, or try variations before deciding what to produce. A specific creative brief helps keep iterations focused. Inspect generated assets for unwanted details and confirm usage terms before including them in a finished project.",
+      "useCases": ["Explore a visual direction", "Develop a project mood board", "Create and refine image variations"],
+      "caveat": "Features, usage allowances, and terms differ by model and account; check the current conditions for your intended use."
+    },
+    "zh": {
+      "tagline": "为视觉项目探索生成式创意",
+      "seoDescription": "了解 Adobe Firefly 的生成式图像创作与编辑用途；发布素材前请检查生成结果并确认使用条款。",
+      "description": "Adobe Firefly 把生成式 AI 工具带入创意工作，包括图像生成与编辑。可以用它探索项目的视觉方向、整理情绪板，或在制作成品之前尝试不同方案。明确的创作说明有助于减少无关迭代。使用生成素材前，应检查不合意的细节，并确认对应模型及账户的使用条款。",
+      "useCases": ["探索视觉方向", "制作项目情绪板", "生成并调整图像方案"],
+      "caveat": "功能、额度和条款随模型与账户变化，请确认适用于目标用途的当前条件。"
+    },
+    "es": {
+      "tagline": "Explora ideas generativas para proyectos visuales",
+      "seoDescription": "Descubre Adobe Firefly para crear y editar imágenes generativas. Revisa los resultados y las condiciones de uso antes de publicar.",
+      "description": "Adobe Firefly incorpora herramientas de IA generativa al trabajo creativo, incluida la creación y edición de imágenes. Úsalo para explorar una dirección visual, desarrollar un tablero de inspiración o probar variantes antes de producir una pieza. Un encargo específico ayuda a enfocar las iteraciones. Inspecciona los detalles y confirma las condiciones de uso antes de publicar el resultado.",
+      "useCases": ["Explorar una dirección visual", "Crear un tablero de inspiración", "Generar y ajustar variantes de imágenes"],
+      "caveat": "Las funciones, cuotas y condiciones dependen del modelo y la cuenta; confirma los términos para tu uso previsto."
+    }
+  },
+  {
+    "slug": "blender",
+    "name": "Blender",
+    "url": "https://www.blender.org/",
+    "category": "creative",
+    "mark": "Bl",
+    "color": "#cf7a37",
+    "sourceUrl": "https://docs.blender.org/manual/en/4.2/getting_started/about/index.html",
+    "en": {
+      "tagline": "An open-source 3D companion for creative workflows",
+      "seoDescription": "Explore Blender, a free open-source 3D creation suite for modeling, rendering, and animation alongside AI-assisted creative workflows.",
+      "description": "Blender is a free and open-source 3D creation suite, rather than an AI chatbot. It belongs here as a companion tool for shaping, rendering, and refining visual projects alongside AI-generated concepts. Use it when a project needs direct control of 3D assets or animation. Learning a small, complete scene is a useful first step before building a larger production workflow.",
+      "useCases": ["Build and render a simple 3D scene", "Develop animation assets", "Refine a visual concept in 3D"],
+      "caveat": "AI integrations are separate from Blender itself; check each add-on’s origin, permissions, and license."
+    },
+    "zh": {
+      "tagline": "搭配创意工作流的开源 3D 工具",
+      "seoDescription": "了解 Blender：免费开源的 3D 创作套件，可用于建模、渲染和动画，也可搭配 AI 创意工作流。",
+      "description": "Blender 是免费开源的 3D 创作套件，并非 AI 聊天工具。这里将它作为生成式创意的配套工具，用于建模、渲染和完善视觉项目。当项目需要直接控制 3D 素材或动画时，可以考虑使用。先完成一个小而完整的场景，再逐步搭建更复杂的制作流程，通常更便于学习与验证。",
+      "useCases": ["制作并渲染简单 3D 场景", "开发动画素材", "用 3D 完善视觉概念"],
+      "caveat": "AI 集成与 Blender 本体需分别评估，请检查各插件的来源、权限和许可。"
+    },
+    "es": {
+      "tagline": "Un complemento abierto de 3D para el trabajo creativo",
+      "seoDescription": "Conoce Blender, una suite 3D gratuita y de código abierto para modelado, renderizado y animación junto a flujos creativos con IA.",
+      "description": "Blender es una suite de creación 3D gratuita y de código abierto, no un chatbot de IA. Se incluye como herramienta complementaria para modelar, renderizar y desarrollar proyectos a partir de conceptos visuales. Resulta útil cuando necesitas controlar directamente los recursos 3D o la animación. Completar una escena pequeña ayuda a aprender antes de preparar una producción más compleja.",
+      "useCases": ["Crear y renderizar una escena 3D", "Desarrollar recursos de animación", "Refinar un concepto visual en 3D"],
+      "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento."
+    }
+  },
+  {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "url": "https://www.perplexity.ai/",
+    "category": "research",
+    "mark": "Pe",
+    "color": "#37838a",
+    "sourceUrl": "https://www.perplexity.ai/hub",
+    "en": {
+      "tagline": "Start a research trail with AI-assisted search",
+      "seoDescription": "Explore Perplexity’s conversational search for finding web sources and starting research. Open citations and check their original context.",
+      "description": "Perplexity combines conversational questions with web search and linked sources. It can help you start exploring an unfamiliar topic, collect relevant reading, or compare how sources discuss a question. Use the generated answer as a route into the evidence. Open the citations, check what each source actually supports, and keep the original links with your research notes.",
+      "useCases": ["Find starting sources for a topic", "Explore competing explanations", "Collect links for further reading"],
+      "caveat": "A citation does not guarantee that a claim is correct or fully supported; inspect original sources and their dates."
+    },
+    "zh": {
+      "tagline": "从 AI 辅助搜索建立研究线索",
+      "seoDescription": "了解 Perplexity 如何结合对话和网页搜索帮助寻找研究资料；使用结论前应打开引用并核对原文。",
+      "description": "Perplexity 将对话式提问、网页搜索与来源链接结合起来。可以用它初步了解陌生主题、收集相关阅读材料，或比较不同来源如何讨论同一问题。把生成答案作为寻找证据的起点，打开引用检查原文实际支持什么，并在研究笔记中保留原始链接和资料日期。",
+      "useCases": ["查找主题的初始资料", "探索不同解释", "收集延伸阅读链接"],
+      "caveat": "带引用不等于结论正确或证据完整，请检查原始资料及其日期。"
+    },
+    "es": {
+      "tagline": "Empieza una investigación con búsqueda asistida por IA",
+      "seoDescription": "Descubre la búsqueda conversacional de Perplexity para encontrar fuentes web e iniciar una investigación. Verifica las citas originales.",
+      "description": "Perplexity combina preguntas conversacionales con búsqueda web y enlaces a fuentes. Puede ayudar a explorar un tema desconocido, reunir lecturas o comparar cómo distintas fuentes abordan una pregunta. Usa la respuesta generada como camino hacia las pruebas. Abre las citas, comprueba qué respalda realmente cada fuente y conserva los enlaces originales en tus notas de investigación.",
+      "useCases": ["Encontrar fuentes iniciales", "Explorar explicaciones distintas", "Reunir enlaces para seguir leyendo"],
+      "caveat": "Una cita no garantiza la exactitud ni el respaldo de una afirmación; revisa las fuentes originales y sus fechas."
+    }
+  },
+  {
+    "slug": "notebooklm",
+    "name": "Gemini Notebook (NotebookLM)",
+    "url": "https://notebook.google/",
+    "category": "research",
+    "mark": "N",
+    "color": "#506ea5",
+    "sourceUrl": "https://support.google.com/gemininotebook/answer/16215270?hl=en",
+    "en": {
+      "tagline": "Ask focused questions of a set of sources",
+      "seoDescription": "Explore Gemini Notebook, formerly NotebookLM, for asking questions about selected sources. Check cited passages in context.",
+      "description": "Google’s source-based notebook tool, reached through the former NotebookLM entry point, helps organize and question selected material. Add supported documents or links, choose relevant sources, and ask about a specific topic. This is useful for studying a small reading collection or comparing documents. Check the cited passages in context before carrying a summary or conclusion into your own work.",
+      "useCases": ["Study a collection of documents", "Ask questions about selected sources", "Compare themes across reading material"],
+      "caveat": "Supported formats and limits change. Only upload material you are entitled to use, and verify cited passages."
+    },
+    "zh": {
+      "tagline": "围绕一组资料提出具体问题",
+      "seoDescription": "了解 Google Gemini Notebook（原 NotebookLM）：围绕选定资料提问，并在使用摘要前核对引用的上下文。",
+      "description": "Google 的资料型笔记工具可通过原 NotebookLM 入口访问，用于组织资料并围绕选定内容提问。加入受支持的文档或链接，选择相关来源，再针对具体主题询问。它适合学习一组阅读材料或比较多份文档。把摘要与结论用于自己的工作前，应回到引用段落检查完整上下文。",
+      "useCases": ["学习一组文档", "针对选定资料提问", "比较阅读材料中的主题"],
+      "caveat": "支持格式与限制可能变化。仅上传有权使用的资料，并检查引用原文。"
+    },
+    "es": {
+      "tagline": "Haz preguntas concretas sobre una colección de fuentes",
+      "seoDescription": "Descubre Gemini Notebook, antes NotebookLM, para preguntar sobre fuentes seleccionadas. Revisa las citas en su contexto.",
+      "description": "La herramienta de cuadernos de Google, accesible desde la antigua entrada de NotebookLM, permite organizar y consultar material seleccionado. Añade documentos o enlaces compatibles, elige las fuentes relevantes y pregunta por un tema específico. Sirve para estudiar una colección de lecturas o comparar documentos. Revisa los pasajes citados en su contexto antes de incorporar una conclusión a tu trabajo.",
+      "useCases": ["Estudiar una colección de documentos", "Consultar fuentes seleccionadas", "Comparar temas entre lecturas"],
+      "caveat": "Los formatos y límites pueden cambiar. Sube únicamente material que puedas utilizar y comprueba los pasajes citados."
+    }
+  },
+  {
+    "slug": "hugging-face",
+    "name": "Hugging Face",
+    "url": "https://huggingface.co/",
+    "category": "research",
+    "mark": "Hf",
+    "color": "#af8a2d",
+    "sourceUrl": "https://huggingface.co/",
+    "en": {
+      "tagline": "Discover models, datasets, and community applications",
+      "seoDescription": "Explore Hugging Face models, datasets, and community applications. Read model cards and evaluate each resource for your own task.",
+      "description": "Hugging Face is a collaboration platform for machine learning models, datasets, and applications. Explore model cards and project documentation to understand what a resource is intended to do before trying it. It is useful for finding examples, examining an open model, or learning from a community demo. Evaluate suitability on your own task rather than relying on popularity alone.",
+      "useCases": ["Read model cards and limitations", "Find datasets for exploration", "Learn from community applications"],
+      "caveat": "Licenses, quality, hardware requirements, and access rules differ by repository. Treat downloaded code and data as third-party material."
+    },
+    "zh": {
+      "tagline": "发现模型、数据集与社区应用",
+      "seoDescription": "探索 Hugging Face 的模型、数据集与社区应用；使用前阅读模型卡片并结合实际任务评估资源。",
+      "description": "Hugging Face 是围绕机器学习模型、数据集和应用开展协作的平台。尝试资源前，先阅读模型卡片和项目文档，理解其用途、条件与限制。可以在这里寻找示例、了解开放模型，或通过社区演示学习。应以自己的实际任务评估适用性，而不是仅根据热度选择。",
+      "useCases": ["阅读模型卡片与限制", "寻找探索用的数据集", "学习社区应用示例"],
+      "caveat": "不同仓库的许可、质量、硬件和访问规则各异，请把下载的代码与数据视为第三方材料。"
+    },
+    "es": {
+      "tagline": "Descubre modelos, conjuntos de datos y aplicaciones",
+      "seoDescription": "Explora modelos, conjuntos de datos y aplicaciones en Hugging Face. Lee las fichas y evalúa cada recurso para tu tarea.",
+      "description": "Hugging Face es una plataforma de colaboración para modelos de aprendizaje automático, conjuntos de datos y aplicaciones. Lee las fichas de los modelos y la documentación para entender la finalidad de un recurso antes de probarlo. Puedes encontrar ejemplos, explorar modelos abiertos o aprender de demostraciones comunitarias. Evalúa su adecuación a tu tarea en lugar de guiarte solo por su popularidad.",
+      "useCases": ["Leer fichas y límites de modelos", "Encontrar conjuntos de datos", "Aprender de aplicaciones comunitarias"],
+      "caveat": "Las licencias, calidad, requisitos y reglas de acceso varían por repositorio. Trata el código y los datos como material de terceros."
+    }
+  }
+]
