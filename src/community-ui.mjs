@@ -12,7 +12,9 @@ export const communityUi = {
     suggestTool: 'Suggest an AI tool or GitHub repository',
     siteRepository: 'Community GitHub',
     upstreamIssues: 'MonkeyAI product issues',
-    correctionsText: 'For this website, suggest a correction in the community repository. For MonkeyAI product problems, use the upstream project’s issue tracker. This community does not provide official product support.'
+    correctionsText: 'For this website, suggest a correction in the community repository. For MonkeyAI product problems, use the upstream project’s issue tracker. This community does not provide official product support.',
+    safetyNote: "Before posting, check how to report privately: security vulnerabilities use the private advisory process in SECURITY.md, and sensitive conduct concerns go to GitHub's abuse reporting rather than a public issue.",
+    safetyLinks: ["Security policy", "Community conduct"],
   },
   zh: {
     togetherText: '一起维护这个独立社区：推荐 AI 工具或 GitHub 仓库，提交问题，或通过 Pull Request 改进内容。',
@@ -25,7 +27,9 @@ export const communityUi = {
     suggestTool: '推荐 AI 工具或 GitHub 仓库',
     siteRepository: '社区 GitHub 仓库',
     upstreamIssues: 'MonkeyAI 产品问题',
-    correctionsText: '本站内容需要更正时，请在社区仓库反馈；MonkeyAI 产品问题请使用上游项目的问题追踪。本社区不提供官方产品支持。'
+    correctionsText: '本站内容需要更正时，请在社区仓库反馈；MonkeyAI 产品问题请使用上游项目的问题追踪。本社区不提供官方产品支持。',
+    safetyNote: "发布前请先确认私下反馈的方式：安全漏洞请按 SECURITY.md 中的私密报告流程处理，涉及敏感行为的问题请使用 GitHub 的滥用举报渠道，不要发在公开 Issue 里。",
+    safetyLinks: ["安全政策", "社区行为准则"],
   },
   es: {
     togetherText: 'Ayuda a mantener esta comunidad independiente: sugiere una herramienta de IA o un repositorio de GitHub, informa de un problema o envía una pull request.',
@@ -38,6 +42,8 @@ export const communityUi = {
     suggestTool: 'Sugerir una herramienta de IA o repositorio de GitHub',
     siteRepository: 'GitHub de la comunidad',
     upstreamIssues: 'Problemas del producto MonkeyAI',
-    correctionsText: 'Para corregir este sitio, abre una incidencia en el repositorio de la comunidad. Para problemas del producto MonkeyAI, utiliza el repositorio original. Esta comunidad no ofrece soporte oficial.'
+    correctionsText: 'Para corregir este sitio, abre una incidencia en el repositorio de la comunidad. Para problemas del producto MonkeyAI, utiliza el repositorio original. Esta comunidad no ofrece soporte oficial.',
+    safetyNote: "Antes de publicar, consulta cómo informar en privado: las vulnerabilidades siguen el proceso de aviso privado de SECURITY.md y los problemas de conducta sensibles van a la denuncia de abuso de GitHub, no a una incidencia pública.",
+    safetyLinks: ["Política de seguridad", "Conducta de la comunidad"],
   }
 };

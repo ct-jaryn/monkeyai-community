@@ -15,8 +15,13 @@ for (const prefix of ['', 'zh/', 'es/']) {
   }
   assert.ok(directory.includes(`href="${toolForm}"`), `${prefix || 'en/'}tools missing tool suggestion form`);
   assert.ok(home.includes(`href="${repo}"`), `${prefix || 'en/'}home missing community repository`);
+  // A public issue is the wrong place for a vulnerability or a conduct concern; the
+  // page must point at the private routes instead of letting people guess.
+  for (const link of [`${repo}/security/advisories/new`, `${repo}/blob/main/CODE_OF_CONDUCT.md`]) {
+    assert.ok(community.includes(`href="${link}"`), `${prefix || 'en/'}community missing ${link}`);
+  }
 }
-for (const path of ['.github/ISSUE_TEMPLATE/tool-suggestion.yml', '.github/ISSUE_TEMPLATE/bug-report.yml', '.github/PULL_REQUEST_TEMPLATE.md', 'CONTRIBUTING.md', 'SECURITY.md']) {
+for (const path of ['.github/ISSUE_TEMPLATE/tool-suggestion.yml', '.github/ISSUE_TEMPLATE/bug-report.yml', '.github/PULL_REQUEST_TEMPLATE.md', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md']) {
   assert.ok(fs.existsSync(path), `missing contribution file ${path}`);
 }
 console.log('Community contribution links and files passed for English, Chinese and Spanish.');
