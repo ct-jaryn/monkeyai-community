@@ -171,7 +171,7 @@
     "slug": "mcp-personal-connectors",
     "category": "MCP & connectors",
     "docGroup": "mcp",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 7,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
@@ -476,7 +476,7 @@
     "slug": "account-resource-credits-faq",
     "category": "Troubleshooting",
     "docGroup": "faq",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 7,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a15361-2b73-7c79-8e64-a533a648648e",
@@ -509,9 +509,9 @@
           "bullets": []
         },
         {
-          "heading": "Can I switch teams during a task?",
+          "heading": "Can I switch accounts or join another team during a task?",
           "paragraphs": [
-            "In Settings → Account (设置 → 账号), you can add or switch teams. The official guide says switching interrupts the current task, so finish or safely stop the task before switching, then confirm the active team and available resources."
+            "In Settings → Account (设置 → 账号) you can switch between accounts you have added, or use Add account to sign in to another team. Obtain the server address and sign-in details from that team’s administrator first. The official guide says switching accounts interrupts the current task, so finish or safely stop the running work before switching, then confirm the active team and its available resources."
           ],
           "bullets": []
         },
@@ -526,7 +526,7 @@
           "heading": "Where do I check credits and usage?",
           "paragraphs": [
             "Open Settings → Credits (设置 → 积分) to inspect your balance and usage or refunds. Team credits and an external model provider’s balance are separate, so check both when a model request fails. For an unexpected charge or refund, provide the transaction ID and time to the administrator without exposing credentials.",
-            "If your team sets periodic limits, their reset cadence and available amount depend on the administrator’s configuration. The official guide describes daily, weekly or monthly resets and says unused allowance does not carry over."
+            "If your team sets periodic limits, their reset cadence and available amount depend on the administrator’s configuration. The official guide describes daily, weekly or monthly resets and says a periodic reset replaces the allowance rather than adding unused credits to it. An administrator can also reset a member or group immediately."
           ],
           "bullets": []
         }
@@ -534,7 +534,7 @@
     },
     "zh": {
       "title": "账号、权限、模型和积分常见问题",
-      "description": "了解资源不可见的原因、切换团队对任务的影响，以及如何查看积分。",
+      "description": "了解资源不可见的原因、切换账号对任务的影响，以及如何查看积分。",
       "sections": [
         {
           "heading": "为什么看不到模型或连接器？",
@@ -558,9 +558,9 @@
           "bullets": []
         },
         {
-          "heading": "任务进行中可以切换团队吗？",
+          "heading": "任务进行中可以切换账号或加入其他团队吗？",
           "paragraphs": [
-            "可以在「设置 → 账号」中添加或切换团队。官方文档说明切换会中断当前任务，因此应先完成或安全停止任务，再切换并确认当前团队和可用资源。"
+            "在「设置 → 账号」中可切换已添加的账号，也可通过「添加账号」登录其他团队；加入前应先向该团队管理员获取服务器地址和登录信息。官方文档说明切换账号会中断当前任务，因此应先完成或安全停止正在执行的工作，再切换并确认当前团队及其可用资源。"
           ],
           "bullets": []
         },
@@ -575,7 +575,7 @@
           "heading": "在哪里查看积分和使用记录？",
           "paragraphs": [
             "打开「设置 → 积分」查看余额、消费或退款记录。团队积分与外部模型提供方余额是两回事，模型请求失败时两者都应检查。遇到不明消费或退款，可向管理员提供交易编号和时间，不要暴露凭证。",
-            "如果团队设置了周期额度，重置周期和可用数量取决于管理员配置。官方文档说明周期可按日、周或月重置，未使用的额度不结转。"
+            "如果团队设置了周期额度，重置周期和可用数量取决于管理员配置。官方文档说明积分可按日、周或月重置，周期刷新是重置额度，不会把未使用的积分逐期累加；管理员也可按成员或分组立即重置。"
           ],
           "bullets": []
         }
@@ -583,7 +583,7 @@
     },
     "es": {
       "title": "Preguntas frecuentes sobre cuentas, permisos, modelos y créditos",
-      "description": "Descubre por qué faltan recursos, cómo afecta cambiar de equipo a una tarea y dónde consultar tus créditos.",
+      "description": "Descubre por qué faltan recursos, cómo afecta cambiar de cuenta a una tarea y dónde consultar tus créditos.",
       "sections": [
         {
           "heading": "¿Por qué no veo un modelo o conector?",
@@ -607,9 +607,9 @@
           "bullets": []
         },
         {
-          "heading": "¿Puedo cambiar de equipo durante una tarea?",
+          "heading": "¿Puedo cambiar de cuenta o unirme a otro equipo durante una tarea?",
           "paragraphs": [
-            "En Ajustes → Cuenta (设置 → 账号) puedes añadir o cambiar de equipo. La guía oficial indica que el cambio interrumpe la tarea actual, así que termínala o detenla de forma segura antes de cambiar y comprueba después el equipo activo y los recursos disponibles."
+            "En Ajustes → Cuenta (设置 → 账号) puedes cambiar entre las cuentas que hayas añadido o usar Añadir cuenta para iniciar sesión en otro equipo; pide antes al administrador de ese equipo la dirección del servidor y los datos de acceso. La guía oficial indica que cambiar de cuenta interrumpe la tarea actual, así que termina o detén el trabajo en curso antes de cambiar y comprueba después la cuenta activa y sus recursos disponibles."
           ],
           "bullets": []
         },
@@ -624,7 +624,7 @@
           "heading": "¿Dónde consulto créditos y uso?",
           "paragraphs": [
             "Abre Ajustes → Créditos (设置 → 积分) para consultar el saldo y los registros de uso o reembolso. Los créditos del equipo y el saldo de un proveedor externo de modelos son distintos, por lo que conviene revisar ambos si falla una solicitud. Para una operación inesperada, facilita al administrador el identificador y la hora sin revelar credenciales.",
-            "Si el equipo establece límites periódicos, la frecuencia de reinicio y la cantidad disponible dependen de la configuración del administrador. La guía oficial describe reinicios diarios, semanales o mensuales y señala que la asignación no utilizada no se acumula."
+            "Si el equipo establece límites periódicos, la frecuencia de reinicio y la cantidad disponible dependen de la configuración del administrador. La guía oficial describe reinicios diarios, semanales o mensuales y señala que el reinicio reemplaza la asignación en lugar de sumar los créditos no usados; un administrador también puede reiniciar a un miembro o grupo de inmediato."
           ],
           "bullets": []
         }
