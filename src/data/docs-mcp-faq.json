@@ -353,7 +353,7 @@
         {
           "heading": "Why is a private MCP address unreachable?",
           "paragraphs": [
-            "The allowed destinations depend on the release. Current upstream code allows the RFC 1918 ranges and fc00::/7 by default, while loopback, link-local and several special-use ranges must be listed explicitly in the backend’s MONKEYAI_MCP_ALLOWED_CIDRS. Ask your server administrator which revision is deployed and to check network access and the effective range list. This is a server-side setting, not a change a member can make by editing the connector URL; if a hostname resolves to a denied address, the connection fails before any MCP exchange."
+            "The allowed destinations depend on the release. Current upstream code allows the RFC 1918 ranges and fc00::/7 by default, while loopback, link-local and several special-use ranges must be listed explicitly in the backend’s MONKEYAI_MCP_ALLOWED_CIDRS. Ask your server administrator which revision is deployed and to check network access and the effective range list. This is a server-side setting, not a change a member can make by editing the connector URL; if a hostname resolves to a denied address, the connection fails before any MCP exchange. The reviewed backend also refuses automatic redirects, so use the provider’s final MCP endpoint rather than an address that redirects."
           ],
           "bullets": []
         },
