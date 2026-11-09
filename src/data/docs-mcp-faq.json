@@ -402,7 +402,7 @@
         {
           "heading": "为什么连不上内网 MCP 地址？",
           "paragraphs": [
-            "可访问的目标取决于发布版本。当前上游代码默认允许 RFC 1918 网段和 fc00::/7；回环、链路本地及若干特殊用途网段需要在后端的 MONKEYAI_MCP_ALLOWED_CIDRS 中显式列出。请让服务端管理员确认实际部署的修订版本，检查网络访问和生效的网段列表。这是服务端设置，成员修改连接器地址无法绕过；如果域名解析到被拒地址，连接会在 MCP 交互前失败。"
+            "可访问的目标取决于发布版本。当前上游代码默认允许 RFC 1918 网段和 fc00::/7；回环、链路本地及若干特殊用途网段需要在后端的 MONKEYAI_MCP_ALLOWED_CIDRS 中显式列出。请让服务端管理员确认实际部署的修订版本，检查网络访问和生效的网段列表。这是服务端设置，成员修改连接器地址无法绕过；如果域名解析到被拒地址，连接会在 MCP 交互前失败。复查的后端还会拒绝自动重定向，因此应填写提供方最终的 MCP 端点，而不是会跳转的地址。"
           ],
           "bullets": []
         },
@@ -451,7 +451,7 @@
         {
           "heading": "¿Por qué no se alcanza una dirección MCP privada?",
           "paragraphs": [
-            "Los destinos permitidos dependen de la versión. El código actual admite por defecto los rangos RFC 1918 y fc00::/7; el bucle local, el enlace local y varios rangos de uso especial deben figurar explícitamente en MONKEYAI_MCP_ALLOWED_CIDRS del backend. Pide al administrador que confirme la revisión desplegada y revise el acceso de red y la lista de rangos efectiva. Es un ajuste del servidor; un miembro no lo evita cambiando la URL del conector. Si un nombre resuelve a una dirección denegada, la conexión falla antes de cualquier intercambio MCP."
+            "Los destinos permitidos dependen de la versión. El código actual admite por defecto los rangos RFC 1918 y fc00::/7; el bucle local, el enlace local y varios rangos de uso especial deben figurar explícitamente en MONKEYAI_MCP_ALLOWED_CIDRS del backend. Pide al administrador que confirme la revisión desplegada y revise el acceso de red y la lista de rangos efectiva. Es un ajuste del servidor; un miembro no lo evita cambiando la URL del conector. Si un nombre resuelve a una dirección denegada, la conexión falla antes de cualquier intercambio MCP. El backend revisado también rechaza las redirecciones automáticas, así que usa el endpoint MCP final del proveedor y no una dirección que redirija."
           ],
           "bullets": []
         },
