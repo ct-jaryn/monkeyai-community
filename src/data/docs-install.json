@@ -3,12 +3,13 @@
     "slug": "install-with-official-installer",
     "category": "Installation and deployment",
     "docGroup": "install",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 8,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
       "https://release.monkeycode-ai.com/public/monkeyai-install.sh",
-      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md"
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
     ],
     "en": {
       "title": "Install MonkeyAI on Linux with the official installer",
@@ -17,7 +18,7 @@
         {
           "heading": "Prepare the server",
           "paragraphs": [
-            "The Chinese installation tutorial describes Linux on amd64 or arm64, root access, at least 1 CPU core, 1 GB RAM and 15 GB free disk as a starting point. Capacity depends on your workload. Reserve host ports 8080 and 8443, including when automatic TLS is disabled, and allow access to the release service and container registry."
+            "The upstream README reviewed on 2026-11-09 lists 1 CPU core and 1 GB of RAM as a lightweight starting configuration and says capacity depends on team size, storage and workload. The Chinese installation tutorial, which could not be re-read in full on 2026-11-09 because it renders in the browser, additionally described Linux on amd64 or arm64, root access and at least 15 GB free disk. Reserve host ports 8080 and 8443, including when automatic TLS is disabled, and allow access to the release service and container registry. Treat the disk figure and port numbers as the tutorial’s guidance rather than a measurement we made."
           ],
           "bullets": [
             "Confirm the server architecture, available disk and port conflicts.",
@@ -27,7 +28,7 @@
         {
           "heading": "Download and inspect the official installer",
           "paragraphs": [
-            "The official tutorial runs a script from the release service. This equivalent download-and-review sequence keeps TLS certificate verification enabled and lets you inspect the script before running it as root. Only proceed if you trust the downloaded script and its release service. The script selects a release and checks its downloaded package checksum; that does not independently authenticate the script itself. Record the installed version for later upgrades."
+            "The official one-liner shown in the upstream README passes -k to curl, which skips TLS certificate validation for that request. The sequence below is equivalent in intent but keeps verification on and lets you inspect the script before running it as root. Only proceed if you trust the downloaded script and its release service. The script selects a release and checks the downloaded package checksum; that does not independently authenticate the script itself. Record the installed version for later upgrades."
           ],
           "bullets": [
             "Read the current upstream instructions in case prompts or release packaging change."
@@ -73,7 +74,7 @@
         {
           "heading": "准备服务器",
           "paragraphs": [
-            "中文安装教程给出的起步条件为 Linux amd64 或 arm64、root 权限、至少 1 核 CPU、1 GB 内存和 15 GB 可用磁盘。实际容量取决于负载。预留宿主机 8080 和 8443 端口，即使没有启用自动 TLS 也需预留，并确保能访问发布服务和容器镜像仓库。"
+            "2026-11-09 核对的上游 README 把 1 核 CPU、1 GB 内存列为轻量起步配置，并说明实际容量取决于团队规模、存储和工作负载。中文安装教程在 2026-11-09 未能完整复核（页面由浏览器渲染），其中还描述了 Linux amd64 或 arm64、root 权限和至少 15 GB 可用磁盘。请预留宿主机 8080 和 8443 端口，即使没有启用自动 TLS 也需预留，并确保能访问发布服务和容器镜像仓库。磁盘数值和端口以教程说明为准，并非我们实测的结果。"
           ],
           "bullets": [
             "检查服务器架构、磁盘空间和端口占用。",
@@ -83,7 +84,7 @@
         {
           "heading": "下载并检查官方安装器",
           "paragraphs": [
-            "官方教程通过发布服务提供安装脚本。下面将下载和执行分开，保留 TLS 证书校验，并在以 root 权限运行前检查脚本。只有信任下载的脚本及发布服务时才继续。脚本会选择版本并校验下载包的摘要，但这不能独立证明脚本本身的真实性。记录实际安装版本，供以后升级核对。"
+            "上游 README 给出的一行命令给 curl 传了 -k，会跳过该次请求的 TLS 证书校验。下面的步骤目的相同，但保留校验，并在以 root 权限运行前检查脚本。只有信任下载的脚本及发布服务时才继续。脚本会选择版本并校验下载包的摘要，但这不能独立证明脚本本身的真实性。记录实际安装版本，供以后升级核对。"
           ],
           "bullets": [
             "参照当前上游文档，提示和发布包可能发生变化。"
@@ -129,7 +130,7 @@
         {
           "heading": "Prepara el servidor",
           "paragraphs": [
-            "El tutorial chino indica Linux amd64 o arm64, acceso root y un punto de partida de al menos 1 núcleo, 1 GB de RAM y 15 GB libres. La capacidad real depende de la carga. Reserva los puertos 8080 y 8443 del host incluso sin TLS automático y permite acceso al servicio de versiones y al registro de imágenes."
+            "El README revisado el 09-11-2026 indica 1 núcleo de CPU y 1 GB de RAM como configuración ligera de partida y señala que la capacidad depende del equipo, el almacenamiento y la carga. El tutorial chino de instalación, que no pudo releerse completo el 09-11-2026 porque se renderiza en el navegador, describía además Linux amd64 o arm64, acceso root y al menos 15 GB libres. Reserva los puertos 8080 y 8443 del host incluso sin TLS automático y permite acceso al servicio de versiones y al registro de imágenes. Toma la cifra de disco y los puertos como indicación del tutorial, no como una medición nuestra."
           ],
           "bullets": [
             "Comprueba arquitectura, espacio y puertos ocupados.",
@@ -139,7 +140,7 @@
         {
           "heading": "Descarga y revisa el instalador oficial",
           "paragraphs": [
-            "El tutorial oficial usa un script del servicio de versiones. Esta secuencia equivalente mantiene la validación TLS y permite revisar el script antes de ejecutarlo como root. Continúa solo si confías en el script y el servicio. El script elige una versión y verifica el resumen del paquete descargado; eso no autentica por sí solo el script. Anota la versión instalada para futuras actualizaciones."
+            "La orden de una línea del README pasa -k a curl, lo que omite la validación del certificado TLS en esa petición. La secuencia siguiente busca lo mismo pero mantiene la verificación y permite revisar el script antes de ejecutarlo como root. Continúa solo si confías en el script descargado y su servicio. El script elige una versión y verifica el resumen del paquete; eso no autentica por sí solo el script. Anota la versión instalada para futuras actualizaciones."
           ],
           "bullets": [
             "Consulta las instrucciones actuales: los pasos y paquetes pueden cambiar."
@@ -183,13 +184,15 @@
     "slug": "install-from-source-docker-compose",
     "category": "Installation and deployment",
     "docGroup": "install",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 10,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
-      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d"
+      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/.env.example"
     ],
     "en": {
       "title": "Build and deploy MonkeyAI with Docker Compose",
@@ -198,7 +201,8 @@
         {
           "heading": "Use a matching source revision",
           "paragraphs": [
-            "This guide was checked on 28 October 2026 against the upstream revision shown below. It describes that revision’s source-based Compose deployment, which is distinct from the packaged installer. You need Git, Docker and Docker Compose. Work in a new deployment directory; do not overwrite an existing .env or data directory."
+            "The pinned revision this walkthrough follows was checked on 28 October 2026; the version note below was added on 9 November 2026. It describes that revision’s source-based Compose deployment, which is distinct from the packaged installer. You need Git, Docker and Docker Compose. Work in a new deployment directory; do not overwrite an existing .env or data directory.",
+            "The upstream revision reviewed on 2026-11-06 is newer than the one pinned here and is a different release. Read its README and release notes before choosing a checkout: notably, that revision allows private MCP destinations by default and documents Nginx access logging for the admin container. Do not mix steps from different revisions."
           ],
           "bullets": [
             "Review the linked README and Compose file when selecting a newer version."
@@ -209,7 +213,8 @@
           "heading": "Set credentials and prepare storage",
           "paragraphs": [
             "Edit .env before startup. Replace the example POSTGRES_PASSWORD, MONKEYAI_INITIAL_ADMIN_EMAIL, MONKEYAI_INITIAL_ADMIN_PASSWORD, RUSTFS_ACCESS_KEY and RUSTFS_SECRET_KEY with your own values. Use strong independent secrets and restrict access to the file. The initial administrator is created only when the user table is empty; changing these variables later does not reset an existing account.",
-            "Before startup, set MONKEYAI_PUBLIC_URL to the full browser-visible address, including a nonstandard port."
+            "Before startup, set MONKEYAI_PUBLIC_URL to the full browser-visible address, including a nonstandard port.",
+            "If the admin container sits behind another reverse proxy, set MONKEYAI_TRUSTED_PROXY_CIDRS in .env to the addresses of the proxies that connect directly, separated by commas. Only then does the admin Nginx read X-Forwarded-For from the right and forward the result as X-Real-IP; leaving it unset records the connecting peer instead. Have the front proxy append or overwrite the client-supplied header, and never list an entire network or container range as trusted."
           ],
           "bullets": [
             "The following ownership command is for the two RustFS directories in this deployment; check the target paths before using recursive chown.",
@@ -256,7 +261,8 @@
         {
           "heading": "使用匹配的源码版本",
           "paragraphs": [
-            "本指南于 2026 年 10 月 28 日依据以下上游版本核对，适用于该版本的源码 Compose 部署，与安装器发布包是不同路径。需要 Git、Docker 和 Docker Compose。请在新的部署目录操作，不要覆盖现有 .env 或数据目录。"
+            "本指南沿用的固定版本于 2026 年 10 月 28 日核对，下面的版本提示于 2026 年 11 月 9 日补充。内容适用该版本的源码 Compose 部署，与安装器发布包是不同路径。需要 Git、Docker 和 Docker Compose。请在新的部署目录操作，不要覆盖现有 .env 或数据目录。",
+            "2026-11-06 核对的上游修订比这里固定的版本更新，属于另一个发布版本。选择代码版本前先阅读它的 README 与发布说明：该修订默认放行私网 MCP 目标，并记录了管理容器的 Nginx 访问日志。不要把不同修订的步骤混用。"
           ],
           "bullets": [
             "选择较新版本时，应重新阅读对应 README 和 Compose 文件。"
@@ -267,7 +273,8 @@
           "heading": "设置凭据并准备存储",
           "paragraphs": [
             "启动前编辑 .env，将示例中的 POSTGRES_PASSWORD、MONKEYAI_INITIAL_ADMIN_EMAIL、MONKEYAI_INITIAL_ADMIN_PASSWORD、RUSTFS_ACCESS_KEY 和 RUSTFS_SECRET_KEY 改成自己的值。使用相互独立的强密钥并限制文件访问。初始管理员仅在用户表为空时创建，后来修改这些变量不会重置已有账号。",
-            "启动前将 MONKEYAI_PUBLIC_URL 设置为浏览器实际访问的完整地址，非标准端口也应写明。"
+            "启动前将 MONKEYAI_PUBLIC_URL 设置为浏览器实际访问的完整地址，非标准端口也应写明。",
+            "如果管理容器前面还有一层反向代理，在 .env 中把 MONKEYAI_TRUSTED_PROXY_CIDRS 设为直接连接管理的代理地址，多个地址用英文逗号分隔。只有在这种情况下，管理端 Nginx 才从右向左解析 X-Forwarded-For，并把结果作为 X-Real-IP 转发；未设置时记录的是连接方地址。前置代理应追加或覆盖客户端提交的头，不要把整个网段或容器网段列为可信代理。"
           ],
           "bullets": [
             "以下递归 chown 只针对本部署的两个 RustFS 目录；执行前检查目标路径。",
@@ -314,7 +321,8 @@
         {
           "heading": "Usa una revisión de código coherente",
           "paragraphs": [
-            "Esta guía se revisó el 28 de octubre de 2026 con la revisión indicada. Describe el despliegue Compose desde código de esa revisión, distinto del instalador empaquetado. Necesitas Git, Docker y Docker Compose. Usa un directorio nuevo y no sobrescribas una instalación o un archivo .env existente."
+            "La revisión fijada que sigue esta guía se comprobó el 28 de octubre de 2026; la nota de versión de abajo se añadió el 9 de noviembre de 2026. Describe el despliegue Compose desde código de esa revisión, distinto del instalador empaquetado. Necesitas Git, Docker y Docker Compose. Usa un directorio nuevo y no sobrescribas una instalación o un archivo .env existente.",
+            "La revisión revisada el 06-11-2026 es más reciente que la fijada aquí y corresponde a otra entrega. Lee su README y sus notas antes de elegir la revisión: en concreto, permite por defecto destinos MCP privados y documenta el registro de acceso de Nginx del contenedor de administración. No mezcles pasos de revisiones distintas."
           ],
           "bullets": [
             "Si eliges una versión más reciente, revisa su README y su archivo Compose."
@@ -325,7 +333,8 @@
           "heading": "Configura credenciales y almacenamiento",
           "paragraphs": [
             "Edita .env antes del inicio. Sustituye POSTGRES_PASSWORD, MONKEYAI_INITIAL_ADMIN_EMAIL, MONKEYAI_INITIAL_ADMIN_PASSWORD, RUSTFS_ACCESS_KEY y RUSTFS_SECRET_KEY por tus propios valores. Usa secretos fuertes e independientes y restringe el acceso al archivo. El administrador inicial solo se crea con la tabla de usuarios vacía; modificar estas variables después no restablece una cuenta existente.",
-            "Antes de iniciar, define MONKEYAI_PUBLIC_URL con la dirección completa visible desde el navegador, incluido cualquier puerto no estándar."
+            "Antes de iniciar, define MONKEYAI_PUBLIC_URL con la dirección completa visible desde el navegador, incluido cualquier puerto no estándar.",
+            "Si el contenedor de administración está detrás de otro proxy inverso, define MONKEYAI_TRUSTED_PROXY_CIDRS en .env con las direcciones de los proxies que conectan directamente, separadas por comas. Solo entonces el Nginx de administración lee X-Forwarded-For por la derecha y reenvía el resultado como X-Real-IP; sin configurarlo se registra el par conectado. El proxy frontal debe añadir o sobrescribir la cabecera del cliente y nunca conviene marcar como fiable toda una red o el rango de contenedores."
           ],
           "bullets": [
             "El cambio recursivo de propietario siguiente afecta solo a los dos directorios RustFS de este despliegue; verifica las rutas antes de ejecutarlo.",
@@ -370,14 +379,15 @@
     "slug": "backup-and-upgrade-self-hosted-monkeyai",
     "category": "Installation and deployment",
     "docGroup": "install",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 9,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/migrations/README.md",
       "https://www.postgresql.org/docs/current/app-pgdump.html",
-      "https://docs.docker.com/reference/cli/docker/compose/down/"
+      "https://docs.docker.com/reference/cli/docker/compose/down/",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/backend/migrations/README.md"
     ],
     "en": {
       "title": "Back up and upgrade a self-hosted MonkeyAI deployment",
@@ -419,10 +429,10 @@
         {
           "heading": "Check upgrades and migrations first",
           "paragraphs": [
-            "Record the deployed revision, read the matching release and migration notes, schedule downtime and take a tested backup before changing a live system. Use backend and migration images from the same release. Older databases with a different 000001–000013 migration history cannot be switched to the consolidated history by force; retaining their data requires a separate migration plan."
+            "Record the deployed revision, read the matching release and migration notes, schedule downtime and take a tested backup before changing a live system. Use backend and migration images from the same release. Older databases with a different 000001–000013 migration history cannot be switched to the consolidated history by force; retaining their data requires a separate migration plan. Later versions add background data migration on top of schema changes: from the notes reviewed on 2026-11-09, versions 29, 32 and 34 prepare weekly billing and monthly session-turn partitions and then move rows in the background, so reaching the newest migration version does not by itself mean the data move has finished; the notes name the state tables to inspect."
           ],
           "bullets": [
-            "The reviewed migration notes describe version 14, dirty=false to version 29 for deployments already using the consolidated history; this is not a universal upgrade path.",
+            "The migration notes reviewed on 2026-11-09 describe version 14, dirty=false to version 37 for deployments already using the consolidated history. The earlier pinned revision documented version 29, so read the notes that ship with your release; this is still not a universal upgrade path.",
             "Do not assume an older image automatically reverses a database migration. Validate the restored service and key workflows after a change."
           ]
         }
@@ -468,10 +478,10 @@
         {
           "heading": "升级前检查迁移",
           "paragraphs": [
-            "记录当前版本，阅读对应发布和迁移说明，安排停机，并在修改正式环境前制作经过恢复验证的备份。backend 和迁移镜像应来自同一版本。使用另一套 000001–000013 迁移历史的旧数据库不能用 force 直接切换到合并后的历史；保留旧数据需要单独制定迁移方案。"
+            "记录当前版本，阅读对应发布和迁移说明，安排停机，并在修改正式环境前制作经过恢复验证的备份。backend 和迁移镜像应来自同一版本。使用另一套 000001–000013 迁移历史的旧数据库不能用 force 直接切换到合并后的历史；保留旧数据需要单独制定迁移方案。后续版本在结构变更之外还有后台数据迁移：2026-11-09 核对的说明中，版本 29、32、34 先准备账本周分区与轮次月分区，再由后台进程搬迁数据，因此迁移版本到位不代表数据搬迁已经完成，说明中列出了可查看状态的表。"
           ],
           "bullets": [
-            "所核对的迁移文档描述了已使用合并历史、version 14 且 dirty=false 到 version 29 的路径；这不是通用升级路径。",
+            "2026-11-09 核对的迁移文档描述了已使用合并历史、version 14 且 dirty=false 到 version 37 的路径；较早的固定版本记录的是 version 29，请阅读随你所用版本发布的说明；这同样不是通用升级路径。",
             "不要假定换回旧镜像会自动撤销数据库迁移。更新后验证服务和关键工作流。"
           ]
         }
@@ -517,10 +527,10 @@
         {
           "heading": "Revisa las migraciones antes de actualizar",
           "paragraphs": [
-            "Anota la revisión desplegada, lee las notas de versión y migración correspondientes, programa mantenimiento y prepara una copia cuya restauración se haya probado. Usa imágenes de backend y migración de la misma versión. Las bases antiguas con otra historia de migraciones 000001–000013 no pueden cambiar a la historia consolidada mediante force; conservar sus datos requiere un plan específico."
+            "Anota la revisión desplegada, lee las notas de versión y migración correspondientes, programa mantenimiento y prepara una copia cuya restauración se haya probado. Usa imágenes de backend y migración de la misma versión. Las bases antiguas con otra historia de migraciones 000001–000013 no pueden cambiar a la historia consolidada mediante force; conservar sus datos requiere un plan específico. Las versiones posteriores añaden migración de datos en segundo plano: en las notas revisadas el 09-11-2026, las versiones 29, 32 y 34 preparan particiones semanales de facturación y mensuales de turnos y luego mueven filas en segundo plano, de modo que alcanzar la última versión de migración no significa por sí solo que el traslado haya terminado; las notas indican las tablas de estado que debes consultar."
           ],
           "bullets": [
-            "Las notas revisadas describen el paso de versión 14, dirty=false a versión 29 para instalaciones que ya usan la historia consolidada; no es una ruta universal.",
+            "Las notas revisadas el 09-11-2026 describen el paso de versión 14, dirty=false a versión 37 en instalaciones que ya usan la historia consolidada. La revisión fijada anterior documentaba la 29, así que lee las notas de tu versión; tampoco es una ruta universal.",
             "No supongas que volver a una imagen anterior revierte la migración automáticamente. Verifica el servicio y los flujos principales después del cambio."
           ]
         }

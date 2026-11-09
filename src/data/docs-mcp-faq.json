@@ -3,14 +3,15 @@
     "slug": "mcp-team-connector-setup",
     "category": "MCP & connectors",
     "docGroup": "mcp",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 8,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
       "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/remote.go",
-      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/tools.go"
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/tools.go",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/backend/internal/mcp/transport.go"
     ],
     "en": {
       "title": "Set up an MCP connector for your team",
@@ -56,8 +57,8 @@
         {
           "heading": "Private services and version differences",
           "paragraphs": [
-            "In the upstream backend source reviewed on 2026-10-28, remote MCP connections reject private and other restricted network addresses by default. An administrator can configure MONKEYAI_MCP_ALLOWED_CIDRS in the backend process environment with the smallest required comma-separated CIDR ranges, according to the deployment’s own configuration and restart procedure. Verify the effective configuration and network policy with the operator.",
-            "The reviewed backend blocks redirects and implements an HTTP MCP exchange that can return JSON or event-stream responses. Use the final service URL and check transport compatibility with your installed release; an older or SSE-only endpoint should not be assumed to work."
+            "Private-network rules changed between upstream releases. The pinned revision reviewed on 2026-10-28 rejected private and other restricted destinations unless they were listed in MONKEYAI_MCP_ALLOWED_CIDRS. In the revision reviewed on 2026-11-09, the RFC 1918 ranges 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16 plus fc00::/7 are allowed by default; a non-empty MONKEYAI_MCP_ALLOWED_CIDRS replaces those defaults, public destinations stay reachable, and loopback or link-local targets still need an explicitly allowed range. Confirm which release your instance runs and the effective policy with its operator.",
+            "The reviewed backend blocks automatic redirects, applies the destination check to the resolved addresses, and implements an HTTP MCP exchange that can return JSON or event-stream responses. Use the final service URL and check transport compatibility with your installed release; an older or SSE-only endpoint should not be assumed to work."
           ],
           "bullets": []
         }
@@ -107,8 +108,8 @@
         {
           "heading": "内网服务与版本差异",
           "paragraphs": [
-            "在 2026-10-28 查阅的上游后端源码中，远程 MCP 连接默认拒绝私网等受限网络地址。管理员可根据实际部署的配置和重启方式，在后端进程环境中设置 MONKEYAI_MCP_ALLOWED_CIDRS，使用逗号分隔且尽可能小的必要 CIDR 网段；与运维人员确认生效配置及网络策略。",
-            "查阅的后端实现禁止重定向，并实现可以返回 JSON 或事件流响应的 HTTP MCP 交互。请使用最终服务地址，并确认当前安装版本支持服务的传输方式；不能默认仅支持旧版 SSE 的端点可用。"
+            "私网访问规则在不同上游版本之间有变化。2026-10-28 核对的固定版本中，远程 MCP 连接默认拒绝私网等受限地址，除非列入 MONKEYAI_MCP_ALLOWED_CIDRS。2026-11-09 核对的版本改为默认允许 RFC 1918 网段（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16）和 fc00::/7；把 MONKEYAI_MCP_ALLOWED_CIDRS 设为非空值会替换这些默认网段，公网仍然可达，回环和链路本地地址仍需显式放行对应网段。请确认所在实例的发布版本，并与运维核对实际生效的策略。",
+            "查阅的后端实现禁止自动重定向，解析 DNS 后校验目标地址，并实现了可返回 JSON 或事件流响应的 HTTP MCP 交互。请使用最终服务地址，并确认当前安装版本支持服务的传输方式；不能默认仅支持旧版 SSE 的端点可用。"
           ],
           "bullets": []
         }
@@ -158,8 +159,8 @@
         {
           "heading": "Servicios privados y diferencias de versión",
           "paragraphs": [
-            "En el código del backend revisado el 28-10-2026, las conexiones MCP remotas rechazan por defecto direcciones privadas y otras redes restringidas. El administrador puede configurar MONKEYAI_MCP_ALLOWED_CIDRS en el entorno del proceso backend con los rangos CIDR necesarios, separados por comas y lo más limitados posible, siguiendo la configuración y el procedimiento de reinicio del despliegue. Verifica el ajuste efectivo y la política de red con el operador.",
-            "El backend revisado bloquea redirecciones e implementa un intercambio MCP por HTTP que puede devolver JSON o un flujo de eventos. Usa la URL final del servicio y comprueba la compatibilidad del transporte con tu versión instalada; no des por supuesto que funcionará un endpoint antiguo que solo admita SSE."
+            "Las reglas de red privada cambian entre versiones. En la revisión fijada del 28-10-2026 se rechazaban por defecto los destinos privados y otros restringidos salvo que figuraran en MONKEYAI_MCP_ALLOWED_CIDRS. En la revisión del 09-11-2026 se admiten por defecto los rangos RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) y fc00::/7; un valor no vacío en MONKEYAI_MCP_ALLOWED_CIDRS sustituye esos rangos predeterminados, los destinos públicos siguen siendo accesibles, y el bucle local o el enlace local requieren un rango permitido explícito. Confirma la versión de tu instancia y la política efectiva con su operador.",
+            "El backend revisado bloquea las redirecciones automáticas, comprueba el destino sobre las direcciones resueltas e implementa un intercambio MCP por HTTP que puede devolver JSON o un flujo de eventos. Usa la URL final del servicio y comprueba la compatibilidad del transporte con tu versión instalada; no des por supuesto que funcionará un endpoint antiguo que solo admita SSE."
           ],
           "bullets": []
         }
@@ -313,14 +314,15 @@
     "slug": "mcp-connector-troubleshooting",
     "category": "Troubleshooting",
     "docGroup": "faq",
-    "reviewed": "2026-10-28",
+    "reviewed": "2026-11-09",
     "readMinutes": 8,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
       "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
       "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
-      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/credential.go"
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/credential.go",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/backend/internal/mcp/transport.go"
     ],
     "en": {
       "title": "MCP connector troubleshooting and FAQ",
@@ -349,9 +351,9 @@
           "bullets": []
         },
         {
-          "heading": "Why can a private MCP address be blocked?",
+          "heading": "Why is a private MCP address unreachable?",
           "paragraphs": [
-            "The upstream backend source reviewed on 2026-10-28 blocks private and certain other restricted destinations by default. Contact your server administrator to check network access and, when appropriate, configure the smallest required CIDR in MONKEYAI_MCP_ALLOWED_CIDRS for the backend process. This is a server-side setting, not a change a member can make by editing the connector URL."
+            "The allowed destinations depend on the release. Current upstream code allows the RFC 1918 ranges and fc00::/7 by default, while loopback, link-local and several special-use ranges must be listed explicitly in the backend’s MONKEYAI_MCP_ALLOWED_CIDRS. Ask your server administrator which revision is deployed and to check network access and the effective range list. This is a server-side setting, not a change a member can make by editing the connector URL; if a hostname resolves to a denied address, the connection fails before any MCP exchange."
           ],
           "bullets": []
         },
@@ -398,9 +400,9 @@
           "bullets": []
         },
         {
-          "heading": "为什么内网 MCP 地址会被阻止？",
+          "heading": "为什么连不上内网 MCP 地址？",
           "paragraphs": [
-            "2026-10-28 查阅的上游后端源码默认阻止私网及其他部分受限地址。联系服务端管理员检查网络访问，并在确有需要时为后端进程配置 MONKEYAI_MCP_ALLOWED_CIDRS，范围以完成任务所需的最小 CIDR 为准。这是服务端设置，成员修改连接器地址不能自行绕过。"
+            "可访问的目标取决于发布版本。当前上游代码默认允许 RFC 1918 网段和 fc00::/7；回环、链路本地及若干特殊用途网段需要在后端的 MONKEYAI_MCP_ALLOWED_CIDRS 中显式列出。请让服务端管理员确认实际部署的修订版本，检查网络访问和生效的网段列表。这是服务端设置，成员修改连接器地址无法绕过；如果域名解析到被拒地址，连接会在 MCP 交互前失败。"
           ],
           "bullets": []
         },
@@ -447,9 +449,9 @@
           "bullets": []
         },
         {
-          "heading": "¿Por qué se bloquea una dirección MCP privada?",
+          "heading": "¿Por qué no se alcanza una dirección MCP privada?",
           "paragraphs": [
-            "El código backend revisado el 28-10-2026 bloquea por defecto destinos privados y otros restringidos. Pide al administrador del servidor que compruebe el acceso de red y, cuando corresponda, configure el CIDR mínimo necesario en MONKEYAI_MCP_ALLOWED_CIDRS para el proceso backend. Es un ajuste del servidor; un miembro no lo evita cambiando la URL del conector."
+            "Los destinos permitidos dependen de la versión. El código actual admite por defecto los rangos RFC 1918 y fc00::/7; el bucle local, el enlace local y varios rangos de uso especial deben figurar explícitamente en MONKEYAI_MCP_ALLOWED_CIDRS del backend. Pide al administrador que confirme la revisión desplegada y revise el acceso de red y la lista de rangos efectiva. Es un ajuste del servidor; un miembro no lo evita cambiando la URL del conector. Si un nombre resuelve a una dirección denegada, la conexión falla antes de cualquier intercambio MCP."
           ],
           "bullets": []
         },
