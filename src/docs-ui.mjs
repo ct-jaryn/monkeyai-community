@@ -1,7 +1,7 @@
 export const docsUi = {
   en: {
     docsHeadline:'MonkeyAI setup and help guides.',
-    docsDescription:'Practical community documentation for installing MonkeyAI, connecting models and MCP tools, and solving common problems. Read in English, Chinese, or Spanish.',
+    docsDescription:'Practical community documentation for installing MonkeyAI, connecting models and MCP tools, and solving common problems. Read in English, Chinese, or Spanish.',docsMeta:'Practical community documentation: install MonkeyAI, connect models and MCP tools, and solve common problems. Read in English, Chinese, or Spanish.',
     docsEyebrow:'MONKEYAI COMMUNITY DOCUMENTATION',
     docsSearch:'Search guides, steps, and troubleshooting…',
     docsCount:'guides',
@@ -15,7 +15,7 @@ export const docsUi = {
   },
   zh: {
     docsHeadline:'MonkeyAI 安装与使用指南。',
-    docsDescription:'面向实际任务的社区帮助文档：安装部署 MonkeyAI、接入模型与 MCP 工具，并解决常见问题。提供英文、中文和西班牙文。',
+    docsDescription:'面向实际任务的社区帮助文档：安装部署 MonkeyAI、接入模型与 MCP 工具，并解决常见问题。提供英文、中文和西班牙文。',docsMeta:'面向实际任务的社区帮助文档：安装部署 MonkeyAI、接入模型与 MCP 工具并排查问题，提供中英西三语内容。',
     docsEyebrow:'MONKEYAI 社区帮助文档',
     docsSearch:'搜索指南、操作步骤与排错方法…',
     docsCount:'篇指南',
@@ -29,7 +29,7 @@ export const docsUi = {
   },
   es: {
     docsHeadline:'Guías de instalación y uso de MonkeyAI.',
-    docsDescription:'Documentación práctica de la comunidad para instalar MonkeyAI, conectar modelos y herramientas MCP, y resolver problemas comunes. Disponible en inglés, chino y español.',
+    docsDescription:'Documentación práctica de la comunidad para instalar MonkeyAI, conectar modelos y herramientas MCP, y resolver problemas comunes. Disponible en inglés, chino y español.',docsMeta:'Documentación práctica de la comunidad: instala MonkeyAI, conecta modelos y herramientas MCP y resuelve problemas comunes. En inglés, chino y español.',
     docsEyebrow:'DOCUMENTACIÓN DE LA COMUNIDAD MONKEYAI',
     docsSearch:'Busca guías, pasos y soluciones…',
     docsCount:'guías',

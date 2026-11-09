@@ -141,6 +141,10 @@ for(const r of manifest){
   expect(doc.lang===languages[r.lang],r.path,`html lang ${doc.lang} does not match ${r.lang}`);
   expect(doc.titles.length===1&&Boolean(doc.titles[0]),r.path,'requires exactly one nonempty title');
   expect(doc.descriptions.length===1&&doc.descriptions[0].trim().length>20,r.path,'requires one substantive meta description');
+  // Search results truncate long snippets; keep titles and descriptions inside a
+  // readable length so the page's own summary survives intact.
+  expect(doc.titles[0].length<=90,r.path,`title is ${doc.titles[0].length} characters; search results truncate near 60`);
+  expect(doc.descriptions[0].length<=165,r.path,`description is ${doc.descriptions[0].length} characters; search results truncate near 160`);
   const toolMatch=resourceKey(r.path).match(/^\/tools\/([^/]+)\/$/),tool=toolMatch&&tools.find(t=>t.slug===toolMatch[1]);
   if(tool)expect(doc.descriptions[0]===tool[r.lang]?.seoDescription,r.path,'tool meta description must match localized source summary');
   for(const [value,index,label] of [[doc.titles[0],titleMap,'title'],[doc.descriptions[0],descriptionMap,'description']]){

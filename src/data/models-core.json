@@ -18,7 +18,9 @@
     ],
     "en": {
       "tagline": "General-purpose models for reasoning, software, and tool-connected work",
+      "seoTitle": "General-purpose models for reasoning and coding",
       "description": "OpenAI’s GPT family offers hosted models for working with language, images, code, and connected tools. Choose a specific API model for your application; ChatGPT is the separate user-facing product.",
+      "seoDescription": "OpenAI’s GPT family offers hosted models for language, images, code, and tools. Choose a specific API model; ChatGPT is a separate product.",
       "overview": [
         "OpenAI GPT is a model family, rather than another name for the ChatGPT interface. The current API catalog offers different model choices for demanding reasoning, everyday work, visual tasks, and high-volume processing. Supported inputs and tools belong to the particular model and API configuration. For a useful first experiment, supply a small document or coding problem, define the expected output, and keep a checked reference answer so that a fluent response is not mistaken for a correct one.",
         "For an application, the Responses API can combine model responses with configured tools. Structured Outputs can constrain the response to a supported JSON schema, which helps when another program consumes the result. Your workflow still needs to validate the values and decide what actions are allowed. Start with one repeatable task, record the exact model identifier, and compare answer quality, total task time, and actual usage on your examples. This is a practical selection method, not a ranking of models."
@@ -56,7 +58,9 @@
     },
     "es": {
       "tagline": "Modelos generales para razonar, programar y trabajar con herramientas",
+      "seoTitle": "Modelos generales para razonar y programar",
       "description": "La familia GPT de OpenAI ofrece modelos alojados para lenguaje, imágenes, código y herramientas conectadas. Elige un modelo de API concreto para tu aplicación; ChatGPT es el producto orientado al usuario.",
+      "seoDescription": "La familia GPT de OpenAI ofrece modelos alojados para lenguaje, imágenes, código y herramientas. Elige un modelo de API; ChatGPT es otro producto.",
       "overview": [
         "OpenAI GPT es una familia de modelos, no otro nombre de la interfaz de ChatGPT. El catálogo actual de la API ofrece opciones para razonamiento exigente, tareas cotidianas, trabajo visual y procesamiento de gran volumen. Las entradas y herramientas admitidas dependen del modelo y de su configuración. Para una primera prueba útil, proporciona un documento breve o un problema de código, define la entrega y conserva una respuesta de referencia revisada: una explicación fluida no demuestra que el resultado sea correcto.",
         "En una aplicación, la Responses API permite combinar respuestas con herramientas configuradas. Structured Outputs puede ajustar la respuesta a un esquema JSON compatible, útil cuando otro programa consume los datos. El flujo todavía debe validar los valores y decidir qué acciones permite. Empieza con una tarea repetible, registra el identificador exacto y compara calidad, tiempo total de trabajo y consumo real con tus ejemplos. Es una forma práctica de elegir, no una clasificación de modelos."
@@ -93,7 +97,9 @@
     ],
     "en": {
       "tagline": "A model family for writing, coding, and multi-step knowledge work",
+      "seoTitle": "Writing, coding, and agentic work",
       "description": "Claude is Anthropic’s model family for language and image-based tasks, including coding and tool use. The Claude app and the developer API offer different ways to work with that family.",
+      "seoDescription": "Claude is Anthropic’s model family for language and image tasks, including coding and tool use. The app and the API are different ways in.",
       "overview": [
         "Claude names both a model family and a user-facing assistant, so choose the level you actually need. A writer may start in the app, while a developer needs a specific API model and its supported features. The current model catalog documents text and image input, text output, multilingual work, and tool use. This makes a document explanation, a code review, or a question about a supplied screenshot useful trial tasks. Provide the source material and ask for uncertainties rather than filling gaps with guesses.",
         "Tool use is an explicit contract between your application and the model. With client-executed tools, Claude requests a structured operation and your code runs it; server-executed tools have a different execution path. Structured outputs are also available for supported models and schemas. Treat these as building blocks, not permission to act without review. For a serious evaluation, use your own documents or repository examples, include incomplete inputs, and check whether the result respects constraints as well as producing a readable answer."
@@ -131,7 +137,9 @@
     },
     "es": {
       "tagline": "Una familia para escribir, programar y trabajar con conocimiento",
+      "seoTitle": "Escritura, código y trabajo con agentes",
       "description": "Claude es la familia de modelos de Anthropic para tareas con lenguaje e imágenes, programación y uso de herramientas. La aplicación Claude y la API ofrecen formas distintas de acceder a ella.",
+      "seoDescription": "Claude es la familia de modelos de Anthropic para lenguaje, imágenes, programación y herramientas. La aplicación y la API son accesos distintos.",
       "overview": [
         "Claude da nombre tanto a una familia de modelos como a un asistente para usuarios. Por eso conviene elegir primero el nivel que necesitas: una persona que escribe puede empezar en la aplicación, mientras un desarrollador necesita un modelo de API y sus funciones concretas. El catálogo actual documenta entrada de texto e imágenes, salida de texto, trabajo multilingüe y herramientas. Explicar un documento, revisar código o responder sobre una captura son pruebas útiles. Aporta los materiales y pide que señale incertidumbres sin inventar lo que falta.",
         "El uso de herramientas establece un contrato explícito con tu aplicación. En las herramientas ejecutadas por el cliente, Claude solicita una operación estructurada y tu código la realiza; las ejecutadas en el servidor siguen otra ruta. También existen salidas estructuradas para modelos y esquemas compatibles. Son componentes de un flujo, no permisos automáticos para actuar. Evalúa con documentos o repositorios propios, incluye entradas incompletas y comprueba que el resultado respete las restricciones además de ser legible."
@@ -169,7 +177,9 @@
     ],
     "en": {
       "tagline": "Multimodal models for understanding information and building connected workflows",
+      "seoTitle": "Multimodal models from Google DeepMind",
       "description": "Gemini is Google DeepMind’s model family, offered through developer services as well as Google products. Select a concrete model for your input types and tools; the Gemini app is a separate product experience.",
+      "seoDescription": "Gemini is Google DeepMind’s model family, reached through developer services and Google products. Choose a concrete model for your inputs and tools.",
       "overview": [
         "Gemini covers a range of models, so a family name alone does not specify the interface or the output you will receive. The Gemini API catalog separates models and release states, including stable and preview offerings. Its image-understanding documentation describes tasks such as interpreting images and answering visual questions. A practical trial is to combine a short written brief with a supplied image and ask for an explanation that identifies which details come from the material and which are assumptions.",
         "The API offers managed tools such as Google Search grounding and code execution, alongside custom function calling. These execution paths are different: a custom function requires your application to perform the operation. Structured outputs can produce data matching a supported JSON schema, but the values still need checking. Choose an endpoint whose documented modalities and tools fit your task, and test the same examples before and after a model update. Do not assume that a feature shown in the consumer Gemini app is exposed identically by every API model."
@@ -207,7 +217,9 @@
     },
     "es": {
       "tagline": "Modelos multimodales para comprender información y conectar flujos",
+      "seoTitle": "Modelos multimodales de Google DeepMind",
       "description": "Gemini es la familia de modelos de Google DeepMind, disponible en servicios para desarrolladores y productos de Google. Elige un modelo según las entradas y herramientas; la aplicación Gemini es una experiencia de producto distinta.",
+      "seoDescription": "Gemini es la familia de modelos de Google DeepMind, accesible desde servicios para desarrolladores y productos de Google. Elige un modelo concreto.",
       "overview": [
         "Gemini reúne varios modelos, por lo que el nombre de la familia no define una interfaz o una salida concreta. El catálogo de la API distingue modelos y estados de publicación, incluidas versiones estables y preliminares. La documentación de comprensión de imágenes describe interpretación visual y preguntas sobre material gráfico. Una prueba práctica consiste en combinar un encargo breve con una imagen y pedir una explicación que distinga los detalles observados de los supuestos. Así resulta más fácil comprobar qué aporta realmente la respuesta.",
         "La API ofrece herramientas gestionadas, como fundamentación con Google Search y ejecución de código, además de funciones personalizadas. Sus rutas de ejecución son distintas: tu aplicación debe ejecutar las funciones que define. Las salidas estructuradas pueden respetar un esquema JSON compatible, pero todavía debes comprobar los valores. Elige un endpoint con las modalidades y herramientas adecuadas, y repite los mismos ejemplos cuando cambie el modelo. Una función de la aplicación de consumo Gemini no está necesariamente disponible de la misma forma en todos los modelos de API."
@@ -245,7 +257,9 @@
     ],
     "en": {
       "tagline": "Reasoning-oriented API models alongside separately released model weights",
+      "seoTitle": "Reasoning API models and released weights",
       "description": "DeepSeek offers hosted models through its API and has also released downloadable model checkpoints. Evaluate the API endpoint or the exact released checkpoint you intend to use; these delivery options are not interchangeable.",
+      "seoDescription": "DeepSeek offers hosted API models and separately released checkpoints. Evaluate the endpoint or the exact checkpoint you will use.",
       "overview": [
         "DeepSeek is a model family with more than one delivery path. Its hosted API documents chat, thinking controls, and tool calling. Separately, checkpoint releases such as DeepSeek-V3.2-Exp provide model weights and self-hosting information. The documentation currently names the hosted endpoints deepseek-flash and deepseek-v4-pro; confirm the current list before configuring a client. A checkpoint release does not mean that every current hosted endpoint has identical downloadable weights, features, or behavior. Keep the API model name or checkpoint identifier in your test notes. For a first comparison, use a coding explanation or a multi-step problem whose final result you can check independently.",
         "The API supports documented compatibility formats, but compatibility does not remove provider-specific parameters or conversation requirements. Thinking-mode tool workflows, for example, require the client to preserve the relevant reasoning content as instructed by the documentation. For local deployment, check the exact checkpoint license, inference setup, and available hardware before choosing it. Compare the effort of operating the model with the needs of your task, not only the appeal of local control. Whether hosted or self-managed, validate answers and put explicit limits on external actions."
@@ -283,7 +297,9 @@
     },
     "es": {
       "tagline": "Modelos de API orientados al razonamiento y pesos publicados por separado",
+      "seoTitle": "Modelos de API y pesos publicados",
       "description": "DeepSeek ofrece modelos alojados mediante API y también ha publicado checkpoints descargables. Evalúa el endpoint o el checkpoint exacto que vas a utilizar: las dos formas de entrega no son intercambiables.",
+      "seoDescription": "DeepSeek ofrece modelos alojados por API y checkpoints publicados aparte. Evalúa el endpoint o el checkpoint exacto que vas a usar.",
       "overview": [
         "DeepSeek es una familia con varias formas de distribución. Su API alojada documenta conversación, controles de razonamiento y llamadas a herramientas. Por separado, publicaciones de pesos como DeepSeek-V3.2-Exp ofrecen checkpoints e información para alojamiento propio. La documentación actual nombra los endpoints alojados deepseek-flash y deepseek-v4-pro; confirma la lista vigente antes de configurar un cliente. La existencia de un checkpoint no implica que todos los endpoints actuales tengan pesos descargables, funciones o comportamiento idénticos. Registra el nombre de API o identificador del checkpoint utilizado. Para una primera comparación, elige una explicación de código o un problema de varios pasos con una respuesta final comprobable de forma independiente.",
         "La API admite los formatos de compatibilidad documentados, pero siguen existiendo parámetros y requisitos propios del proveedor. Los flujos con razonamiento y herramientas, por ejemplo, exigen conservar el contenido de razonamiento indicado en la documentación. Para despliegue local, comprueba licencia, configuración de inferencia y hardware del checkpoint concreto. Compara el esfuerzo operativo con las necesidades reales de la tarea, además del atractivo del control local. En ambos casos, valida las respuestas y establece límites explícitos para las acciones externas."

@@ -11,6 +11,7 @@
     "sourceUrls": ["https://qwen.readthedocs.io/en/latest/", "https://github.com/QwenLM/Qwen3.8", "https://www.alibabacloud.com/help/en/model-studio/models"],
     "en": {
       "tagline": "Multilingual models with hosted and open-weight paths",
+      "seoTitle": "Multilingual models with hosted and open paths",
       "description": "Explore Alibaba’s Qwen model family for multilingual assistants, coding, and selected multimodal tasks, with API and downloadable-model options.",
       "overview": [
         "Qwen is a family of language and multimodal models developed by Alibaba’s Qwen team. It offers more than a single chat experience: developers can choose hosted models through Alibaba Cloud Model Studio or work with downloadable releases documented by the team. Depending on the model, useful starting tasks include multilingual drafting, code assistance, structured extraction, and reasoning. Qwen Studio (chat.qwen.ai, previously presented as Qwen Chat) is an application built around models; access to that application does not establish the capabilities, billing, or data handling of a separate API deployment.",
@@ -58,6 +59,7 @@
     "sourceUrls": ["https://github.com/meta-llama/llama-models", "https://github.com/meta-llama/llama-cookbook", "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"],
     "en": {
       "tagline": "An open-weight foundation for a model stack you operate",
+      "seoTitle": "An open-weight foundation for your model stack",
       "description": "Understand Meta’s Llama family, its downloadable model ecosystem, and the deployment and licensing decisions behind a self-managed assistant.",
       "overview": [
         "Llama is Meta’s model family for developers building language-model applications. Its downloadable weights make it relevant when you want to choose the inference environment, inspect a model card, or adapt a model-based workflow. The official model repository and cookbook cover inference, fine-tuning, retrieval-augmented generation, and provider-based examples. Selected releases support images as well as text, while other releases are text-focused. Llama is the underlying model family; a chat application or hosting provider can add a different interface, retrieval system, and operational policies.",
@@ -82,6 +84,7 @@
     },
     "es": {
       "tagline": "Pesos abiertos para una infraestructura que tú gestionas",
+      "seoTitle": "Pesos abiertos para tu propia infraestructura",
       "description": "Descubre la familia Llama de Meta, sus modelos descargables y las decisiones de despliegue y licencia de un asistente autogestionado.",
       "overview": [
         "Llama es la familia de modelos de Meta para quienes desarrollan aplicaciones de lenguaje. Los pesos descargables resultan útiles si necesitas elegir el entorno de inferencia, estudiar una ficha o adaptar un flujo de trabajo. El repositorio oficial y el cookbook incluyen inferencia, ajuste de modelos, generación con recuperación de información y ejemplos con proveedores. Algunas versiones aceptan imágenes y texto; otras se centran en texto. Llama es el modelo subyacente: una aplicación de chat o un proveedor puede añadir otra interfaz, recuperación de documentos y políticas operativas.",
@@ -105,6 +108,7 @@
     "sourceUrls": ["https://docs.mistral.ai/models", "https://docs.mistral.ai/studio/conversations/chat-completion", "https://docs.mistral.ai/inference/deployment/local-deployment"],
     "en": {
       "tagline": "Choose between a hosted platform and self-deployable releases",
+      "seoTitle": "Hosted platform and self-deployable releases",
       "description": "Explore Mistral AI’s language-model range for assistants, coding, extraction, and deployment choices, with model-specific capabilities and licenses.",
       "overview": [
         "Mistral AI offers a range of language models and related services rather than one interchangeable model. Its catalog includes hosted commercial offerings and open-weight releases, with general-purpose, coding, and multimodal options. The chat-completions documentation describes tasks such as classification, extraction, summarization, question answering, and code generation. Le Chat is the user-facing assistant, while API integration is a separate way to build your own application. A feature in the assistant should not be assumed to exist in every model or deployment endpoint.",
@@ -129,6 +133,7 @@
     },
     "es": {
       "tagline": "Elige entre plataforma alojada y versiones autogestionadas",
+      "seoTitle": "Plataforma alojada y versiones autogestionadas",
       "description": "Explora los modelos de Mistral AI para asistentes, código y extracción, con opciones de despliegue y condiciones propias de cada modelo.",
       "overview": [
         "Mistral AI ofrece varios modelos de lenguaje y servicios relacionados, no un único modelo intercambiable. Su catálogo combina servicios comerciales alojados y versiones con pesos abiertos, con opciones generales, de programación y multimodales. La documentación de chat describe clasificación, extracción, resumen, preguntas y respuestas y generación de código. Le Chat es el asistente para usuarios; la API permite crear una aplicación propia. Una función del asistente no demuestra que esté disponible en todos los modelos ni en cada forma de despliegue.",
@@ -152,6 +157,7 @@
     "sourceUrls": ["https://docs.x.ai/developers/models", "https://docs.x.ai/developers/tools/web-search", "https://github.com/xai-org/grok-1"],
     "en": {
       "tagline": "Hosted reasoning and tool workflows with explicit search controls",
+      "seoTitle": "Hosted reasoning with explicit search controls",
       "description": "Understand the Grok model family, the distinction between its chat app and developer API, and when external search tools are needed for current information.",
       "overview": [
         "Grok is the model family behind the Grok assistant and xAI’s developer offering. The hosted API documents text generation, reasoning, structured output, image understanding, and tool workflows, depending on the selected model. Developers can connect supported search tools or their own functions to a request rather than treating a model response as a live information feed. Grok’s consumer application and API are different access routes: a subscription, feature, or result in one does not establish identical behavior or entitlement in the other.",
@@ -176,6 +182,7 @@
     },
     "es": {
       "tagline": "Razonamiento y herramientas alojadas con búsqueda explícita",
+      "seoTitle": "Razonamiento alojado con búsqueda explícita",
       "description": "Conoce la familia Grok, distingue la aplicación de su API y comprende cuándo debes activar herramientas de búsqueda para obtener información reciente.",
       "overview": [
         "Grok es la familia de modelos del asistente Grok y de la oferta para desarrolladores de xAI. Su API alojada documenta generación de texto, razonamiento, salida estructurada, comprensión de imágenes y herramientas, según el modelo. Puedes conectar búsquedas compatibles o funciones propias a una solicitud; una respuesta del modelo no es por sí misma un flujo de información en directo. La aplicación y la API tienen accesos diferentes: una suscripción o una función en una no garantiza el mismo comportamiento o permiso en la otra.",
@@ -223,6 +230,7 @@
     },
     "es": {
       "tagline": "Modelos para código, análisis y tareas con herramientas",
+      "seoTitle": "Modelos para código, análisis y herramientas",
       "description": "Explora Kimi de Moonshot AI, su plataforma alojada y versiones con pesos abiertos, distinguiendo la aplicación del acceso a modelos.",
       "overview": [
         "Kimi es la familia de modelos y asistentes de Moonshot AI. Su plataforma para desarrolladores ofrece API documentadas y algunas versiones publican pesos descargables en repositorios oficiales. La documentación cubre conversación, razonamiento, visión en modelos compatibles y llamadas a herramientas. La aplicación Kimi es otra experiencia de producto: su interfaz, sus herramientas y sus permisos no se trasladan automáticamente a una solicitud de API. Empieza eligiendo el modelo y el formato de integración que aparecen en la documentación actual de la plataforma.",
@@ -246,6 +254,7 @@
     "sourceUrls": ["https://docs.z.ai/guides/overview/quick-start", "https://docs.z.ai/guides/llm/glm-5", "https://github.com/zai-org/GLM-5", "https://github.com/zai-org/GLM-5/blob/main/LICENSE"],
     "en": {
       "tagline": "A model family oriented toward reasoning, coding, and agents",
+      "seoTitle": "A model family for reasoning, coding, and agents",
       "description": "Understand Z.ai’s GLM model family, developer APIs, and selected downloadable releases before choosing a coding or tool-assisted workflow.",
       "overview": [
         "GLM is the model family offered by Z.ai through its developer platform and selected open-weight releases. The official documentation describes reasoning, coding, structured output, and tool-oriented applications, with capabilities assigned to specific models. Some releases offer thinking and non-thinking settings, while visual input belongs to supported variants. The consumer chat experience, standard API service, and coding-plan integrations are distinct access routes; their endpoints, entitlements, and operational requirements should be checked separately before connecting an editor or a team workspace.",
@@ -270,6 +279,7 @@
     },
     "es": {
       "tagline": "Una familia centrada en razonamiento, código y agentes",
+      "seoTitle": "Una familia centrada en razonamiento y agentes",
       "description": "Conoce GLM de Z.ai, sus API y versiones descargables antes de elegir un flujo de programación o trabajo asistido por herramientas.",
       "overview": [
         "GLM es la familia de modelos que Z.ai ofrece mediante su plataforma y algunas publicaciones de pesos abiertos. La documentación describe razonamiento, programación, salida estructurada y aplicaciones con herramientas, con capacidades propias de cada modelo. Algunas versiones incluyen controles de razonamiento y respuesta directa; las entradas visuales corresponden a variantes compatibles. La aplicación de chat, la API estándar y los planes de programación son rutas distintas. Comprueba por separado sus endpoints, permisos y requisitos antes de integrar un editor o un espacio de trabajo de equipo.",

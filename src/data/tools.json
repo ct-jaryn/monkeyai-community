@@ -103,6 +103,7 @@
     "reviewed": "2026-11-09",
     "en": {
       "tagline": "AI assistance inside a software development workflow",
+      "seoTitle": "AI assistance inside your development workflow",
       "seoDescription": "Explore Cursor’s AI coding assistance for discussing, generating, and reviewing changes in a development environment. Inspect and test each diff.",
       "description": "Cursor brings AI coding assistance into the development environment. It is designed for working with software projects, from discussing a change to generating and reviewing code. A focused task, relevant repository context, and clear acceptance criteria make a better starting brief. Keep changes reviewable, run appropriate checks, and inspect the diff before integrating generated work into your project.",
       "useCases": ["Understand an existing codebase", "Draft a focused feature change", "Investigate a bug with context"],
@@ -134,6 +135,7 @@
     "reviewed": "2026-11-09",
     "en": {
       "tagline": "Coding assistance around your existing GitHub work",
+      "seoTitle": "Coding help around your GitHub work",
       "seoDescription": "Explore GitHub Copilot’s coding assistance in supported editors and GitHub workflows. Explain tasks clearly and review generated changes.",
       "description": "GitHub Copilot provides AI assistance across coding workflows, including supported editors and GitHub. It can be a starting point when explaining code, drafting a change, or planning implementation work. Describe the intended behavior and constraints rather than accepting the first suggestion. Review the resulting patch in the same way you would review any other contribution to the repository.",
       "useCases": ["Explain a code section", "Draft an implementation approach", "Prepare a reviewable code change"],
@@ -148,6 +150,7 @@
     },
     "es": {
       "tagline": "Ayuda para programar dentro de tu trabajo con GitHub",
+      "seoTitle": "Ayuda para programar en tu GitHub",
       "seoDescription": "Descubre GitHub Copilot para ayudar a programar en editores compatibles y en GitHub. Define la tarea y revisa los cambios generados.",
       "description": "GitHub Copilot ofrece asistencia de IA en flujos de programación, incluidos editores compatibles y GitHub. Puede ayudarte a empezar a explicar código, preparar un cambio o planificar una implementación. Describe el comportamiento esperado y las restricciones en lugar de aceptar la primera sugerencia. Revisa el parche resultante con los mismos criterios que cualquier otra contribución al repositorio.",
       "useCases": ["Explicar una sección de código", "Preparar un enfoque de implementación", "Crear un cambio revisable"],
@@ -210,6 +213,7 @@
     },
     "es": {
       "tagline": "Flujos de IA visual que puedes inspeccionar y reutilizar",
+      "seoTitle": "Flujos de IA visual que puedes reutilizar",
       "seoDescription": "Descubre ComfyUI y sus flujos visuales de IA con nodos. Los resultados dependen de los modelos, ajustes y recursos elegidos.",
       "description": "ComfyUI organiza el trabajo con IA visual mediante pasos conectados en un lienzo. Sirve para aprender cómo encajan los modelos, las operaciones de procesamiento y los resultados, o para crear un flujo repetible. Empieza con un ejemplo sencillo e inspecciona cada etapa antes de añadir complejidad. El resultado depende de los modelos, ajustes y recursos elegidos.",
       "useCases": ["Explorar procesos de generación de imágenes", "Inspeccionar cada etapa", "Crear un flujo visual repetible"],
@@ -226,6 +230,7 @@
     "sourceUrl": "https://www.adobe.com/products/firefly.html",
     "en": {
       "tagline": "Explore generative ideas for visual projects",
+      "seoTitle": "Explore generative ideas visually",
       "seoDescription": "Explore Adobe Firefly for generative image creation and editing. Review outputs and check the relevant usage terms before publishing.",
       "description": "Adobe Firefly brings generative AI tools to creative work, including image creation and editing. Use it to explore the visual direction of a project, develop a mood board, or try variations before deciding what to produce. A specific creative brief helps keep iterations focused. Inspect generated assets for unwanted details and confirm usage terms before including them in a finished project.",
       "useCases": ["Explore a visual direction", "Develop a project mood board", "Create and refine image variations"],
@@ -240,6 +245,7 @@
     },
     "es": {
       "tagline": "Explora ideas generativas para proyectos visuales",
+      "seoTitle": "Explora ideas generativas visuales",
       "seoDescription": "Descubre Adobe Firefly para crear y editar imágenes generativas. Revisa los resultados y las condiciones de uso antes de publicar.",
       "description": "Adobe Firefly incorpora herramientas de IA generativa al trabajo creativo, incluida la creación y edición de imágenes. Úsalo para explorar una dirección visual, desarrollar un tablero de inspiración o probar variantes antes de producir una pieza. Un encargo específico ayuda a enfocar las iteraciones. Inspecciona los detalles y confirma las condiciones de uso antes de publicar el resultado.",
       "useCases": ["Explorar una dirección visual", "Crear un tablero de inspiración", "Generar y ajustar variantes de imágenes"],
@@ -257,6 +263,7 @@
     "reviewed": "2026-11-09",
     "en": {
       "tagline": "An open-source 3D companion for creative workflows",
+      "seoTitle": "An open-source 3D companion for creators",
       "seoDescription": "Explore Blender, a free open-source 3D creation suite for modeling, rendering, and animation alongside AI-assisted creative workflows.",
       "description": "Blender is a free and open-source 3D creation suite, rather than an AI chatbot. It belongs here as a companion tool for shaping, rendering, and refining visual projects alongside AI-generated concepts. Use it when a project needs direct control of 3D assets or animation. Learning a small, complete scene is a useful first step before building a larger production workflow.",
       "useCases": ["Build and render a simple 3D scene", "Develop animation assets", "Refine a visual concept in 3D"],
@@ -271,6 +278,7 @@
     },
     "es": {
       "tagline": "Un complemento abierto de 3D para el trabajo creativo",
+      "seoTitle": "Un complemento abierto de 3D para crear",
       "seoDescription": "Conoce Blender, una suite 3D gratuita y de código abierto para modelado, renderizado y animación junto a flujos creativos con IA.",
       "description": "Blender es una suite de creación 3D gratuita y de código abierto, no un chatbot de IA. Se incluye como herramienta complementaria para modelar, renderizar y desarrollar proyectos a partir de conceptos visuales. Resulta útil cuando necesitas controlar directamente los recursos 3D o la animación. Completar una escena pequeña ayuda a aprender antes de preparar una producción más compleja.",
       "useCases": ["Crear y renderizar una escena 3D", "Desarrollar recursos de animación", "Refinar un concepto visual en 3D"],
@@ -302,6 +310,7 @@
     },
     "es": {
       "tagline": "Empieza una investigación con búsqueda asistida por IA",
+      "seoTitle": "Investiga con búsqueda asistida por IA",
       "seoDescription": "Descubre la búsqueda conversacional de Perplexity para encontrar fuentes web e iniciar una investigación. Verifica las citas originales.",
       "description": "Perplexity combina preguntas conversacionales con búsqueda web y enlaces a fuentes. Puede ayudar a explorar un tema desconocido, reunir lecturas o comparar cómo distintas fuentes abordan una pregunta. Usa la respuesta generada como camino hacia las pruebas. Abre las citas, comprueba qué respalda realmente cada fuente y conserva los enlaces originales en tus notas de investigación.",
       "useCases": ["Encontrar fuentes iniciales", "Explorar explicaciones distintas", "Reunir enlaces para seguir leyendo"],
@@ -319,6 +328,7 @@
     "reviewed": "2026-11-09",
     "en": {
       "tagline": "Ask focused questions of a set of sources",
+      "seoTitle": "Focused Q&A on your own sources",
       "seoDescription": "Explore Gemini Notebook, formerly NotebookLM, for asking questions about selected sources. Check cited passages in context.",
       "description": "Google’s source-based notebook tool, reached through the former NotebookLM entry point, helps organize and question selected material. Add supported documents or links, choose relevant sources, and ask about a specific topic. This is useful for studying a small reading collection or comparing documents. Check the cited passages in context before carrying a summary or conclusion into your own work.",
       "useCases": ["Study a collection of documents", "Ask questions about selected sources", "Compare themes across reading material"],
@@ -333,6 +343,7 @@
     },
     "es": {
       "tagline": "Haz preguntas concretas sobre una colección de fuentes",
+      "seoTitle": "Pregunta a tus propias fuentes",
       "seoDescription": "Descubre Gemini Notebook, antes NotebookLM, para preguntar sobre fuentes seleccionadas. Revisa las citas en su contexto.",
       "description": "La herramienta de cuadernos de Google, accesible desde la antigua entrada de NotebookLM, permite organizar y consultar material seleccionado. Añade documentos o enlaces compatibles, elige las fuentes relevantes y pregunta por un tema específico. Sirve para estudiar una colección de lecturas o comparar documentos. Revisa los pasajes citados en su contexto antes de incorporar una conclusión a tu trabajo.",
       "useCases": ["Estudiar una colección de documentos", "Consultar fuentes seleccionadas", "Comparar temas entre lecturas"],
@@ -350,6 +361,7 @@
     "reviewed": "2026-11-09",
     "en": {
       "tagline": "Discover models, datasets, and community applications",
+      "seoTitle": "Discover models, datasets, and apps",
       "seoDescription": "Explore Hugging Face models, datasets, and community applications. Read model cards and evaluate each resource for your own task.",
       "description": "Hugging Face is a collaboration platform for machine learning models, datasets, and applications. Explore model cards and project documentation to understand what a resource is intended to do before trying it. It is useful for finding examples, examining an open model, or learning from a community demo. Evaluate suitability on your own task rather than relying on popularity alone.",
       "useCases": ["Read model cards and limitations", "Find datasets for exploration", "Learn from community applications"],
@@ -364,6 +376,7 @@
     },
     "es": {
       "tagline": "Descubre modelos, conjuntos de datos y aplicaciones",
+      "seoTitle": "Descubre modelos, datos y aplicaciones",
       "seoDescription": "Explora modelos, conjuntos de datos y aplicaciones en Hugging Face. Lee las fichas y evalúa cada recurso para tu tarea.",
       "description": "Hugging Face es una plataforma de colaboración para modelos de aprendizaje automático, conjuntos de datos y aplicaciones. Lee las fichas de los modelos y la documentación para entender la finalidad de un recurso antes de probarlo. Puedes encontrar ejemplos, explorar modelos abiertos o aprender de demostraciones comunitarias. Evalúa su adecuación a tu tarea en lugar de guiarte solo por su popularidad.",
       "useCases": ["Leer fichas y límites de modelos", "Encontrar conjuntos de datos", "Aprender de aplicaciones comunitarias"],
