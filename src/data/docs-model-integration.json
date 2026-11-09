@@ -264,6 +264,19 @@
             "Use a dedicated approved credential and follow your organization’s key-rotation process.",
             "Keep API keys out of logs, screenshots and support tickets."
           ]
+        },
+        {
+          "heading": "Distribute the other team resources",
+          "paragraphs": [
+            "Models are the one resource a member needs before starting; skills, experts, rules, connectors and knowledge bases can be added as the work requires them. The official resource guide gives each type its own packaging rule, and those rules are where distributions usually fail.",
+            "A skill is uploaded as a ZIP package that may contain only one SKILL.md, encoded as UTF-8, with the skill name and description in its front matter. An expert is a name, description and system prompt, plus any skills, rules and tools attached under capability linking; the console can preview the final resource list for a given user, which is the quickest way to check what someone can actually reach.",
+            "Rules come in two kinds. Ordinary rules are on by default and members can switch them off in the client, while mandatory rules always apply and cannot be disabled. The guide advises against making narrowly scoped requirements mandatory for everyone. Knowledge bases learn their content through an embedding model, so check the learning status after adding material: content that reports a learning failure needs the model or service fixed and the material learned again, and edited content must be saved and re-learned."
+          ],
+          "bullets": [
+            "A connector with independent authorization needs each member to finish personal authentication in the client after the administrator distributes it; with OAuth, register the correct callback address in that service.",
+            "Deleting a knowledge base deletes all of its content with it.",
+            "An existing resource pack can be imported under resource management: preview the manifest, confirm the import, then check model details, links and authorization before real use."
+          ]
         }
       ]
     },
@@ -325,6 +338,19 @@
             "使用经批准的专用凭据，并遵循组织的密钥轮换流程。",
             "日志、截图及工单中不要包含 API 密钥。"
           ]
+        },
+        {
+          "heading": "分发其他团队资源",
+          "paragraphs": [
+            "模型是成员开始任务前必须具备的资源；技能、专家、规则、连接器和知识库可以随工作需要逐步添加。官方资源指南为每类资源给出了各自的打包要求，分发失败通常就出在这些要求上。",
+            "技能以 ZIP 包上传，包中只能包含一个 SKILL.md，文件须为 UTF-8 编码，并在文件头部填写技能名称和描述。专家由名称、描述和系统提示词组成，再通过「能力关联」挂接所需的技能、规则和工具；后台支持按用户预览最终资源清单，这是检查某位成员实际能用哪些资源最快的方式。",
+            "规则分为两类：普通规则默认开启，成员可在客户端关闭；强制规则始终生效，成员无法关闭。官方指南建议不要把只适用于个别任务的要求设为强制。知识库通过嵌入模型学习内容，添加材料后请检查学习状态：显示「学习失败」时需要先排查模型或服务，再重新学习；更新内容后同样要保存并重新学习。"
+          ],
+          "bullets": [
+            "使用独立授权的连接器，在管理员分发之后仍需要每位成员在客户端完成个人认证；使用 OAuth 时还要在对应服务中登记正确的回调地址。",
+            "删除知识库会连同其中的全部内容一起删除。",
+            "已有资源发布包可在「资源管理 → 导入资源包」导入：先预览清单，确认导入，然后核对模型接入信息、关联关系和授权范围，再投入实际使用。"
+          ]
         }
       ]
     },
@@ -385,6 +411,19 @@
           "bullets": [
             "Usa una credencial aprobada y sigue el proceso de rotación de tu organización.",
             "No incluyas claves de API en registros, capturas ni solicitudes de soporte."
+          ]
+        },
+        {
+          "heading": "Distribuye los demás recursos del equipo",
+          "paragraphs": [
+            "El modelo es el recurso que hace falta antes de empezar; las habilidades, los expertos, las reglas, los conectores y las bases de conocimiento se añaden según el trabajo. La guía oficial de recursos da a cada tipo su propia regla de empaquetado, y ahí suelen fallar las distribuciones.",
+            "Una habilidad se sube como paquete ZIP que solo puede contener un SKILL.md, codificado en UTF-8, con el nombre y la descripción en su cabecera. Un experto es un nombre, una descripción y un prompt de sistema, más las habilidades, reglas y herramientas asociadas; la consola puede previsualizar la lista final de recursos por usuario, que es la forma más rápida de comprobar a qué accede realmente cada persona.",
+            "Hay dos tipos de reglas. Las ordinarias están activadas por defecto y cada miembro puede desactivarlas en el cliente, mientras que las obligatorias se aplican siempre y no se pueden desactivar. La guía recomienda no marcar como obligatorios requisitos que solo sirven para tareas concretas. Las bases de conocimiento aprenden su contenido mediante un modelo de embeddings, así que revisa el estado de aprendizaje tras añadir material: si aparece un fallo hay que resolver el modelo o el servicio y volver a aprender, y el contenido editado debe guardarse y aprenderse de nuevo."
+          ],
+          "bullets": [
+            "Un conector con autorización independiente requiere que cada miembro complete su autenticación en el cliente después de que el administrador lo distribuya; con OAuth, registra la dirección de retorno correcta en ese servicio.",
+            "Eliminar una base de conocimiento borra también todo su contenido.",
+            "Un paquete de recursos existente se importa desde la gestión de recursos: revisa el manifiesto, confirma la importación y comprueba modelos, vínculos y autorización antes de usarlo de verdad."
           ]
         }
       ]
