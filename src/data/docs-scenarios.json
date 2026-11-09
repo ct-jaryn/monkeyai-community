@@ -4,7 +4,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a1538a-9693-781f-b134-97e7625ddbcd"
   ],
@@ -56,6 +56,20 @@
       "Run the structure check before the visual pass; a page missing from the manifest is cheaper to fix than eleven re-rendered screenshots.",
       "Export the editable file even when you deliver the image version, so the next revision does not start from scratch."
      ]
+    },
+    {
+     "heading": "A reusable prompt, the usual snags, and what it costs",
+     "paragraphs": [
+      "The official walkthrough does not give the assistant a page-by-page brief. It sends one message: build on the chosen template pack, ask only for the missing audience, the decision the deck must support, citable evidence, the deadline and the figures that must stay, then deliver an outline, page copy, visual direction and a speaker structure before a final self-review pass. Copy that shape and replace the bracketed parts.",
+      "Three failures repeat. The outline arrives with figures that have no named source, so the content check has nothing to match. A font used by the template is missing on the machine, so line breaks and leading shift when the editable file is opened elsewhere. And pages get filled before two sample pages were judged, which multiplies a layout mistake across the deck.",
+      "The page does not publish a fixed credit price. It states that the account needs credits and that an image model is optional, but templates built on generated visuals will underperform without one; the recorded run of eleven pages took 15 minutes 54 seconds. Treat that number as one observation, not a benchmark, and confirm the current credit price in the product before a large run."
+     ],
+     "bullets": [
+      "Put audience, decision and evidence in the first message; keep layout tuning for the sample pass.",
+      "Ask for the outline as plain text before any page is generated, so an unsupported figure costs one line to delete.",
+      "Export the editable file even when you deliver the image copy; otherwise the next revision starts from zero."
+     ],
+     "code": "Build a PPTX from the files and assets in the selected \"[template]\" pack.\nFirst ask only for what is missing: audience, the decision this deck must support, sources that may be cited, the deadline, and the figures that must stay.\nThen deliver in order: a page-level outline, page copy, visual direction, a speaker structure, and a final critic pass against the acceptance checks."
     }
    ]
   },
@@ -107,6 +121,20 @@
       "先跑结构检查再跑视觉检查：清单里少一页，比重新截 11 页图便宜得多。",
       "即使交付图片版，也把可编辑文件导出一份，下一次修订才不用从零开始。"
      ]
+    },
+    {
+     "heading": "可复用的提示词、常见问题与费用边界",
+     "paragraphs": [
+      "官方教程没有给助手一份逐页需求，而是发一句话：基于所选模板包里的文件和素材制作 PPTX，只追问缺失的受众、这场汇报要促成的决定、可引用资料、截止时间和必须保留的数字，再依次交付页级大纲、逐页文案、视觉方向和讲稿结构，最后按验收标准做一遍自查。把方括号里的内容换成自己的就能复用。",
+      "三类问题反复出现。大纲里的数字查不到出处，后面的内容核查就没有对照物；模板用到的字体本机没有，可编辑文件换台机器打开时换行和行距会偏移；两页样张还没确认就把页面铺满，版式错误会被放大到每一页。",
+      "这一页没有公布固定积分价。它写明账号要有可用积分，生图模型可选，但依赖生成画面的模板缺少生图模型会明显打折；教程记录的 11 页耗时是 15 分 54 秒。这只是单次观察，不是性能基准；大批量开工前请在产品里核对当前计费。"
+     ],
+     "bullets": [
+      "第一条消息就写清受众、决定和证据，版式留到样张阶段再调。",
+      "生成页面前先要纯文本大纲，查不到出处的数字删掉一行就够。",
+      "即使交付图片版也导出可编辑文件，否则下一次修订要从零开始。"
+     ],
+     "code": "使用「[模板名]」模板包中的文件和素材，制作一份 PPTX。\n先只问缺失的关键信息：受众、这场汇报要促成的决定、可引用资料、截止时间、必须保留的数字。\n信息齐了以后，按顺序交付：页级大纲、逐页文案、视觉方向、讲稿结构，最后按验收标准做一遍自查。"
     }
    ]
   },
@@ -158,6 +186,20 @@
       "Ejecuta el control de estructura antes del visual: una página que falta en el manifiesto se arregla más barato que once capturas repetidas.",
       "Exporta también el archivo editable aunque entregues la versión de imágenes, para que la próxima revisión no empiece de cero."
      ]
+    },
+    {
+     "heading": "Un prompt reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "El recorrido oficial no entrega al asistente un brief página por página. Envía un solo mensaje: construye el PPTX con los archivos y recursos del paquete de plantilla elegido, pregunta solo por la audiencia, la decisión que debe sostener la presentación, las fuentes citables, la fecha límite y las cifras que deben mantenerse, y entrega después esquema, texto por página, dirección visual y estructura de guion antes de una pasada final de revisión. Copia esa forma y sustituye lo que va entre corchetes.",
+      "Se repiten tres fallos. El esquema llega con cifras sin fuente nombrada, así que la comprobación de contenido no tiene con qué contrastar. Falta en la máquina una tipografía de la plantilla y los saltos de línea y el interlineado se desplazan al abrir el archivo editable en otro equipo. Y se llenan las páginas antes de juzgar dos de muestra, lo que multiplica un error de maquetación por toda la presentación.",
+      "La página no publica un precio fijo en créditos. Indica que la cuenta necesita créditos y que el modelo de imagen es opcional, aunque las plantillas basadas en imágenes generadas rinden menos sin él; la ejecución registrada de once páginas tardó 15 minutos 54 segundos. Toma ese dato como una observación aislada, no como referencia de rendimiento, y confirma el precio actual en el producto antes de una tanda grande."
+     ],
+     "bullets": [
+      "Escribe audiencia, decisión y pruebas en el primer mensaje; deja la maquetación para la pasada de muestra.",
+      "Pide el esquema en texto plano antes de generar páginas: una cifra sin fuente cuesta una línea borrar.",
+      "Exporta el archivo editable aunque entregues la copia de imágenes; si no, la siguiente revisión empieza de cero."
+     ],
+     "code": "Crea un PPTX con los archivos y recursos del paquete de plantilla \"[plantilla]\".\nPregunta primero solo lo que falta: audiencia, la decisión que debe sostener la presentación, fuentes citables, fecha límite y las cifras que deben mantenerse.\nEntrega después, en orden: esquema por páginas, texto de cada página, dirección visual, estructura de guion y una pasada final de crítica contra los criterios de aceptación."
     }
    ]
   }
@@ -167,7 +209,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a15391-30ce-772a-9d29-75c5f414a09e"
   ],
@@ -221,6 +263,20 @@
       "Produce one version to fix the structure, then add one or two more on the same canvas to compare; do not open a fresh canvas for every idea.",
       "Check the exported file at its real pixel size, since a canvas that looks right can still export at the wrong dimensions."
      ]
+    },
+    {
+     "heading": "A reusable prompt, the usual snags, and what it costs",
+     "paragraphs": [
+      "The official page gives three prompt shapes and they are worth keeping apart: start from a template and replace subject, scene and copy; describe from scratch; and repair a single layer. Whichever you use, add the output size yourself, because the template supplies composition, not pixels. Keep the words off the generated image: the walkthrough puts title, date, handwriting, doodles and tape on a text layer built with HTML, SVG and CSS.",
+      "The snags follow from that split. Chinese set by the image model comes back with wrong or smeared characters, so every character belongs on the text layer. A poster comes out in the wrong ratio when the size was left implicit. Repairing several layers at once, or stretching the canvas to rescue a ratio, undoes work that was already accepted.",
+      "Cost is stated plainly for this task: image generation is billed per image and retries accumulate, and the account needs available credits plus an authorised image model. No fixed total is published. The page also answers a practical worry: if the canvas preview fails you can still deliver, provided the layers and the HTML were committed."
+     ],
+     "bullets": [
+      "Write the ratio and pixel size (3:4, 1080×1440) into the prompt; do not leave the size to intuition.",
+      "Keep the background wordless and set every character in the text layer, then fix one layer at a time.",
+      "Composite first, then export the 4:5 share copy, then cut the 3×3 grid; any layer change needs a fresh cut."
+     ],
+     "code": "Use the \"[template]\" poster template.\nTheme: [event]. Keep the template composition, handwritten title, torn-tape edges and white space.\nReplace the subject with [subject] and the background with [scene].\nCopy: title \"[title]\", date \"[date]\", place \"[place]\" only.\nOutput 3:4 at 1080×1440; text must stay on its own layer, never inside the generated image."
     }
    ]
   },
@@ -274,6 +330,20 @@
       "先出一版把结构定下来，再在同一张画布追加一两版做对比，不要每冒出一个想法就新开一张画布。",
       "以导出文件的真实像素为准核对；画布上看着对，不等于导出的尺寸对。"
      ]
+    },
+    {
+     "heading": "可复用的提示词、常见问题与费用边界",
+     "paragraphs": [
+      "官方这一页给了三种提示词写法，值得分开用：套模板后替换主体、场景和文案；从零描述；以及单层返修。无论用哪种，比例和像素都要自己补——模板负责构图，不负责交付尺寸。文字不要交给生图：教程把标题、日期、手写英文、涂鸦和胶带都放在用 HTML、SVG、CSS 写成的文字层上。",
+      "问题正是从这条分工里来的。中文由生图模型直接生成，会错字、糊字，所以每个字都该落在文字层；不写尺寸，成稿比例就会跑偏；同时改多层，或者靠拉伸画布救比例，会把已经验收过的工作推倒重来。",
+      "这一页对计费写得很直接：生图按张计费，重试会累计；账号要有可用积分，并已授权生图模型。官方没有公布固定总额。它还回答了一个实际担心：画布预览失败仍然可以交付，前提是图层和 HTML 已经提交。"
+     ],
+     "bullets": [
+      "把比例和像素（3:4，1080×1440）写进提示词，不要靠感觉定尺寸。",
+      "底图保持无字，所有文字放进文字层，返修一次只动一层。",
+      "先合成，再导出 4:5 分享版，最后切 3×3 宫格；任何一层改过都要重新切。"
+     ],
+     "code": "使用「[模板名]」海报模板。\n主题改为：[活动名称]。保留模板构图、手写标题、撕边胶带和留白。\n主体换成[主体]，背景换成[场景]。\n文案只保留三行：标题「[标题]」、日期「[日期]」、地点「[地点]」。\n成稿 3:4，1080×1440；文字必须独立成层，不要写进底图。"
     }
    ]
   },
@@ -327,6 +397,20 @@
       "Haz una versión para fijar la estructura y añade una o dos más en el mismo lienzo para comparar; no abras un lienzo nuevo por cada idea.",
       "Comprueba el archivo exportado en su tamaño real: un lienzo que se ve bien puede exportarse con medidas equivocadas."
      ]
+    },
+    {
+     "heading": "Un prompt reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "La página oficial ofrece tres formas de prompt que conviene no mezclar: partir de una plantilla y sustituir sujeto, escena y textos; describir desde cero; y reparar una sola capa. Uses la que uses, añade tú el tamaño de salida, porque la plantilla aporta composición, no píxeles. Mantén las palabras fuera de la imagen generada: el recorrido coloca título, fecha, escritura a mano, garabatos y cinta en una capa de texto hecha con HTML, SVG y CSS.",
+      "Los fallos nacen de ese reparto. El chino generado por el modelo de imagen vuelve con caracteres erróneos o borrosos, así que cada carácter pertenece a la capa de texto. El cartel sale con la proporción equivocada cuando el tamaño se deja implícito. Reparar varias capas a la vez, o estirar el lienzo para salvar una proporción, deshace trabajo ya aceptado.",
+      "El coste se dice sin rodeos en esta tarea: la generación de imágenes se factura por imagen y los reintentos se acumulan; la cuenta necesita créditos disponibles y un modelo de imagen autorizado. No se publica un total fijo. La página también responde a una duda práctica: si la vista previa del lienzo falla, aún puedes entregar, siempre que las capas y el HTML se hayan confirmado."
+     ],
+     "bullets": [
+      "Escribe la proporción y el tamaño en píxeles (3:4, 1080×1440) en el prompt; no dejes el tamaño a la intuición.",
+      "Mantén el fondo sin texto y pon cada carácter en la capa de texto; repara después una capa cada vez.",
+      "Compón primero, exporta la copia 4:5 y corta al final la cuadrícula 3×3; cualquier cambio de capa exige un corte nuevo."
+     ],
+     "code": "Usa la plantilla de cartel \"[plantilla]\".\nTema: [evento]. Conserva la composición, el título manuscrito, los bordes de cinta rasgada y el espacio en blanco.\nSustituye el sujeto por [sujeto] y el fondo por [escena].\nTexto: solo título \"[título]\", fecha \"[fecha]\" y lugar \"[lugar]\".\nSalida 3:4 a 1080×1440; el texto debe ir en su propia capa, nunca dentro de la imagen generada."
     }
    ]
   }
@@ -336,7 +420,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a1539e-4ae8-769f-a816-27497e341616"
   ],
@@ -389,6 +473,20 @@
       "A hosted preview link from a walkthrough is temporary and may expire — regenerate from the client instead of treating it as a deliverable.",
       "Keep the source files with the canvas node, since the prototype is worth having only if it stays editable."
      ]
+    },
+    {
+     "heading": "A reusable brief, the usual snags, and what it costs",
+     "paragraphs": [
+      "The brief in the walkthrough is one sentence: build a dark, atmospheric single-page landing page for the Measured wellness wearable. The template supplies the visual system — full-screen dark hero, layered imagery, cursor-following detail — while the task title names the product, the category, the mood and the page type. Anything beyond a single hero page is out of scope.",
+      "Snags cluster around assets and scope. The assistant checks the copied fonts, copies each font file and its licence, then generates two 2816×1584 page images; if a font or asset is missing from the template, the page falls back to something else. Treating a prototype as production code is the other recurring mistake: links and interactions exist to be judged, not deployed.",
+      "The recorded run reached a preview at 7 minutes 3 seconds. The official page warns that the shared online prototype is a temporary demo whose link may expire, after which the page can be regenerated in the client. A task needs the design task feature, working template assets, an authorised text or image model and available credits; no per-task price is published."
+     ],
+     "bullets": [
+      "Put product, category, mood and page type in one line, and say explicitly that the deliverable is a single hero page.",
+      "Check that the template carries its fonts and image assets before starting; missing assets change the result.",
+      "Judge the preview on first screen, navigation, booking state, mobile layout and accessibility, the five checks named in the walkthrough."
+     ],
+     "code": "Build the Measured wellness wearable landing page.\nOne hero screen only: full-screen dark, layered imagery, cursor-following detail.\nReuse the template fonts and assets; no external dependencies. Keep it readable on mobile."
     }
    ]
   },
@@ -441,6 +539,20 @@
       "教程里给出的在线预览链接是临时演示，可能过期——需要时在客户端重新生成，不要把它当成交付物。",
       "把源文件和画布节点一起保留，原型只有还能改才有价值。"
      ]
+    },
+    {
+     "heading": "可复用的任务描述、常见问题与费用边界",
+     "paragraphs": [
+      "教程里的任务描述只有一句：制作 Measured 健康穿戴设备暗色氛围单页落地页。视觉系统由模板提供——全屏暗色首屏、分层影像、光标跟随细节；任务标题则交代产品、品类、氛围和页面类型。超过一个 hero 首屏的部分，都在范围之外。",
+      "问题集中在素材和范围。助手会检查已复制的字体、逐个复制字体文件和字体许可，再生成两张 2816×1584 的页面素材；模板里缺字体或缺素材，页面就会退化成别的样子。另一个反复出现的错误是把原型当生产代码：链接和交互是用来判断的，不是用来上线的。",
+      "教程记录的预览在 7 分 3 秒出现。官方特别提醒：共享的在线原型是临时演示，链接可能过期，过期后仍可在客户端按同样步骤重新生成。任务需要设计任务功能、可用的模板素材、已授权的文本或生图模型以及可用积分；官方没有公布单任务价格。"
+     ],
+     "bullets": [
+      "用一句话写清产品、品类、氛围和页面类型，并明确交付范围只是一个 hero 首屏。",
+      "开工前确认模板自带字体和图片素材，缺素材会改变最终结果。",
+      "预览按首屏、导航、预约状态、移动端和可访问性五项验收，这也是教程给出的五个检查点。"
+     ],
+     "code": "制作 Measured 健康穿戴设备暗色氛围单页落地页。\n只做一个 hero 首屏：全屏暗色、分层影像、光标跟随细节。\n复用模板的字体与素材，不要引入外部依赖；移动端保持可读。"
     }
    ]
   },
@@ -493,6 +605,20 @@
       "El enlace de vista previa de un tutorial es temporal y puede caducar: regenéralo en el cliente en lugar de tratarlo como entregable.",
       "Guarda los archivos fuente junto al nodo del lienzo, porque el prototipo solo vale si sigue siendo editable."
      ]
+    },
+    {
+     "heading": "Un brief reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "El brief del recorrido cabe en una frase: crea una página de aterrizaje de una sola pantalla, oscura y atmosférica, para el wearable de bienestar Measured. La plantilla aporta el sistema visual —hero oscuro a pantalla completa, imágenes por capas, detalle que sigue al cursor— y el título de la tarea nombra producto, categoría, atmósfera y tipo de página. Todo lo que exceda una página hero queda fuera de alcance.",
+      "Los fallos se concentran en recursos y alcance. El asistente comprueba las tipografías copiadas, copia cada archivo de fuente y su licencia, y genera después dos imágenes de página de 2816×1584; si falta una fuente o un recurso en la plantilla, la página recurre a otra cosa. El otro error recurrente es tratar el prototipo como código de producción: los enlaces e interacciones existen para juzgarlos, no para desplegarlos.",
+      "La ejecución registrada mostró la vista previa a los 7 minutos 3 segundos. La página oficial advierte de que el prototipo compartido es una demo temporal cuyo enlace puede caducar, y que después puede regenerarse en el cliente. La tarea necesita la función de tareas de diseño, recursos de plantilla utilizables, un modelo de texto o imagen autorizado y créditos disponibles; no se publica precio por tarea."
+     ],
+     "bullets": [
+      "Resume producto, categoría, atmósfera y tipo de página en una línea, y di que el entregable es solo un hero.",
+      "Comprueba antes de empezar que la plantilla incluye sus tipografías y recursos de imagen; si faltan, el resultado cambia.",
+      "Evalúa la vista previa por primera pantalla, navegación, estado de reserva, móvil y accesibilidad, las cinco comprobaciones del recorrido."
+     ],
+     "code": "Crea la página de aterrizaje del wearable de bienestar Measured.\nSolo una pantalla hero: oscura a pantalla completa, imágenes por capas y detalle que sigue al cursor.\nReutiliza las fuentes y recursos de la plantilla; sin dependencias externas. Mantén la legibilidad en móvil."
     }
    ]
   }
@@ -502,7 +628,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a15d81-8117-7ae4-be98-c058717cc283"
   ],
@@ -556,6 +682,20 @@
       "When the cut runs long, trim tail frames; when it runs short, add a segment instead of stretching time.",
       "A generated cut is a demonstration piece: judge it as one, not against a filmed shoot."
      ]
+    },
+    {
+     "heading": "A reusable prompt, the usual snags, and what it costs",
+     "paragraphs": [
+      "The template already carries the look: camera, lens, colour and character constraints are written into its prompt, and you add the subject and the action. Before generating, align the request with the model limits — one generation is at most 12 seconds and the prompt at most 2000 characters — and decide up front whether the timeline becomes two segments or a single 12-second cut.",
+      "The usual snags are arithmetic and continuity. A 15-second request does not fit one generation, so the walkthrough splits it into 0–8 seconds and 8–15 seconds. The first cut kept the frame, the sign, the microphone and the softbox, but the character did not match the template; only a reference screenshot fixed hair, clothing, guitar colour and headstock. Assembly matters too: two 6.6-second clips plus a 2-second opener make 15.1 seconds.",
+      "The page publishes the delivered file rather than a price: 1920×822, 30 fps, 15.19 seconds, H.264 with stereo AAC, about 15 MB, 21:9. It states the preconditions — an authorised video model, a usable template and a character reference image — but gives no per-generation credit figure, so confirm current pricing in the product. The result is a demo edit, not a substitute for footage."
+     ],
+     "bullets": [
+      "Check the duration limit before writing the prompt, and plan the segment split on the timeline instead of asking for one long shot.",
+      "Supply a character reference to fix consistency, and keep the template character and guitar constraints in force when you recast.",
+      "Order the clips first, then decide on transitions; trim tail frames before adding footage when the cut runs long."
+     ],
+     "code": "Using the \"[template]\" template, generate a 21:9 music-podcast clip on a fixed stage with a sign in the background.\nKeep camera, lighting, colour and character constraints from the template.\nGenerate segment 1 (0-8 s) and segment 2 (8-15 s) separately; each must stay under 12 seconds and the prompt under 2000 characters.\nMatch the character to the attached reference screenshot."
     }
    ]
   },
@@ -609,6 +749,20 @@
       "时长超出时先剪尾帧；时长不够时补片段，而不是拉伸时间。",
       "生成的成片是演示片：按演示片的标准判断，不要拿实拍片作尺子。"
      ]
+    },
+    {
+     "heading": "可复用的提示词、常见问题与费用边界",
+     "paragraphs": [
+      "模板已经把画面写好了：机位、镜头、色彩和角色约束都在它的提示词里，你只需要补主体和动作。生成前先对齐模型上限——单次最长 12 秒、提示词最长 2000 字符——并提前决定时间线是拆两段还是压成一条 12 秒。",
+      "问题通常出在算术和连贯性上。15 秒一次生成不完，教程拆成 0–8 秒和 8–15 秒两段。首版画幅、灯牌、麦克风和柔光箱都对，但人物和模板不一致；补一张参考截图后，发型、服装、吉他颜色和琴头才对齐。拼接也要算：两段 6.6 秒加 2 秒片头是 15.1 秒。",
+      "这一页公布的是成片规格而不是价格：1920×822、30fps、15.19 秒、H.264 + 立体声 AAC、约 15MB、21:9。它写明前置条件——已授权视频模型、可用模板、一张人物参考图——但没有给单次生成的积分数字，实际价格请在产品里核对。成片是演示剪辑，不能替代实拍素材。"
+     ],
+     "bullets": [
+      "写提示词前先看时长上限，在时间线上规划分段，而不是要求一条长镜头。",
+      "要人物一致就补参考图，换角时继续沿用模板里的角色和吉他约束。",
+      "先排好片段再决定转场；超长先剪尾帧，再考虑补拍。"
+     ],
+     "code": "使用「[模板名]」模板，生成 21:9 的音乐播客片段，固定舞台背景带灯牌。\n沿用模板的机位、灯光、色彩和角色约束。\n分两段生成：第 1 段 0–8 秒，第 2 段 8–15 秒；每段不超过 12 秒，提示词不超过 2000 字符。\n人物与所附参考截图保持一致。"
     }
    ]
   },
@@ -662,6 +816,20 @@
       "Si el corte se alarga, recorta fotogramas finales; si se queda corto, añade un segmento en lugar de estirar el tiempo.",
       "Un corte generado es una pieza de demostración: júzgala como tal, no contra un rodaje real."
      ]
+    },
+    {
+     "heading": "Un prompt reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "La plantilla ya trae la imagen: cámara, óptica, color y restricciones de personaje están escritos en su prompt, y tú añades el sujeto y la acción. Antes de generar, ajusta la petición a los límites del modelo —una generación dura como máximo 12 segundos y el prompt 2000 caracteres— y decide de antemano si la línea de tiempo se parte en dos segmentos o se reduce a un corte de 12 segundos.",
+      "Los fallos habituales son de aritmética y continuidad. Una petición de 15 segundos no cabe en una generación, así que el recorrido la divide en 0–8 y 8–15 segundos. El primer corte mantuvo encuadre, cartel, micrófono y softbox, pero el personaje no coincidía con la plantilla; solo una captura de referencia fijó pelo, ropa, color de guitarra y clavijero. El montaje también cuenta: dos clips de 6,6 segundos más una apertura de 2 segundos dan 15,1 segundos.",
+      "La página publica el archivo entregado y no un precio: 1920×822, 30 fps, 15,19 segundos, H.264 con AAC estéreo, unos 15 MB, 21:9. Indica las condiciones previas —modelo de vídeo autorizado, plantilla utilizable y una imagen de referencia del personaje— pero no da una cifra de créditos por generación, así que confirma el precio actual en el producto. El resultado es un montaje de demostración, no un sustituto del material rodado."
+     ],
+     "bullets": [
+      "Revisa el límite de duración antes de escribir el prompt y planifica el corte en la línea de tiempo, no en un solo plano largo.",
+      "Aporta una referencia del personaje para fijar la consistencia y mantén las restricciones de personaje y guitarra al cambiar de actor.",
+      "Ordena primero los clips y decide después las transiciones; recorta fotogramas finales antes de añadir material cuando el corte se alarga."
+     ],
+     "code": "Con la plantilla \"[plantilla]\", genera un clip de pódcast musical en 21:9, escenario fijo y cartel al fondo.\nMantén cámara, iluminación, color y restricciones de personaje de la plantilla.\nGenera el segmento 1 (0-8 s) y el 2 (8-15 s) por separado; cada uno por debajo de 12 segundos y el prompt por debajo de 2000 caracteres.\nAjusta el personaje a la captura de referencia adjunta."
     }
    ]
   }
@@ -671,7 +839,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a161df-f4da-7554-9f12-5c31b2369ae1"
   ],
@@ -726,6 +894,20 @@
       "Keep the editable image and its note together, so a later revision knows which parts were deliberate.",
       "Treat a generated structure sheet as a proposal for a designer to correct, not a manufacturable specification."
      ]
+    },
+    {
+     "heading": "A reusable prompt, the usual snags, and what it costs",
+     "paragraphs": [
+      "Two inputs do different jobs, and the prompt should say so in its first sentence: the attachment supplies the character, the template supplies the layout. Then write the view list — front, side, top, bottom, three-quarter perspective and flat position — plus fold lines, seams and millimetre arrows, and in a second paragraph the materials and processes: soft-touch lamination, spot UV, PET window, 350 gsm FSC board, pulp tray, named Pantone colours.",
+      "Two snags are documented. The model chooses the box construction itself, so the first acceptance step is confirming that the box type actually suits the product. And handwritten annotations can distort in spelling when enlarged; where exact wording matters, regenerate or move the critical copy into a layout that does not depend on handwriting.",
+      "The task needs an authorised image model configured in the workspace. The page records an execution log rather than a price — at 13 seconds it had produced 1,286 characters of output — and states no per-image credit figure. The poster walkthrough notes that image generation is billed per image with retries accumulating, so plan for iteration. Read the logged timings as an observation, not a benchmark."
+     ],
+     "bullets": [
+      "State the relationship first: the attachment gives the character, the template gives the layout.",
+      "Name the views, the unit and the fold lines, then the processes and board weights; otherwise the annotations stay decorative.",
+      "Confirm the box type the model chose before polishing, because a wrong construction wastes the entire render."
+     ],
+     "code": "Combine the attached character reference with the \"[template]\" packaging template.\nCreate a professional industrial-design packaging sheet for [product].\nShow a central 3D hero, plus front, side, top, bottom, three-quarter and flat views; include fold lines, seams and millimetre dimension arrows.\nMaterials and processes: [board weight], [lamination], [window], [special finishes], with named colour references."
     }
    ]
   },
@@ -780,6 +962,20 @@
       "把可编辑图片和说明放在一起，后续修订才知道哪些是刻意为之。",
       "把生成的结构板当作供设计师修正的方案，而不是可直接生产的规格。"
      ]
+    },
+    {
+     "heading": "可复用的提示词、常见问题与费用边界",
+     "paragraphs": [
+      "两个输入分工不同，提示词第一句就该写清楚：附件给形象，模板给版式。然后逐项写视图——正面、侧面、顶部、底部、倾斜透视和平面位置——以及折痕线、接缝和毫米尺寸箭头；第二段写材质与工艺：哑膜、局部 UV、PET 视窗、350 gsm FSC 纸板、纸浆托、指定的 Pantone 色号。",
+      "有两个问题官方明确写了。盒型是模型自己补的，所以验收第一步是确认这个盒型真的适合产品；手写标注放大后可能出现拼写变形，需要精确文字时应重出一版，或把关键文案挪到不依赖手写的版式里。",
+      "任务需要工作台里已配置并授权生图模型。这一页记录的是执行日志而不是价格，13 秒时已输出 1,286 字，也没有给单张积分数字。海报教程写明生图按张计费、重试会累计，所以要为多轮迭代留余量。日志里的耗时只当观察，不当基准。"
+     ],
+     "bullets": [
+      "先说明关系：附件给形象，模板给版式。",
+      "把视图、单位和折痕线写全，再写工艺与纸克重，否则标注只是装饰。",
+      "打磨之前先确认模型选的盒型，盒型错了整张图都要重来。"
+     ],
+     "code": "结合所附「MonkeyAI 形象」参考图与「[模板名]」包装模板。\n为[产品]创建专业工业设计包装结构图。\n画面包含中心 3D 主视觉，以及正面、侧面、顶部、底部、倾斜透视和平面展开视图；标出折痕线、接缝细节和毫米尺寸箭头。\n材质与工艺：[纸板克重]、[覆膜]、[视窗]、[特殊工艺]，并写明指定色号。"
     }
    ]
   },
@@ -834,6 +1030,20 @@
       "Guarda la imagen editable y su nota juntas, para que una revisión posterior sepa qué fue deliberado.",
       "Trata la ficha generada como una propuesta que un diseñador debe corregir, no como una especificación fabricable."
      ]
+    },
+    {
+     "heading": "Un prompt reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "Dos entradas cumplen funciones distintas y el prompt debe decirlo en su primera frase: el adjunto aporta el personaje y la plantilla aporta la maqueta. Escribe después la lista de vistas —frontal, lateral, superior, inferior, perspectiva de tres cuartos y posición plana— con líneas de pliegue, costuras y flechas en milímetros, y en un segundo párrafo los materiales y procesos: laminado soft-touch, UV local, ventana de PET, cartón FSC de 350 gsm, bandeja de pulpa y colores Pantone con nombre.",
+      "Hay dos fallos documentados. El modelo elige la construcción de la caja, así que el primer paso de aceptación es confirmar que ese tipo de caja encaja con el producto. Y las anotaciones manuscritas pueden deformarse en la ortografía al ampliarlas; cuando el texto exacto importa, regenera o lleva el texto crítico a una maqueta que no dependa de la escritura a mano.",
+      "La tarea necesita un modelo de imagen autorizado y configurado en el espacio de trabajo. La página registra un log de ejecución y no un precio —a los 13 segundos llevaba 1286 caracteres de salida— y no indica una cifra de créditos por imagen. El recorrido del cartel señala que la generación se factura por imagen y que los reintentos se acumulan, así que prevé iteraciones. Lee los tiempos del log como observación, no como referencia."
+     ],
+     "bullets": [
+      "Declara primero la relación: el adjunto da el personaje y la plantilla da la maqueta.",
+      "Enumera las vistas, la unidad y las líneas de pliegue, y después los procesos y gramajes; si no, las anotaciones quedan decorativas.",
+      "Confirma el tipo de caja que eligió el modelo antes de pulir, porque una construcción equivocada malgasta todo el render."
+     ],
+     "code": "Combina la referencia de personaje adjunta con la plantilla de packaging \"[plantilla]\".\nCrea una lámina de diseño industrial de packaging para [producto].\nIncluye un héroe 3D central y vistas frontal, lateral, superior, inferior, de tres cuartos y plana; añade líneas de pliegue, costuras y flechas de cota en milímetros.\nMateriales y procesos: [gramaje], [laminado], [ventana], [acabados], con referencias de color con nombre."
     }
    ]
   }
@@ -843,7 +1053,7 @@
   "category": "Scenarios",
   "docGroup": "scenarios",
   "reviewed": "2026-11-09",
-  "readMinutes": 7,
+  "readMinutes": 9,
   "sourceUrls": [
    "https://work.docs.baizhi.cloud/node/01a16345-51cc-7aaf-befa-a6809d351e33"
   ],
@@ -900,6 +1110,20 @@
       "Spot-check flagged rows against the original documents, especially duplicates and over-limit amounts.",
       "Hand over the manual-check list with amount, status and suggested action together, so nobody reopens the receipts to know what to do."
      ]
+    },
+    {
+     "heading": "A reusable brief, the usual snags, and what it costs",
+     "paragraphs": [
+      "The task description does three jobs at once: it names the fields to read, the rules to judge by, and the shape of the output. The walkthrough asks for invoice date, merchant, amount, invoice number and purchaser on every document; status judged against the reimbursement note; checks for duplicate invoice numbers, missing dates, amount-versus-detail mismatches, dates outside the period, missing invoice numbers, spend above the standard and business entertainment without prior approval; and a detail table, a category summary and a list for human confirmation.",
+      "The snags are the ones a spreadsheet would also hit. The same invoice number has to be compared across two different documents. Accommodation limits change by city. A missing field must not be guessed: it is written as unrecognised and sent to confirmation. Fixing the output columns in a template first is what lets the result paste back into Excel without re-keying, and status must stay within three values — passed, to confirm, exception.",
+      "This walkthrough uses fictional sample data and says so; real reimbursement must follow company policy and real receipts. No credit figure is published. The limit is stated in the result: heavily blurred documents, missing pages or illegible handwritten amounts still need manual entry, and the to-confirm and exception groups stay out of the reimbursable total, which here was 1,003.90 of 3,585.40."
+     ],
+     "bullets": [
+      "Write the rules as sentences in the task, not as hints; otherwise the review afterwards has nothing to check against.",
+      "Fix the column names in a template before the run and keep status to the three allowed values.",
+      "Keep exceptions and to-confirm items out of the payable total, and hand them over with a reason on every row."
+     ],
+     "code": "Read every uploaded document and identify invoice date, merchant, amount, invoice number and purchaser.\nMark each row as passed, to confirm or exception against the reimbursement note.\nCheck duplicate invoice numbers across documents, missing dates, amount and detail mismatches, dates outside the period, missing invoice numbers, spend above the standard, and business entertainment without prior approval.\nOutput a detail table with the fixed columns, a category summary, and a list for human confirmation."
     }
    ]
   },
@@ -956,6 +1180,20 @@
       "对被标记的行抽几张回看原单据，尤其是重复发票号和超标准金额。",
       "交接时把金额、状态和处理建议放在同一张清单上，别让人为了知道怎么办又重新翻票据。"
      ]
+    },
+    {
+     "heading": "可复用的任务描述、常见问题与费用边界",
+     "paragraphs": [
+      "任务描述一次做三件事：说清要识别的字段、判断依据、输出格式。教程的写法是逐张识别开票日期、商家、金额、发票号码、购买方；按《报销说明》判定状态；重点检查重复发票号、缺日期、金额与明细不一致、超出报销期间、缺少发票号码、超过报销标准、商务招待缺提前审批；最后输出明细表、类别汇总和待人工确认清单。",
+      "问题都是表格也会遇到的问题。同一个发票号要跨两张单据比对；住宿标准按城市切换；字段缺失不能猜，要写「未识别」并转入待确认。先在模板里固定输出列名，结果才能直接贴回 Excel 而不用再搬字段；状态列只保留通过、待确认、异常三个值。",
+      "这份教程用的是虚构样例数据，官方也明确写了这一点，真实报销必须按公司制度和真实票据来。页面没有公布积分数字。限制写在结果里：单据严重模糊、缺页或手写金额无法辨认时仍要人工补录；待确认和异常先不计入可报销金额，本例可报销口径是通过项的 1,003.90，合计 3,585.40。"
+     ],
+     "bullets": [
+      "把规则写成句子写进任务，而不是暗示；否则后面的复核没有对照依据。",
+      "跑之前先在模板里固定列名，状态只用三个允许值。",
+      "异常和待确认不计入可报销金额，交接时每行都要给出原因。"
+     ],
+     "code": "逐张识别上传单据的开票日期、商家、金额、发票号码、购买方。\n按《报销说明》把每一行标记为通过、待确认或异常。\n重点检查重复发票号、缺开票日期、金额与明细不一致、超出报销期间、缺少发票号码、超过报销标准、商务招待缺提前审批。\n输出固定列名的明细表、类别汇总和待人工确认清单。"
     }
    ]
   },
@@ -1012,6 +1250,20 @@
       "Revisa por muestreo las filas marcadas contra los documentos originales, sobre todo duplicados e importes fuera de límite.",
       "Entrega la lista de comprobación manual con importe, estado y acción sugerida juntos, para que nadie tenga que reabrir los recibos."
      ]
+    },
+    {
+     "heading": "Un brief reutilizable, los fallos habituales y el coste",
+     "paragraphs": [
+      "La descripción de la tarea hace tres cosas a la vez: nombra los campos que hay que leer, las reglas con las que juzgar y la forma de la salida. El recorrido pide fecha de factura, comercio, importe, número de factura y comprador en cada documento; estado juzgado contra la nota de reembolso; comprobaciones de números de factura duplicados, fechas ausentes, descuadres entre importe y detalle, fechas fuera del periodo, números de factura ausentes, gasto por encima del estándar y atenciones comerciales sin aprobación previa; y una tabla de detalle, un resumen por categoría y una lista para confirmación humana.",
+      "Los fallos son los mismos que sufriría una hoja de cálculo. El mismo número de factura debe compararse entre dos documentos distintos. Los límites de alojamiento cambian según la ciudad. Un campo ausente no se adivina: se escribe como no reconocido y pasa a confirmación. Fijar antes las columnas de salida en una plantilla es lo que permite pegar el resultado en Excel sin reescribir campos, y el estado debe quedarse en tres valores: aprobado, por confirmar, incidencia.",
+      "Este recorrido usa datos de ejemplo ficticios y lo advierte; un reembolso real debe seguir la política de la empresa y facturas reales. No se publica cifra de créditos. El límite está en el resultado: documentos muy borrosos, páginas ausentes o importes manuscritos ilegibles siguen necesitando entrada manual, y los grupos por confirmar e incidencia quedan fuera del total reembolsable, que aquí fue 1003,90 de 3585,40."
+     ],
+     "bullets": [
+      "Escribe las reglas como frases dentro de la tarea, no como pistas; si no, la revisión posterior no tiene con qué contrastar.",
+      "Fija los nombres de columna en una plantilla antes de ejecutar y limita el estado a los tres valores permitidos.",
+      "Mantén incidencias y pendientes fuera del total pagadero y entrégalos con un motivo en cada fila."
+     ],
+     "code": "Lee cada documento subido e identifica fecha de factura, comercio, importe, número de factura y comprador.\nMarca cada fila como aprobada, por confirmar o incidencia según la nota de reembolso.\nComprueba números de factura duplicados entre documentos, fechas ausentes, descuadres entre importe y detalle, fechas fuera del periodo, números de factura ausentes, gasto por encima del estándar y atenciones comerciales sin aprobación previa.\nEntrega una tabla de detalle con columnas fijas, un resumen por categoría y una lista para confirmación humana."
     }
    ]
   }
