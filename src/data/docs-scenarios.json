@@ -687,7 +687,7 @@
      "heading": "A reusable prompt, the usual snags, and what it costs",
      "paragraphs": [
       "The template already carries the look: camera, lens, colour and character constraints are written into its prompt, and you add the subject and the action. Before generating, align the request with the model limits — one generation is at most 12 seconds and the prompt at most 2000 characters — and decide up front whether the timeline becomes two segments or a single 12-second cut.",
-      "The usual snags are arithmetic and continuity. A 15-second request does not fit one generation, so the walkthrough splits it into 0–8 seconds and 8–15 seconds. The first cut kept the frame, the sign, the microphone and the softbox, but the character did not match the template; only a reference screenshot fixed hair, clothing, guitar colour and headstock. Assembly matters too: two 6.6-second clips plus a 2-second opener make 15.1 seconds.",
+      "The usual snags are arithmetic and continuity. A 15-second request does not fit one generation, so the walkthrough splits it into 0–8 seconds and 8–15 seconds. The first cut kept the frame, the sign, the microphone and the softbox, but the character did not match the template; only a reference screenshot fixed hair, clothing, guitar colour and headstock. Assembly matters too: the recorded timeline is a 2.0-second opener plus two 6.6-second performance clips, and the exported file comes to 15.19 seconds.",
       "The page publishes the delivered file rather than a price: 1920×822, 30 fps, 15.19 seconds, H.264 with stereo AAC, about 15 MB, 21:9. It states the preconditions — an authorised video model, a usable template and a character reference image — but gives no per-generation credit figure, so confirm current pricing in the product. The result is a demo edit, not a substitute for footage."
      ],
      "bullets": [
@@ -754,7 +754,7 @@
      "heading": "可复用的提示词、常见问题与费用边界",
      "paragraphs": [
       "模板已经把画面写好了：机位、镜头、色彩和角色约束都在它的提示词里，你只需要补主体和动作。生成前先对齐模型上限——单次最长 12 秒、提示词最长 2000 字符——并提前决定时间线是拆两段还是压成一条 12 秒。",
-      "问题通常出在算术和连贯性上。15 秒一次生成不完，教程拆成 0–8 秒和 8–15 秒两段。首版画幅、灯牌、麦克风和柔光箱都对，但人物和模板不一致；补一张参考截图后，发型、服装、吉他颜色和琴头才对齐。拼接也要算：两段 6.6 秒加 2 秒片头是 15.1 秒。",
+      "问题通常出在算术和连贯性上。15 秒一次生成不完，教程拆成 0–8 秒和 8–15 秒两段。首版画幅、灯牌、麦克风和柔光箱都对，但人物和模板不一致；补一张参考截图后，发型、服装、吉他颜色和琴头才对齐。拼接也要算：教程记录的时间线是 2.0 秒片头加两段 6.6 秒演奏，导出文件为 15.19 秒。",
       "这一页公布的是成片规格而不是价格：1920×822、30fps、15.19 秒、H.264 + 立体声 AAC、约 15MB、21:9。它写明前置条件——已授权视频模型、可用模板、一张人物参考图——但没有给单次生成的积分数字，实际价格请在产品里核对。成片是演示剪辑，不能替代实拍素材。"
      ],
      "bullets": [
@@ -821,7 +821,7 @@
      "heading": "Un prompt reutilizable, los fallos habituales y el coste",
      "paragraphs": [
       "La plantilla ya trae la imagen: cámara, óptica, color y restricciones de personaje están escritos en su prompt, y tú añades el sujeto y la acción. Antes de generar, ajusta la petición a los límites del modelo —una generación dura como máximo 12 segundos y el prompt 2000 caracteres— y decide de antemano si la línea de tiempo se parte en dos segmentos o se reduce a un corte de 12 segundos.",
-      "Los fallos habituales son de aritmética y continuidad. Una petición de 15 segundos no cabe en una generación, así que el recorrido la divide en 0–8 y 8–15 segundos. El primer corte mantuvo encuadre, cartel, micrófono y softbox, pero el personaje no coincidía con la plantilla; solo una captura de referencia fijó pelo, ropa, color de guitarra y clavijero. El montaje también cuenta: dos clips de 6,6 segundos más una apertura de 2 segundos dan 15,1 segundos.",
+      "Los fallos habituales son de aritmética y continuidad. Una petición de 15 segundos no cabe en una generación, así que el recorrido la divide en 0–8 y 8–15 segundos. El primer corte mantuvo encuadre, cartel, micrófono y softbox, pero el personaje no coincidía con la plantilla; solo una captura de referencia fijó pelo, ropa, color de guitarra y clavijero. El montaje también cuenta: la línea de tiempo registrada es una apertura de 2,0 segundos más dos clips de interpretación de 6,6 segundos, y el archivo exportado llega a 15,19 segundos.",
       "La página publica el archivo entregado y no un precio: 1920×822, 30 fps, 15,19 segundos, H.264 con AAC estéreo, unos 15 MB, 21:9. Indica las condiciones previas —modelo de vídeo autorizado, plantilla utilizable y una imagen de referencia del personaje— pero no da una cifra de créditos por generación, así que confirma el precio actual en el producto. El resultado es un montaje de demostración, no un sustituto del material rodado."
      ],
      "bullets": [
