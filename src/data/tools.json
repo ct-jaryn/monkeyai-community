@@ -257,34 +257,34 @@
   {
     "slug": "adobe-firefly",
     "name": "Adobe Firefly",
-    "url": "https://www.adobe.com/products/firefly.html",
+    "url": "https://firefly.adobe.com/",
     "category": "creative",
     "mark": "Fi",
     "color": "#c76667",
-    "sourceUrl": "https://www.adobe.com/products/firefly.html",
+    "sourceUrl": "https://firefly.adobe.com/",
     "reviewed": "2026-11-09",
     "en": {
-      "tagline": "Generate and edit images, video, audio, and vectors",
+      "tagline": "Generate images, video, audio, and more",
       "seoTitle": "Explore generative ideas visually",
-      "seoDescription": "Explore Adobe Firefly for generative image creation and editing. Review outputs and check the relevant usage terms before publishing.",
-      "description": "Adobe Firefly is a generative media app for images, video, audio, and vector artwork; Adobe says it brings its own models and partner models into one workspace. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. A specific brief keeps iterations focused. Inspect generated assets for unwanted details and confirm the terms of the model you used before publishing.",
-      "useCases": ["Explore a visual direction", "Generate and refine images, video, audio, or vectors", "Compare Adobe and partner models in one workspace"],
-      "caveat": "Model availability, usage allowances, and commercial terms differ by model and plan, and partner models carry their own conditions; check the current terms for what you use."
+      "seoDescription": "Explore Adobe Firefly for generating images, video, audio, and more with multiple AI models. Confirm the current terms before publishing.",
+      "description": "Adobe Firefly is a generative media app. Its official app page, reviewed on 2026-11-09, says it can generate images, video, audio, and more with more than 30 AI models in one place. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. Inspect generated assets and confirm the current terms before publishing. Vector support and which models belong to Adobe or partners were not confirmed on that page.",
+      "useCases": ["Explore a visual direction", "Generate and refine images, video, or audio", "Compare results from the available models"],
+      "caveat": "Model availability, usage allowances, and commercial terms can differ by model and plan. Confirm the current terms for what you use."
     },
     "zh": {
-      "tagline": "生成与编辑图像、视频、音频和矢量素材",
-      "seoDescription": "了解 Adobe Firefly 的生成式图像创作与编辑用途；发布素材前请检查生成结果并确认使用条款。",
-      "description": "Adobe Firefly 是面向图像、视频、音频和矢量素材的生成式创作应用，Adobe 表示它在同一工作区内同时提供自家模型与合作伙伴模型。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。明确的创作说明有助于减少无关迭代。使用生成素材前，应检查不合意的细节，并确认所用模型对应的条款。",
-      "useCases": ["探索视觉方向", "生成并调整图像、视频、音频或矢量素材", "在同一工作区比较 Adobe 与合作伙伴模型"],
-      "caveat": "可用模型、额度和商用条款随模型与方案变化，合作伙伴模型另有自身条件；请确认所用模型与账户的当前条款。"
+      "tagline": "生成图像、视频、音频等内容",
+      "seoDescription": "了解 Adobe Firefly：用多种 AI 模型生成图像、视频、音频等内容；发布前确认当前使用条款。",
+      "description": "Adobe Firefly 是生成式媒体应用。2026-11-09 复查的官方应用页称，它可以在同一处使用 30 多种 AI 模型生成图像、视频、音频等内容。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。使用生成素材前，应检查异常细节并确认当前条款。该页面没有确认矢量支持，也没有说明哪些模型属于 Adobe 或合作方。",
+      "useCases": ["探索视觉方向", "生成并调整图像、视频或音频", "比较当前可用模型的结果"],
+      "caveat": "可用模型、额度和商用条款可能随模型与方案变化；请确认当前使用条款。"
     },
     "es": {
-      "tagline": "Genera y edita imágenes, vídeo, audio y vectores",
+      "tagline": "Genera imágenes, vídeo, audio y más",
       "seoTitle": "Explora ideas generativas visuales",
-      "seoDescription": "Descubre Adobe Firefly para crear y editar imágenes generativas. Revisa los resultados y las condiciones de uso antes de publicar.",
-      "description": "Adobe Firefly es una aplicación de creación generativa para imagen, vídeo, audio y arte vectorial, y Adobe indica que reúne sus propios modelos y modelos de socios en un mismo espacio de trabajo. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones del modelo que hayas usado antes de publicar.",
-      "useCases": ["Explorar una dirección visual", "Generar y ajustar imagen, vídeo, audio o vectores", "Comparar modelos de Adobe y de socios en un espacio"],
-      "caveat": "Los modelos disponibles, las cuotas y las condiciones comerciales dependen del modelo y del plan, y los modelos de socios tienen sus propias condiciones; revisa los términos vigentes."
+      "seoDescription": "Descubre Adobe Firefly para generar imágenes, vídeo, audio y más con varios modelos de IA. Confirma las condiciones antes de publicar.",
+      "description": "Adobe Firefly es una aplicación de medios generativos. Su página oficial, revisada el 2026-11-09, indica que puede generar imágenes, vídeo, audio y más con más de 30 modelos de IA en un mismo lugar. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones vigentes antes de publicar. Esa página no confirma la compatibilidad con vectores ni qué modelos son de Adobe o de socios.",
+      "useCases": ["Explorar una dirección visual", "Generar y ajustar imagen, vídeo o audio", "Comparar resultados de los modelos disponibles"],
+      "caveat": "Los modelos disponibles, las cuotas y las condiciones comerciales pueden depender del modelo y del plan. Confirma los términos vigentes."
     }
   },
   {
