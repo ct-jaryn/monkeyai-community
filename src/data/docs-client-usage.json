@@ -643,5 +643,259 @@
         }
       ]
     }
+  },
+  {
+    "slug": "rules-and-policy",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 5,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a15cb5-b752-7e86-a479-e6252f4a3be4"
+    ],
+    "en": {
+      "title": "Write rules the assistant actually follows",
+      "description": "Where rules come from, when a switch takes effect, and why a mandatory rule cannot be turned off.",
+      "sections": [
+        {
+          "heading": "Know what a rule is for",
+          "paragraphs": [
+            "Settings, then Assistant configuration, then Rules, lists rules in three groups: team rules created and authorised by an administrator, your own rules created locally, and rules other members shared with you. A rule is a standing instruction you do not want to repeat in every conversation, so it works best when each rule covers one clear goal instead of bundling unrelated habits.",
+            "Rules you create under your own group stay on this device. To give the same rule to everyone, an administrator has to create it in the management console and authorise it; sharing from the client is not the route for team-wide policy."
+          ],
+          "bullets": [
+            "Keep one rule per goal: a single rule mixing tone, formatting and tool limits is hard to switch off selectively.",
+            "Write the rule as an instruction the assistant can act on, not as background reading."
+          ]
+        },
+        {
+          "heading": "Understand when a switch takes effect",
+          "paragraphs": [
+            "Turning on default enablement for new conversations applies the rule to conversations you start afterwards. Existing conversations keep the rule state they already had, so changing the default does not retroactively rewrite work in progress. If a rule is needed for one conversation only, switch it on there through the more actions menu of the input box rather than changing the default.",
+            "Ordinary rules are on by default and members can switch them off in the client. A mandatory rule applies always and members cannot switch it off. That difference is what decides whether someone can opt out, so an administrator should reserve mandatory rules for requirements that genuinely apply to every task."
+          ],
+          "bullets": [
+            "After changing a default switch, open a new conversation to confirm the behaviour instead of judging from the current one.",
+            "If a rule seems ignored, check whether it is enabled in that conversation before rewriting it."
+          ]
+        },
+        {
+          "heading": "Who controls team-wide rules",
+          "paragraphs": [
+            "Team rules are managed under resource management in the management console, where an administrator adds the rule, sets the scope and authorises it for everyone, a group or selected users. The mandatory flag is set there too. Members receive what was authorised and can switch ordinary rules on or off in their client, which is why a rule that must apply to all work has to be marked mandatory at the source.",
+            "Because scope is set centrally, a rule that a member cannot see is usually a scope or authorisation question rather than a client problem. Ask the administrator which group the rule was authorised for before recreating it locally."
+          ],
+          "bullets": [
+            "Mark a rule mandatory only when violating it would genuinely be wrong for every task.",
+            "When a shared rule needs edits, ask the administrator who owns it; do not copy it into a local rule with the same intent."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "写好规则，让助手真正照做",
+      "description": "规则从哪里来、开关在什么时候生效，以及为什么强制规则无法关闭。",
+      "sections": [
+        {
+          "heading": "先弄清规则用来做什么",
+          "paragraphs": [
+            "进入「设置 → 助手配置 → 规则」，规则按来源分为三类：管理员创建并授权的团队规则、自己在本地创建的规则，以及他人共享给你的规则。规则是那种不想在每个会话里重复交代的长期要求，因此最好一条规则只针对一个明确目标，不要把无关习惯混在一起。",
+            "自己创建的规则只在本机使用。要把同一条规则提供给所有人，需要管理员在后台创建并授权；客户端里的共享不是配置团队统一策略的途径。"
+          ],
+          "bullets": [
+            "一条规则对应一个目标：把语气、格式和工具限制写在一起，之后很难只关掉其中一项。",
+            "把规则写成助手能直接执行的要求，而不是背景介绍。"
+          ]
+        },
+        {
+          "heading": "弄清开关什么时候生效",
+          "paragraphs": [
+            "开启「新对话默认启用」后，规则会应用于之后新建的会话；已开始的会话保持原有状态，修改默认开关不会回头改写进行中的工作。如果某条规则只在这一次需要，在输入框的「更多操作」里单独开启即可，不必改动默认设置。",
+            "普通规则默认开启，成员可以在客户端关闭；强制规则始终生效，成员无法关闭。这个差别决定了成员能否选择不使用，因此管理员应只在「确实对每个任务都成立」时才把规则设为强制。"
+          ],
+          "bullets": [
+            "改完默认开关后，新建一个会话验证效果，不要只看当前会话。",
+            "规则看起来没生效时，先确认它在当前会话是否开启，再考虑改写内容。"
+          ]
+        },
+        {
+          "heading": "团队规则的权限在谁手上",
+          "paragraphs": [
+            "团队规则在后台的「资源管理 → 规则」中维护：管理员添加规则、设置使用范围，并授权给全员、指定分组或用户，「强制规则」也在那里勾选。成员拿到的是已授权的内容，可以在客户端开关普通规则，所以必须对所有人生效的规则要在源头标为强制。",
+            "由于范围由后台集中设置，成员看不到某条规则，通常属于范围或授权问题，而不是客户端故障。先在本地重建之前，先向管理员确认这条规则授权给了哪个分组。"
+          ],
+          "bullets": [
+            "只有违反它对任何任务都确实不妥时，才把规则标为强制。",
+            "共享的规则需要修改时，联系创建它的管理员；不要用同样的意图另建一条本地规则。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Escribe reglas que el asistente sí cumple",
+      "description": "De dónde vienen las reglas, cuándo surte efecto un interruptor y por qué una regla obligatoria no se puede desactivar.",
+      "sections": [
+        {
+          "heading": "Entiende para qué sirve una regla",
+          "paragraphs": [
+            "Ajustes, luego Configuración del asistente y Reglas, muestra las reglas en tres grupos: las del equipo creadas y autorizadas por un administrador, las tuyas creadas localmente y las que otros miembros comparten contigo. Una regla es una instrucción permanente que no quieres repetir en cada conversación, así que funciona mejor cuando cada regla cubre un objetivo claro en lugar de mezclar hábitos distintos.",
+            "Las reglas que creas en tu grupo se quedan en este dispositivo. Para dar la misma regla a todos, un administrador debe crearla en la consola de administración y autorizarla; compartir desde el cliente no es la vía para una política de equipo."
+          ],
+          "bullets": [
+            "Una regla por objetivo: una sola regla que mezcla tono, formato y límites de herramientas es difícil de desactivar por partes.",
+            "Escribe la regla como una instrucción que el asistente pueda ejecutar, no como texto de contexto."
+          ]
+        },
+        {
+          "heading": "Entiende cuándo surte efecto un interruptor",
+          "paragraphs": [
+            "Activar la carga por defecto en conversaciones nuevas aplica la regla a las conversaciones que abras después; las ya iniciadas conservan el estado que tenían, así que cambiar el valor por defecto no reescribe el trabajo en curso. Si una regla se necesita solo en una conversación, actívala allí desde el menú de más acciones del cuadro de entrada en lugar de cambiar el valor por defecto.",
+            "Las reglas ordinarias están activas por defecto y los miembros pueden desactivarlas en el cliente. Una regla obligatoria se aplica siempre y los miembros no pueden desactivarla. Esa diferencia decide si alguien puede excluirse, por lo que un administrador debería reservar las obligatorias para requisitos que de verdad valgan para toda tarea."
+          ],
+          "bullets": [
+            "Después de cambiar un interruptor por defecto, abre una conversación nueva para confirmar el comportamiento.",
+            "Si una regla parece ignorada, comprueba si está activada en esa conversación antes de reescribirla."
+          ]
+        },
+        {
+          "heading": "Quién controla las reglas del equipo",
+          "paragraphs": [
+            "Las reglas del equipo se gestionan en la gestión de recursos de la consola de administración, donde un administrador añade la regla, fija el alcance y la autoriza para todos, un grupo o usuarios concretos. La marca de obligatoria también se ajusta allí. Los miembros reciben lo autorizado y pueden activar o desactivar las ordinarias en su cliente, por lo que una regla que debe aplicarse a todo el trabajo tiene que marcarse como obligatoria en el origen.",
+            "Como el alcance se fija de forma central, una regla que un miembro no ve suele ser una cuestión de alcance o autorización y no un fallo del cliente. Pregunta al administrador para qué grupo se autorizó antes de recrearla localmente."
+          ],
+          "bullets": [
+            "Marca una regla como obligatoria solo cuando incumplirla sería realmente incorrecto en toda tarea.",
+            "Cuando una regla compartida necesita cambios, habla con el administrador que la posee; no la copies en una regla local con la misma intención."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "try-the-hosted-demo",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 4,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1682b-5ba3-71a3-a5f0-33b394c5ba2c"
+    ],
+    "en": {
+      "title": "Try the hosted demo before installing anything",
+      "description": "A public demo server and console for evaluating the product, and the rules for using it safely.",
+      "sections": [
+        {
+          "heading": "What the demo gives you",
+          "paragraphs": [
+            "The official documentation offers a demo environment with a deployed server and basic resources already configured, so no self-hosting and no model keys are needed. You can sign in to the administration console to see how team resources and permissions are organised, then connect a client to the same demo server to try AI office tasks. This is the fastest way to judge whether the product fits before committing to an installation.",
+            "The console account and the demo server address are published in the official document. Use them as a public evaluation path only: the credentials are shared by everyone, so treat the environment as public and expect configuration to change or be reset."
+          ],
+          "bullets": [
+            "Review members and groups, resource authorisation, and credit and usage statistics in the console.",
+            "Connect the client to the demo server, then verify the account by email code as the page instructs."
+          ]
+        },
+        {
+          "heading": "Keep the demo environment safe",
+          "paragraphs": [
+            "The demo is a shared environment. Upload only sample or redacted material, never sensitive files, personal keys or real business data. Do not delete shared resources, because you are not the only person using them and the result is not yours to keep.",
+            "Available resources and permissions follow whatever the demo currently shows, not what a paid or self-hosted deployment would give you. Treat anything you configure there as disposable, and do not build a real workflow that depends on the demo staying configured."
+          ],
+          "bullets": [
+            "Assume any content you upload to the demo can be seen by others.",
+            "Test with redacted documents, not exports from a production account."
+          ]
+        },
+        {
+          "heading": "Decide what to do next",
+          "paragraphs": [
+            "If the demo shows the product handles your work, the next step is an installation you control, where you choose the models, resources and permissions. The demo cannot tell you how a specific model will behave with your data, how much a workload costs, or whether your network allows the required access, because none of those are configured the way your deployment would be.",
+            "For a team rollout, plan the installation, the resource authorisation and the model access together; the demo shows the relationships between them but does not carry any of your configuration over."
+          ],
+          "bullets": [
+            "Do not treat demo behaviour as a performance or cost benchmark for your own deployment.",
+            "Check your own network and model access before promising a rollout date."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "先试用免部署 Demo，再决定是否安装",
+      "description": "用公开的演示服务器和管理后台快速评估产品，以及安全使用它的注意事项。",
+      "sections": [
+        {
+          "heading": "Demo 能给你什么",
+          "paragraphs": [
+            "官方文档提供了演示环境：服务端已经部署好，基础资源也已配置，因此无需自建、也无需准备模型密钥。可以先登录管理后台，了解团队资源与权限是怎么组织的，再用客户端连接同一台演示服务器体验 AI 办公任务。这是在不安装之前判断产品是否合适最快的方式。",
+            "演示后台的账号和演示服务器地址都写在官方文档里。请把它当作公开的体验入口：账号是所有人共用的，因此要按公开环境对待，并预期配置随时可能被修改或重置。"
+          ],
+          "bullets": [
+            "在后台重点看成员与分组、资源授权，以及积分与使用统计这几部分。",
+            "用客户端连接演示服务器，再按页面提示用邮箱验证码完成验证。"
+          ]
+        },
+        {
+          "heading": "在 Demo 里守住安全边界",
+          "paragraphs": [
+            "演示环境是公共的。只上传示例或脱敏材料，不要上传敏感文件、个人密钥或真实业务数据。也不要去删除公共资源，因为使用它的不只你一个人，改动后的结果也不属于你。",
+            "可用资源和权限取决于演示环境当前展示的内容，而不是付费版或自托管部署能提供的内容。请把你在那里做的任何配置都视为一次性的，不要搭建依赖演示环境保持不变的正式流程。"
+          ],
+          "bullets": [
+            "默认你在 Demo 上传的内容可能被其他人看到。",
+            "用脱敏文档测试，不要用生产账号导出的文件。"
+          ]
+        },
+        {
+          "heading": "体验完之后做什么",
+          "paragraphs": [
+            "如果 Demo 说明产品能处理你的工作，下一步是搭建一个由自己掌控的安装环境，自行选择模型、资源和权限。Demo 无法告诉你某个模型在你的数据上表现如何、某项工作要花多少积分，或者你的网络能否满足访问要求，因为这些都没有按你自己的部署方式配置。",
+            "面向团队上线时，把安装、资源授权和模型接入放在一起规划；Demo 展示的是它们之间的关系，但不会把你的任何配置带过去。"
+          ],
+          "bullets": [
+            "不要把 Demo 的表现当成自己部署的性能或成本基准。",
+            "在承诺上线时间之前，先确认自己的网络和模型接入是否可行。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Prueba la demo alojada antes de instalar nada",
+      "description": "Un servidor y una consola de demostración públicos para evaluar el producto y las reglas para usarlo con seguridad.",
+      "sections": [
+        {
+          "heading": "Qué te ofrece la demo",
+          "paragraphs": [
+            "La documentación oficial ofrece un entorno de demostración con el servidor ya desplegado y recursos básicos configurados, así que no hace falta autohospedaje ni claves de modelo. Puedes entrar en la consola de administración para ver cómo se organizan los recursos y permisos del equipo y luego conectar un cliente al mismo servidor de demo para probar tareas de oficina con IA. Es la forma más rápida de juzgar si el producto encaja antes de comprometerte con una instalación.",
+            "La cuenta de la consola y la dirección del servidor de demo están publicadas en el documento oficial. Úsalas solo como vía pública de evaluación: las credenciales son compartidas por todos, así que trata el entorno como público y espera que la configuración cambie o se restablezca."
+          ],
+          "bullets": [
+            "Revisa en la consola los miembros y grupos, la autorización de recursos y las estadísticas de créditos y uso.",
+            "Conecta el cliente al servidor de demo y verifica la cuenta con el código por correo como indica la página."
+          ]
+        },
+        {
+          "heading": "Mantén segura la demo",
+          "paragraphs": [
+            "La demo es un entorno compartido. Sube solo material de ejemplo o anonimizado, nunca archivos sensibles, claves personales ni datos reales del negocio. No borres recursos compartidos, porque no eres la única persona que los usa y el resultado no es tuyo para conservarlo.",
+            "Los recursos y permisos disponibles son los que la demo muestra en cada momento, no los de un despliegue de pago o autohospedado. Considera desechable todo lo que configures allí y no construyas un flujo real que dependa de que la demo siga configurada."
+          ],
+          "bullets": [
+            "Asume que cualquier contenido que subas a la demo puede verlo otra persona.",
+            "Prueba con documentos anonimizados, no con exportaciones de una cuenta de producción."
+          ]
+        },
+        {
+          "heading": "Decide el siguiente paso",
+          "paragraphs": [
+            "Si la demo muestra que el producto sirve para tu trabajo, el siguiente paso es una instalación que controles, donde eliges modelos, recursos y permisos. La demo no puede decirte cómo se comportará un modelo concreto con tus datos, cuánto costará una carga de trabajo ni si tu red permite el acceso necesario, porque nada de eso está configurado como en tu despliegue.",
+            "Para un despliegue en equipo, planifica juntos la instalación, la autorización de recursos y el acceso a modelos; la demo muestra la relación entre ellos pero no traslada ninguna de tus configuraciones."
+          ],
+          "bullets": [
+            "No tomes el comportamiento de la demo como referencia de rendimiento o coste para tu despliegue.",
+            "Comprueba tu red y tu acceso a modelos antes de prometer una fecha de lanzamiento."
+          ]
+        }
+      ]
+    }
   }
 ]
