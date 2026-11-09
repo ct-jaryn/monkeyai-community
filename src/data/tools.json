@@ -246,7 +246,7 @@
     "category": "creative",
     "mark": "Bl",
     "color": "#cf7a37",
-    "sourceUrl": "https://docs.blender.org/manual/en/4.2/getting_started/about/index.html",
+    "sourceUrl": "https://docs.blender.org/manual/en/latest/getting_started/about/index.html",
     "en": {
       "tagline": "An open-source 3D companion for creative workflows",
       "seoDescription": "Explore Blender, a free open-source 3D creation suite for modeling, rendering, and animation alongside AI-assisted creative workflows.",
