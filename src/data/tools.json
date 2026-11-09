@@ -37,6 +37,7 @@
     "mark": "G",
     "color": "#17816c",
     "sourceUrl": "https://chatgpt.com/",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "A flexible starting point for everyday AI work",
       "seoDescription": "Explore ChatGPT, OpenAI’s conversational AI for drafts, explanations, and coding questions. Available tools depend on your account.",
@@ -67,6 +68,7 @@
     "mark": "Ge",
     "color": "#5577ce",
     "sourceUrl": "https://gemini.google/gp/overview/?hl=en",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Explore ideas with Google’s AI assistant",
       "seoDescription": "Explore Google’s Gemini assistant for learning, planning, and creative ideas. Check its answers against original sources when accuracy matters.",
@@ -97,6 +99,7 @@
     "mark": "Cu",
     "color": "#52535b",
     "sourceUrl": "https://cursor.com/",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "AI assistance inside a software development workflow",
       "seoDescription": "Explore Cursor’s AI coding assistance for discussing, generating, and reviewing changes in a development environment. Inspect and test each diff.",
@@ -127,6 +130,7 @@
     "mark": "Co",
     "color": "#7654bd",
     "sourceUrl": "https://github.com/features/copilot",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Coding assistance around your existing GitHub work",
       "seoDescription": "Explore GitHub Copilot’s coding assistance in supported editors and GitHub workflows. Explain tasks clearly and review generated changes.",
@@ -157,6 +161,7 @@
     "mark": "Ol",
     "color": "#79746d",
     "sourceUrl": "https://ollama.com/",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "A practical entry into running open models",
       "seoDescription": "Explore Ollama for running supported open models locally. Choose a model for your hardware and check the data flow of connected tools.",
@@ -187,6 +192,7 @@
     "mark": "Cf",
     "color": "#3c9364",
     "sourceUrl": "https://comfy.org/",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Make visual AI workflows visible and reusable",
       "seoDescription": "Explore ComfyUI’s node-based canvas for reusable visual AI workflows. Results depend on the models, settings, and resources you choose.",
@@ -247,26 +253,27 @@
     "mark": "Bl",
     "color": "#cf7a37",
     "sourceUrl": "https://docs.blender.org/manual/en/latest/getting_started/about/index.html",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "An open-source 3D companion for creative workflows",
       "seoDescription": "Explore Blender, a free open-source 3D creation suite for modeling, rendering, and animation alongside AI-assisted creative workflows.",
       "description": "Blender is a free and open-source 3D creation suite, rather than an AI chatbot. It belongs here as a companion tool for shaping, rendering, and refining visual projects alongside AI-generated concepts. Use it when a project needs direct control of 3D assets or animation. Learning a small, complete scene is a useful first step before building a larger production workflow.",
       "useCases": ["Build and render a simple 3D scene", "Develop animation assets", "Refine a visual concept in 3D"],
-      "caveat": "AI integrations are separate from Blender itself; check each add-on’s origin, permissions, and license."
+      "caveat": "AI integrations are separate from Blender itself; check each add-on’s origin, permissions, and license. The manual checked on 2026-11-09 was the 5.2 LTS edition."
     },
     "zh": {
       "tagline": "搭配创意工作流的开源 3D 工具",
       "seoDescription": "了解 Blender：免费开源的 3D 创作套件，可用于建模、渲染和动画，也可搭配 AI 创意工作流。",
       "description": "Blender 是免费开源的 3D 创作套件，并非 AI 聊天工具。这里将它作为生成式创意的配套工具，用于建模、渲染和完善视觉项目。当项目需要直接控制 3D 素材或动画时，可以考虑使用。先完成一个小而完整的场景，再逐步搭建更复杂的制作流程，通常更便于学习与验证。",
       "useCases": ["制作并渲染简单 3D 场景", "开发动画素材", "用 3D 完善视觉概念"],
-      "caveat": "AI 集成与 Blender 本体需分别评估，请检查各插件的来源、权限和许可。"
+      "caveat": "AI 集成与 Blender 本体需分别评估，请检查各插件的来源、权限和许可。2026-11-09 核对的手册为 5.2 LTS 版本。"
     },
     "es": {
       "tagline": "Un complemento abierto de 3D para el trabajo creativo",
       "seoDescription": "Conoce Blender, una suite 3D gratuita y de código abierto para modelado, renderizado y animación junto a flujos creativos con IA.",
       "description": "Blender es una suite de creación 3D gratuita y de código abierto, no un chatbot de IA. Se incluye como herramienta complementaria para modelar, renderizar y desarrollar proyectos a partir de conceptos visuales. Resulta útil cuando necesitas controlar directamente los recursos 3D o la animación. Completar una escena pequeña ayuda a aprender antes de preparar una producción más compleja.",
       "useCases": ["Crear y renderizar una escena 3D", "Desarrollar recursos de animación", "Refinar un concepto visual en 3D"],
-      "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento."
+      "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento. El manual revisado el 09-11-2026 era la edición 5.2 LTS."
     }
   },
   {
@@ -277,6 +284,7 @@
     "mark": "Pe",
     "color": "#37838a",
     "sourceUrl": "https://www.perplexity.ai/hub",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Start a research trail with AI-assisted search",
       "seoDescription": "Explore Perplexity’s conversational search for finding web sources and starting research. Open citations and check their original context.",
@@ -307,6 +315,7 @@
     "mark": "N",
     "color": "#506ea5",
     "sourceUrl": "https://support.google.com/gemininotebook/answer/16215270?hl=en",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Ask focused questions of a set of sources",
       "seoDescription": "Explore Gemini Notebook, formerly NotebookLM, for asking questions about selected sources. Check cited passages in context.",
@@ -337,6 +346,7 @@
     "mark": "Hf",
     "color": "#af8a2d",
     "sourceUrl": "https://huggingface.co/",
+    "reviewed": "2026-11-09",
     "en": {
       "tagline": "Discover models, datasets, and community applications",
       "seoDescription": "Explore Hugging Face models, datasets, and community applications. Read model cards and evaluate each resource for your own task.",
