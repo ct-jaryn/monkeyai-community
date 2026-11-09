@@ -6,43 +6,43 @@
     "officialUrl": "https://qwen.ai/",
     "apiDocsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
     "access": "hybrid",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": ["ollama", "hugging-face"],
-    "sourceUrls": ["https://qwen.readthedocs.io/en/latest/", "https://github.com/QwenLM/Qwen3", "https://www.alibabacloud.com/help/en/model-studio/models"],
+    "sourceUrls": ["https://qwen.readthedocs.io/en/latest/", "https://github.com/QwenLM/Qwen3.8", "https://www.alibabacloud.com/help/en/model-studio/models"],
     "en": {
       "tagline": "Multilingual models with hosted and open-weight paths",
       "description": "Explore Alibaba’s Qwen model family for multilingual assistants, coding, and selected multimodal tasks, with API and downloadable-model options.",
       "overview": [
-        "Qwen is a family of language and multimodal models developed by Alibaba’s Qwen team. It offers more than a single chat experience: developers can choose hosted models through Alibaba Cloud Model Studio or work with downloadable releases documented by the team. Depending on the model, useful starting tasks include multilingual drafting, code assistance, structured extraction, and reasoning. Qwen Chat is an application built around models; access to that application does not establish the capabilities, billing, or data handling of a separate API deployment.",
+        "Qwen is a family of language and multimodal models developed by Alibaba’s Qwen team. It offers more than a single chat experience: developers can choose hosted models through Alibaba Cloud Model Studio or work with downloadable releases documented by the team. Depending on the model, useful starting tasks include multilingual drafting, code assistance, structured extraction, and reasoning. Qwen Studio (chat.qwen.ai, previously presented as Qwen Chat) is an application built around models; access to that application does not establish the capabilities, billing, or data handling of a separate API deployment.",
         "For a prototype, begin with the exact release that matches the input you need, then compare it on a small set of your own examples. The official documentation covers local runners, deployment engines, and tool-use integrations, but support depends on the checkpoint and software version. Some releases distinguish thinking and non-thinking behavior; vision or audio support also belongs to a particular model. Record the model ID, serving method, license, and review date before turning a successful experiment into a repeatable team workflow."
       ],
       "strengths": ["Draft and revise content across supported languages", "Prototype coding or tool-assisted workflows with a compatible release", "Compare a hosted API with an appropriate self-managed checkpoint"],
       "limitations": ["A family name does not guarantee that every release accepts images, audio, or tools.", "Local deployment needs compatible inference software and sufficient hardware; check the actual checkpoint license."],
-      "accessNote": "Hosted access is documented in Alibaba Cloud Model Studio; downloadable releases have their own model cards, runtime requirements, and licenses. Qwen Chat and API access are separate products.",
+      "accessNote": "Hosted access is documented in Alibaba Cloud Model Studio; downloadable releases have their own model cards, runtime requirements, and licenses. Qwen Studio and API access are separate products.",
       "selectionTip": "Choose Qwen when multilingual work or a hosted-versus-self-managed comparison matters, then test the specific release on your real task."
     },
     "zh": {
       "tagline": "兼具托管服务与开放权重路径的多语言模型",
       "description": "了解阿里巴巴 Qwen 模型家族的多语言、编程与部分多模态用途，以及 API 和可下载模型两种使用路径。",
       "overview": [
-        "Qwen 是阿里巴巴 Qwen 团队开发的语言与多模态模型家族。它并不等同于一个聊天应用：开发者可以通过阿里云 Model Studio 选择托管模型，也可以研究团队发布的可下载模型。根据具体型号，可从多语言写作、编程辅助、结构化提取和推理等任务入手。Qwen Chat 是使用模型的应用；能使用聊天应用，并不代表单独的 API 部署拥有相同能力、计费方式或数据处理规则。",
+        "Qwen 是阿里巴巴 Qwen 团队开发的语言与多模态模型家族。它并不等同于一个聊天应用：开发者可以通过阿里云 Model Studio 选择托管模型，也可以研究团队发布的可下载模型。根据具体型号，可从多语言写作、编程辅助、结构化提取和推理等任务入手。Qwen Studio（chat.qwen.ai，此前称 Qwen Chat）是使用模型的应用；能使用聊天应用，并不代表单独的 API 部署拥有相同能力、计费方式或数据处理规则。",
         "做原型时，先确认输入类型和目标任务，再选择对应版本，用自己的少量样例比较结果。官方文档介绍了本地运行器、部署引擎和工具调用集成，但是否支持某个检查点，要看具体模型与软件版本。有些版本区分思考和非思考行为，图像、音频能力也不能从家族名称推断。将实验变成团队工作流前，应记录模型 ID、运行方式、许可证和核验日期，避免把一次成功结果当成所有版本通用的能力。"
       ],
       "strengths": ["在支持的语言之间起草和修改内容", "用兼容版本探索编程或工具辅助工作流", "对比托管 API 与合适的自主管理模型"],
       "limitations": ["同属 Qwen 不代表所有版本都支持图像、音频或工具调用。", "本地运行需要兼容的推理软件和足够硬件，许可证应以具体检查点为准。"],
-      "accessNote": "托管服务入口见阿里云 Model Studio。可下载版本各有模型卡、运行要求和许可证；Qwen Chat 与 API 访问是不同产品。",
+      "accessNote": "托管服务入口见阿里云 Model Studio。可下载版本各有模型卡、运行要求和许可证；Qwen Studio 与 API 访问是不同产品。",
       "selectionTip": "如果你重视多语言任务，或希望比较托管与自主部署，Qwen 值得纳入候选，但应测试具体版本。"
     },
     "es": {
       "tagline": "Modelos multilingües con API y pesos descargables",
       "description": "Conoce la familia Qwen de Alibaba para asistentes multilingües, programación y tareas multimodales seleccionadas, con API y modelos descargables.",
       "overview": [
-        "Qwen es una familia de modelos de lenguaje y multimodales desarrollada por el equipo Qwen de Alibaba. No se limita a una aplicación de chat: puedes elegir modelos alojados en Alibaba Cloud Model Studio o trabajar con versiones descargables documentadas por el equipo. Según el modelo, puedes empezar con redacción multilingüe, ayuda con código, extracción estructurada o razonamiento. Qwen Chat es una aplicación; utilizarla no demuestra que una implementación por API tenga las mismas capacidades, facturación o condiciones de tratamiento de datos.",
+        "Qwen es una familia de modelos de lenguaje y multimodales desarrollada por el equipo Qwen de Alibaba. No se limita a una aplicación de chat: puedes elegir modelos alojados en Alibaba Cloud Model Studio o trabajar con versiones descargables documentadas por el equipo. Según el modelo, puedes empezar con redacción multilingüe, ayuda con código, extracción estructurada o razonamiento. Qwen Studio (chat.qwen.ai, antes presentada como Qwen Chat) es una aplicación; utilizarla no demuestra que una implementación por API tenga las mismas capacidades, facturación o condiciones de tratamiento de datos.",
         "Para un prototipo, elige una versión que admita tus entradas y compárala con ejemplos de tu propio trabajo. La documentación cubre ejecución local, motores de despliegue e integración de herramientas, pero la compatibilidad depende del modelo y del software. Algunas versiones distinguen entre modos de razonamiento y respuesta directa; la visión y el audio también corresponden a modelos concretos. Registra el identificador, el método de ejecución, la licencia y la fecha de revisión antes de convertir un experimento satisfactorio en un flujo de trabajo repetible."
       ],
       "strengths": ["Redactar y revisar contenido en idiomas compatibles", "Probar programación o herramientas con una versión adecuada", "Comparar una API alojada con un modelo autogestionado"],
       "limitations": ["No todas las versiones aceptan imágenes, audio o herramientas.", "La ejecución local requiere software compatible y hardware suficiente; comprueba la licencia del modelo concreto."],
-      "accessNote": "Model Studio documenta el acceso alojado. Cada versión descargable tiene su ficha, requisitos y licencia. Qwen Chat y el acceso por API son productos distintos.",
+      "accessNote": "Model Studio documenta el acceso alojado. Cada versión descargable tiene su ficha, requisitos y licencia. Qwen Studio y el acceso por API son productos distintos.",
       "selectionTip": "Incluye Qwen si te importa el trabajo multilingüe o comparar API y alojamiento propio; evalúa la versión elegida con tus tareas."
     }
   },
@@ -53,7 +53,7 @@
     "officialUrl": "https://www.llama.com/",
     "apiDocsUrl": "https://github.com/meta-llama/llama-models",
     "access": "open-weights",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": ["hugging-face", "ollama"],
     "sourceUrls": ["https://github.com/meta-llama/llama-models", "https://github.com/meta-llama/llama-cookbook", "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"],
     "en": {
@@ -100,7 +100,7 @@
     "officialUrl": "https://mistral.ai/",
     "apiDocsUrl": "https://docs.mistral.ai/models",
     "access": "hybrid",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": ["hugging-face"],
     "sourceUrls": ["https://docs.mistral.ai/models", "https://docs.mistral.ai/studio/conversations/chat-completion", "https://docs.mistral.ai/inference/deployment/local-deployment"],
     "en": {
@@ -147,7 +147,7 @@
     "officialUrl": "https://grok.com/",
     "apiDocsUrl": "https://docs.x.ai/developers/models",
     "access": "hosted",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": [],
     "sourceUrls": ["https://docs.x.ai/developers/models", "https://docs.x.ai/developers/tools/web-search", "https://github.com/xai-org/grok-1"],
     "en": {
@@ -194,15 +194,15 @@
     "officialUrl": "https://www.kimi.com/",
     "apiDocsUrl": "https://platform.kimi.ai/docs/get-your-api-key",
     "access": "hybrid",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": ["hugging-face"],
-    "sourceUrls": ["https://platform.kimi.ai/docs/get-your-api-key", "https://platform.kimi.ai/docs/guide/use-kimi-api-to-complete-tool-calls", "https://github.com/MoonshotAI/Kimi-K2", "https://github.com/MoonshotAI/Kimi-K2/blob/main/LICENSE"],
+    "sourceUrls": ["https://platform.kimi.ai/docs/get-your-api-key", "https://platform.kimi.ai/docs/guide/use-kimi-api-to-complete-tool-calls", "https://github.com/MoonshotAI/Kimi-K3", "https://github.com/MoonshotAI/Kimi-K3/blob/main/LICENSE"],
     "en": {
       "tagline": "Models for coding, analysis, and tool-driven tasks",
       "description": "Explore Moonshot AI’s Kimi family, its hosted developer platform and selected open-weight releases, with practical distinctions between app and model access.",
       "overview": [
         "Kimi is Moonshot AI’s model and assistant family. Its developer platform provides model access through documented APIs, while selected releases have downloadable weights in official repositories. The API documentation covers conversation, reasoning, vision for supported models, and tool-calling workflows. The Kimi application is a separate product experience: its interface, built-in tools, and account entitlements should not be assumed to carry over to a standalone API call. Start by choosing the exact model and the integration format described in the current platform documentation.",
-        "Tool calling makes Kimi a candidate for experiments that connect a model to your application’s functions, such as looking up a record or proposing a code change. The application still owns tool execution, permissions, and verification. With open-weight releases, check the model card, inference-engine support, memory needs, and the actual license rather than assuming all Kimi models share one deployment route. For example, the Kimi K2 release has a modified license that must be read on its own terms. Evaluate a small, reproducible task before connecting a broader workflow."
+        "Tool calling makes Kimi a candidate for experiments that connect a model to your application’s functions, such as looking up a record or proposing a code change. The application still owns tool execution, permissions, and verification. With open-weight releases, check the model card, inference-engine support, memory needs, and the actual license rather than assuming all Kimi models share one deployment route. For example, the Kimi K2 release uses a modified MIT license, while Kimi K3 publishes its own license with conditions tied to commercial scale; read the text for the release you actually download. Evaluate a small, reproducible task before connecting a broader workflow."
       ],
       "strengths": ["Prototype coding or analytical assistance with a specified model", "Connect documented tool calls to controlled application functions", "Compare hosted use with a suitable downloadable release"],
       "limitations": ["API formats, input types, and tool support depend on the selected model and runtime.", "A downloadable release has its own license and hardware requirements; the Kimi app does not grant equivalent API access."],
@@ -214,7 +214,7 @@
       "description": "了解 Moonshot AI 的 Kimi 家族、托管开发平台和指定开放权重版本，并区分聊天应用与模型访问方式。",
       "overview": [
         "Kimi 是 Moonshot AI 的模型与助手家族。开发者平台通过文档化 API 提供模型访问，部分版本也在官方仓库发布可下载权重。API 文档涵盖会话、推理、受支持型号的视觉输入和工具调用工作流。Kimi 应用是另一种产品体验，其界面、内置工具和账户权益，不应直接推断为单独 API 请求也具备的能力。开始集成时，应先选择具体模型，并按照当前平台文档确认调用格式。",
-        "工具调用让 Kimi 可以参与连接应用函数的实验，例如查询一条记录，或提出代码修改方案。但执行工具、管理权限和检查结果仍由你的应用负责。使用开放权重时，应核对模型卡、推理引擎支持、内存要求和实际许可证，不能假定所有 Kimi 模型采用同一部署方式。例如 Kimi K2 的发布附有修改版许可证，需要单独阅读其条件。先完成一个可复现的小任务，再把模型接入范围更大的工作流，会更容易定位实际收益与边界。"
+        "工具调用让 Kimi 可以参与连接应用函数的实验，例如查询一条记录，或提出代码修改方案。但执行工具、管理权限和检查结果仍由你的应用负责。使用开放权重时，应核对模型卡、推理引擎支持、内存要求和实际许可证，不能假定所有 Kimi 模型采用同一部署方式。例如 Kimi K2 采用修改版 MIT 许可证，Kimi K3 则发布了自己的许可证，其中部分条件与商业规模有关；应阅读实际下载版本的原文。先完成一个可复现的小任务，再把模型接入范围更大的工作流，会更容易定位实际收益与边界。"
       ],
       "strengths": ["用指定型号探索编程或分析辅助", "将文档化工具调用连接到受控的应用函数", "比较托管方式与合适的可下载版本"],
       "limitations": ["调用格式、输入类型和工具支持取决于具体型号与运行环境。", "可下载版本有自己的许可证与硬件要求，应用账户不等于相同的 API 访问权限。"],
@@ -226,7 +226,7 @@
       "description": "Explora Kimi de Moonshot AI, su plataforma alojada y versiones con pesos abiertos, distinguiendo la aplicación del acceso a modelos.",
       "overview": [
         "Kimi es la familia de modelos y asistentes de Moonshot AI. Su plataforma para desarrolladores ofrece API documentadas y algunas versiones publican pesos descargables en repositorios oficiales. La documentación cubre conversación, razonamiento, visión en modelos compatibles y llamadas a herramientas. La aplicación Kimi es otra experiencia de producto: su interfaz, sus herramientas y sus permisos no se trasladan automáticamente a una solicitud de API. Empieza eligiendo el modelo y el formato de integración que aparecen en la documentación actual de la plataforma.",
-        "Las llamadas a herramientas permiten probar Kimi con funciones de tu aplicación, por ejemplo consultar un registro o proponer un cambio de código. Tu aplicación sigue siendo responsable de ejecutar las operaciones, controlar permisos y verificar resultados. Para pesos descargables, comprueba ficha, motor de inferencia, memoria y licencia; no todas las versiones comparten la misma ruta de despliegue. Por ejemplo, Kimi K2 tiene una licencia modificada cuyas condiciones deben revisarse. Evalúa primero una tarea pequeña y reproducible antes de conectarlo a un proceso más amplio."
+        "Las llamadas a herramientas permiten probar Kimi con funciones de tu aplicación, por ejemplo consultar un registro o proponer un cambio de código. Tu aplicación sigue siendo responsable de ejecutar las operaciones, controlar permisos y verificar resultados. Para pesos descargables, comprueba ficha, motor de inferencia, memoria y licencia; no todas las versiones comparten la misma ruta de despliegue. Por ejemplo, Kimi K2 usa una licencia MIT modificada y Kimi K3 publica su propia licencia con condiciones ligadas a la escala comercial; lee el texto de la versión que descargues. Evalúa primero una tarea pequeña y reproducible antes de conectarlo a un proceso más amplio."
       ],
       "strengths": ["Probar asistencia de código o análisis con un modelo concreto", "Conectar herramientas documentadas a funciones controladas", "Comparar el servicio alojado con una versión descargable adecuada"],
       "limitations": ["Los formatos de API, entradas y herramientas dependen del modelo y del entorno.", "Cada versión descargable tiene licencia y requisitos propios; la aplicación no concede un acceso equivalente a la API."],
@@ -241,9 +241,9 @@
     "officialUrl": "https://z.ai/",
     "apiDocsUrl": "https://docs.z.ai/guides/overview/quick-start",
     "access": "hybrid",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": ["hugging-face"],
-    "sourceUrls": ["https://docs.z.ai/guides/overview/quick-start", "https://docs.z.ai/guides/llm/glm-4.5", "https://github.com/zai-org/GLM-4.5", "https://github.com/zai-org/GLM-4.5/blob/main/LICENSE"],
+    "sourceUrls": ["https://docs.z.ai/guides/overview/quick-start", "https://docs.z.ai/guides/llm/glm-5", "https://github.com/zai-org/GLM-5", "https://github.com/zai-org/GLM-5/blob/main/LICENSE"],
     "en": {
       "tagline": "A model family oriented toward reasoning, coding, and agents",
       "description": "Understand Z.ai’s GLM model family, developer APIs, and selected downloadable releases before choosing a coding or tool-assisted workflow.",

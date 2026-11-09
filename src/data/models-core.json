@@ -6,7 +6,7 @@
     "officialUrl": "https://developers.openai.com/api/docs/models",
     "apiDocsUrl": "https://developers.openai.com/api/docs/guides/latest-model",
     "access": "hosted",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": [
       "chatgpt"
     ],
@@ -81,7 +81,7 @@
     "officialUrl": "https://claude.com/product/overview",
     "apiDocsUrl": "https://platform.claude.com/docs/en/models/overview",
     "access": "hosted",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": [
       "claude"
     ],
@@ -156,7 +156,7 @@
     "officialUrl": "https://deepmind.google/models/gemini/",
     "apiDocsUrl": "https://ai.google.dev/gemini-api/docs/models",
     "access": "hosted",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": [
       "gemini",
       "notebooklm"
@@ -232,7 +232,7 @@
     "officialUrl": "https://www.deepseek.com/",
     "apiDocsUrl": "https://api-docs.deepseek.com/",
     "access": "hybrid",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-11-09",
     "relatedTools": [
       "ollama",
       "hugging-face"
@@ -241,13 +241,13 @@
       "https://api-docs.deepseek.com/",
       "https://api-docs.deepseek.com/guides/thinking_mode/",
       "https://api-docs.deepseek.com/guides/tool_calls/",
-      "https://github.com/deepseek-ai/DeepSeek-R1"
+      "https://github.com/deepseek-ai/DeepSeek-V3.2-Exp", "https://api-docs.deepseek.com/quick_start/pricing"
     ],
     "en": {
       "tagline": "Reasoning-oriented API models alongside separately released model weights",
       "description": "DeepSeek offers hosted models through its API and has also released downloadable model checkpoints. Evaluate the API endpoint or the exact released checkpoint you intend to use; these delivery options are not interchangeable.",
       "overview": [
-        "DeepSeek is a model family with more than one delivery path. Its hosted API documents chat, thinking controls, and tool calling. Separately, releases such as DeepSeek-R1 provide model weights and self-hosting information. A checkpoint release does not mean that every current hosted endpoint has identical downloadable weights, features, or behavior. Keep the API model name or checkpoint identifier in your test notes. For a first comparison, use a coding explanation or a multi-step problem whose final result you can check independently.",
+        "DeepSeek is a model family with more than one delivery path. Its hosted API documents chat, thinking controls, and tool calling. Separately, checkpoint releases such as DeepSeek-V3.2-Exp provide model weights and self-hosting information. The documentation currently names the hosted endpoints deepseek-flash and deepseek-v4-pro; confirm the current list before configuring a client. A checkpoint release does not mean that every current hosted endpoint has identical downloadable weights, features, or behavior. Keep the API model name or checkpoint identifier in your test notes. For a first comparison, use a coding explanation or a multi-step problem whose final result you can check independently.",
         "The API supports documented compatibility formats, but compatibility does not remove provider-specific parameters or conversation requirements. Thinking-mode tool workflows, for example, require the client to preserve the relevant reasoning content as instructed by the documentation. For local deployment, check the exact checkpoint license, inference setup, and available hardware before choosing it. Compare the effort of operating the model with the needs of your task, not only the appeal of local control. Whether hosted or self-managed, validate answers and put explicit limits on external actions."
       ],
       "strengths": [
@@ -266,7 +266,7 @@
       "tagline": "提供推理型 API，也有独立发布的模型权重",
       "description": "DeepSeek 通过 API 提供托管模型，同时也发布过可下载的模型检查点。应评估真正准备使用的 API 端点或具体权重，两种交付方式不能直接等同。",
       "overview": [
-        "DeepSeek 模型家族有不止一种交付方式。托管 API 文档介绍了对话、思考控制和工具调用；DeepSeek-R1 等独立发布则提供模型权重与自行部署资料。发布过权重，并不意味着所有当前 API 端点都存在功能、行为完全相同的可下载版本。测试时应记录 API 模型名称或具体检查点标识。首次比较可使用代码解释，或最终答案能够独立核对的多步骤问题。",
+        "DeepSeek 模型家族有不止一种交付方式。托管 API 文档介绍了对话、思考控制和工具调用；DeepSeek-V3.2-Exp 等权重发布则提供模型检查点与自行部署资料。目前文档列出的托管模型名为 deepseek-flash 与 deepseek-v4-pro，配置前请核对最新列表。发布过权重，并不意味着所有当前 API 端点都存在功能、行为完全相同的可下载版本。测试时应记录 API 模型名称或具体检查点标识。首次比较可使用代码解释，或最终答案能够独立核对的多步骤问题。",
         "API 提供文档列出的兼容格式，但兼容并不代表可以忽略厂商特有的参数与会话要求。例如，思考模式下的工具工作流，需要客户端按说明保留相关推理内容。自行部署前，请核对具体检查点的许可证、推理配置和可用硬件，再评估运维投入是否符合任务需求，不能只看本地控制的吸引力。无论使用托管服务还是自管推理，都应验证结果，并对外部操作规定明确边界。"
       ],
       "strengths": [
@@ -285,7 +285,7 @@
       "tagline": "Modelos de API orientados al razonamiento y pesos publicados por separado",
       "description": "DeepSeek ofrece modelos alojados mediante API y también ha publicado checkpoints descargables. Evalúa el endpoint o el checkpoint exacto que vas a utilizar: las dos formas de entrega no son intercambiables.",
       "overview": [
-        "DeepSeek es una familia con varias formas de distribución. Su API alojada documenta conversación, controles de razonamiento y llamadas a herramientas. Por separado, publicaciones como DeepSeek-R1 ofrecen pesos e información para alojamiento propio. La existencia de un checkpoint no implica que todos los endpoints actuales tengan pesos descargables, funciones o comportamiento idénticos. Registra el nombre de API o identificador del checkpoint utilizado. Para una primera comparación, elige una explicación de código o un problema de varios pasos con una respuesta final comprobable de forma independiente.",
+        "DeepSeek es una familia con varias formas de distribución. Su API alojada documenta conversación, controles de razonamiento y llamadas a herramientas. Por separado, publicaciones de pesos como DeepSeek-V3.2-Exp ofrecen checkpoints e información para alojamiento propio. La documentación actual nombra los endpoints alojados deepseek-flash y deepseek-v4-pro; confirma la lista vigente antes de configurar un cliente. La existencia de un checkpoint no implica que todos los endpoints actuales tengan pesos descargables, funciones o comportamiento idénticos. Registra el nombre de API o identificador del checkpoint utilizado. Para una primera comparación, elige una explicación de código o un problema de varios pasos con una respuesta final comprobable de forma independiente.",
         "La API admite los formatos de compatibilidad documentados, pero siguen existiendo parámetros y requisitos propios del proveedor. Los flujos con razonamiento y herramientas, por ejemplo, exigen conservar el contenido de razonamiento indicado en la documentación. Para despliegue local, comprueba licencia, configuración de inferencia y hardware del checkpoint concreto. Compara el esfuerzo operativo con las necesidades reales de la tarea, además del atractivo del control local. En ambos casos, valida las respuestas y establece límites explícitos para las acciones externas."
       ],
       "strengths": [
