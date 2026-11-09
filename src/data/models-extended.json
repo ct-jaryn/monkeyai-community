@@ -67,7 +67,7 @@
       ],
       "strengths": ["Build an assistant around infrastructure you control", "Explore retrieval or adaptation using the official cookbook", "Evaluate text or selected vision releases with your own datasets"],
       "limitations": ["Model weights are subject to the applicable Llama license and acceptable-use policy.", "Hardware, quantization, and inference support differ by release; downloadable does not mean lightweight."],
-      "accessNote": "Weights and technical resources are available through Meta’s official repositories and linked model pages. Downloads may require license acceptance; provider API access has separate terms. On 2026-11-09, llama.com redirected to Meta’s developer site, which reported that the Model API was unavailable in the reviewer’s region.",
+      "accessNote": "Weights and technical resources are available through Meta’s official repositories and linked model pages. Downloads may require license acceptance; provider API access has separate terms. On 2026-11-09, both llama.com and the official llama.meta.com download page redirected to Meta’s developer site, which reported that the Model API was unavailable in the reviewer’s region. That observation does not establish availability in every region.",
       "selectionTip": "Consider Llama when operating or adapting a model is part of the requirement, and include infrastructure and maintenance in the comparison."
     },
     "zh": {
@@ -79,7 +79,7 @@
       ],
       "strengths": ["在自己掌握的基础设施上构建助手", "借助官方 cookbook 探索检索与模型适配", "用自有数据比较文本或指定视觉版本"],
       "limitations": ["模型权重受适用的 Llama 许可证和可接受使用政策约束。", "不同版本的硬件、量化与推理支持不同，可下载不等于轻量。"],
-      "accessNote": "Meta 官方仓库和其链接的模型页提供权重及技术资源，下载可能需要接受许可证。托管服务商的 API 访问另有条款。2026-11-09 核查时，llama.com 会跳转到 Meta 开发者网站，而该网站显示 Model API 在核查地区不可用。",
+      "accessNote": "Meta 官方仓库和其链接的模型页提供权重及技术资源，下载可能需要接受许可证。托管服务商的 API 访问另有条款。2026-11-09 核查时，llama.com 和官方 llama.meta.com 下载页都会跳转到 Meta 开发者网站，而该网站显示 Model API 在核查地区不可用。这一观察不能说明所有地区都不可用。",
       "selectionTip": "如果需求包含运行或适配模型，可考虑 Llama，同时把基础设施和维护成本纳入比较。"
     },
     "es": {
@@ -92,7 +92,7 @@
       ],
       "strengths": ["Crear un asistente en infraestructura propia", "Explorar recuperación y adaptación con el cookbook oficial", "Evaluar modelos de texto o visión con datos propios"],
       "limitations": ["Los pesos están sujetos a la licencia Llama y a su política de uso aceptable.", "El hardware, la cuantización y la compatibilidad dependen de la versión; descargable no significa ligero."],
-      "accessNote": "Los repositorios oficiales y sus fichas enlazadas ofrecen pesos y recursos. La descarga puede requerir aceptar una licencia; las API de proveedores tienen otras condiciones. El 2026-11-09, llama.com redirigía al sitio para desarrolladores de Meta, que indicaba que la Model API no estaba disponible en la región de revisión.",
+      "accessNote": "Los repositorios oficiales y sus fichas enlazadas ofrecen pesos y recursos. La descarga puede requerir aceptar una licencia; las API de proveedores tienen otras condiciones. El 2026-11-09, tanto llama.com como la página oficial de descarga llama.meta.com redirigían al sitio para desarrolladores de Meta, que indicaba que la Model API no estaba disponible en la región de revisión. Esa observación no demuestra la disponibilidad en todas las regiones.",
       "selectionTip": "Considera Llama si gestionar o adaptar el modelo es un requisito e incluye infraestructura y mantenimiento en la comparación."
     }
   },
