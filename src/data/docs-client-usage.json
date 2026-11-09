@@ -1,0 +1,389 @@
+[
+  {
+    "slug": "projects-tasks-sessions",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535d-b62c-7059-a3c8-d02f6419e658"
+    ],
+    "en": {
+      "title": "Organise work into projects, tasks and sessions",
+      "description": "Create a project with a working folder, start an ordinary or design task, and keep sessions manageable.",
+      "sections": [
+        {
+          "heading": "Create a project and start a task",
+          "paragraphs": [
+            "A project groups related sessions and working files. When you create one, you give it a name and choose a local folder as the working directory, and files the AI writes go into that folder. The official guide suggests one project per kind of work, such as event planning, weekly reports or data analysis, with a folder that already holds the material you want to reference.",
+            "Inside the project you start a session, pick an available model and describe the task in the input box. Document, spreadsheet, code and analysis work belongs to an ordinary task; visual work belongs to a design task. Continue editing inside the same session while it is the same piece of work, and start a new session when the next job shares little context, so the two do not interfere."
+          ],
+          "bullets": [
+            "Add attachments through More actions in the input box, or drag and paste files into it.",
+            "Type @ to reference a file or folder from the project workspace. That reference covers the project folder only, not the whole computer; put the file into the project folder first if it is not found."
+          ]
+        },
+        {
+          "heading": "Run the task and stay in control",
+          "paragraphs": [
+            "Pressing Start begins step-by-step execution, and you can add further requirements in the box at the bottom while it runs. Under the default partial-trust mode, actions such as writing files or running commands may ask for confirmation, so read what the action would do before approving it.",
+            "Frequently used sessions can be pinned. Sessions you are not working on can be archived out of the default list and unarchived when you come back to them."
+          ],
+          "bullets": [
+            "Keep the task description concrete: the folder, the material to use and the result you expect.",
+            "Check the files the AI produced in the working folder rather than relying on the chat summary alone."
+          ]
+        },
+        {
+          "heading": "Keep the workspace tidy",
+          "paragraphs": [
+            "Projects accumulate material quickly. Move finished exports out of the working folder when they are no longer needed for reference, and keep the folder that the project points at limited to the files the task should be able to read.",
+            "Sessions are cheap to create and expensive to confuse. A session that mixed two unrelated jobs makes later results hard to explain, so archive it and start a clean one rather than continuing to add instructions that contradict each other."
+          ],
+          "bullets": [
+            "Nothing in the working folder is private from a task that can read it.",
+            "Archive sessions you have finished with so the active list stays meaningful."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "用项目、任务和会话组织工作",
+      "description": "创建项目并指定工作目录，发起普通任务或设计任务，并管理日常会话。",
+      "sections": [
+        {
+          "heading": "创建项目并发起任务",
+          "paragraphs": [
+            "项目用于组织相关会话和工作文件。创建时填写项目名称，并选择一个本地文件夹作为工作目录，AI 生成的文件会写入该目录。官方指南建议按工作内容分别创建项目，例如活动策划、周报整理、数据分析，并选择与当前工作相关的文件夹，便于引用材料和查找成果。",
+            "进入项目后新建会话，选择可用模型，在输入框中描述任务。日常文档、表格、代码和分析工作选择普通任务；视觉创作选择设计任务。同一项工作可以在当前会话中持续修改；开始关联较少的新工作时建议新建会话，减少不同任务之间的干扰。"
+          ],
+          "bullets": [
+            "点击输入框中的「更多操作」添加附件，也可以拖入或粘贴文件。",
+            "需要引用工作区材料时，在输入框输入 @，从列表中选择文件或目录。@ 的引用范围是项目工作区，不会搜索整台电脑；找不到材料时可先把文件放入项目文件夹。"
+          ]
+        },
+        {
+          "heading": "执行任务并保持控制",
+          "paragraphs": [
+            "点击「开始」后 AI 会逐步执行任务，执行过程中可以在底部输入框补充要求。默认的「部分信任」模式下，写入文件、执行命令等操作可能需要确认，请先看清操作内容再决定是否继续。",
+            "经常使用的会话可以置顶，方便快速找到；暂时不再处理的会话可以归档，从默认列表中移出，需要继续时再取消归档。"
+          ],
+          "bullets": [
+            "任务描述写清目录、要用的材料和期望结果。",
+            "以工作目录中实际生成的文件为准核对成果，不要只看对话里的总结。"
+          ]
+        },
+        {
+          "heading": "保持项目整洁",
+          "paragraphs": [
+            "项目里的材料会增加得很快。已完成的导出文件不再需要作为参考时，应从工作目录移走，并让项目指向的文件夹只保留任务需要读取的文件。",
+            "新建会话的成本很低，混淆任务的代价却很高。一个会话混进两件不相关的工作后，后续结果就很难解释；这时应归档该会话并重开一个干净的会话，而不是继续叠加互相矛盾的指令。"
+          ],
+          "bullets": [
+            "能被任务读取的工作目录文件，对任务而言都不是私密的。",
+            "把已结束的会话归档，进行中的列表才有意义。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Organiza el trabajo en proyectos, tareas y sesiones",
+      "description": "Crea un proyecto con carpeta de trabajo, inicia una tarea normal o de diseño y mantén las sesiones ordenadas.",
+      "sections": [
+        {
+          "heading": "Crea un proyecto e inicia una tarea",
+          "paragraphs": [
+            "Un proyecto agrupa sesiones y archivos relacionados. Al crearlo indicas un nombre y eliges una carpeta local como directorio de trabajo, y los archivos que genera la IA se escriben ahí. La guía oficial sugiere un proyecto por tipo de trabajo, por ejemplo planificación de eventos, informes semanales o análisis de datos, con una carpeta que ya contenga el material que quieres referenciar.",
+            "Dentro del proyecto inicias una sesión, eliges un modelo disponible y describes la tarea en el cuadro de entrada. El trabajo con documentos, hojas de cálculo, código y análisis corresponde a una tarea normal; el trabajo visual corresponde a una tarea de diseño. Sigue editando en la misma sesión mientras sea el mismo trabajo y abre una sesión nueva cuando el siguiente encargo comparta poco contexto, para que no se interfieran."
+          ],
+          "bullets": [
+            "Añade adjuntos desde Más acciones en el cuadro de entrada, o arrastra y pega archivos en él.",
+            "Escribe @ para referenciar un archivo o carpeta del espacio de trabajo del proyecto. Esa referencia cubre solo la carpeta del proyecto, no todo el equipo; si no aparece el material, colócalo primero en la carpeta del proyecto."
+          ]
+        },
+        {
+          "heading": "Ejecuta la tarea y mantén el control",
+          "paragraphs": [
+            "Al pulsar Iniciar comienza la ejecución paso a paso, y puedes añadir requisitos en el cuadro inferior mientras se ejecuta. En el modo de confianza parcial predeterminado, acciones como escribir archivos o ejecutar comandos pueden pedir confirmación, así que lee qué haría la acción antes de aprobarla.",
+            "Las sesiones frecuentes se pueden fijar. Las que no estás trabajando se pueden archivar fuera de la lista predeterminada y recuperar cuando vuelvas a ellas."
+          ],
+          "bullets": [
+            "Describe la tarea de forma concreta: la carpeta, el material que se debe usar y el resultado esperado.",
+            "Comprueba los archivos generados en la carpeta de trabajo en lugar de fiarte solo del resumen del chat."
+          ]
+        },
+        {
+          "heading": "Mantén el espacio de trabajo ordenado",
+          "paragraphs": [
+            "Los proyectos acumulan material muy rápido. Mueve las exportaciones terminadas fuera de la carpeta de trabajo cuando ya no sirvan de referencia y deja en la carpeta del proyecto solo los archivos que la tarea debe poder leer.",
+            "Crear sesiones es barato y confundirlas sale caro. Una sesión que mezcló dos trabajos distintos hace difícil explicar los resultados posteriores, así que archívala y abre una limpia en lugar de seguir añadiendo instrucciones que se contradicen."
+          ],
+          "bullets": [
+            "Ningún archivo de la carpeta de trabajo es privado para una tarea que puede leerla.",
+            "Archiva las sesiones terminadas para que la lista activa siga siendo útil."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "browser-connection",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 6,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535e-ce5b-778c-8fcc-069a0874159e"
+    ],
+    "en": {
+      "title": "Let a task drive your own browser",
+      "description": "Connect the Chrome or Edge extension, grant browser use to one conversation, and know what the AI can and cannot see.",
+      "sections": [
+        {
+          "heading": "Connect the browser extension",
+          "paragraphs": [
+            "Open Settings, then Browser, click Start connection and follow the wizard to install the extension. In Chrome or Edge open the extension management page, switch on developer mode, and load the unpacked MonkeyAI extension folder that the client provides. Chrome labels this Load unpacked and Edge labels it Load unpacked extension. When you return to the client, the status should read that Chrome is connected; the same check applies to Edge.",
+            "If the extension is installed but the client still reports no connection, open the browser that holds the extension, confirm it is enabled on the extension page, and click Reconnect in the client. Restarting MonkeyAI is the next step if the status does not change."
+          ],
+          "bullets": [
+            "Only a browser with the extension installed and enabled can be driven.",
+            "The extension exposes the pages you are already signed in to, so treat browser access as a permission over your own accounts."
+          ]
+        },
+        {
+          "heading": "Grant access per conversation and describe the job",
+          "paragraphs": [
+            "Browser use is granted per conversation: switch on Allow this conversation to use the browser. Until that switch is on, the AI cannot view or operate pages. When the target site needs a login, sign in inside the connected browser first and then hand the work over.",
+            "Describe the site, the scope of the work and the result you want. Saying whether a form should actually be submitted matters: a request can stop before submission so you can review it. The AI acts in the browser and reports back in the conversation, and anything involving accounts, amounts or recipients deserves a check against the real page."
+          ],
+          "bullets": [
+            "One page can be used by one conversation at a time; stop the other conversation first if a page is reported as occupied.",
+            "If the selected model cannot accept images, the AI reads the page structure instead, so switch models when the layout itself carries the meaning.",
+            "The extension drives Chrome or Edge; the browser button on the task page opens an embedded browser for viewing pages or previewing a local project."
+          ]
+        },
+        {
+          "heading": "Check the result in the page itself",
+          "paragraphs": [
+            "The AI reports what it did in the conversation, but the page is the record that matters. Open the site and confirm the state it should be in: a submitted form shows a confirmation, a filled form still waiting for review keeps its values, and a read-only pass changed nothing.",
+            "When something has to change, keep the follow-up in the same conversation rather than starting a new one, because a new conversation has no knowledge of the page state it did not observe. If the page was closed or the conversation ended, read the page again instead of assuming the earlier state still holds."
+          ],
+          "bullets": [
+            "Verify money, recipients and account details on the page before accepting the result.",
+            "Do not leave a conversation with browser access open on a shared machine."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "让任务操作你自己的浏览器",
+      "description": "连接 Chrome 或 Edge 扩展，为单个对话开启浏览器权限，并了解 AI 能看到什么。",
+      "sections": [
+        {
+          "heading": "连接浏览器扩展",
+          "paragraphs": [
+            "进入「设置 → 浏览器」，点击「开始连接」，按向导安装浏览器扩展。在 Chrome 或 Edge 中打开扩展管理页面，开启「开发者模式」，再选择客户端提供的 MonkeyAI 扩展文件夹：Chrome 中点击「加载已解压的扩展程序」，Edge 中点击「加载解压缩的扩展」。返回客户端后，连接状态应显示「Chrome 已连接」，Edge 同理。",
+            "如果扩展已安装但客户端仍显示未连接，先打开装有扩展的浏览器，在扩展管理页面确认扩展处于开启状态，再回到客户端点击「重新连接」；状态仍不变时可重启 MonkeyAI 后重试。"
+          ],
+          "bullets": [
+            "只有安装并启用了扩展的浏览器才能被操作。",
+            "扩展会让 AI 访问你已登录的页面，请把浏览器权限当作对你本人账号的授权。"
+          ]
+        },
+        {
+          "heading": "按对话授权并描述任务",
+          "paragraphs": [
+            "浏览器权限按对话授予：需要在操作网页的对话中开启「允许此对话使用浏览器」，未开启时 AI 无法查看和操作网页。目标网站需要登录时，先在连接的浏览器中完成登录，再交给 AI 处理。",
+            "描述时说明目标网站、处理范围和期望结果。是否真的提交表单要说清楚：可以要求填写完成后停在提交前由你检查。AI 会在浏览器中执行操作并在对话中反馈结果；涉及账号、金额和收件人的内容，请对照实际页面核对。"
+          ],
+          "bullets": [
+            "一个网页同时只能被一个对话使用；提示网页被占用时，先停止原对话的相关任务。",
+            "当前模型不支持图片输入时，AI 主要通过页面结构读取内容；布局本身承载信息时应切换支持图片输入的模型。",
+            "扩展用于操作 Chrome 或 Edge；任务页右上角的「浏览器」按钮打开的是内嵌浏览器，适合查看网页或预览本地项目。"
+          ]
+        },
+        {
+          "heading": "在页面上核对结果",
+          "paragraphs": [
+            "AI 会在对话里说明做了什么，但真正作准的是页面。请打开网站确认当前状态是否符合预期：已提交的表单应有成功提示，等待检查的填写页应保留已填内容，只读任务不应改动任何数据。",
+            "需要调整时请留在同一个会话中继续，而不是新开会话，因为新会话并不知道它没有观察到的页面状态。如果页面已关闭或会话已结束，应重新读取页面，而不要假定之前的状态仍然有效。"
+          ],
+          "bullets": [
+            "接受结果前，在页面上核对金额、收件人和账号信息。",
+            "在共用电脑上，不要留着已开启浏览器权限的对话不处理。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Deja que una tarea maneje tu propio navegador",
+      "description": "Conecta la extensión de Chrome o Edge, concede el navegador a una conversación y entiende qué puede ver la IA.",
+      "sections": [
+        {
+          "heading": "Conecta la extensión del navegador",
+          "paragraphs": [
+            "Abre Ajustes, entra en Navegador, pulsa Iniciar conexión y sigue el asistente para instalar la extensión. En Chrome o Edge abre la página de gestión de extensiones, activa el modo de desarrollador y carga la carpeta de la extensión MonkeyAI que entrega el cliente: en Chrome la opción es Cargar descomprimida y en Edge Cargar extensión descomprimida. Al volver al cliente, el estado debe indicar que Chrome está conectado; la misma comprobación sirve para Edge.",
+            "Si la extensión está instalada pero el cliente sigue indicando que no hay conexión, abre el navegador que la contiene, confirma que está activada y pulsa Reconectar en el cliente. Reiniciar MonkeyAI es el paso siguiente si el estado no cambia."
+          ],
+          "bullets": [
+            "Solo se puede manejar un navegador con la extensión instalada y activada.",
+            "La extensión alcanza las páginas con tu sesión iniciada, así que considera el acceso al navegador como un permiso sobre tus propias cuentas."
+          ]
+        },
+        {
+          "heading": "Concede acceso por conversación y describe el trabajo",
+          "paragraphs": [
+            "El uso del navegador se concede por conversación: activa Permitir que esta conversación use el navegador. Mientras no esté activado, la IA no puede ver ni operar páginas. Si el sitio necesita inicio de sesión, entra primero en el navegador conectado y luego delega el trabajo.",
+            "Describe el sitio, el alcance y el resultado que quieres. Importa decir si un formulario debe enviarse de verdad: se puede pedir que rellene y se detenga antes de enviar para que lo revises. La IA actúa en el navegador e informa en la conversación, y todo lo que implique cuentas, importes o destinatarios conviene comprobarlo en la página real."
+          ],
+          "bullets": [
+            "Una página solo puede usarla una conversación a la vez; si aparece ocupada, detén antes la tarea de la otra conversación.",
+            "Si el modelo elegido no admite imágenes, la IA lee la estructura de la página; cambia de modelo cuando la disposición sea lo que aporta significado.",
+            "La extensión maneja Chrome o Edge; el botón de navegador de la página de tarea abre un navegador integrado para ver páginas o previsualizar un proyecto local."
+          ]
+        },
+        {
+          "heading": "Comprueba el resultado en la propia página",
+          "paragraphs": [
+            "La IA informa en la conversación de lo que hizo, pero el registro que cuenta es la página. Abre el sitio y confirma el estado esperado: un formulario enviado muestra una confirmación, uno rellenado y pendiente de revisión conserva sus valores y una pasada de solo lectura no cambió nada.",
+            "Si hay que cambiar algo, continúa en la misma conversación en lugar de abrir otra, porque una conversación nueva no conoce el estado de la página que no observó. Si la página se cerró o la conversación terminó, vuelve a leer la página en lugar de suponer que el estado anterior sigue vigente."
+          ],
+          "bullets": [
+            "Verifica importes, destinatarios y datos de cuenta en la página antes de aceptar el resultado.",
+            "No dejes abierta una conversación con acceso al navegador en un equipo compartido."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "design-tasks",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 5,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535e-f696-7c44-9d01-b91765ccaa81"
+    ],
+    "en": {
+      "title": "Start a design task and use templates",
+      "description": "Switch to a design task, confirm an image model is available, and describe the result precisely enough to iterate on.",
+      "sections": [
+        {
+          "heading": "Choose the design task and a category",
+          "paragraphs": [
+            "Switch the new-session input to design task and a set of design categories appears. Design tasks cover posters, logos, brand design, image generation, web prototypes, PPTX decks, sticker sets, games and video. Choose the category closest to the intended result; some categories offer a second level to narrow the use case further.",
+            "Image generation needs a working image model. Confirm you have access to one before starting, and ask your administrator for configuration and authorisation when none is available. Different design tasks rely on different capabilities, so check what the task and the interface say is required."
+          ],
+          "bullets": [
+            "Prefer creating the matching blank container first, then describe in the conversation what should go into it.",
+            "The interface can create image, video, video-project, audio-project, text and web-prototype containers."
+          ]
+        },
+        {
+          "heading": "Pick a template and write the brief",
+          "paragraphs": [
+            "Choosing a template gives you a built-in layout or style as a starting point; the templates offered depend on the category shown in your interface. When you have a reference style, pick the closest template and then supply the text, colours and content to replace. Without a template you can describe the requirement and let the AI begin.",
+            "A brief that states the purpose, the size or ratio, the required content, the style and the delivery format is far easier to act on. Naming what must not be invented, such as event details, and leaving a reserved area for a QR code, keeps the result usable. Uploaded reference images work better when you say which aspect matters: palette, composition or information hierarchy."
+          ],
+          "bullets": [
+            "Attach images or documents with the plus button, or drag and paste them into the input.",
+            "Reference files from the project workspace with @, and state what to borrow from a reference image.",
+            "Review the delivered file itself, since a design task can look complete in the conversation and still have the wrong dimensions."
+          ]
+        },
+        {
+          "heading": "Iterate from the delivered file",
+          "paragraphs": [
+            "Design work is rarely finished in one pass. Ask for the specific change against the current result: a different ratio, a smaller headline, a palette that matches a brand colour, or the QR area moved. Vague feedback such as make it better gives the next attempt nothing to aim at.",
+            "Keep the container and the conversation together for the same piece of work, so later requests refer to the same object. When a result is close but the wording or the numbers are wrong, correcting the text is usually faster than regenerating the whole design."
+          ],
+          "bullets": [
+            "State ratios and dimensions in the brief, then confirm them in the exported file.",
+            "Save or export the result before starting an unrelated design task in the same conversation."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "发起设计任务并使用模板",
+      "description": "切换到设计任务，确认生图模型可用，并把需求描述到可以反复调整的程度。",
+      "sections": [
+        {
+          "heading": "选择设计任务与分类",
+          "paragraphs": [
+            "在新会话输入框上方切换到「设计任务」，会出现设计分类。设计任务适合海报、Logo、品牌设计、图片生成、网页原型、PPTX、表情包、游戏和视频等创作。选择与目标成果最接近的分类，部分分类还支持二级分类，可以继续细化用途。",
+            "生成图片需要可用的生图模型。开始前请确认已获得相应模型的使用权限；没有可用模型时请联系管理员配置和授权。不同设计任务所需能力可能不同，请根据任务和界面提示确认相关资源已准备就绪。"
+          ],
+          "bullets": [
+            "优先双击创建对应的空白容器，再在对话中描述想要放入的内容。",
+            "界面支持创建图片容器、视频容器、视频工程、音频工程、文本容器和网页原型容器。"
+          ]
+        },
+        {
+          "heading": "选择模板并写清设计要求",
+          "paragraphs": [
+            "点击「选择模板」，从内置模板中选择适合的样式或结构作为起点；不同分类提供的模板以当前界面为准。有明确参考风格时，先选相近模板，再补充需要替换的文字、颜色和内容；不选模板时也可以直接描述需求，由 AI 开始创作。",
+            "说明用途、尺寸或比例、必须包含的内容、风格和交付要求，任务会好执行得多。明确不要编造的信息（例如活动细节），并为二维码预留位置，成果才真正可用。上传参考图时说明参考重点，例如配色、构图或信息层级。"
+          ],
+          "bullets": [
+            "点击输入框中的「+」上传图片、文档等材料，也可以拖入或粘贴。",
+            "需要使用项目中的文件时，通过 @ 引用工作区材料，并说明要借鉴参考图的哪一部分。",
+            "以实际交付的文件为准核对尺寸和内容，对话里看起来完成不等于文件正确。"
+          ]
+        },
+        {
+          "heading": "基于交付文件继续调整",
+          "paragraphs": [
+            "设计很少一次成型。请针对当前成果提出具体修改：换比例、标题缩小、配色改用品牌色、二维码区域移位。只说「再好看一点」这样的反馈，下一轮无从下手。",
+            "同一件作品应保持在同一个容器和会话中，后续要求才能指向同一对象。成果接近但文字或数字有误时，直接改文字通常比整张重做更快。"
+          ],
+          "bullets": [
+            "在需求中写清比例和尺寸，并在导出文件中确认。",
+            "在同一会话开始无关的设计任务前，先保存或导出已有成果。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Inicia una tarea de diseño y usa plantillas",
+      "description": "Cambia a tarea de diseño, confirma que hay un modelo de imagen disponible y describe el resultado con precisión.",
+      "sections": [
+        {
+          "heading": "Elige la tarea de diseño y una categoría",
+          "paragraphs": [
+            "Cambia el cuadro de una sesión nueva a tarea de diseño y aparecen las categorías. Las tareas de diseño cubren carteles, logotipos, diseño de marca, generación de imágenes, prototipos web, presentaciones PPTX, pegatinas, juegos y vídeo. Elige la categoría más cercana al resultado buscado; algunas ofrecen un segundo nivel para afinar el uso.",
+            "La generación de imágenes necesita un modelo de imagen disponible. Confirma que tienes acceso antes de empezar y pide al administrador la configuración y autorización cuando no haya ninguno. Cada tarea de diseño depende de capacidades distintas, así que revisa lo que indican la tarea y la interfaz."
+          ],
+          "bullets": [
+            "Conviene crear primero el contenedor vacío correspondiente y describir después en la conversación qué debe contener.",
+            "La interfaz permite crear contenedores de imagen, vídeo, proyecto de vídeo, proyecto de audio, texto y prototipo web."
+          ]
+        },
+        {
+          "heading": "Elige una plantilla y escribe el encargo",
+          "paragraphs": [
+            "Al elegir una plantilla obtienes una disposición o estilo integrado como punto de partida; las plantillas disponibles dependen de la categoría que muestre tu interfaz. Si tienes un estilo de referencia, elige la plantilla más parecida y aporta el texto, los colores y el contenido que hay que sustituir. Sin plantilla también puedes describir el requisito y dejar que la IA empiece.",
+            "Un encargo que indique finalidad, tamaño o proporción, contenido obligatorio, estilo y formato de entrega se ejecuta mucho mejor. Decir qué no debe inventarse, como los detalles del evento, y reservar una zona para el código QR mantiene el resultado utilizable. Las imágenes de referencia funcionan mejor cuando indicas qué aspecto importa: paleta, composición o jerarquía de la información."
+          ],
+          "bullets": [
+            "Adjunta imágenes o documentos con el botón más, o arrástralos y pégalos en el cuadro de entrada.",
+            "Referencia archivos del espacio del proyecto con @ y explica qué tomar de la imagen de referencia.",
+            "Revisa el archivo entregado: una tarea de diseño puede parecer terminada en la conversación y tener las medidas equivocadas."
+          ]
+        },
+        {
+          "heading": "Itera a partir del archivo entregado",
+          "paragraphs": [
+            "El trabajo de diseño rara vez queda listo en una pasada. Pide el cambio concreto sobre el resultado actual: otra proporción, un titular más pequeño, una paleta que coincida con el color de marca o la zona del QR en otro sitio. Un comentario vago como hazlo mejor no da nada a lo que apuntar.",
+            "Mantén el contenedor y la conversación juntos para la misma pieza, de modo que las peticiones posteriores se refieran al mismo objeto. Cuando el resultado está cerca pero el texto o los números fallan, corregir el texto suele ser más rápido que regenerar todo el diseño."
+          ],
+          "bullets": [
+            "Indica proporciones y medidas en el encargo y confírmalas en el archivo exportado.",
+            "Guarda o exporta el resultado antes de empezar otra tarea de diseño en la misma conversación."
+          ]
+        }
+      ]
+    }
+  }
+]
