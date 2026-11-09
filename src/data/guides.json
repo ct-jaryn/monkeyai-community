@@ -6,7 +6,8 @@
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode",
       "https://work.baizhi.cloud/",
-      "https://work.docs.baizhi.cloud/"
+      "https://work.docs.baizhi.cloud/",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
     ],
     "en": {
       "title": "Your first task with MonkeyAI",
@@ -27,7 +28,8 @@
           "heading": "Choose how to connect",
           "paragraphs": [
             "The upstream project provides a browser demo and desktop download links for Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64. Open the official downloads section to choose the current build for your device. Android, iOS, Linux ARM64, and HarmonyOS desktop are listed as coming soon in the reviewed upstream information.",
-            "To try the desktop client, the upstream README instructs users to enter https://demo.work.baizhi.cloud/ as the server address and sign in using an email verification code. For an existing team, use the server address and access method supplied by your administrator."
+            "To try the desktop client, the upstream README instructs users to enter https://demo.work.baizhi.cloud/ as the server address and sign in using an email verification code. For an existing team, use the server address and access method supplied by your administrator.",
+            "The upstream README reviewed on 2026-11-09 lists a browser demo, Windows x64, macOS Apple Silicon, macOS Intel and Linux x64 builds in its download table, and marks Android, iOS, Linux ARM64 and HarmonyOS desktop as coming soon. Confirm the current table before sending someone a link, because availability can change between releases."
           ],
           "bullets": [
             "Get installers through upstream links.",
@@ -77,7 +79,8 @@
           "heading": "选择连接方式",
           "paragraphs": [
             "上游提供浏览器演示入口，以及 Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64 的客户端下载链接。请从官方客户端下载区域选择当前版本。在本次核对的上游信息中，Android、iOS、Linux ARM64 和鸿蒙桌面仍标为敬请期待，不应理解为已经发布。",
-            "根据上游 README，体验桌面客户端时可填写 https://demo.work.baizhi.cloud/ 作为演示服务器地址，再通过邮箱验证码登录。如果加入现有团队，请向管理员获取服务器地址和团队采用的登录方式，不要把演示空间当成自己的正式团队环境。"
+            "根据上游 README，体验桌面客户端时可填写 https://demo.work.baizhi.cloud/ 作为演示服务器地址，再通过邮箱验证码登录。如果加入现有团队，请向管理员获取服务器地址和团队采用的登录方式，不要把演示空间当成自己的正式团队环境。",
+            "2026-11-09 核对的上游 README 在下载表里列出浏览器演示、Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64，并把 Android、iOS、Linux ARM64 与鸿蒙桌面标为敬请期待。把下载链接发给别人之前请再看一眼当前表格，各发布版本之间可用性可能变化。"
           ],
           "bullets": [
             "从上游页面进入下载安装链接。",
@@ -127,7 +130,8 @@
           "heading": "Elige cómo conectarte",
           "paragraphs": [
             "El proyecto ofrece una demostración en el navegador y enlaces de descarga para Windows x64, macOS Apple Silicon, macOS Intel y Linux x64. Visita la sección oficial de descargas para obtener la versión actual de tu plataforma. Android, iOS, Linux ARM64 y el escritorio de HarmonyOS figuran como próximos lanzamientos en la información revisada.",
-            "Para probar el cliente de escritorio, el README indica introducir https://demo.work.baizhi.cloud/ como dirección del servidor y acceder mediante un código de verificación enviado por correo electrónico. Si te incorporas a un equipo existente, utiliza la dirección y el método de acceso proporcionados por su administrador."
+            "Para probar el cliente de escritorio, el README indica introducir https://demo.work.baizhi.cloud/ como dirección del servidor y acceder mediante un código de verificación enviado por correo electrónico. Si te incorporas a un equipo existente, utiliza la dirección y el método de acceso proporcionados por su administrador.",
+            "El README revisado el 09-11-2026 incluye en su tabla de descargas una demostración web, Windows x64, macOS Apple Silicon, macOS Intel y Linux x64, y marca Android, iOS, Linux ARM64 y el escritorio de HarmonyOS como próximos. Comprueba la tabla vigente antes de enviar un enlace, porque la disponibilidad cambia entre versiones."
           ],
           "bullets": [
             "Descarga los instaladores mediante los enlaces del proyecto.",
@@ -157,7 +161,8 @@
           ]
         }
       ]
-    }
+    },
+    "reviewed": "2026-11-09"
   },
   {
     "slug": "ai-workflows",
@@ -165,7 +170,8 @@
     "readMinutes": 6,
     "sourceUrls": [
       "https://work.baizhi.cloud/",
-      "https://github.com/chaitin/MonkeyCode"
+      "https://github.com/chaitin/MonkeyCode",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
     ],
     "en": {
       "title": "Build an AI workflow that you can verify",
@@ -316,7 +322,8 @@
           ]
         }
       ]
-    }
+    },
+    "reviewed": "2026-11-09"
   },
   {
     "slug": "models-and-mcp",
@@ -325,7 +332,8 @@
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode",
       "https://work.docs.baizhi.cloud/",
-      "https://github.com/chaitin/MonkeyCode/blob/main/monkeyai/README.md"
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
     ],
     "en": {
       "title": "Understand models, MCP, and shared resources",
@@ -476,7 +484,8 @@
           ]
         }
       ]
-    }
+    },
+    "reviewed": "2026-11-09"
   },
   {
     "slug": "self-hosting",
@@ -673,6 +682,7 @@
         {
           "heading": "Write a useful issue report",
           "paragraphs": [
+            "The community repository provides separate forms for a tool suggestion and a website bug report, so a report can start from a template instead of a blank issue. Use the form that matches your case and fill in the required fields.",
             "Before opening an issue in either repository, search existing reports. For website bugs, include the affected page, steps, expected and actual results, and browser details. For tool suggestions, share the official website or repository and explain its relevance.",
             "Include only the logs and screenshots needed to explain the behavior. Remove passwords, API keys, access tokens, private server details, and confidential files. If the problem depends on an external service, identify the service and the observed response without publishing credentials. Do not invent a reproduction or claim a fix was tested when it was not."
           ],
@@ -723,6 +733,7 @@
         {
           "heading": "写一份有帮助的问题报告",
           "paragraphs": [
+            "社区仓库为工具推荐和网站问题提供了不同的表单，报告可以从模板开始，而不必面对空白输入框。选择与情况相符的表单，并填写必填项。",
             "在任一仓库提交问题前，请先搜索是否已有相同反馈。网站问题请附页面、复现步骤、预期与实际结果以及浏览器信息；推荐工具时请提供官方网站或仓库，并说明相关用途。",
             "只提供解释问题必需的日志和截图，移除密码、API Key、访问令牌、私有服务器信息和机密文件。问题依赖外部服务时，可以说明服务与响应，但不要公开凭据。没有真正复现的现象应如实标注，未运行过的修复也不能声称已经通过验证。"
           ],
@@ -773,6 +784,7 @@
         {
           "heading": "Prepara un informe útil",
           "paragraphs": [
+            "El repositorio de la comunidad ofrece formularios distintos para sugerir una herramienta y para informar de un fallo del sitio, de modo que la incidencia parte de una plantilla en lugar de un formulario vacío. Elige el que corresponda y completa los campos obligatorios.",
             "Antes de abrir una incidencia en cualquiera de los repositorios, busca informes existentes. Para errores del sitio indica la página, pasos, resultado esperado y real y navegador. Para una propuesta, comparte el sitio oficial o repositorio y explica su utilidad.",
             "Incluye solamente registros y capturas necesarios. Elimina contraseñas, claves de API, tokens, datos privados del servidor y archivos confidenciales. Si interviene un servicio externo, identifica el servicio y su respuesta sin publicar credenciales. No inventes una reproducción ni afirmes haber probado una corrección que no has ejecutado."
           ],
@@ -804,6 +816,7 @@
           ]
         }
       ]
-    }
+    },
+    "reviewed": "2026-11-09"
   }
 ]
