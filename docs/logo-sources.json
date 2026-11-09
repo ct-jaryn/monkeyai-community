@@ -184,6 +184,18 @@
     "note": "Official octicon-copilot inline SVG extracted unchanged in shape; xmlns added for standalone SVG."
   },
   {
+    "key": "localai",
+    "file": "public/logos/localai.png",
+    "sourceUrl": "https://raw.githubusercontent.com/mudler/LocalAI/master/core/http/static/logo.png",
+    "pageUrl": "https://localai.io/",
+    "sha256": "98f62f85e1bbcfa8032cb54123bdc4947d2764c4b2bad68f591c106323cf154d",
+    "bytes": 914776,
+    "type": "image/png",
+    "verified": "2026-11-09",
+    "dimensions": [1024, 1024],
+    "note": "Copied unchanged from the logo displayed by the official LocalAI README in the MIT-licensed repository."
+  },
+  {
     "key": "ollama",
     "file": "public/logos/ollama.png",
     "sourceUrl": "https://ollama.com/public/ollama-nav.png",

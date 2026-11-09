@@ -189,6 +189,40 @@
     }
   },
   {
+    "slug": "localai",
+    "name": "LocalAI",
+    "url": "https://localai.io/",
+    "category": "coding",
+    "mark": "LA",
+    "color": "#2f6f73",
+    "sourceUrl": "https://localai.io/",
+    "reviewed": "2026-11-09",
+    "en": {
+      "tagline": "Run different AI workloads through one local runtime",
+      "seoTitle": "Run AI workloads on your own machine",
+      "seoDescription": "Explore LocalAI, an MIT-licensed runtime for local text, vision, voice, and image workloads. Check hardware, models, and data flow.",
+      "description": "LocalAI is an open-source runtime for running language, vision, voice, image, and other model workloads on hardware you control. Its official site describes an OpenAI-compatible API, with additional compatible interfaces, so an existing client can point at a local endpoint. Start with one supported model and a small repeatable request. Local execution changes where inference runs, but downloaded models, connected tools, and any enabled remote features still need their own review.",
+      "useCases": ["Run a supported model on your own hardware", "Point an existing API client at a local endpoint", "Compare local inference with a hosted service"],
+      "caveat": "Hardware, model licenses, and backend support vary. A compatible API does not make every hosted feature available locally."
+    },
+    "zh": {
+      "tagline": "用一个本地运行时承载多种 AI 工作",
+      "seoTitle": "在自己的机器上运行 AI 工作",
+      "seoDescription": "了解采用 MIT 许可的 LocalAI：在本地运行文本、视觉、语音和图像等工作负载，并核对硬件、模型与数据流。",
+      "description": "LocalAI 是开源运行时，可在你控制的硬件上运行语言、视觉、语音、图像等模型工作负载。官网介绍它提供兼容 OpenAI 的 API，并支持其他兼容接口，因此现有客户端可以改指向本地端点。建议先选择一个受支持的模型和一项可重复的小请求。本地执行改变的是推理位置；下载的模型、连接的工具以及启用的远程功能，仍需分别检查许可和数据边界。",
+      "useCases": ["在自有硬件上运行受支持的模型", "把现有 API 客户端指向本地端点", "比较本地推理与托管服务"],
+      "caveat": "硬件、模型许可和后端支持各不相同。API 兼容并不代表所有托管功能都能在本地使用。"
+    },
+    "es": {
+      "tagline": "Ejecuta distintas cargas de IA en un entorno local",
+      "seoTitle": "Ejecuta cargas de IA en tu equipo",
+      "seoDescription": "Descubre LocalAI, un entorno con licencia MIT para texto, visión, voz e imágenes en local. Revisa hardware, modelos y datos.",
+      "description": "LocalAI es un entorno de ejecución de código abierto para modelos de lenguaje, visión, voz, imagen y otras cargas en hardware que controlas. Su sitio oficial describe una API compatible con OpenAI y otras interfaces compatibles, de modo que un cliente existente puede apuntar a un endpoint local. Empieza con un modelo compatible y una petición pequeña y repetible. La ejecución local cambia dónde ocurre la inferencia, pero los modelos descargados, las herramientas conectadas y las funciones remotas activadas requieren su propia revisión.",
+      "useCases": ["Ejecutar un modelo compatible en tu hardware", "Apuntar un cliente API a un endpoint local", "Comparar inferencia local y un servicio alojado"],
+      "caveat": "El hardware, las licencias y los backends varían. Una API compatible no pone todas las funciones alojadas a disposición local."
+    }
+  },
+  {
     "slug": "comfyui",
     "name": "ComfyUI",
     "url": "https://comfy.org/",

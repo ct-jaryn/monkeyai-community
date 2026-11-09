@@ -112,6 +112,14 @@
     "padding": "7px",
     "kind": "official-logo"
   },
+  "localai": {
+    "src": "/logos/localai.png",
+    "sourceUrl": "https://raw.githubusercontent.com/mudler/LocalAI/master/core/http/static/logo.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo",
+    "note": "Official logo shown by the LocalAI README and stored in the MIT-licensed repository; copied unchanged."
+  },
   "ollama": {
     "src": "/logos/ollama.png",
     "sourceUrl": "https://ollama.com/public/ollama-nav.png",
