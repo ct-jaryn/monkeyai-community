@@ -512,5 +512,136 @@
         }
       ]
     }
+  },
+  {
+    "slug": "skills-and-experts",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-09",
+    "readMinutes": 7,
+    "sourceUrls": [
+      "https://work.docs.baizhi.cloud/node/01a1535e-5c53-7880-bafd-e11e28bb716d",
+      "https://work.docs.baizhi.cloud/node/01a1535e-340f-7981-8947-bc6405bb164d"
+    ],
+    "en": {
+      "title": "Use, import and share skills and experts",
+      "description": "Where skills and experts come from, how to call a skill explicitly, and the import rules that overwrite or fail silently.",
+      "sections": [
+        {
+          "heading": "Know where a skill comes from",
+          "paragraphs": [
+            "Settings, then Assistant configuration, then Skills, lists skills in three groups. Team skills are uploaded and authorised by an administrator and can be switched on or off in the client but not edited. Yours are the skills you imported or created, which you can edit, delete and share. Skills shared by others can be used but not edited or re-shared. If the team already provides a skill, you do not need to import it again once you have been authorised.",
+            "A skill that is used often can be switched to load by default in new conversations from its card; existing conversations are adjusted individually. To call one explicitly, type a slash and the skill name in the conversation, then state the task, for example /weekly-report followed by a request to turn attached meeting notes into a weekly report. The skill defines how the work is done but cannot supply the material, so the files and data still have to be provided."
+          ],
+          "bullets": [
+            "A skill that seems to do nothing is usually not enabled in that conversation; call it with its slash name to be sure.",
+            "Verify a newly imported skill in a new conversation, not the one where you imported it."
+          ]
+        },
+        {
+          "heading": "Import rules that decide whether you lose work",
+          "paragraphs": [
+            "Import accepts a ZIP file or a folder containing SKILL.md, and both accept multiple selections. The client parses the package and shows a preview first: check that each item can be imported, select the ones you want, and confirm. A package that cannot be read shows as unparseable in the preview, which means the skill file itself has to be corrected before importing again. Each package may contain only one SKILL.md.",
+            "Two rules matter before you click import. A skill with the same name replaces the existing one, so confirm that replacement is what you want. When several skills in one selection share a name, only one of each name is kept. Creating a skill instead of importing one requires a name of one to 64 characters from English letters, digits, hyphens and underscores, starting with a letter or digit, plus the instructions in Markdown."
+          ],
+          "bullets": [
+            "Rename a new skill before importing if it would collide with one you want to keep.",
+            "Test the output structure in a conversation before investing more effort in the instructions."
+          ]
+        },
+        {
+          "heading": "Choose where an expert is saved",
+          "paragraphs": [
+            "Experts are listed under Settings, then Experts, grouped the same way: team experts are created and authorised by an administrator and cannot be edited in the client; yours include built-in experts plus the ones you created, of which only your own are editable; experts shared by others can be used but not edited or re-shared. Picking one sets a role and a method, but the goal, the material and the delivery format still have to be stated in the task.",
+            "There are two creation entries and the difference decides whether the expert survives a change of machine. A new expert is saved on the server and follows the account, which is what you want for cross-device use or for sharing. A new local expert is saved only on this device. The form asks for a name, a short description, a default model and the role instructions; choosing to follow the default model keeps the expert aligned with the global default."
+          ],
+          "bullets": [
+            "Attach skills, rules and connectors as needed, and use the tool allowlist or blocklist only when the scope genuinely has to be limited.",
+            "Sharing an expert does not grant its dependencies: the recipient needs their own access to each linked resource and any personal authentication the connector requires.",
+            "When an expert will not start, open its details and look for a missing resource; a connector marked as required has to connect successfully first."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "使用、导入与共享技能和专家",
+      "description": "技能和专家分别从哪里来、如何显式调用技能，以及那些会覆盖内容或直接失败的导入规则。",
+      "sections": [
+        {
+          "heading": "先弄清技能来自哪里",
+          "paragraphs": [
+            "进入「设置 → 助手配置 → 技能」，技能按来源分为三类。团队技能由管理员上传并授权，可以在客户端启用或停用，但不能编辑。我的技能是自己导入或创建的，可以编辑、删除和共享。他人分享的技能可以使用，但不能编辑或再次共享。团队已经提供某项技能时，获得授权后无需重复导入。",
+            "经常使用的技能可以在技能卡片上开启「在新对话中默认启用」，新会话会自动加载，已有会话需要单独调整。要明确调用某个技能，在对话中输入斜杠加技能名再说明任务，例如 /weekly-report 请根据附件中的会议记录整理周报。技能规定处理方式，但不能替代原始材料，文件和数据仍需自己提供。"
+          ],
+          "bullets": [
+            "技能看起来没生效，通常是当前会话没有启用它；用斜杠加技能名明确调用可以确认。",
+            "刚导入的技能应在新会话中验证，而不是在导入时的那个会话里。"
+          ]
+        },
+        {
+          "heading": "决定会不会丢内容的导入规则",
+          "paragraphs": [
+            "导入支持 ZIP 文件或包含 SKILL.md 的文件夹，两种方式都可以多选。系统会先解析技能包并显示预览：逐项确认是否可导入，勾选需要的技能再确认。无法解析的条目会在预览中显示「无法解析」，说明技能文件本身需要修正后重新导入。每个技能包只能包含一个 SKILL.md。",
+            "有两条规则要在点确认之前想清楚。同名技能导入会覆盖已有内容，请先确认是否要替换；同批选择的技能出现重名时，每个名称只保留一项。如果选择新建而不是导入，名称需为 1—64 个英文字母、数字、短横线或下划线，并以字母或数字开头，内容用 Markdown 编写。"
+          ],
+          "bullets": [
+            "若新技能会与要保留的技能重名，先改名再导入。",
+            "先在对话中验证输出结构，再继续打磨技能指令。"
+          ]
+        },
+        {
+          "heading": "选择专家的保存位置",
+          "paragraphs": [
+            "专家在「设置 → 专家」中按来源分组：团队专家由管理员创建并授权，客户端不可编辑；「我的」包含内置专家和自己创建的专家，其中只有自建的可以编辑；他人分享的专家可以使用，但不能编辑或转共享。选择专家只是确定角色和方法，具体目标、材料和交付要求仍需在任务中说明。",
+            "创建入口有两个，区别决定专家在换设备后是否还在。新建专家保存在服务器，跟随账号，适合跨设备使用或共享给他人；新建本机专家仅保存在当前设备。表单需要填写名称、简介、默认模型和角色设定；默认模型选择「使用默认模型」时，专家跟随全局默认模型。"
+          ],
+          "bullets": [
+            "按需要勾选技能、规则和连接器；只有在确实需要限定范围时才设置工具白名单或黑名单。",
+            "共享专家不会自动授予依赖资源：接收者需要自己拥有每个关联资源的使用权限，并完成连接器要求的个人认证。",
+            "专家无法启动时，打开专家详情查看是否有缺失资源；被标记为「必需」的连接器要先连接成功。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Usa, importa y comparte habilidades y expertos",
+      "description": "De dónde vienen las habilidades y los expertos, cómo invocar una habilidad y las reglas de importación que sobrescriben o fallan.",
+      "sections": [
+        {
+          "heading": "Sabe de dónde viene una habilidad",
+          "paragraphs": [
+            "Ajustes, luego Configuración del asistente y Habilidades, lista las habilidades en tres grupos. Las del equipo las sube y autoriza un administrador y se pueden activar o desactivar en el cliente, pero no editar. Las tuyas son las que importaste o creaste, y puedes editarlas, eliminarlas y compartirlas. Las que comparten otros se pueden usar, pero no editar ni volver a compartir. Si el equipo ya ofrece una habilidad, no hace falta importarla de nuevo cuando tienes autorización.",
+            "Una habilidad de uso frecuente se puede marcar para cargarse por defecto en conversaciones nuevas desde su tarjeta; las conversaciones existentes se ajustan una a una. Para invocarla de forma explícita, escribe una barra y el nombre de la habilidad en la conversación y luego indica la tarea, por ejemplo /weekly-report seguido de una petición para convertir notas adjuntas en un informe semanal. La habilidad define cómo se hace el trabajo, pero no aporta el material: los archivos y los datos hay que darlos."
+          ],
+          "bullets": [
+            "Una habilidad que parece no hacer nada suele no estar activada en esa conversación; invócala con su nombre precedido de barra.",
+            "Verifica una habilidad recién importada en una conversación nueva y no en la de la importación."
+          ]
+        },
+        {
+          "heading": "Reglas de importación que deciden si pierdes trabajo",
+          "paragraphs": [
+            "La importación acepta un archivo ZIP o una carpeta con SKILL.md, y ambas admiten varias selecciones. El cliente analiza el paquete y muestra una vista previa: comprueba qué elementos se pueden importar, marca los que quieras y confirma. Un paquete ilegible aparece como no analizable en la vista previa, lo que significa que hay que corregir el archivo de la habilidad antes de volver a importar. Cada paquete puede contener un solo SKILL.md.",
+            "Dos reglas importan antes de confirmar. Una habilidad con el mismo nombre sustituye a la existente, así que confirma que el reemplazo es lo que quieres. Cuando varias habilidades de una misma selección comparten nombre, solo se conserva una por nombre. Si creas la habilidad en lugar de importarla, el nombre debe tener de 1 a 64 caracteres entre letras inglesas, dígitos, guiones y guiones bajos, empezando por letra o dígito, y las instrucciones van en Markdown."
+          ],
+          "bullets": [
+            "Cambia el nombre antes de importar si chocaría con una habilidad que quieres conservar.",
+            "Prueba la estructura de salida en una conversación antes de invertir más esfuerzo en las instrucciones."
+          ]
+        },
+        {
+          "heading": "Elige dónde se guarda un experto",
+          "paragraphs": [
+            "Los expertos se listan en Ajustes y luego Expertos, agrupados igual: los del equipo los crea y autoriza un administrador y no se pueden editar en el cliente; los tuyos incluyen los integrados y los que creaste, y solo los propios son editables; los compartidos por otros se pueden usar, pero no editar ni volver a compartir. Elegir uno fija un rol y un método, pero el objetivo, el material y el formato de entrega siguen explicándose en la tarea.",
+            "Hay dos entradas de creación y la diferencia decide si el experto sobrevive a un cambio de equipo. Un experto nuevo se guarda en el servidor y sigue a la cuenta, que es lo que quieres para usarlo en varios dispositivos o compartirlo. Un experto local se guarda solo en este dispositivo. El formulario pide nombre, descripción breve, modelo predeterminado e instrucciones de rol; elegir seguir el modelo predeterminado mantiene al experto alineado con el global."
+          ],
+          "bullets": [
+            "Asocia habilidades, reglas y conectores según haga falta, y usa la lista de herramientas permitidas o bloqueadas solo cuando el alcance realmente deba limitarse.",
+            "Compartir un experto no concede sus dependencias: el destinatario necesita su propio acceso a cada recurso vinculado y la autenticación personal que exija el conector.",
+            "Si un experto no arranca, abre sus detalles y busca un recurso ausente; un conector marcado como obligatorio debe conectarse antes."
+          ]
+        }
+      ]
+    }
   }
 ]
