@@ -297,10 +297,10 @@ for(const [kind,items] of [['tools',tools],['guides',guides],['models',models]])
 const officialHosts={
   'openai-gpt':['developers.openai.com','platform.openai.com'],
   claude:['platform.claude.com','docs.anthropic.com','anthropic.com','www.anthropic.com','claude.com'],
-  gemini:['ai.google.dev','deepmind.google','cloud.google.com','docs.cloud.google.com'],
+  gemini:['ai.google.dev','aistudio.google.com','deepmind.google','cloud.google.com','docs.cloud.google.com'],
   deepseek:['api-docs.deepseek.com','deepseek.com','www.deepseek.com'],
   qwen:['qwen.readthedocs.io','qwenlm.github.io','qwen.ai','www.alibabacloud.com'],
-  llama:['llama.com','www.llama.com','ai.meta.com','llama.developer.meta.com'],
+  llama:['llama.com','www.llama.com','dev.meta.ai','ai.meta.com','llama.developer.meta.com'],
   mistral:['mistral.ai','docs.mistral.ai'],grok:['x.ai','docs.x.ai','grok.com'],
   kimi:['kimi.com','www.kimi.com','platform.kimi.ai','platform.moonshot.ai','moonshotai.github.io'],
   glm:['z.ai','docs.z.ai','bigmodel.cn','docs.bigmodel.cn'],

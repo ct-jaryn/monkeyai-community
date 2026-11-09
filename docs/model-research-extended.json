@@ -26,7 +26,7 @@
         {"url": "https://github.com/meta-llama/llama-cookbook", "observed": "Official cookbook covers inference, fine-tuning, retrieval-augmented generation and service-provider examples."},
         {"url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct", "observed": "Publisher-controlled model card shows a particular image-text-to-text release with a Llama-specific license, not a blanket Apache-style license."}
       ],
-      "limitations": ["www.llama.com/docs/overview redirected to developer.meta.com and was inaccessible in the text research tool; official GitHub/model-card evidence was used instead.", "No claim that a particular model runs on a consumer laptop or that all releases support vision.", "Provider APIs and the Meta consumer assistant were not tested or equated with Llama weights."]
+      "limitations": ["On 2026-11-09, www.llama.com redirected to dev.meta.ai, which reported the Model API unavailable in the reviewer’s region; official GitHub and model-card evidence was used for model facts.", "No claim that a particular model runs on a consumer laptop or that all releases support vision.", "Provider APIs and the Meta consumer assistant were not tested or equated with Llama weights."]
     },
     {
       "slug": "mistral",

@@ -162,7 +162,7 @@
     "name": "Gemini",
     "provider": "Google DeepMind",
     "officialUrl": "https://deepmind.google/models/gemini/",
-    "apiDocsUrl": "https://ai.google.dev/gemini-api/docs/models",
+    "apiDocsUrl": "https://aistudio.google.com/docs/models",
     "access": "hosted",
     "reviewed": "2026-11-09",
     "relatedTools": [
@@ -170,10 +170,10 @@
       "notebooklm"
     ],
     "sourceUrls": [
-      "https://ai.google.dev/gemini-api/docs/models",
-      "https://ai.google.dev/gemini-api/docs/tools",
-      "https://ai.google.dev/gemini-api/docs/image-understanding",
-      "https://ai.google.dev/gemini-api/docs/structured-output"
+      "https://aistudio.google.com/docs/models",
+      "https://aistudio.google.com/docs/tools",
+      "https://aistudio.google.com/docs/image-understanding",
+      "https://aistudio.google.com/docs/structured-output"
     ],
     "en": {
       "tagline": "Multimodal models for understanding information and building connected workflows",

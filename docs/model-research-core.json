@@ -38,7 +38,7 @@
     },
     {
       "slug": "gemini",
-      "catalogUrl": "https://ai.google.dev/gemini-api/docs/models",
+      "catalogUrl": "https://aistudio.google.com/docs/models",
       "observedModelNames": [
         "Gemini 4 Argon",
         "Gemini 3.8 Flash"
@@ -79,10 +79,10 @@
       "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
     ],
     "gemini": [
-      "https://ai.google.dev/gemini-api/docs/models",
-      "https://ai.google.dev/gemini-api/docs/tools",
-      "https://ai.google.dev/gemini-api/docs/image-understanding",
-      "https://ai.google.dev/gemini-api/docs/structured-output"
+      "https://aistudio.google.com/docs/models",
+      "https://aistudio.google.com/docs/tools",
+      "https://aistudio.google.com/docs/image-understanding",
+      "https://aistudio.google.com/docs/structured-output"
     ],
     "deepseek": [
       "https://api-docs.deepseek.com/",
