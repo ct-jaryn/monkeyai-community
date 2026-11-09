@@ -11,7 +11,9 @@ export const docsUi = {
     docsGroupLabel:'Guide topics',
     docsRelated:'Related guides',
     docsSourceNotice:'These independent guides are based on the linked official Chinese documentation and source code. Product versions and interfaces can change; verify the linked source for your deployment.',
-    docsGroups:{start:'Get started',install:'Install & deploy',models:'Connect AI models',mcp:'Connect MCP tools',faq:'Troubleshooting & FAQ',learn:'Workflows & community'}
+    docsGroups:{start:'Get started',scenarios:'Scenario tutorials',install:'Install & deploy',models:'Connect AI models',mcp:'Connect MCP tools',faq:'Troubleshooting & FAQ',learn:'Workflows & community'},
+    scenarioLinks:'Worked scenarios for this task type',
+    scenarioLabels:['Report / PPT','Event poster','Web prototype','Short video','Image generation','Receipt data']
   },
   zh: {
     docsHeadline:'MonkeyAI 安装与使用指南。',
@@ -25,7 +27,9 @@ export const docsUi = {
     docsGroupLabel:'指南主题',
     docsRelated:'相关指南',
     docsSourceNotice:'这些独立社区指南依据文中所列的官方中文文档与源码编写。产品版本和界面可能变化，请结合你的部署版本核对原始来源。',
-    docsGroups:{start:'开始使用',install:'安装与部署',models:'接入 AI 模型',mcp:'接入 MCP 工具',faq:'排错与常见问题',learn:'工作流与社区'}
+    docsGroups:{start:'开始使用',scenarios:'场景教程',install:'安装与部署',models:'接入 AI 模型',mcp:'接入 MCP 工具',faq:'排错与常见问题',learn:'工作流与社区'},
+    scenarioLinks:'按任务类型查看实操教程',
+    scenarioLabels:['汇报 PPT','活动海报','网页原型','短视频','图片生成','单据核对']
   },
   es: {
     docsHeadline:'Guías de instalación y uso de MonkeyAI.',
@@ -39,6 +43,8 @@ export const docsUi = {
     docsGroupLabel:'Temas de las guías',
     docsRelated:'Guías relacionadas',
     docsSourceNotice:'Estas guías independientes se basan en la documentación oficial en chino y el código enlazados. Las versiones y pantallas pueden cambiar: consulta las fuentes para tu instalación.',
-    docsGroups:{start:'Primeros pasos',install:'Instalar y desplegar',models:'Conectar modelos de IA',mcp:'Conectar herramientas MCP',faq:'Soluciones y preguntas frecuentes',learn:'Flujos de trabajo y comunidad'}
+    docsGroups:{start:'Primeros pasos',scenarios:'Tutoriales por escenario',install:'Instalar y desplegar',models:'Conectar modelos de IA',mcp:'Conectar herramientas MCP',faq:'Soluciones y preguntas frecuentes',learn:'Flujos de trabajo y comunidad'},
+    scenarioLinks:'Escenarios prácticos para este tipo de tarea',
+    scenarioLabels:['Informe / PPT','Cartel de evento','Prototipo web','Vídeo corto','Generación de imágenes','Recibos']
   }
 };

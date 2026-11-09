@@ -14,7 +14,7 @@ if(fs.existsSync('site.config.local.json'))Object.assign(config,JSON.parse(fs.re
 if(process.env.GOOGLE_SITE_VERIFICATION)config.googleSiteVerification=process.env.GOOGLE_SITE_VERIFICATION;
 if(process.env.BING_SITE_VERIFICATION)config.bingSiteVerification=process.env.BING_SITE_VERIFICATION;
 const tools=JSON.parse(fs.readFileSync('src/data/tools.json','utf8'));
-const guides=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json'].flatMap(file=>JSON.parse(fs.readFileSync(`src/data/${file}`,'utf8')));
+const guides=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json','docs-scenarios.json'].flatMap(file=>JSON.parse(fs.readFileSync(`src/data/${file}`,'utf8')));
 const models=[...JSON.parse(fs.readFileSync('src/data/models-core.json','utf8')),...JSON.parse(fs.readFileSync('src/data/models-extended.json','utf8'))];
 const logos=JSON.parse(fs.readFileSync('src/data/logos.json','utf8'));
 const out='dist'; fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});fs.cpSync('public',out,{recursive:true});

@@ -18,7 +18,7 @@ try{
   config=JSON.parse(read('site.config.json'));
   manifest=JSON.parse(read('route-manifest.json'));
   tools=JSON.parse(read('src/data/tools.json'));
-  guides=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json'].flatMap(file=>JSON.parse(read('src/data/'+file)));
+  guides=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json','docs-scenarios.json'].flatMap(file=>JSON.parse(read('src/data/'+file)));
   models=[...JSON.parse(read('src/data/models-core.json')),...JSON.parse(read('src/data/models-extended.json'))];
   logos=JSON.parse(read('src/data/logos.json'));
   logoSources=JSON.parse(read('docs/logo-sources.json'));

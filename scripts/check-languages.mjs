@@ -3,7 +3,7 @@ import fs from 'node:fs';
 // The site promises the same guide in English, Chinese and Spanish. A section
 // count mismatch or an untranslated paragraph means one language silently
 // received less than the others, which is easy to miss by eye across 19 guides.
-const files=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json'];
+const files=['guides.json','model-selection-guide.json','docs-install.json','docs-model-integration.json','docs-mcp-faq.json','docs-client-usage.json','docs-scenarios.json'];
 const guides=files.flatMap(f=>JSON.parse(fs.readFileSync('src/data/'+f,'utf8')));
 const hasCJK=s=>/[\u4e00-\u9fff]/.test(s);
 const hasLatinWord=s=>/[a-zA-Z]{4,}/.test(s);
