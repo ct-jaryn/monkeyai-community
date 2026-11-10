@@ -573,5 +573,48 @@
       ],
       "caveat": "Las licencias, calidad, requisitos y reglas de acceso varían por repositorio. Trata el código y los datos como material de terceros."
     }
+  },
+  {
+    "slug": "orkas",
+    "name": "Orkas",
+    "url": "https://orkas.ai/",
+    "category": "creative",
+    "mark": "Or",
+    "color": "#5b57d6",
+    "sourceUrl": "https://github.com/Orkas-AI/Orkas",
+    "reviewed": "2026-11-10",
+    "en": {
+      "tagline": "Coordinate local AI work into reviewable deliverables",
+      "seoDescription": "Explore Orkas, an open-source local-first desktop workspace where a Commander coordinates specialist agents and returns work for review.",
+      "description": "Orkas is an open-source, local-first desktop workspace reviewed on 2026-11-10. Its README says a Commander can coordinate specialist agents and return videos, web pages, reports, and presentations for review. Official downloads are listed for macOS and Windows. The core app is described as free, while built-in model credits, selected managed models, and optional services can have separate costs. Project files stay local by default, but requests still go to the model service you choose. This is a source review, not a hands-on test.",
+      "useCases": [
+        "Draft a report from project materials",
+        "Prepare slides or a web page for review",
+        "Coordinate specialist agents in one project"
+      ],
+      "caveat": "Check current credits, provider costs, platform builds, and permissions. Do not treat generated deliverables as verified."
+    },
+    "zh": {
+      "tagline": "把本地 AI 协作整理成可复核成果",
+      "seoDescription": "了解 Orkas：一款开源、本地优先的桌面工作区，由指挥官协调专业 Agent，并把成果交给你复核。",
+      "description": "Orkas 是 2026-11-10 复核的开源、本地优先桌面工作区。README 说明，指挥官可以协调专业 Agent，并把视频、网页、报告和演示文稿交给你复核。官方下载列出 macOS 和 Windows。核心应用说明为免费，但内置模型积分、所选托管模型和可选服务可能另有费用。项目文件默认留在本机，但请求仍会发往你选择的模型服务。这是来源复核，不是亲手实测。",
+      "useCases": [
+        "根据项目资料起草报告",
+        "准备待复核的幻灯片或网页",
+        "在一个项目里协调专业 Agent"
+      ],
+      "caveat": "请核对当前积分、服务商费用、平台版本和权限。不要把生成成果视为已验证结果。"
+    },
+    "es": {
+      "tagline": "Coordina trabajo local de IA en entregas revisables",
+      "seoDescription": "Conoce Orkas, un espacio de escritorio local y de código abierto donde un Commander coordina agentes especialistas y devuelve el trabajo para revisión.",
+      "description": "Orkas es un espacio de escritorio local y de código abierto revisado el 2026-11-10. Su README indica que un Commander puede coordinar agentes especialistas y devolver videos, páginas web, informes y presentaciones para revisión. Las descargas oficiales aparecen para macOS y Windows. La aplicación principal se describe como gratuita, pero los créditos del modelo integrado, los modelos gestionados elegidos y los servicios opcionales pueden tener costos aparte. Los archivos del proyecto permanecen locales de forma predeterminada, aunque las solicitudes van al servicio de modelo elegido. Esta es una revisión de fuentes, no una prueba práctica.",
+      "useCases": [
+        "Redactar un informe con materiales del proyecto",
+        "Preparar diapositivas o una página web para revisión",
+        "Coordinar agentes especialistas en un proyecto"
+      ],
+      "caveat": "Comprueba créditos, costos del proveedor, versiones y permisos. No trates los resultados generados como verificados."
+    }
   }
 ]

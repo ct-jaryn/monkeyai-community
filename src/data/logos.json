@@ -147,5 +147,13 @@
     "background": "#ffffff",
     "padding": "7px",
     "kind": "official-favicon"
+  },
+  "orkas": {
+    "src": "/logos/orkas.png",
+    "sourceUrl": "https://orkas.ai/res/orkas.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-favicon",
+    "note": "Official site icon from orkas.ai reviewed on 2026-11-10; saved without recoloring or reshaping."
   }
 }

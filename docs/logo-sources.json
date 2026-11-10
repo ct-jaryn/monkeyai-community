@@ -192,7 +192,10 @@
     "bytes": 914776,
     "type": "image/png",
     "verified": "2026-11-09",
-    "dimensions": [1024, 1024],
+    "dimensions": [
+      1024,
+      1024
+    ],
     "note": "Copied unchanged from the logo displayed by the official LocalAI README in the MIT-licensed repository."
   },
   {
@@ -242,5 +245,16 @@
       48,
       48
     ]
+  },
+  {
+    "key": "orkas",
+    "file": "public/logos/orkas.png",
+    "sourceUrl": "https://orkas.ai/res/orkas.png",
+    "pageUrl": "https://orkas.ai/",
+    "sha256": "f7b48f39625deec52ce716d2088596f0d972dc79c0631110581a0c02a5752115",
+    "bytes": 37581,
+    "type": "image/png",
+    "verified": "2026-11-10",
+    "note": "Official PNG saved unchanged."
   }
 ]
