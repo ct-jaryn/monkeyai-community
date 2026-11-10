@@ -50,7 +50,7 @@
     "mark": "G",
     "color": "#17816c",
     "sourceUrl": "https://chatgpt.com/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "A flexible starting point for everyday AI work",
       "seoDescription": "Explore ChatGPT, OpenAI’s conversational AI for drafts, explanations, and coding questions. Available tools depend on your account.",
@@ -93,7 +93,7 @@
     "mark": "Ge",
     "color": "#5577ce",
     "sourceUrl": "https://gemini.google/gp/overview/?hl=en",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Explore ideas with Google’s AI assistant",
       "seoDescription": "Explore Google’s Gemini assistant for learning, planning, and creative ideas. Check its answers against original sources when accuracy matters.",
@@ -136,7 +136,7 @@
     "mark": "Cu",
     "color": "#52535b",
     "sourceUrl": "https://cursor.com/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "AI assistance inside a software development workflow",
       "seoTitle": "AI assistance inside your development workflow",
@@ -180,7 +180,7 @@
     "mark": "Co",
     "color": "#7654bd",
     "sourceUrl": "https://github.com/features/copilot",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Coding assistance around your existing GitHub work",
       "seoTitle": "Coding help around your GitHub work",
@@ -225,7 +225,7 @@
     "mark": "Ol",
     "color": "#79746d",
     "sourceUrl": "https://ollama.com/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "A practical entry into running open models",
       "seoDescription": "Explore Ollama for running supported open models locally. Choose a model for your hardware and check the data flow of connected tools.",
@@ -268,7 +268,7 @@
     "mark": "LA",
     "color": "#2f6f73",
     "sourceUrl": "https://localai.io/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Run different AI workloads through one local runtime",
       "seoTitle": "Run AI workloads on your own machine",
@@ -314,7 +314,7 @@
     "mark": "Cf",
     "color": "#3c9364",
     "sourceUrl": "https://comfy.org/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Make visual AI workflows visible and reusable",
       "seoDescription": "Explore ComfyUI’s node-based canvas for reusable visual AI workflows. Results depend on the models, settings, and resources you choose.",
@@ -448,7 +448,7 @@
     "mark": "Pe",
     "color": "#37838a",
     "sourceUrl": "https://www.perplexity.ai/hub",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Start a research trail with AI-assisted search",
       "seoDescription": "Explore Perplexity’s conversational search for finding web sources and starting research. Open citations and check their original context.",
@@ -492,7 +492,7 @@
     "mark": "N",
     "color": "#506ea5",
     "sourceUrl": "https://support.google.com/gemininotebook/?hl=en",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Ask focused questions of a set of sources",
       "seoTitle": "Focused Q&A on your own sources",
@@ -537,7 +537,7 @@
     "mark": "Hf",
     "color": "#af8a2d",
     "sourceUrl": "https://huggingface.co/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Discover models, datasets, and community applications",
       "seoTitle": "Discover models, datasets, and apps",
