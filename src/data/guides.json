@@ -7,7 +7,8 @@
       "https://github.com/chaitin/MonkeyCode",
       "https://work.baizhi.cloud/",
       "https://work.docs.baizhi.cloud/",
-      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Your first task with MonkeyAI",
@@ -27,7 +28,7 @@
         {
           "heading": "Choose how to connect",
           "paragraphs": [
-            "The official download page reviewed on 2026-11-10 offers a browser demo and desktop downloads for Windows x64, a separate Windows 7-compatible x64 build, macOS Apple Silicon, macOS Intel, and Linux x64. UnionTech UOS uses that same Linux x64 AppImage, while Kylin is labeled as the Kylin app market without a direct download link on the page. Android, iOS, Linux ARM64, HarmonyOS phone, and HarmonyOS desktop are listed as coming soon.",
+            "The official download page reviewed on 2026-11-10 offers a browser demo and desktop downloads for Windows x64, a separate Windows 7-compatible x64 build, macOS Apple Silicon, macOS Intel, and Linux x64. UnionTech UOS uses that same Linux x64 AppImage. The v20261108 changelog fixes Office file preview on UnionTech UOS and other Linux systems, while Kylin is labeled as the Kylin app market without a direct download link on the page. Android, iOS, Linux ARM64, HarmonyOS phone, and HarmonyOS desktop are listed as coming soon.",
             "To try the desktop client, the upstream README instructs users to enter https://demo.work.baizhi.cloud/ as the server address and sign in using an email verification code. For an existing team, use the server address and access method supplied by your administrator.",
             "The upstream README reviewed on 2026-11-10 still lists only the browser demo, Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64, and marks Android, iOS, Linux ARM64, and HarmonyOS desktop as coming soon. The official site’s download section is broader, so check that current section before sending a link; availability can change between releases."
           ],
@@ -78,7 +79,7 @@
         {
           "heading": "选择连接方式",
           "paragraphs": [
-            "2026-11-10 核对的官方下载页提供浏览器演示，以及 Windows x64、单独的 Win7 兼容 x64、macOS Apple Silicon、macOS Intel 和 Linux x64 客户端下载。统信 UOS 使用同一个 Linux x64 AppImage；银河麒麟只标注为麒麟应用市场，页面上没有直接下载链接。Android、iOS、Linux ARM64、鸿蒙手机和鸿蒙桌面仍标为敬请期待。",
+            "2026-11-10 核对的官方下载页提供浏览器演示，以及 Windows x64、单独的 Win7 兼容 x64、macOS Apple Silicon、macOS Intel 和 Linux x64 客户端下载。统信 UOS 使用同一个 Linux x64 AppImage。v20261108 更新日志修复了统信 UOS 等 Linux 系统中 Office 文件无法预览的问题；银河麒麟只标注为麒麟应用市场，页面上没有直接下载链接。Android、iOS、Linux ARM64、鸿蒙手机和鸿蒙桌面仍标为敬请期待。",
             "根据上游 README，体验桌面客户端时可填写 https://demo.work.baizhi.cloud/ 作为演示服务器地址，再通过邮箱验证码登录。如果加入现有团队，请向管理员获取服务器地址和团队采用的登录方式，不要把演示空间当成自己的正式团队环境。",
             "2026-11-10 核对的上游 README 仍只列出浏览器演示、Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64，并把 Android、iOS、Linux ARM64 与鸿蒙桌面标为敬请期待。官网下载区的范围更广，转发链接前应查看当前下载区；各发布版本之间的可用性可能变化。"
           ],
@@ -129,7 +130,7 @@
         {
           "heading": "Elige cómo conectarte",
           "paragraphs": [
-            "La página oficial de descargas revisada el 10-11-2026 ofrece una demostración web y descargas para Windows x64, una versión x64 compatible con Windows 7, macOS Apple Silicon, macOS Intel y Linux x64. UnionTech UOS usa esa misma AppImage de Linux x64, mientras que Kylin aparece como mercado de aplicaciones Kylin y no tiene un enlace directo en la página. Android, iOS, Linux ARM64, el teléfono HarmonyOS y el escritorio HarmonyOS figuran como próximos.",
+            "La página oficial de descargas revisada el 10-11-2026 ofrece una demostración web y descargas para Windows x64, una versión x64 compatible con Windows 7, macOS Apple Silicon, macOS Intel y Linux x64. UnionTech UOS usa esa misma AppImage de Linux x64. El registro de cambios v20261108 corrige la vista previa de archivos Office en UnionTech UOS y otros sistemas Linux, mientras que Kylin aparece como mercado de aplicaciones Kylin y no tiene un enlace directo en la página. Android, iOS, Linux ARM64, el teléfono HarmonyOS y el escritorio HarmonyOS figuran como próximos.",
             "Para probar el cliente de escritorio, el README indica introducir https://demo.work.baizhi.cloud/ como dirección del servidor y acceder mediante un código de verificación enviado por correo electrónico. Si te incorporas a un equipo existente, utiliza la dirección y el método de acceso proporcionados por su administrador.",
             "El README revisado el 10-11-2026 todavía incluye solo la demostración web, Windows x64, macOS Apple Silicon, macOS Intel y Linux x64, y marca Android, iOS, Linux ARM64 y el escritorio de HarmonyOS como próximos. La sección de descargas del sitio oficial es más amplia, así que compruébala antes de enviar un enlace; la disponibilidad cambia entre versiones."
           ],
