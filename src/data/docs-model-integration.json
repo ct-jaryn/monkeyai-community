@@ -206,7 +206,8 @@
       "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
       "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/admin/src/pages/models-page.tsx",
-      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d",
+      "https://github.com/chaitin/MonkeyCode/pull/1507"
     ],
     "en": {
       "title": "Configure and distribute a team model",
@@ -248,7 +249,7 @@
         {
           "heading": "Authorize members and test",
           "paragraphs": [
-            "Choose the authorization scope and save: all members, selected groups or selected users. The official resource guide says authorization of a parent group also grants access to its child-group members. Authorization allows use; it does not grant permission to edit the administrator’s resource.",
+            "Choose the authorization scope and save: all members, selected groups or selected users. The official resource guide says authorization of a parent group also grants access to its child-group members. Authorization allows use; it does not grant permission to edit the administrator’s resource. The upstream fix merged on 2026-11-10 checks client model lists, labels, and actual calls by resource authorization. Administrator identity or system-model creator identity no longer grants client access by itself. Admin-console permissions and personal models created for your own use remain unchanged. An administrator still needs direct, group, or everyone authorization before viewing or calling a system model in the client.",
             "Ask an authorized member to refresh the client model list, open a new conversation, select the model beside the task input and send a short non-sensitive test. Verify the returned answer and check usage in the appropriate system. If the model is missing, confirm team membership, enabled state and authorization before changing provider settings. The v20261109 changelog says large-language-model tests now wait for the complete result and display it once, and fixes test content overflowing the dialog. Do not treat a brief lack of word-by-word output as a failure in that admin test. The v20261104 changelog also says system model streaming tests send the saved protocol, address, key, and network proxy upstream and display the response live in the admin console. They support OpenAI Chat, OpenAI Responses, and Anthropic."
           ],
           "bullets": [
@@ -322,7 +323,7 @@
         {
           "heading": "授权成员并验证",
           "paragraphs": [
-            "选择授权范围并保存：全员、指定分组或指定用户。官方资源指南说明，对父分组授权后，其子分组成员也可使用；资源授权表示可以使用，并不自动给予修改后台配置的权限。",
+            "选择授权范围并保存：全员、指定分组或指定用户。官方资源指南说明，对父分组授权后，其子分组成员也可使用；资源授权表示可以使用，并不自动给予修改后台配置的权限。2026-11-10 合并的上游修复说明，客户端模型列表、标签和实际调用按资源授权校验，不再因为管理员身份或系统模型创建者身份而放行。管理端权限和个人自建模型自用保持不变；管理员要在客户端查看或调用系统模型，仍需本人、分组或全员授权。",
             "请一位已获授权的成员刷新客户端模型列表，打开新会话，在输入框右侧选择该模型并发送简短、无敏感信息的测试请求。检查回复，并在相应系统查看使用情况。若未出现该模型，先确认登录的团队、启用状态和授权范围，再调整服务商配置。v20261109 更新日志说明，大语言模型测试改为等待完整结果后一次性展示，并修复测试内容溢出对话框的问题；因此管理端测试时不要把短暂没有逐字输出当成失败。v20261104 更新日志还说明，系统大语言模型流式测试会按已保存的协议、地址、密钥和网络代理向上游发送请求，并在管理端实时显示响应；支持 OpenAI Chat、OpenAI Responses 和 Anthropic 协议。"
           ],
           "bullets": [
@@ -396,7 +397,7 @@
         {
           "heading": "Autoriza y verifica",
           "paragraphs": [
-            "Selecciona el alcance de autorización y guarda: todos, grupos seleccionados o usuarios seleccionados. La guía oficial indica que autorizar un grupo padre también permite el uso a sus subgrupos. El permiso de uso no concede automáticamente permiso para editar el recurso administrativo.",
+            "Selecciona el alcance de autorización y guarda: todos, grupos seleccionados o usuarios seleccionados. La guía oficial indica que autorizar un grupo padre también permite el uso a sus subgrupos. El permiso de uso no concede automáticamente permiso para editar el recurso administrativo. La corrección de upstream fusionada el 2026-11-10 comprueba listas, etiquetas y llamadas reales del cliente según la autorización del recurso. La identidad de administrador o de creador del modelo del sistema ya no concede por sí sola acceso en el cliente. Los permisos de la consola y los modelos personales de uso propio no cambian. Un administrador sigue necesitando autorización directa, de grupo o para todos antes de ver o llamar a un modelo del sistema en el cliente.",
             "Pide a una persona autorizada que actualice la lista de modelos, abra una conversación, seleccione el modelo junto al campo de tarea y envíe una petición breve sin datos sensibles. Comprueba la respuesta y el consumo. Si no aparece, revisa equipo, estado y permisos antes de cambiar los datos del proveedor. El registro de cambios v20261109 indica que la prueba de modelos de lenguaje ahora espera el resultado completo y lo muestra de una vez, y corrige el desbordamiento del contenido en el diálogo. No interpretes una breve ausencia de salida palabra por palabra como un fallo en esa prueba administrativa. El registro v20261104 también indica que la prueba en streaming usa el protocolo, la dirección, la clave y el proxy guardados, y muestra la respuesta en directo en la consola. Admite OpenAI Chat, OpenAI Responses y Anthropic."
           ],
           "bullets": [
