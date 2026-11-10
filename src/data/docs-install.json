@@ -11,7 +11,8 @@
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md",
       "https://work.docs.baizhi.cloud/node/01a1535f-29ce-79bb-a998-ab4d2f40c00b",
-      "https://work.docs.baizhi.cloud/node/01a1443e-a1e4-7f37-84a0-0c78fb01686c"
+      "https://work.docs.baizhi.cloud/node/01a1443e-a1e4-7f37-84a0-0c78fb01686c",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Install MonkeyAI on Linux with the official installer",
@@ -56,7 +57,7 @@
           "heading": "Sign in and start a first task",
           "paragraphs": [
             "When installation completes, the screen shows the access address and account; the password is masked. The installer log is written to /tmp/installer-<timestamp>.log. Quit the completed interface with q or Ctrl+C; the service continues in the background. Open the supplied address, sign in as the administrator and configure a model and team access before creating a small test task.",
-            "After signing in, the tutorial suggests connecting models under resource management, creating a group and inviting members, then configuring skills, experts, knowledge bases, connectors and rules before starting a project. If the password was generated rather than typed, the plain value is stored in the installation .env; read it locally rather than sharing it."
+            "After signing in, the tutorial suggests connecting models under resource management, creating a group and inviting members, then configuring skills, experts, knowledge bases, connectors and rules before starting a project. The v20261104 changelog says the admin console can upload and preview a custom brand logo, which then appears on the deployment home page, login page, sidebar, settings preview, and browser icon. A missing or failed image falls back to the default icon. If the password was generated rather than typed, the plain value is stored in the installation .env; read it locally rather than sharing it."
           ],
           "bullets": [
             "An administrator must create or invite other members before they can sign in.",
@@ -123,7 +124,7 @@
           "heading": "登录并开始第一个任务",
           "paragraphs": [
             "安装完成界面显示访问地址和账号，密码被隐藏；安装日志位于 /tmp/installer-<timestamp>.log。完成后可用 q 或 Ctrl+C 退出界面，服务继续在后台运行。打开给出的地址，以管理员身份登录，配置模型并授权团队，然后创建一个小型测试任务。",
-            "登录后，教程建议的顺序是：先在资源管理中接入大模型和生图模型并授权给分组，再创建设置成员与分组，随后按需配置技能、专家、知识库、连接器与规则，最后在工作台新建项目。若密码由系统自动生成，明文保存在安装目录的 .env 中，请在本地读取，不要外传。"
+            "登录后，教程建议的顺序是：先在资源管理中接入大模型和生图模型并授权给分组，再创建设置成员与分组，随后按需配置技能、专家、知识库、连接器与规则，最后在工作台新建项目。v20261104 更新日志说明，管理端可上传自定义品牌 Logo 并预览，它会同步到部署首页、登录页、侧栏、设置预览和浏览器图标；图片缺失或加载失败时回退默认图标。若密码由系统自动生成，明文保存在安装目录的 .env 中，请在本地读取，不要外传。"
           ],
           "bullets": [
             "其他成员需先由管理员创建或邀请才能登录。",
@@ -190,7 +191,7 @@
           "heading": "Inicia sesión y realiza una primera tarea",
           "paragraphs": [
             "Al terminar se muestran la dirección y la cuenta, con la contraseña oculta. El registro se guarda en /tmp/installer-<timestamp>.log. Sal de la pantalla con q o Ctrl+C; el servicio sigue en segundo plano. Abre la dirección, entra como administrador, configura un modelo y concede acceso al equipo antes de probar una tarea pequeña.",
-            "Tras entrar, el tutorial propone conectar los modelos en la gestión de recursos, crear un grupo e invitar a sus miembros y después configurar habilidades, expertos, bases de conocimiento, conectores y reglas antes de abrir un proyecto. Si la contraseña se generó automáticamente, el valor en claro está en el .env de la instalación; léelo en local y no lo compartas."
+            "Tras entrar, el tutorial propone conectar los modelos en la gestión de recursos, crear un grupo e invitar a sus miembros y después configurar habilidades, expertos, bases de conocimiento, conectores y reglas antes de abrir un proyecto. El registro de cambios v20261104 indica que la consola de administración puede cargar y previsualizar un logotipo de marca personalizado, que aparece en la página de inicio, el inicio de sesión, la barra lateral, la vista previa de ajustes y el icono del navegador. Si falta la imagen o no carga, se usa el icono predeterminado. Si la contraseña se generó automáticamente, el valor en claro está en el .env de la instalación; léelo en local y no lo compartas."
           ],
           "bullets": [
             "Un administrador debe crear o invitar a los demás miembros antes de que entren.",
