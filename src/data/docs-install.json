@@ -21,7 +21,7 @@
         {
           "heading": "Prepare the server",
           "paragraphs": [
-            "The upstream README reviewed on 2026-11-09 lists 1 CPU core and 1 GB of RAM as a lightweight starting configuration and says capacity depends on team size, storage and workload. The Chinese installation tutorial, which was re-read on 2026-11-09 from the server-rendered content, additionally describes Linux on amd64 or arm64, root access and at least 15 GB free disk. Reserve host ports 8080 and 8443, including when automatic TLS is disabled, and allow access to the release service and container registry. Treat the disk figure and port numbers as the tutorial’s guidance rather than a measurement we made."
+            "The upstream README reviewed again on 2026-11-10 lists 1 CPU core and 1 GB of RAM as a lightweight starting configuration and says capacity depends on team size, storage and workload. The Chinese installation tutorial, which was re-read on 2026-11-10 from the server-rendered content, additionally describes Linux on amd64 or arm64, root access and at least 15 GB free disk. Reserve host ports 8080 and 8443, including when automatic TLS is disabled, and allow access to the release service and container registry. Treat the disk figure and port numbers as the tutorial’s guidance rather than a measurement we made."
           ],
           "bullets": [
             "Confirm the server architecture, available disk and port conflicts.",
@@ -31,7 +31,7 @@
         {
           "heading": "Download and inspect the official installer",
           "paragraphs": [
-            "The product installation tutorial reviewed on 2026-11-09 downloads the installer with curl -fsSL, which keeps TLS certificate verification on. The upstream README reviewed on the same date still shows an equivalent one-liner that passes -k and skips certificate validation for that request. The sequence below follows the tutorial’s verification setting and lets you inspect the script before running it as root. Only proceed if you trust the downloaded script and its release service. The script selects a release and checks the downloaded package checksum; that does not independently authenticate the script itself. Record the installed version for later upgrades.",
+            "The product installation tutorial reviewed again on 2026-11-10 downloads the installer with curl -fsSL, which keeps TLS certificate verification on. The upstream README reviewed again on 2026-11-10 still shows an equivalent one-liner that passes -k and skips certificate validation for that request. The sequence below follows the tutorial’s verification setting and lets you inspect the script before running it as root. Only proceed if you trust the downloaded script and its release service. The script selects a release and checks the downloaded package checksum; that does not independently authenticate the script itself. Record the installed version for later upgrades.",
             "The installer is a small shell script whose behaviour can be checked before it runs. It refuses to run outside Linux on amd64 or arm64 without root, then resolves a version: by default it reads latest.json from the release service, and MONKEYAI_VERSION pins an exact one instead. It downloads the package and its .sha256, refuses to continue when the manifest and the checksum file disagree, and verifies the archive before unpacking it. It also rejects archives containing absolute paths or parent-directory entries, and requires a single install.sh entry point."
           ],
           "bullets": [
@@ -88,7 +88,7 @@
         {
           "heading": "准备服务器",
           "paragraphs": [
-            "2026-11-09 核对的上游 README 把 1 核 CPU、1 GB 内存列为轻量起步配置，并说明实际容量取决于团队规模、存储和工作负载。中文安装教程已于 2026-11-09 依据服务端渲染内容完整复核，其中还描述了 Linux amd64 或 arm64、root 权限和至少 15 GB 可用磁盘。请预留宿主机 8080 和 8443 端口，即使没有启用自动 TLS 也需预留，并确保能访问发布服务和容器镜像仓库。磁盘数值和端口以教程说明为准，并非我们实测的结果。"
+            "2026-11-10 再次核对的上游 README 把 1 核 CPU、1 GB 内存列为轻量起步配置，并说明实际容量取决于团队规模、存储和工作负载。中文安装教程已于 2026-11-10 依据服务端渲染内容再次完整复核，其中还描述了 Linux amd64 或 arm64、root 权限和至少 15 GB 可用磁盘。请预留宿主机 8080 和 8443 端口，即使没有启用自动 TLS 也需预留，并确保能访问发布服务和容器镜像仓库。磁盘数值和端口以教程说明为准，并非我们实测的结果。"
           ],
           "bullets": [
             "检查服务器架构、磁盘空间和端口占用。",
@@ -98,7 +98,7 @@
         {
           "heading": "下载并检查官方安装器",
           "paragraphs": [
-            "2026-11-09 复查的产品安装教程使用 curl -fsSL 下载安装器，会保留 TLS 证书校验。同一天复查的上游 README 仍给出带 -k 的等价一行命令，会跳过该次请求的证书校验。下面的步骤采用教程的校验设置，并在以 root 权限运行前检查脚本。只有信任下载的脚本及发布服务时才继续。脚本会选择版本并校验下载包的摘要，但这不能独立证明脚本本身的真实性。记录实际安装版本，供以后升级核对。",
+            "2026-11-10 再次复查的产品安装教程使用 curl -fsSL 下载安装器，会保留 TLS 证书校验。2026-11-10 再次复查的上游 README 仍给出带 -k 的等价一行命令，会跳过该次请求的证书校验。下面的步骤采用教程的校验设置，并在以 root 权限运行前检查脚本。只有信任下载的脚本及发布服务时才继续。脚本会选择版本并校验下载包的摘要，但这不能独立证明脚本本身的真实性。记录实际安装版本，供以后升级核对。",
             "安装器是一个小型 shell 脚本，其行为可以在运行前核对。它要求 Linux 的 amd64 或 arm64 并以 root 运行，然后确定版本：默认从发布服务读取 latest.json，也可以用 MONKEYAI_VERSION 固定到某个版本。脚本会下载安装包和对应的 .sha256，在清单与校验文件不一致时停止，并在解包前校验压缩包；解包前还会拒绝包含绝对路径或上级目录条目的压缩包，并要求只有一个 install.sh 入口。"
           ],
           "bullets": [
@@ -155,7 +155,7 @@
         {
           "heading": "Prepara el servidor",
           "paragraphs": [
-            "El README revisado el 09-11-2026 indica 1 núcleo de CPU y 1 GB de RAM como configuración ligera de partida y señala que la capacidad depende del equipo, el almacenamiento y la carga. El tutorial chino de instalación, que se releyó el 09-11-2026 a partir del contenido renderizado en servidor, describe además Linux amd64 o arm64, acceso root y al menos 15 GB libres. Reserva los puertos 8080 y 8443 del host incluso sin TLS automático y permite acceso al servicio de versiones y al registro de imágenes. Toma la cifra de disco y los puertos como indicación del tutorial, no como una medición nuestra."
+            "El README revisado de nuevo el 10-11-2026 indica 1 núcleo de CPU y 1 GB de RAM como configuración ligera de partida y señala que la capacidad depende del equipo, el almacenamiento y la carga. El tutorial chino de instalación, que se releyó el 10-11-2026 a partir del contenido renderizado en servidor, describe además Linux amd64 o arm64, acceso root y al menos 15 GB libres. Reserva los puertos 8080 y 8443 del host incluso sin TLS automático y permite acceso al servicio de versiones y al registro de imágenes. Toma la cifra de disco y los puertos como indicación del tutorial, no como una medición nuestra."
           ],
           "bullets": [
             "Comprueba arquitectura, espacio y puertos ocupados.",
@@ -165,7 +165,7 @@
         {
           "heading": "Descarga y revisa el instalador oficial",
           "paragraphs": [
-            "El tutorial de instalación revisado el 2026-11-09 descarga el instalador con curl -fsSL y mantiene la verificación del certificado TLS. El README revisado el mismo día sigue mostrando una orden equivalente que pasa -k y omite esa verificación. La secuencia siguiente usa el ajuste del tutorial y permite revisar el script antes de ejecutarlo como root. Continúa solo si confías en el script descargado y su servicio. El script elige una versión y verifica el resumen del paquete; eso no autentica por sí solo el script. Anota la versión instalada para futuras actualizaciones.",
+            "El tutorial de instalación revisado de nuevo el 2026-11-10 descarga el instalador con curl -fsSL y mantiene la verificación del certificado TLS. El README revisado de nuevo el 2026-11-10 sigue mostrando una orden equivalente que pasa -k y omite esa verificación. La secuencia siguiente usa el ajuste del tutorial y permite revisar el script antes de ejecutarlo como root. Continúa solo si confías en el script descargado y su servicio. El script elige una versión y verifica el resumen del paquete; eso no autentica por sí solo el script. Anota la versión instalada para futuras actualizaciones.",
             "El instalador es un script de shell pequeño cuyo comportamiento se puede revisar antes de ejecutarlo. Exige Linux en amd64 o arm64 y ejecutarse como root, y luego resuelve una versión: por defecto lee latest.json del servicio de publicación, y MONKEYAI_VERSION fija una exacta. Descarga el paquete y su .sha256, se detiene cuando el manifiesto y el archivo de comprobación no coinciden y verifica el archivo antes de extraerlo; también rechaza archivos con rutas absolutas o con entradas de directorio superior y exige un único punto de entrada install.sh."
           ],
           "bullets": [
