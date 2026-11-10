@@ -276,7 +276,7 @@
           "bullets": [
             "A connector with independent authorization needs each member to finish personal authentication in the client after the administrator distributes it; with OAuth, register the correct callback address in that service.",
             "Deleting a knowledge base deletes all of its content with it.",
-            "An existing resource pack can be imported under resource management: preview the manifest, confirm the import, then check model details, links and authorization before real use."
+            "An existing resource pack can be imported under resource management: preview the manifest, confirm the import, then check model details, links and authorization before real use. The v20261104 changelog says resources imported from a pack can be enabled or disabled manually, and that setting is kept when the resource is updated, retired, or restored."
           ]
         }
       ]
@@ -350,7 +350,7 @@
           "bullets": [
             "使用独立授权的连接器，在管理员分发之后仍需要每位成员在客户端完成个人认证；使用 OAuth 时还要在对应服务中登记正确的回调地址。",
             "删除知识库会连同其中的全部内容一起删除。",
-            "已有资源发布包可在「资源管理 → 导入资源包」导入：先预览清单，确认导入，然后核对模型接入信息、关联关系和授权范围，再投入实际使用。"
+            "已有资源发布包可在「资源管理 → 导入资源包」导入：先预览清单，确认导入，然后核对模型接入信息、关联关系和授权范围，再投入实际使用。v20261104 更新日志说明，资源包导入的资源支持手动启停，更新、退役和恢复时会保留该设置。"
           ]
         }
       ]
@@ -424,7 +424,7 @@
           "bullets": [
             "Un conector con autorización independiente requiere que cada miembro complete su autenticación en el cliente después de que el administrador lo distribuya; con OAuth, registra la dirección de retorno correcta en ese servicio.",
             "Eliminar una base de conocimiento borra también todo su contenido.",
-            "Un paquete de recursos existente se importa desde la gestión de recursos: revisa el manifiesto, confirma la importación y comprueba modelos, vínculos y autorización antes de usarlo de verdad."
+            "Un paquete de recursos existente se importa desde la gestión de recursos: revisa el manifiesto, confirma la importación y comprueba modelos, vínculos y autorización antes de usarlo de verdad. El registro de cambios v20261104 indica que los recursos importados pueden activarse o desactivarse manualmente y que ese ajuste se conserva al actualizarlos, retirarlos o restaurarlos."
           ]
         }
       ]
