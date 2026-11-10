@@ -519,11 +519,12 @@
     "slug": "skills-and-experts",
     "category": "Start here",
     "docGroup": "start",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 7,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a1535e-5c53-7880-bafd-e11e28bb716d",
-      "https://work.docs.baizhi.cloud/node/01a1535e-340f-7981-8947-bc6405bb164d"
+      "https://work.docs.baizhi.cloud/node/01a1535e-340f-7981-8947-bc6405bb164d",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Use, import and share skills and experts",
@@ -555,7 +556,7 @@
           "heading": "Choose where an expert is saved",
           "paragraphs": [
             "Experts are listed under Settings, then Experts, grouped the same way: team experts are created and authorised by an administrator and cannot be edited in the client; yours include built-in experts plus the ones you created, of which only your own are editable; experts shared by others can be used but not edited or re-shared. Picking one sets a role and a method, but the goal, the material and the delivery format still have to be stated in the task.",
-            "There are two creation entries and the difference decides whether the expert survives a change of machine. A new expert is saved on the server and follows the account, which is what you want for cross-device use or for sharing. A new local expert is saved only on this device. The form asks for a name, a short description, a default model and the role instructions; choosing to follow the default model keeps the expert aligned with the global default."
+            "The v20261108 changelog says that if the expert selected for a task is deleted, a prompt appears and you can manually switch experts and continue the original conversation, with the chat history kept. There are two creation entries and the difference decides whether the expert survives a change of machine. A new expert is saved on the server and follows the account, which is what you want for cross-device use or for sharing. A new local expert is saved only on this device. The form asks for a name, a short description, a default model and the role instructions; choosing to follow the default model keeps the expert aligned with the global default."
           ],
           "bullets": [
             "Attach skills, rules and connectors as needed, and use the tool allowlist or blocklist only when the scope genuinely has to be limited.",
@@ -595,7 +596,7 @@
           "heading": "选择专家的保存位置",
           "paragraphs": [
             "专家在「设置 → 专家」中按来源分组：团队专家由管理员创建并授权，客户端不可编辑；「我的」包含内置专家和自己创建的专家，其中只有自建的可以编辑；他人分享的专家可以使用，但不能编辑或转共享。选择专家只是确定角色和方法，具体目标、材料和交付要求仍需在任务中说明。",
-            "创建入口有两个，区别决定专家在换设备后是否还在。新建专家保存在服务器，跟随账号，适合跨设备使用或共享给他人；新建本机专家仅保存在当前设备。表单需要填写名称、简介、默认模型和角色设定；默认模型选择「使用默认模型」时，专家跟随全局默认模型。"
+            "v20261108 更新日志说明，任务所选专家被删除后会显示提示，可以手动更换专家并继续原对话，聊天记录会保留。创建入口有两个，区别决定专家在换设备后是否还在。新建专家保存在服务器，跟随账号，适合跨设备使用或共享给他人；新建本机专家仅保存在当前设备。表单需要填写名称、简介、默认模型和角色设定；默认模型选择「使用默认模型」时，专家跟随全局默认模型。"
           ],
           "bullets": [
             "按需要勾选技能、规则和连接器；只有在确实需要限定范围时才设置工具白名单或黑名单。",
@@ -635,7 +636,7 @@
           "heading": "Elige dónde se guarda un experto",
           "paragraphs": [
             "Los expertos se listan en Ajustes y luego Expertos, agrupados igual: los del equipo los crea y autoriza un administrador y no se pueden editar en el cliente; los tuyos incluyen los integrados y los que creaste, y solo los propios son editables; los compartidos por otros se pueden usar, pero no editar ni volver a compartir. Elegir uno fija un rol y un método, pero el objetivo, el material y el formato de entrega siguen explicándose en la tarea.",
-            "Hay dos entradas de creación y la diferencia decide si el experto sobrevive a un cambio de equipo. Un experto nuevo se guarda en el servidor y sigue a la cuenta, que es lo que quieres para usarlo en varios dispositivos o compartirlo. Un experto local se guarda solo en este dispositivo. El formulario pide nombre, descripción breve, modelo predeterminado e instrucciones de rol; elegir seguir el modelo predeterminado mantiene al experto alineado con el global."
+            "El registro de cambios v20261108 indica que, si se elimina el experto seleccionado para una tarea, aparece un aviso y puedes cambiarlo manualmente y continuar la conversación original, conservando el historial. Hay dos entradas de creación y la diferencia decide si el experto sobrevive a un cambio de equipo. Un experto nuevo se guarda en el servidor y sigue a la cuenta, que es lo que quieres para usarlo en varios dispositivos o compartirlo. Un experto local se guarda solo en este dispositivo. El formulario pide nombre, descripción breve, modelo predeterminado e instrucciones de rol; elegir seguir el modelo predeterminado mantiene al experto alineado con el global."
           ],
           "bullets": [
             "Asocia habilidades, reglas y conectores según haga falta, y usa la lista de herramientas permitidas o bloqueadas solo cuando el alcance realmente deba limitarse.",
