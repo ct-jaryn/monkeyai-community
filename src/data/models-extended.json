@@ -166,7 +166,7 @@
     ],
     "sourceUrls": [
       "https://docs.mistral.ai/models",
-      "https://docs.mistral.ai/studio/conversations/chat-completion",
+      "https://docs.mistral.ai/inference/conversations/chat-completion",
       "https://docs.mistral.ai/inference/deployment/local-deployment"
     ],
     "en": {
@@ -174,7 +174,7 @@
       "seoTitle": "Hosted platform and self-deployable releases",
       "description": "Explore Mistral AI’s language-model range for assistants, coding, extraction, and deployment choices, with model-specific capabilities and licenses.",
       "overview": [
-        "Mistral AI offers a range of language models and related services rather than one interchangeable model. Its catalog includes hosted commercial offerings and open-weight releases, with general-purpose, coding, and multimodal options. The chat-completions documentation describes tasks such as classification, extraction, summarization, question answering, and code generation. Le Chat is the user-facing assistant, while API integration is a separate way to build your own application. A feature in the assistant should not be assumed to exist in every model or deployment endpoint.",
+        "Mistral AI offers a range of language models and related services rather than one interchangeable model. Its catalog includes hosted commercial offerings and open-weight releases, with general-purpose, coding, and multimodal options. The chat-completions documentation reviewed again on 2026-11-10 describes tasks such as classification, extraction, summarization, question answering, and code generation. Le Chat is the user-facing assistant, while API integration is a separate way to build your own application. A feature in the assistant should not be assumed to exist in every model or deployment endpoint.",
         "Mistral is useful to evaluate when you want a documented path from a managed API experiment to a self-deployment decision. The official deployment guide discusses supported inference engines, but you must still match the exact model, license, hardware, and runtime version. Separate language-model selection from specialized OCR or audio services in the catalog. For a first comparison, use one representative document task or coding change, check the output, and record latency and operating effort yourself. This profile describes the available paths; it does not assert a universal performance ranking."
       ],
       "strengths": [
@@ -193,7 +193,7 @@
       "tagline": "在托管平台与可自主部署版本之间选择",
       "description": "了解 Mistral AI 模型系列在助手、编程、信息提取和部署选择中的用途，并核对各型号的能力与许可证。",
       "overview": [
-        "Mistral AI 提供多个语言模型和相关服务，而不是一个可以覆盖所有用途的统一模型。其目录包含托管商业服务与开放权重版本，也有通用、编程和多模态方向。聊天补全文档列出分类、信息提取、摘要、问答和代码生成等应用。Le Chat 是面向用户的助手，API 则是自行构建应用的另一条路径；聊天助手中出现的某项功能，不应直接推断为每个模型或部署端点都具备的能力。",
+        "Mistral AI 提供多个语言模型和相关服务，而不是一个可以覆盖所有用途的统一模型。其目录包含托管商业服务与开放权重版本，也有通用、编程和多模态方向。2026-11-10 再次核对的聊天补全文档列出分类、信息提取、摘要、问答和代码生成等应用。Le Chat 是面向用户的助手，API 则是自行构建应用的另一条路径；聊天助手中出现的某项功能，不应直接推断为每个模型或部署端点都具备的能力。",
         "如果希望从托管 API 原型进一步评估自主部署，Mistral 提供了可查阅的官方路径。部署指南介绍推理引擎，但仍需逐项匹配模型、许可证、硬件和软件版本。还要区分语言模型与目录中的专用 OCR、音频服务。第一次比较可以选择一项代表性的文档任务或代码修改，人工检查成果，并自行记录响应时间和运维投入。本介绍说明的是可选择的使用方式，并不意味着所有任务中存在同一个最优型号或性能排名。"
       ],
       "strengths": [
@@ -213,7 +213,7 @@
       "seoTitle": "Plataforma alojada y versiones autogestionadas",
       "description": "Explora los modelos de Mistral AI para asistentes, código y extracción, con opciones de despliegue y condiciones propias de cada modelo.",
       "overview": [
-        "Mistral AI ofrece varios modelos de lenguaje y servicios relacionados, no un único modelo intercambiable. Su catálogo combina servicios comerciales alojados y versiones con pesos abiertos, con opciones generales, de programación y multimodales. La documentación de chat describe clasificación, extracción, resumen, preguntas y respuestas y generación de código. Le Chat es el asistente para usuarios; la API permite crear una aplicación propia. Una función del asistente no demuestra que esté disponible en todos los modelos ni en cada forma de despliegue.",
+        "Mistral AI ofrece varios modelos de lenguaje y servicios relacionados, no un único modelo intercambiable. Su catálogo combina servicios comerciales alojados y versiones con pesos abiertos, con opciones generales, de programación y multimodales. La documentación de chat revisada de nuevo el 2026-11-10 describe clasificación, extracción, resumen, preguntas y respuestas y generación de código. Le Chat es el asistente para usuarios; la API permite crear una aplicación propia. Una función del asistente no demuestra que esté disponible en todos los modelos ni en cada forma de despliegue.",
         "Mistral merece una evaluación cuando buscas una ruta documentada entre un prototipo con API y una posible instalación propia. La guía oficial explica motores de inferencia, pero aún debes comprobar modelo, licencia, hardware y versión del software. Distingue los modelos de lenguaje de los servicios especializados de OCR o audio del catálogo. Empieza con una tarea documental o un cambio de código representativo, revisa la entrega y mide por tu cuenta la latencia y el esfuerzo operativo. Este perfil describe alternativas, sin afirmar una clasificación universal de rendimiento."
       ],
       "strengths": [
