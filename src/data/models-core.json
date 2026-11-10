@@ -6,7 +6,7 @@
     "officialUrl": "https://developers.openai.com/api/docs/models",
     "apiDocsUrl": "https://developers.openai.com/api/docs/guides/latest-model",
     "access": "hosted",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "chatgpt"
     ],
@@ -34,7 +34,7 @@
         "A schema-valid response can still contain incorrect facts or values.",
         "Web access and external actions depend on the tools you configure; model output alone does not prove a source was checked."
       ],
-      "accessNote": "Access the hosted models through OpenAI’s API and SDKs. ChatGPT features and API model capabilities should be checked separately.",
+      "accessNote": "Access the hosted models through OpenAI’s API and SDKs. ChatGPT features and API model capabilities should be checked separately. The latest-model guide checked on 2026-11-10 starts with Using GPT-6. Specific model names and capabilities can change, so confirm the current documentation before use.",
       "selectionTip": "Test a difficult example and a routine example with the same acceptance criteria. Pick the model that completes your task reliably within your constraints."
     },
     "zh": {
@@ -53,7 +53,7 @@
         "符合结构约束的结果，也可能包含错误的事实或字段值。",
         "联网和外部操作取决于所配置的工具；仅有模型回答不能证明已经核对来源。"
       ],
-      "accessNote": "通过 OpenAI API 和 SDK 使用托管模型。ChatGPT 产品功能与 API 型号能力需要分别核对。",
+      "accessNote": "通过 OpenAI API 和 SDK 使用托管模型。ChatGPT 产品功能与 API 型号能力需要分别核对。2026-11-10 核查的最新模型指南以“Using GPT-6”为入口；具体型号和能力可能变化，使用前以当前文档为准。",
       "selectionTip": "用同一验收标准测试一项复杂任务和一项日常任务，选择能在约束内可靠完成工作的型号。"
     },
     "es": {
@@ -74,7 +74,7 @@
         "Una respuesta válida según el esquema puede contener datos incorrectos.",
         "El acceso web y las acciones externas dependen de las herramientas configuradas; una respuesta no demuestra que se haya comprobado una fuente."
       ],
-      "accessNote": "Utiliza los modelos alojados mediante la API y los SDK de OpenAI. Comprueba por separado las funciones de ChatGPT y las capacidades del modelo de API.",
+      "accessNote": "Utiliza los modelos alojados mediante la API y los SDK de OpenAI. Comprueba por separado las funciones de ChatGPT y las capacidades del modelo de API. La guía del modelo más reciente revisada el 2026-11-10 empieza por Using GPT-6. Los nombres y capacidades pueden cambiar, así que confirma la documentación vigente antes de usarlo.",
       "selectionTip": "Prueba un caso difícil y otro habitual con los mismos criterios. Elige el modelo que complete tu tarea de forma fiable dentro de tus límites."
     }
   },

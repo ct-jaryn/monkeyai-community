@@ -160,7 +160,7 @@
     "officialUrl": "https://mistral.ai/",
     "apiDocsUrl": "https://docs.mistral.ai/models",
     "access": "hybrid",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "hugging-face"
     ],
@@ -186,7 +186,7 @@
         "The catalog mixes model types and services; text, vision, OCR, and audio support are not interchangeable.",
         "Open-weight availability and licenses vary by model; check requirements before self-hosting."
       ],
-      "accessNote": "Use the official model catalog for hosted access and the deployment guide for self-managed releases. Le Chat, API usage, and downloadable weights have distinct access conditions.",
+      "accessNote": "Use the official model catalog for hosted access and the deployment guide for self-managed releases. Le Chat, API usage, and downloadable weights have distinct access conditions. The model overview checked on 2026-11-10 features Mistral Large 4 and describes it as an open-weight, general-purpose multimodal model. Model names can change, so confirm the current documentation before use.",
       "selectionTip": "Shortlist Mistral when deployment flexibility matters, then choose the exact model and evaluate a concrete workflow rather than the vendor name alone."
     },
     "zh": {
@@ -205,7 +205,7 @@
         "目录包含不同模型和服务，文本、视觉、OCR 与音频能力不能互相代替。",
         "是否提供权重及其许可证因型号而异，自部署前需确认运行要求。"
       ],
-      "accessNote": "托管访问见官方模型目录，自主管理版本见部署指南。Le Chat、API 和可下载权重分别有不同的访问条件。",
+      "accessNote": "托管访问见官方模型目录，自主管理版本见部署指南。Le Chat、API 和可下载权重分别有不同的访问条件。2026-11-10 核查的模型概览把 Mistral Large 4 标为精选模型，并说明它是开放权重的通用多模态模型；型号可能变化，使用前以当前文档为准。",
       "selectionTip": "重视部署灵活性时，可以把 Mistral 列为候选；再围绕具体工作流测试具体型号。"
     },
     "es": {
@@ -225,7 +225,7 @@
         "El catálogo combina modelos y servicios; texto, visión, OCR y audio no son equivalentes.",
         "Los pesos y las licencias dependen del modelo; verifica los requisitos antes de alojarlo."
       ],
-      "accessNote": "Consulta el catálogo para acceso alojado y la guía de despliegue para versiones propias. Le Chat, la API y los pesos descargables tienen condiciones diferentes.",
+      "accessNote": "Consulta el catálogo para acceso alojado y la guía de despliegue para versiones propias. Le Chat, la API y los pesos descargables tienen condiciones diferentes. La descripción de modelos revisada el 2026-11-10 destaca Mistral Large 4 y lo describe como un modelo multimodal de propósito general con pesos abiertos. Los nombres pueden cambiar, así que confirma la documentación vigente antes de usarlo.",
       "selectionTip": "Incluye Mistral si valoras la flexibilidad de despliegue y evalúa un modelo concreto con un flujo de trabajo real."
     }
   },
