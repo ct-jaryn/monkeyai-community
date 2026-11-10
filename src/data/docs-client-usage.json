@@ -430,7 +430,7 @@
           "heading": "Credits, feedback and local storage",
           "paragraphs": [
             "Settings, then Credits, shows the balance, allowance and spending records, which can be filtered by time, item and record type; expanding a record reveals the credit change and transaction number. A task may fail to start or run when credits are insufficient, and users spending a team allowance should ask the administrator to adjust it.",
-            "Feedback is opened from the avatar menu and is sent to the administrator. The official guide notes that a screenshot of the current interface is uploaded by default, so remove anything private from the screen before sending. Storage settings show local usage: confirm the scope of any cleanup and save the sessions and files you need before deleting. Appearance and keyboard shortcuts are adjusted from the same settings area."
+            "Feedback is opened from the avatar menu and is sent to the administrator. The official guide notes that a screenshot of the current interface is uploaded by default, so remove anything private from the screen before sending. Storage settings show local usage: confirm the scope of any cleanup and save the sessions and files you need before deleting. Appearance and keyboard shortcuts are adjusted from the same settings area. The v20261030 changelog fixes occasional failures to read or save conversation data and configuration on Windows. If saving fails, retry and confirm the file was written before cleaning anything up."
           ],
           "bullets": [
             "Copy the transaction number before reporting a billing question.",
@@ -469,7 +469,7 @@
           "heading": "积分、反馈与本机存储",
           "paragraphs": [
             "进入「设置 → 积分」，可查看当前余额、额度和消费记录，并按时间、消费项目及记录类型筛选；展开记录可以查看积分变动和交易编号。积分不足时任务可能无法发起或执行失败，使用团队额度的用户请联系管理员调整。",
-            "点击头像选择「反馈」可向管理员提交问题。官方指南说明默认会上传当时的界面截图，因此提交前请先清掉屏幕上的隐私内容。存储设置可查看本机占用：清理前确认范围，并先保存需要保留的会话和文件。外观和快捷键也在同一设置区域调整。"
+            "点击头像选择「反馈」可向管理员提交问题。官方指南说明默认会上传当时的界面截图，因此提交前请先清掉屏幕上的隐私内容。存储设置可查看本机占用：清理前确认范围，并先保存需要保留的会话和文件。外观和快捷键也在同一设置区域调整。v20261030 更新日志修复了 Windows 下对话数据和配置偶尔读取或保存失败的问题；如果保存失败，先重试并确认文件已写入，再继续清理。"
           ],
           "bullets": [
             "反馈计费问题时先复制交易编号。",
@@ -508,7 +508,7 @@
           "heading": "Créditos, comentarios y almacenamiento local",
           "paragraphs": [
             "Ajustes y luego Créditos muestran el saldo, la asignación y los registros de consumo, filtrables por fecha, concepto y tipo; al expandir un registro aparecen el cambio de créditos y el número de transacción. Una tarea puede no iniciarse o fallar si faltan créditos, y quien use la asignación del equipo debe pedir al administrador que la ajuste.",
-            "Los comentarios se abren desde el menú del avatar y llegan al administrador. La guía oficial advierte de que se sube por defecto una captura de la interfaz actual, así que quita de la pantalla lo privado antes de enviar. El almacenamiento muestra el uso local: confirma el alcance de cualquier limpieza y guarda antes las sesiones y archivos que necesites. La apariencia y los atajos se ajustan en la misma zona de ajustes."
+            "Los comentarios se abren desde el menú del avatar y llegan al administrador. La guía oficial advierte de que se sube por defecto una captura de la interfaz actual, así que quita de la pantalla lo privado antes de enviar. El almacenamiento muestra el uso local: confirma el alcance de cualquier limpieza y guarda antes las sesiones y archivos que necesites. La apariencia y los atajos se ajustan en la misma zona de ajustes. El registro v20261030 corrige fallos ocasionales al leer o guardar datos de conversación y configuración en Windows. Si falla el guardado, reintenta y confirma que el archivo se escribió antes de limpiar nada."
           ],
           "bullets": [
             "Copia el número de transacción antes de reclamar un cargo.",
