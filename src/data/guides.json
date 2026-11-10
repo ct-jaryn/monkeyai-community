@@ -334,7 +334,8 @@
       "https://github.com/chaitin/MonkeyCode",
       "https://work.docs.baizhi.cloud/",
       "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/README.md",
-      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md",
+      "https://github.com/chaitin/MonkeyCode/pull/1507"
     ],
     "en": {
       "title": "Understand models, MCP, and shared resources",
@@ -343,7 +344,7 @@
         {
           "heading": "Models and tools do different jobs",
           "paragraphs": [
-            "A model interprets your instructions and generates responses. A connected tool gives the assistant a way to work with another capability or system. MonkeyAI lets teams configure their own model services and connect business tools through MCP connectors. Which options you see depends on the resources your administrator has made available.",
+            "A model interprets your instructions and generates responses. A connected tool gives the assistant a way to work with another capability or system. MonkeyAI lets teams configure their own model services and connect business tools through MCP connectors. Which options you see depends on the resources your administrator has made available. The upstream fix merged on 2026-11-10 checks client model lists and calls by resource authorization. Administrator identity no longer grants client access to a system model by itself.",
             "Choose a model according to the task and the services your team has approved. Do not assume every connected model supports the same inputs or outputs. For a first trial, use a simple request and sample data, then inspect the result before using that setup in a larger workflow."
           ],
           "bullets": [
@@ -393,7 +394,7 @@
         {
           "heading": "模型与工具承担不同工作",
           "paragraphs": [
-            "模型负责理解任务说明并生成响应；连接的工具让助手能够使用其他能力或业务系统。MonkeyAI 允许团队配置自己的模型服务，并通过 MCP 连接器接入业务工具。你实际看到的选项，取决于管理员已经提供的资源以及你的访问权限。",
+            "模型负责理解任务说明并生成响应；连接的工具让助手能够使用其他能力或业务系统。MonkeyAI 允许团队配置自己的模型服务，并通过 MCP 连接器接入业务工具。你实际看到的选项，取决于管理员已经提供的资源以及你的访问权限。2026-11-10 合并的上游修复说明，客户端模型列表和实际调用按资源授权校验；管理员身份本身不再自动获得系统模型的客户端访问。",
             "选择模型时，应结合任务需要和团队已经批准的服务。不要默认所有模型都支持相同的输入、输出与工具能力。首次连接后，先用简单请求和示例数据做小规模验证，检查真实成果，再把这个配置用于更复杂的流程。具体配置字段应以当前官方文档和部署版本为准。"
           ],
           "bullets": [
@@ -443,7 +444,7 @@
         {
           "heading": "Los modelos y las herramientas cumplen funciones distintas",
           "paragraphs": [
-            "Un modelo interpreta instrucciones y genera respuestas. Una herramienta conectada permite trabajar con otra capacidad o sistema. MonkeyAI permite configurar servicios de modelos propios del equipo y conectar herramientas mediante conectores MCP. Las opciones visibles dependen de los recursos y permisos que haya preparado el administrador.",
+            "Un modelo interpreta instrucciones y genera respuestas. Una herramienta conectada permite trabajar con otra capacidad o sistema. MonkeyAI permite configurar servicios de modelos propios del equipo y conectar herramientas mediante conectores MCP. Las opciones visibles dependen de los recursos y permisos que haya preparado el administrador. La corrección de upstream fusionada el 2026-11-10 comprueba las listas y llamadas del cliente según la autorización del recurso. La identidad de administrador ya no concede por sí sola acceso en el cliente a un modelo del sistema.",
             "Elige el modelo según la tarea y los servicios aprobados por tu equipo. No presupongas que todos admiten las mismas entradas, salidas o herramientas. Empieza con una petición sencilla y datos de ejemplo; inspecciona el resultado antes de incorporar esa configuración a un proceso más amplio."
           ],
           "bullets": [
@@ -486,7 +487,7 @@
         }
       ]
     },
-    "reviewed": "2026-11-09"
+    "reviewed": "2026-11-10"
   },
   {
     "slug": "self-hosting",
