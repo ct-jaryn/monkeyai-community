@@ -172,11 +172,12 @@
     "slug": "mcp-personal-connectors",
     "category": "MCP & connectors",
     "docGroup": "mcp",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 7,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
-      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552"
+      "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Connect personal MCP services and local tools",
@@ -216,7 +217,7 @@
         {
           "heading": "Update credentials carefully",
           "paragraphs": [
-            "The client guide says existing secret values are not displayed. When editing a client credential, leave an existing value blank to retain it, or remove the row to delete that item. Other administrative credential editors may behave differently; follow the labels in the interface you are using."
+            "The client guide says existing secret values are not displayed. When editing a client credential, leave an existing value blank to retain it, or remove the row to delete that item. Other administrative credential editors may behave differently; follow the labels in the interface you are using. The v20261109 changelog says leaving an existing authentication field blank keeps it, removing a field clears it, and clearing the credential can revoke it."
           ],
           "bullets": []
         }
@@ -260,7 +261,7 @@
         {
           "heading": "谨慎更新凭证",
           "paragraphs": [
-            "客户端文档说明现有密钥值不会显示。编辑客户端凭证时，已有值留空表示保留该值，删除一行表示删除该项。其他管理端凭证编辑器的行为可能不同，请以当前界面的提示为准。"
+            "客户端文档说明现有密钥值不会显示。编辑客户端凭证时，已有值留空表示保留该值，删除一行表示删除该项。其他管理端凭证编辑器的行为可能不同，请以当前界面的提示为准。v20261109 更新日志说明，编辑认证信息时，已有字段留空可保留原配置，移除字段会同步清理，清空后可撤销凭证。"
           ],
           "bullets": []
         }
@@ -304,7 +305,7 @@
         {
           "heading": "Actualiza las credenciales con cuidado",
           "paragraphs": [
-            "La guía del cliente indica que los valores secretos existentes no se muestran. Al editar una credencial en el cliente, deja vacío un valor existente para conservarlo o elimina la fila para borrar ese elemento. Otros editores de credenciales administrativos pueden funcionar de otra forma; sigue las indicaciones de la interfaz que utilizas."
+            "La guía del cliente indica que los valores secretos existentes no se muestran. Al editar una credencial en el cliente, deja vacío un valor existente para conservarlo o elimina la fila para borrar ese elemento. Otros editores de credenciales administrativos pueden funcionar de otra forma; sigue las indicaciones de la interfaz que utilizas. El registro v20261109 indica que dejar vacío un campo de autenticación existente lo conserva, quitar un campo lo elimina y vaciar la credencial puede revocarla."
           ],
           "bullets": []
         }
@@ -348,7 +349,7 @@
         {
           "heading": "Why does the test succeed but my task fail?",
           "paragraphs": [
-            "Check that the tool was discovered and enabled, that the correct connector and credential are selected in the conversation, and that the credential has permission for the target data and operation. An expert may also need its required connector assigned and authorized. Try a small task with accessible sample data and compare the error with the service logs. The v20261106 changelog says connector cards show the enabled tool count and total tool count, which can show whether a tool is enabled before retrying."
+            "Check that the tool was discovered and enabled, that the correct connector and credential are selected in the conversation, and that the credential has permission for the target data and operation. An expert may also need its required connector assigned and authorized. Try a small task with accessible sample data and compare the error with the service logs. The v20261106 changelog says connector cards show the enabled tool count and total tool count, which can show whether a tool is enabled before retrying. The v20261024 changelog also says a connector is no longer enabled automatically just because it already has authorization, so confirm it is enabled before use."
           ],
           "bullets": []
         },
@@ -397,7 +398,7 @@
         {
           "heading": "为什么测试成功但任务仍失败？",
           "paragraphs": [
-            "检查工具是否已被发现并启用，对话中是否选中了正确的连接器和凭证，以及凭证是否有目标数据与操作的权限。专家还可能需要配置并授权其依赖的连接器。用有权访问的少量测试数据重试，并对照服务日志查看错误。v20261106 更新日志说明，连接器卡片会显示已启用工具数和工具总数，可先用它判断工具是否已启用。"
+            "检查工具是否已被发现并启用，对话中是否选中了正确的连接器和凭证，以及凭证是否有目标数据与操作的权限。专家还可能需要配置并授权其依赖的连接器。用有权访问的少量测试数据重试，并对照服务日志查看错误。v20261106 更新日志说明，连接器卡片会显示已启用工具数和工具总数，可先用它判断工具是否已启用。v20261024 更新日志还说明，连接器不再因已有授权自动启用，使用前请确认已手动启用。"
           ],
           "bullets": []
         },
@@ -446,7 +447,7 @@
         {
           "heading": "¿Por qué falla la tarea si la prueba funciona?",
           "paragraphs": [
-            "Comprueba que la herramienta se haya detectado y habilitado, que hayas elegido el conector y la credencial correctos en la conversación y que la credencial permita acceder a los datos y realizar la operación. Un experto también puede necesitar que su conector requerido esté asignado y autorizado. Prueba una tarea pequeña con datos accesibles y compara el error con los registros del servicio. El registro v20261106 indica que las tarjetas de conectores muestran el número de herramientas habilitadas y el total, así que puedes comprobar ahí si una herramienta está habilitada antes de reintentar."
+            "Comprueba que la herramienta se haya detectado y habilitado, que hayas elegido el conector y la credencial correctos en la conversación y que la credencial permita acceder a los datos y realizar la operación. Un experto también puede necesitar que su conector requerido esté asignado y autorizado. Prueba una tarea pequeña con datos accesibles y compara el error con los registros del servicio. El registro v20261106 indica que las tarjetas de conectores muestran el número de herramientas habilitadas y el total, así que puedes comprobar ahí si una herramienta está habilitada antes de reintentar. El registro v20261024 también indica que un conector ya no se habilita automáticamente solo por tener autorización, así que confirma que está habilitado antes de usarlo."
           ],
           "bullets": []
         },
