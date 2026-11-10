@@ -314,7 +314,7 @@
     "slug": "mcp-connector-troubleshooting",
     "category": "Troubleshooting",
     "docGroup": "faq",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 8,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
@@ -322,7 +322,8 @@
       "https://work.docs.baizhi.cloud/node/01a1535f-664a-78a5-a317-3e4a5a4c6cb7",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/transport.go",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/backend/internal/mcp/credential.go",
-      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/backend/internal/mcp/transport.go"
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/monkeyai/backend/internal/mcp/transport.go",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "MCP connector troubleshooting and FAQ",
@@ -367,7 +368,7 @@
         {
           "heading": "What should I send support?",
           "paragraphs": [
-            "Record the time, affected team, connector type, sanitized endpoint, the step that failed, the error text and whether a test task reproduces it. Include the app and server versions when available. Remove tokens, header values and confidential data from logs and screenshots."
+            "Record the time, affected team, connector type, sanitized endpoint, the step that failed, the error text and whether a test task reproduces it. Include the app and server versions when available. Remove tokens, header values and confidential data from logs and screenshots. The v20261104 changelog says error messages return Simplified Chinese or English according to language and include a Trace ID. Unknown internal errors no longer expose details, so keep the visible Trace ID in a support report."
           ],
           "bullets": []
         }
@@ -416,7 +417,7 @@
         {
           "heading": "联系支持时应该提供什么？",
           "paragraphs": [
-            "记录发生时间、所属团队、连接器类型、脱敏后的端点、失败步骤、错误文本，以及测试任务能否复现；如能获取，也提供客户端和服务端版本。发送日志和截图前，移除令牌、Header 值和保密数据。"
+            "记录发生时间、所属团队、连接器类型、脱敏后的端点、失败步骤、错误文本，以及测试任务能否复现；如能获取，也提供客户端和服务端版本。发送日志和截图前，移除令牌、Header 值和保密数据。v20261104 更新日志说明，错误提示会按语言返回简体中文或英文并附带 Trace ID；未知内部错误不再暴露详情，因此反馈时应保留可见的 Trace ID。"
           ],
           "bullets": []
         }
@@ -465,7 +466,7 @@
         {
           "heading": "¿Qué información necesita soporte?",
           "paragraphs": [
-            "Anota la hora, el equipo afectado, el tipo de conector, el endpoint sin datos sensibles, el paso fallido, el mensaje de error y si se reproduce con una tarea de prueba. Añade las versiones del cliente y del servidor si están disponibles. Elimina tokens, valores de encabezados y datos confidenciales de registros y capturas."
+            "Anota la hora, el equipo afectado, el tipo de conector, el endpoint sin datos sensibles, el paso fallido, el mensaje de error y si se reproduce con una tarea de prueba. Añade las versiones del cliente y del servidor si están disponibles. Elimina tokens, valores de encabezados y datos confidenciales de registros y capturas. El registro de cambios v20261104 indica que los errores se devuelven en chino simplificado o inglés según el idioma e incluyen un Trace ID. Los errores internos desconocidos ya no exponen detalles, así que conserva el Trace ID visible en el informe de soporte."
           ],
           "bullets": []
         }
