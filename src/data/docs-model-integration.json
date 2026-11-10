@@ -259,7 +259,7 @@
           "heading": "Maintain and troubleshoot",
           "paragraphs": [
             "When a key, address, access scope or underlying model changes, update the configuration and repeat the test. Check the provider’s service availability, credential permissions, model ID, quota or balance, and interface-specific limits. Ask the operator which server, runtime or proxy initiates calls before diagnosing network reachability.",
-            "Stop providing a resource by using the available disable or authorization controls for your version. The v20261104 changelog says models support batch deletion, and batch operations provide confirmation, progress feedback, and failed-item retry. Before changing a widely shared configuration, consider effects on members and linked experts; review the upstream release-specific documentation for current management controls."
+            "Stop providing a resource by using the available disable or authorization controls for your version. The v20261104 changelog says models support batch deletion, and batch operations provide confirmation, progress feedback, and failed-item retry. The same release also says the model list supports batch selection, enabling or disabling, labels, and authorization scope, with shared confirmation and result prompts. Before changing a widely shared configuration, consider effects on members and linked experts; review the upstream release-specific documentation for current management controls."
           ],
           "bullets": [
             "Use a dedicated approved credential and follow your organization’s key-rotation process.",
@@ -333,7 +333,7 @@
           "heading": "维护与定位问题",
           "paragraphs": [
             "模型密钥、服务地址、授权范围或上游模型变化后，应更新对应配置并重新验证。逐项检查服务可用性、密钥权限、模型 ID、额度或余额，以及所选协议的限制。排查网络前，先向运维确认是哪个服务器、运行环境或代理实际发起模型请求。",
-            "暂时不再提供的资源，可根据当前版本提供的停用或授权管理入口处理。v20261104 更新日志说明，模型支持批量删除，批量操作会提供确认、进度反馈和失败重试。修改大范围共享配置前，先确认对成员和关联专家的影响，并以对应版本的官方说明为准。"
+            "暂时不再提供的资源，可根据当前版本提供的停用或授权管理入口处理。v20261104 更新日志说明，模型支持批量删除，批量操作会提供确认、进度反馈和失败重试。同一版本还说明模型列表支持批量选择、启用或禁用、设置标签及授权范围，并统一确认交互与操作结果提示。修改大范围共享配置前，先确认对成员和关联专家的影响，并以对应版本的官方说明为准。"
           ],
           "bullets": [
             "使用经批准的专用凭据，并遵循组织的密钥轮换流程。",
@@ -407,7 +407,7 @@
           "heading": "Mantén y diagnostica",
           "paragraphs": [
             "Si cambia la clave, la dirección, el alcance o el modelo externo, actualiza la configuración y repite la prueba. Comprueba servicio, permisos de la clave, ID, cuota o saldo y límites de la interfaz. Antes de diagnosticar la red, pregunta qué servidor, entorno o proxy inicia realmente las solicitudes.",
-            "Para dejar de ofrecer un recurso, utiliza los controles de desactivación o autorización disponibles en tu versión. El registro de cambios v20261104 indica que los modelos admiten eliminación por lotes y que esas operaciones ofrecen confirmación, progreso y reintento de los elementos fallidos. Antes de cambiar un recurso muy compartido, revisa el impacto en miembros y expertos vinculados; consulta las instrucciones de la versión instalada."
+            "Para dejar de ofrecer un recurso, utiliza los controles de desactivación o autorización disponibles en tu versión. El registro de cambios v20261104 indica que los modelos admiten eliminación por lotes y que esas operaciones ofrecen confirmación, progreso y reintento de los elementos fallidos. La misma versión también indica que la lista de modelos admite selección por lotes, activación o desactivación, etiquetas y alcance de autorización, con confirmación y avisos de resultado unificados. Antes de cambiar un recurso muy compartido, revisa el impacto en miembros y expertos vinculados; consulta las instrucciones de la versión instalada."
           ],
           "bullets": [
             "Usa una credencial aprobada y sigue el proceso de rotación de tu organización.",
