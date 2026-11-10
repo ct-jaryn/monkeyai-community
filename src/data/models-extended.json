@@ -310,7 +310,7 @@
     "officialUrl": "https://www.kimi.com/",
     "apiDocsUrl": "https://platform.kimi.ai/docs/get-your-api-key",
     "access": "hybrid",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "hugging-face"
     ],
@@ -336,7 +336,7 @@
         "API formats, input types, and tool support depend on the selected model and runtime.",
         "A downloadable release has its own license and hardware requirements; the Kimi app does not grant equivalent API access."
       ],
-      "accessNote": "Use the Kimi application for its built-in experience, the developer platform for API access, and official model repositories for particular downloadable releases. These routes have distinct requirements.",
+      "accessNote": "Use the Kimi application for its built-in experience, the developer platform for API access, and official model repositories for particular downloadable releases. These routes have distinct requirements. The quick start checked on 2026-11-10 recommends starting with Kimi K3.1 Pro and choosing the high-speed variant when faster output is needed. Model names can change, so confirm the current documentation before use.",
       "selectionTip": "Consider Kimi for coding or multi-step tool experiments and verify tool execution and output quality before expanding the scope."
     },
     "zh": {
@@ -355,7 +355,7 @@
         "调用格式、输入类型和工具支持取决于具体型号与运行环境。",
         "可下载版本有自己的许可证与硬件要求，应用账户不等于相同的 API 访问权限。"
       ],
-      "accessNote": "内置产品体验使用 Kimi 应用，API 访问使用开发者平台，指定可下载版本查看官方模型仓库；这些路径各有要求。",
+      "accessNote": "内置产品体验使用 Kimi 应用，API 访问使用开发者平台，指定可下载版本查看官方模型仓库；这些路径各有要求。2026-11-10 核查的快速入门建议从 Kimi K3.1 Pro 开始，需要更快输出时选择高速版；型号可能变化，使用前以当前文档为准。",
       "selectionTip": "编程或多步骤工具实验可将 Kimi 列为候选，扩大任务范围前先验证工具执行和成果质量。"
     },
     "es": {
@@ -375,7 +375,7 @@
         "Los formatos de API, entradas y herramientas dependen del modelo y del entorno.",
         "Cada versión descargable tiene licencia y requisitos propios; la aplicación no concede un acceso equivalente a la API."
       ],
-      "accessNote": "Usa la aplicación para su experiencia integrada, la plataforma para API y los repositorios oficiales para versiones descargables concretas. Sus requisitos son distintos.",
+      "accessNote": "Usa la aplicación para su experiencia integrada, la plataforma para API y los repositorios oficiales para versiones descargables concretas. Sus requisitos son distintos. La guía rápida revisada el 2026-11-10 recomienda empezar con Kimi K3.1 Pro y elegir la variante de alta velocidad cuando se necesite una salida más rápida. Los nombres pueden cambiar, así que confirma la documentación vigente antes de usarlo.",
       "selectionTip": "Incluye Kimi en pruebas de código o procesos con herramientas y comprueba ejecución y calidad antes de ampliar su alcance."
     }
   },
