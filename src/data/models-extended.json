@@ -413,7 +413,7 @@
         "Thinking controls, visual input, and endpoint support are model-specific.",
         "Standard API and coding-plan access differ; verify the exact release’s license and requirements for self-deployment."
       ],
-      "accessNote": "Z.ai documents hosted API and coding integration paths. Selected GLM releases also publish weights; the license and serving requirements must be checked for the exact artifact. On 2026-11-10, z.ai redirected to the chat.z.ai chat entry; API instructions remain on docs.z.ai.",
+      "accessNote": "Z.ai documents hosted API and coding integration paths. Selected GLM releases also publish weights; the license and serving requirements must be checked for the exact artifact. On 2026-11-10, z.ai redirected to the chat.z.ai chat entry; API instructions remain on docs.z.ai. The quick start checked on 2026-11-10 labels GLM-5.3 as the latest flagship and GLM-5.3-Flash as a multimodal coding model. Model names and prices can change, so confirm the current documentation before use.",
       "selectionTip": "Consider GLM for a controlled reasoning or coding evaluation and keep the endpoint, model ID, tools, and tests in the evaluation record."
     },
     "zh": {
@@ -432,7 +432,7 @@
         "思考设置、视觉输入和端点支持取决于具体型号。",
         "标准 API 与编程套餐权限不同，自部署需核对实际版本的许可证和运行要求。"
       ],
-      "accessNote": "Z.ai 文档介绍托管 API 和编程集成路径，部分 GLM 版本也发布权重；具体文件的许可证与推理要求应逐一核实。2026-11-10 核查时，z.ai 会跳转到 chat.z.ai 聊天入口；API 说明仍以 docs.z.ai 为准。",
+      "accessNote": "Z.ai 文档介绍托管 API 和编程集成路径，部分 GLM 版本也发布权重；具体文件的许可证与推理要求应逐一核实。2026-11-10 核查时，z.ai 会跳转到 chat.z.ai 聊天入口；API 说明仍以 docs.z.ai 为准。2026-11-10 核查的快速入门把 GLM-5.3 标为最新旗舰，并把 GLM-5.3-Flash 标为多模态编程型号；型号和价格可能变化，使用前以当前文档为准。",
       "selectionTip": "可以用 GLM 开展受控的推理或编程评估，并记录端点、模型 ID、启用工具与测试结果。"
     },
     "es": {
@@ -452,7 +452,7 @@
         "El razonamiento, la visión y los endpoints compatibles dependen del modelo.",
         "La API estándar y el plan de programación tienen accesos diferentes; verifica licencia y requisitos del archivo descargado."
       ],
-      "accessNote": "Z.ai documenta rutas de API alojada e integración de código. Algunas versiones publican pesos; revisa la licencia y los requisitos del archivo concreto. El 2026-11-10, z.ai redirigía a la entrada de chat chat.z.ai; las instrucciones de API siguen en docs.z.ai.",
+      "accessNote": "Z.ai documenta rutas de API alojada e integración de código. Algunas versiones publican pesos; revisa la licencia y los requisitos del archivo concreto. El 2026-11-10, z.ai redirigía a la entrada de chat chat.z.ai; las instrucciones de API siguen en docs.z.ai. La guía rápida revisada el 2026-11-10 marca GLM-5.3 como el modelo insignia más reciente y GLM-5.3-Flash como modelo de programación multimodal. Los nombres y precios pueden cambiar, así que confirma la documentación vigente antes de usarlos.",
       "selectionTip": "Evalúa GLM en una tarea controlada de razonamiento o código y registra endpoint, modelo, herramientas y pruebas."
     }
   }
