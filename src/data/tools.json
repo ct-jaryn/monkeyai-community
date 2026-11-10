@@ -616,5 +616,48 @@
       ],
       "caveat": "Comprueba créditos, costos del proveedor, versiones y permisos. No trates los resultados generados como verificados."
     }
+  },
+  {
+    "slug": "agent-qa",
+    "name": "agent-qa",
+    "url": "https://vostride.com",
+    "category": "coding",
+    "mark": "aq",
+    "color": "#0e7490",
+    "sourceUrl": "https://vostride.com/docs/agent-qa/mcp",
+    "reviewed": "2026-11-10",
+    "en": {
+      "tagline": "Test app journeys with persistent memory",
+      "seoDescription": "Explore agent-qa by vostride: natural-language web and mobile QA with persistent memidex memory, validated self-improvement and recorded evidence.",
+      "description": "agent-qa by vostride tests web, Android and iOS apps from plain-language instructions through a local CLI, dashboard or MCP server. Its memidex engine keeps persistent facts and procedures; validated self-improvement retains lessons supported by run evidence. Review recorded steps and screenshots after changes.",
+      "useCases": [
+        "Verify app changes after AI-assisted coding",
+        "Repeat web and mobile regression journeys",
+        "Review run evidence and retained app knowledge"
+      ],
+      "caveat": "Requires Node.js 24+, a configured model and a browser or device environment. Product platform fees are $0; provider and infrastructure costs may apply. FSL-1.1-ALv2 includes competing-use restrictions. Source review only; not a runtime test."
+    },
+    "zh": {
+      "tagline": "用持久记忆验证应用流程",
+      "seoDescription": "了解 vostride 的 agent-qa：以自然语言测试网页和移动应用，结合 memidex 持久记忆、经验证的自我改进与可复核的运行证据。",
+      "description": "agent-qa 是 vostride 的网页、Android 与 iOS 自然语言测试工具，可通过本地 CLI、仪表盘或 MCP 服务使用。memidex 保留持久的应用事实和操作流程，经验证的自我改进只保留有运行证据支持的经验。改动后可复核步骤与截图。",
+      "useCases": [
+        "验证 AI 辅助编程后的应用改动",
+        "重复执行网页与移动端回归流程",
+        "复核运行证据与保留的应用知识"
+      ],
+      "caveat": "需要 Node.js 24+、已配置模型以及浏览器或设备环境。平台费用为 $0；模型与基础设施可能另收费。FSL-1.1-ALv2 限制竞争性用途。本次仅复核来源，未运行产品。"
+    },
+    "es": {
+      "tagline": "Verifica recorridos con memoria persistente",
+      "seoDescription": "Conoce agent-qa de vostride: pruebas web y móviles en lenguaje natural, memoria memidex persistente, mejora validada y evidencias de ejecución.",
+      "description": "agent-qa de vostride prueba aplicaciones web, Android e iOS a partir de instrucciones en lenguaje natural mediante CLI, panel local o servidor MCP. memidex conserva hechos y procedimientos; la mejora validada retiene lecciones respaldadas por ejecuciones. Permite revisar pasos y capturas después de los cambios.",
+      "useCases": [
+        "Verificar cambios tras programar con IA",
+        "Repetir recorridos de regresión web y móvil",
+        "Revisar evidencias y conocimiento de la aplicación"
+      ],
+      "caveat": "Requiere Node.js 24+, un modelo configurado y un navegador o dispositivo. La plataforma cuesta $0; proveedores e infraestructura pueden cobrar aparte. FSL-1.1-ALv2 restringe usos competitivos. Revisión de fuentes, sin ejecutar el producto."
+    }
   }
 ]

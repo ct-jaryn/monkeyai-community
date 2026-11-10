@@ -256,5 +256,20 @@
     "type": "image/png",
     "verified": "2026-11-10",
     "note": "Official PNG saved unchanged."
+  },
+  {
+    "key": "agent-qa",
+    "file": "public/logos/agent-qa.png",
+    "sourceUrl": "https://vostride.com/brand/vostride-pixel-icon-192.png",
+    "pageUrl": "https://vostride.com",
+    "sha256": "8e96d9a10af9101a042e79f5a635900c3d1454185ce7b6ece6ad2a33f7da0dc0",
+    "bytes": 13618,
+    "type": "image/png",
+    "verified": "2026-11-10",
+    "dimensions": [
+      192,
+      192
+    ],
+    "note": "Official vostride icon supplied unchanged for the affiliated product listing. No recoloring, reshaping or product-asset changes; third-party trademark terms remain separate from this repository license."
   }
 ]
