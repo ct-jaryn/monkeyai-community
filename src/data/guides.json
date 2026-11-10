@@ -497,7 +497,8 @@
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
-      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d"
+      "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Plan a self-hosted MonkeyAI workspace",
@@ -506,7 +507,7 @@
         {
           "heading": "Decide what your server will own",
           "paragraphs": [
-            "Self-hosting lets your team manage the server, stored team data, access, backups, and upgrades. The upstream README describes a lightweight starting configuration of one CPU core and 1 GB of memory. Treat this as a starting point, not a capacity guarantee: actual requirements depend on team size, storage, configured services, and workload.",
+            "Self-hosting lets your team manage the server, stored team data, access, backups, and upgrades. The upstream README describes a lightweight starting configuration of one CPU core and 1 GB of memory. Treat this as a starting point, not a capacity guarantee: actual requirements depend on team size, storage, configured services, and workload. The v20261026 changelog says MonkeyAI was publicly released as open source and supports private deployment and enterprise team administration. Open source and private deployment do not mean external models, tools, or hosted services are free; check current prices, quotas, and licenses with the provider and in the product.",
             "Before installation, choose an administrator, a server address, and a plan for backups and maintenance. Review the current official deployment documentation. This community guide explains the decisions and checks around deployment; it does not replace the upstream operating instructions or claim that an installation has been tested on your infrastructure."
           ],
           "bullets": [
@@ -557,7 +558,7 @@
         {
           "heading": "确定自己负责的运行范围",
           "paragraphs": [
-            "自托管让团队自行管理服务器、团队数据、访问权限、备份和升级。上游 README 给出的轻量起步配置是 1 核 CPU、1 GB 内存。这是起点，不是容量保证；真实资源需求还取决于团队人数、存储量、配置服务和任务负载。正式使用前应按实际情况评估。",
+            "自托管让团队自行管理服务器、团队数据、访问权限、备份和升级。上游 README 给出的轻量起步配置是 1 核 CPU、1 GB 内存。这是起点，不是容量保证；真实资源需求还取决于团队人数、存储量、配置服务和任务负载。v20261026 更新日志说明，百智办公正式对外开源发布，并支持私有化部署与企业级团队管控。开源和私有化部署不等于外部模型、工具或托管服务没有费用，当前价格、额度和授权仍需在服务商与产品中核对。正式使用前应按实际情况评估。",
             "安装前先确定管理员、服务器访问地址，以及备份和维护安排。请阅读当前官方部署文档。本社区指南解释部署前后的决策与检查，不替代上游运维说明，也不表示已经在你的基础设施上完成安装验证。第一次部署适合先放在测试环境，熟悉流程后再接入团队资料。"
           ],
           "bullets": [
@@ -608,7 +609,7 @@
         {
           "heading": "Define qué administrará tu equipo",
           "paragraphs": [
-            "El alojamiento propio permite gestionar el servidor, los datos del equipo, el acceso, las copias y las actualizaciones. El README describe una configuración inicial ligera de un núcleo de CPU y 1 GB de memoria. Es un punto de partida, no una garantía de capacidad: la demanda depende del equipo, el almacenamiento y las tareas.",
+            "El alojamiento propio permite gestionar el servidor, los datos del equipo, el acceso, las copias y las actualizaciones. El README describe una configuración inicial ligera de un núcleo de CPU y 1 GB de memoria. Es un punto de partida, no una garantía de capacidad: la demanda depende del equipo, el almacenamiento y las tareas. El registro v20261026 indica que MonkeyAI se publicó como código abierto y admite despliegue privado y administración de equipo empresarial. El código abierto y el despliegue privado no significan que los modelos externos, las herramientas o los servicios alojados sean gratuitos; confirma precios, cuotas y licencias actuales con el proveedor y en el producto.",
             "Antes de instalar, asigna un administrador, elige una dirección y prepara un plan de mantenimiento y copias. Lee la documentación de despliegue vigente. Esta guía explica decisiones y comprobaciones; no sustituye las instrucciones operativas ni afirma que la instalación se haya validado en tu infraestructura."
           ],
           "bullets": [
@@ -652,7 +653,7 @@
         }
       ]
     },
-    "reviewed": "2026-11-09"
+    "reviewed": "2026-11-10"
   },
   {
     "slug": "contributing",
