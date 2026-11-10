@@ -340,7 +340,7 @@
         {
           "heading": "Why does the connection test fail?",
           "paragraphs": [
-            "Confirm that the address is the provider’s actual MCP endpoint, the service is running, and the relevant machine has network access. Check the authentication mode and credentials, then run Test connection again. For a local tool, also check that its command, arguments and dependencies match the provider’s instructions.",
+            "Confirm that the address is the provider’s actual MCP endpoint, the service is running, and the relevant machine has network access. Check the authentication mode and credentials, then run Test connection again. The v20261105 changelog says an independently authorized MCP refreshes the current credential’s tool catalog when its tool list is fetched, so upstream tool changes can be synchronized. For a local tool, also check that its command, arguments and dependencies match the provider’s instructions.",
             "HTTP Header names and values must match the service requirements. The reviewed backend rejects invalid, duplicate and certain protocol-reserved headers; use the provider’s authentication header instead of trying to override protocol headers such as Host or Content-Type."
           ],
           "bullets": []
@@ -389,7 +389,7 @@
         {
           "heading": "为什么连接测试失败？",
           "paragraphs": [
-            "确认地址是提供方实际的 MCP 端点、服务正在运行，且相关机器具有网络访问能力。核对授权模式和凭证，再重新「测试连接」。本机工具还要检查命令、参数和依赖是否符合提供方说明。",
+            "确认地址是提供方实际的 MCP 端点、服务正在运行，且相关机器具有网络访问能力。核对授权模式和凭证，再重新「测试连接」。v20261105 更新日志说明，独立认证 MCP 在获取工具列表时会自动刷新当前凭证的工具目录，以便同步上游工具变化。本机工具还要检查命令、参数和依赖是否符合提供方说明。",
             "HTTP Header 名称和值必须符合服务要求。查阅的后端源码会拒绝无效、重复和部分协议保留的 Header；应使用提供方指定的认证 Header，不要试图覆盖 Host 或 Content-Type 等协议字段。"
           ],
           "bullets": []
@@ -438,7 +438,7 @@
         {
           "heading": "¿Por qué falla la prueba de conexión?",
           "paragraphs": [
-            "Confirma que la dirección sea el endpoint MCP real del proveedor, que el servicio esté activo y que la máquina correspondiente tenga acceso a la red. Revisa el modo de autorización y las credenciales, y vuelve a probar. Para una herramienta local, comprueba también el comando, los argumentos y las dependencias según las instrucciones del proveedor.",
+            "Confirma que la dirección sea el endpoint MCP real del proveedor, que el servicio esté activo y que la máquina correspondiente tenga acceso a la red. Revisa el modo de autorización y las credenciales, y vuelve a probar. El registro de cambios v20261105 indica que un MCP con autorización independiente actualiza el catálogo de herramientas de la credencial actual al obtener su lista, para sincronizar los cambios del proveedor. Para una herramienta local, comprueba también el comando, los argumentos y las dependencias según las instrucciones del proveedor.",
             "Los nombres y valores de HTTP Header deben coincidir con los requisitos del servicio. El backend revisado rechaza encabezados inválidos, duplicados y algunos reservados para el protocolo; utiliza el encabezado de autenticación del proveedor en vez de sobrescribir campos como Host o Content-Type."
           ],
           "bullets": []
