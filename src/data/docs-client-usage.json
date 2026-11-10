@@ -405,7 +405,7 @@
           "heading": "Add, switch and remove accounts",
           "paragraphs": [
             "Settings, then Account, shows the current account, its team and server address, and the accounts saved on this device. Adding an account signs you in to another server or team. Switching to one of the saved accounts interrupts the task that is currently running, so finish or stop the work first.",
-            "Signing out leaves this device’s data in place, while removing an account deletes the record of it locally and asks whether to clear related data too. That choice is the one to read carefully: session history and workspace files can go with it, and they are not recoverable from the server afterwards. When an account shows that it needs to sign in again, click it and complete the authorisation the browser offers."
+            "Signing out leaves this device’s data in place, while removing an account deletes the record of it locally and asks whether to clear related data too. The v20261103 changelog also says changing your own password keeps the current browser signed in and revokes other sessions and authorizations. That choice is the one to read carefully: session history and workspace files can go with it, and they are not recoverable from the server afterwards. When an account shows that it needs to sign in again, click it and complete the authorisation the browser offers."
           ],
           "bullets": [
             "Switch accounts between tasks, not during one.",
@@ -444,7 +444,7 @@
           "heading": "添加、切换与移除账号",
           "paragraphs": [
             "进入「设置 → 账号」，可以查看当前账号、所属团队、服务器地址，以及此设备上保存的账号。添加账号用于登录其他服务器或团队。切换到已添加的账号会中断当前任务，请先完成或停止手头的工作。",
-            "退出登录会退出当前账号并保留本机数据；移除账号则会从本机移除该账号，并按提示询问是否同时清理相关数据。这一步要看清选项：会话历史和工作区文件可能一并删除，事后无法从服务器找回。账号显示「需要重新登录」时，点击后按浏览器提示完成授权即可。"
+            "退出登录会退出当前账号并保留本机数据；移除账号则会从本机移除该账号，并按提示询问是否同时清理相关数据。v20261103 更新日志还说明，本人修改密码后会保留当前浏览器登录，并撤销其他会话及授权。这一步要看清选项：会话历史和工作区文件可能一并删除，事后无法从服务器找回。账号显示「需要重新登录」时，点击后按浏览器提示完成授权即可。"
           ],
           "bullets": [
             "在两个任务之间切换账号，不要在任务执行中切换。",
@@ -483,7 +483,7 @@
           "heading": "Añadir, cambiar y eliminar cuentas",
           "paragraphs": [
             "Ajustes y luego Cuenta muestran la cuenta actual, su equipo y dirección de servidor, y las cuentas guardadas en este equipo. Añadir una cuenta inicia sesión en otro servidor o equipo. Cambiar a una cuenta guardada interrumpe la tarea que se está ejecutando, así que termina o detén el trabajo primero.",
-            "Cerrar sesión deja intactos los datos de este equipo, mientras que eliminar una cuenta borra su registro local y pregunta si hay que limpiar también los datos relacionados. Esa elección merece atención: el historial de sesiones y los archivos del espacio de trabajo pueden irse con ella y no se recuperan después desde el servidor. Cuando una cuenta indica que hay que volver a iniciar sesión, púlsala y completa la autorización que ofrezca el navegador."
+            "Cerrar sesión deja intactos los datos de este equipo, mientras que eliminar una cuenta borra su registro local y pregunta si hay que limpiar también los datos relacionados. El registro de cambios v20261103 también indica que cambiar la propia contraseña mantiene la sesión del navegador actual y revoca las demás sesiones y autorizaciones. Esa elección merece atención: el historial de sesiones y los archivos del espacio de trabajo pueden irse con ella y no se recuperan después desde el servidor. Cuando una cuenta indica que hay que volver a iniciar sesión, púlsala y completa la autorización que ofrezca el navegador."
           ],
           "bullets": [
             "Cambia de cuenta entre tareas, no durante una.",
