@@ -415,7 +415,7 @@
     "slug": "backup-and-upgrade-self-hosted-monkeyai",
     "category": "Installation and deployment",
     "docGroup": "install",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 9,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
@@ -465,7 +465,7 @@
         {
           "heading": "Check upgrades and migrations first",
           "paragraphs": [
-            "Record the deployed revision, read the matching release and migration notes, schedule downtime and take a tested backup before changing a live system. Use backend and migration images from the same release. Older databases with a different 000001–000013 migration history cannot be switched to the consolidated history by force; retaining their data requires a separate migration plan. Later versions add background data migration on top of schema changes: from the notes reviewed on 2026-11-09, versions 29, 32 and 34 prepare weekly billing and monthly session-turn partitions and then move rows in the background, so reaching the newest migration version does not by itself mean the data move has finished; the notes name the state tables to inspect."
+            "Record the deployed revision, read the matching release and migration notes, schedule downtime and take a tested backup before changing a live system. Use backend and migration images from the same release. Older databases with a different 000001–000013 migration history cannot be switched to the consolidated history by force; retaining their data requires a separate migration plan. Later versions add background data migration on top of schema changes: from the notes reviewed again on 2026-11-10, versions 29, 32 and 34 prepare weekly billing and monthly session-turn partitions and then move rows in the background, so reaching the newest migration version does not by itself mean the data move has finished; the notes name the state tables to inspect. Version 37 adds one-time phone pairing records. The notes say the new backend depends on that table to revoke unredeemed pairing grants when a password changes, so run the migration before starting the new backend."
           ],
           "bullets": [
             "The migration notes reviewed on 2026-11-09 describe version 14, dirty=false to version 37 for deployments already using the consolidated history. The earlier pinned revision documented version 29, so read the notes that ship with your release; this is still not a universal upgrade path.",
@@ -514,7 +514,7 @@
         {
           "heading": "升级前检查迁移",
           "paragraphs": [
-            "记录当前版本，阅读对应发布和迁移说明，安排停机，并在修改正式环境前制作经过恢复验证的备份。backend 和迁移镜像应来自同一版本。使用另一套 000001–000013 迁移历史的旧数据库不能用 force 直接切换到合并后的历史；保留旧数据需要单独制定迁移方案。后续版本在结构变更之外还有后台数据迁移：2026-11-09 核对的说明中，版本 29、32、34 先准备账本周分区与轮次月分区，再由后台进程搬迁数据，因此迁移版本到位不代表数据搬迁已经完成，说明中列出了可查看状态的表。"
+            "记录当前版本，阅读对应发布和迁移说明，安排停机，并在修改正式环境前制作经过恢复验证的备份。backend 和迁移镜像应来自同一版本。使用另一套 000001–000013 迁移历史的旧数据库不能用 force 直接切换到合并后的历史；保留旧数据需要单独制定迁移方案。后续版本在结构变更之外还有后台数据迁移：2026-11-10 再次核对的说明中，版本 29、32、34 先准备账本周分区与轮次月分区，再由后台进程搬迁数据，因此迁移版本到位不代表数据搬迁已经完成，说明中列出了可查看状态的表。版本 37 新增一次性手机配对记录；说明指出，新后端修改密码时依赖该表撤销尚未兑换的配对授权，所以必须先完成迁移再启动新后端。"
           ],
           "bullets": [
             "2026-11-09 核对的迁移文档描述了已使用合并历史、version 14 且 dirty=false 到 version 37 的路径；较早的固定版本记录的是 version 29，请阅读随你所用版本发布的说明；这同样不是通用升级路径。",
@@ -563,7 +563,7 @@
         {
           "heading": "Revisa las migraciones antes de actualizar",
           "paragraphs": [
-            "Anota la revisión desplegada, lee las notas de versión y migración correspondientes, programa mantenimiento y prepara una copia cuya restauración se haya probado. Usa imágenes de backend y migración de la misma versión. Las bases antiguas con otra historia de migraciones 000001–000013 no pueden cambiar a la historia consolidada mediante force; conservar sus datos requiere un plan específico. Las versiones posteriores añaden migración de datos en segundo plano: en las notas revisadas el 09-11-2026, las versiones 29, 32 y 34 preparan particiones semanales de facturación y mensuales de turnos y luego mueven filas en segundo plano, de modo que alcanzar la última versión de migración no significa por sí solo que el traslado haya terminado; las notas indican las tablas de estado que debes consultar."
+            "Anota la revisión desplegada, lee las notas de versión y migración correspondientes, programa mantenimiento y prepara una copia cuya restauración se haya probado. Usa imágenes de backend y migración de la misma versión. Las bases antiguas con otra historia de migraciones 000001–000013 no pueden cambiar a la historia consolidada mediante force; conservar sus datos requiere un plan específico. Las versiones posteriores añaden migración de datos en segundo plano: en las notas revisadas de nuevo el 10-11-2026, las versiones 29, 32 y 34 preparan particiones semanales de facturación y mensuales de turnos y luego mueven filas en segundo plano, de modo que alcanzar la última versión de migración no significa por sí solo que el traslado haya terminado; las notas indican las tablas de estado que debes consultar. La versión 37 añade registros de emparejamiento único por teléfono; las notas indican que el nuevo backend depende de esa tabla para revocar autorizaciones de emparejamiento no canjeadas al cambiar la contraseña, así que ejecuta la migración antes de iniciar el nuevo backend."
           ],
           "bullets": [
             "Las notas revisadas el 09-11-2026 describen el paso de versión 14, dirty=false a versión 37 en instalaciones que ya usan la historia consolidada. La revisión fijada anterior documentaba la 29, así que lee las notas de tu versión; tampoco es una ruta universal.",
