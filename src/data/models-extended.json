@@ -236,7 +236,7 @@
     "officialUrl": "https://grok.com/",
     "apiDocsUrl": "https://docs.x.ai/developers/models",
     "access": "hosted",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [],
     "sourceUrls": [
       "https://docs.x.ai/developers/models",
@@ -257,7 +257,7 @@
         "Use structured outputs and function tools where the model supports them"
       ],
       "limitations": [
-        "Real-time information requires the relevant search tools; model knowledge alone is not live data.",
+        "Real-time information requires the relevant search tools; model knowledge alone is not live data. The model page checked on 2026-11-10 lists Grok 4.7 for general tasks such as code and states a May 2026 knowledge cutoff. Model names and dates can change, so confirm the current page before use.",
         "The Grok-1 open release does not establish download rights or equivalent capabilities for current API models."
       ],
       "accessNote": "Use Grok’s app for the consumer experience or the developer console and API documentation for integrations. This profile classifies the current developer path as hosted; historical open releases are separate.",
@@ -276,7 +276,7 @@
         "在支持的型号上使用结构化输出和函数工具"
       ],
       "limitations": [
-        "实时信息需要对应搜索工具，模型已有知识本身并不是实时数据。",
+        "实时信息需要对应搜索工具，模型已有知识本身并不是实时数据。2026-11-10 核查的模型文档把 Grok 4.7 列为代码等通用任务的当前型号，并写明其知识截止日期为 2026 年 5 月；型号和日期可能变化，使用前以当前文档为准。",
         "Grok-1 开放发布不等于当前 API 型号也可下载或具备相同能力。"
       ],
       "accessNote": "消费者体验请访问 Grok 应用，集成开发请使用开发者控制台和 API 文档。本介绍将当前开发者路径归为托管服务，历史开放发布另行区分。",
@@ -296,7 +296,7 @@
         "Usar salidas estructuradas y funciones en modelos compatibles"
       ],
       "limitations": [
-        "La información en tiempo real necesita herramientas de búsqueda; el conocimiento del modelo no es información en directo.",
+        "La información en tiempo real necesita herramientas de búsqueda; el conocimiento del modelo no es información en directo. La página de modelos revisada el 2026-11-10 indica Grok 4.7 para tareas generales como código y un límite de conocimiento de mayo de 2026. Los nombres y fechas pueden cambiar, así que confirma la página vigente antes de usarlo.",
         "La publicación abierta de Grok-1 no demuestra derechos de descarga ni capacidades equivalentes de las API actuales."
       ],
       "accessNote": "La aplicación ofrece la experiencia de usuario; la consola y documentación de API sirven para integrar. Aquí la ruta actual se clasifica como alojada y se distingue de publicaciones históricas.",
