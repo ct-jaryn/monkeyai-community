@@ -244,7 +244,7 @@
     "officialUrl": "https://www.deepseek.com/",
     "apiDocsUrl": "https://api-docs.deepseek.com/",
     "access": "hybrid",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "ollama",
       "hugging-face"
@@ -253,7 +253,8 @@
       "https://api-docs.deepseek.com/",
       "https://api-docs.deepseek.com/guides/thinking_mode/",
       "https://api-docs.deepseek.com/guides/tool_calls/",
-      "https://github.com/deepseek-ai/DeepSeek-V3.2-Exp", "https://api-docs.deepseek.com/quick_start/pricing"
+      "https://github.com/deepseek-ai/DeepSeek-V3.2-Exp",
+      "https://api-docs.deepseek.com/quick_start/pricing"
     ],
     "en": {
       "tagline": "Reasoning-oriented API models alongside separately released model weights",
@@ -273,7 +274,7 @@
         "Hosted API endpoints and downloadable checkpoints can differ in features and behavior.",
         "Local inference needs a suitable runtime and hardware; tool conversations must follow provider-specific requirements."
       ],
-      "accessNote": "Choose the hosted API or a specific released checkpoint. Verify its own documentation and license; the DeepSeek chat app is a separate user interface.",
+      "accessNote": "Choose the hosted API or a specific released checkpoint. Verify its own documentation and license; the DeepSeek chat app is a separate user interface. The pricing page checked on 2026-11-10 says Search and Fetch are separate APIs billed per successful request, not part of the model token price. Prices can change, so check the current pricing page before use.",
       "selectionTip": "First decide whether you need an API service or to operate inference yourself. Then test the exact endpoint or checkpoint on your own workload."
     },
     "zh": {
@@ -292,7 +293,7 @@
         "托管 API 端点与可下载检查点的功能和行为可能不同。",
         "本地推理需要合适的运行环境和硬件，工具会话也必须符合厂商的具体要求。"
       ],
-      "accessNote": "选择托管 API 或具体已发布检查点，并分别核对文档与许可证；DeepSeek 对话应用是另一层用户界面。",
+      "accessNote": "选择托管 API 或具体已发布检查点，并分别核对文档与许可证；DeepSeek 对话应用是另一层用户界面。2026-11-10 核查的价格页说明，Search 和 Fetch 是独立 API，按成功请求计费，不是模型 Token 价格的一部分；具体价格可能调整，使用前以当前价格页为准。",
       "selectionTip": "先决定需要现成 API 服务还是自行运维推理，再用自己的任务测试确切端点或检查点。"
     },
     "es": {
@@ -313,7 +314,7 @@
         "Los endpoints alojados y los checkpoints descargables pueden diferir en funciones y comportamiento.",
         "La inferencia local necesita entorno y hardware adecuados; las conversaciones con herramientas tienen requisitos específicos."
       ],
-      "accessNote": "Elige la API alojada o un checkpoint publicado concreto. Revisa su documentación y licencia; la aplicación de chat es una interfaz de usuario distinta.",
+      "accessNote": "Elige la API alojada o un checkpoint publicado concreto. Revisa su documentación y licencia; la aplicación de chat es una interfaz de usuario distinta. La página de precios revisada el 2026-11-10 indica que Search y Fetch son API independientes que se cobran por solicitud correcta, no forman parte del precio por token del modelo. Los precios pueden cambiar, así que consulta la página vigente antes de usarlas.",
       "selectionTip": "Decide primero si necesitas un servicio de API o gestionar la inferencia. Después prueba el endpoint o checkpoint concreto con tu propia carga de trabajo."
     }
   }
