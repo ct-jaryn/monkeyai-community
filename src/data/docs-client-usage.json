@@ -394,7 +394,8 @@
     "readMinutes": 6,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a15cb5-daf3-7259-a20c-401453d2667b",
-      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d",
+      "https://work.docs.baizhi.cloud/node/01a16771-ca0b-7c85-b168-649eb1fea408"
     ],
     "en": {
       "title": "Manage accounts, devices and local settings",
@@ -415,7 +416,7 @@
           "heading": "Remote device access is not a mobile client",
           "paragraphs": [
             "Settings, then Device, offers Allow other devices to access remotely. With it on, another computer signed in to the same account can drive the desktop session that is already running here. The official account guide reviewed on 2026-11-10 is explicit that this is not a native phone app: Android and iOS clients are not available yet and are marked as coming soon, and a phone that connects is only reaching this desktop client. The v20261103 changelog adds a server-side mobile pairing API with QR codes, pairing-code confirmation, and PKCE, but that does not by itself publish a phone client or a user-facing pairing workflow.",
-            "That means the computer must stay running and online for remote access to work. Closing the window is not quitting: the application keeps running in the tray and the service stays up. Quitting the application stops the local execution service and disconnects the other devices."
+            "That means the computer must stay running and online for remote access to work. Closing the window is not quitting: the application keeps running in the tray and the service stays up. Quitting the application stops the local execution service and disconnects the other devices. The remote-control guide reviewed on 2026-11-10 also says the remote window can continue ordinary tasks but cannot create design tasks, and an offline device remains listed but cannot be opened."
           ],
           "bullets": [
             "Leave the desktop awake and connected when you intend to work from elsewhere.",
@@ -454,7 +455,7 @@
           "heading": "远程设备访问不等于手机客户端",
           "paragraphs": [
             "进入「设置 → 设备」，可以设置是否允许其他设备远程访问。开启后，同一账号下的另一台电脑可以远程控制这台已经在运行的桌面会话。2026-11-10 复核的官方账号指南明确指出这不是手机原生应用：Android、iOS 客户端仍未提供，并标注为即将支持；即使用手机连上，也只是访问这台桌面客户端。v20261103 更新日志新增了手机扫码配对登录的服务端接口，支持二维码、配对码确认和 PKCE 校验；这本身并不等于已经发布手机客户端或面向用户的配对操作流程。",
-            "因此这台电脑必须保持运行并联网，远程访问才可用。只关窗口不算退出：应用会缩到托盘继续运行，服务不会中断；真正退出应用才会停止本机的执行服务，其他设备也会断开。"
+            "因此这台电脑必须保持运行并联网，远程访问才可用。只关窗口不算退出：应用会缩到托盘继续运行，服务不会中断；真正退出应用才会停止本机的执行服务，其他设备也会断开。2026-11-10 复核的远程控制指南还说明，远程窗口可以继续普通任务，但暂不支持创建设计任务；离线设备会出现在列表中，却不能打开。"
           ],
           "bullets": [
             "打算从别处继续工作时，让桌面保持唤醒并联网。",
@@ -493,7 +494,7 @@
           "heading": "El acceso remoto no es un cliente móvil",
           "paragraphs": [
             "Ajustes y luego Dispositivo ofrece Permitir el acceso remoto desde otros dispositivos. Con la opción activa, otro equipo con la misma cuenta puede manejar la sesión de escritorio que ya se ejecuta aquí. La guía oficial de cuentas revisada el 10-11-2026 lo dice con claridad: no es una aplicación nativa para el teléfono, los clientes Android e iOS aún no están disponibles y figuran como próximos, y un teléfono que se conecta solo alcanza este cliente de escritorio. El registro de cambios v20261103 añade una API de servidor para el emparejamiento móvil con códigos QR, confirmación del código y PKCE, pero eso por sí solo no publica un cliente móvil ni un flujo de emparejamiento para el usuario.",
-            "Por eso el equipo debe seguir encendido y en línea para que el acceso remoto funcione. Cerrar la ventana no es salir: la aplicación sigue en la bandeja y el servicio se mantiene. Salir de la aplicación detiene el servicio de ejecución local y desconecta los demás dispositivos."
+            "Por eso el equipo debe seguir encendido y en línea para que el acceso remoto funcione. Cerrar la ventana no es salir: la aplicación sigue en la bandeja y el servicio se mantiene. Salir de la aplicación detiene el servicio de ejecución local y desconecta los demás dispositivos. La guía de control remoto revisada el 10-11-2026 también indica que la ventana remota puede continuar tareas normales, pero no crear tareas de diseño, y que un dispositivo sin conexión sigue en la lista pero no se puede abrir."
           ],
           "bullets": [
             "Deja el escritorio despierto y conectado cuando vayas a trabajar desde otro sitio.",
