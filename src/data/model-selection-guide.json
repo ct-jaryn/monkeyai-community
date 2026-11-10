@@ -6,7 +6,8 @@
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/",
       "https://aistudio.google.com/docs/models",
-      "https://developers.openai.com/api/docs/models"
+      "https://developers.openai.com/api/docs/models",
+      "https://github.com/chaitin/MonkeyCode/pull/1507"
     ],
     "en": {
       "title": "How to choose an AI model for your workflow",
@@ -38,7 +39,7 @@
         {
           "heading": "Check the operational tradeoffs",
           "paragraphs": [
-            "Compare the current terms of the specific release: access controls, data handling, regional availability, and permitted use. Open weights describe a distribution method; they do not guarantee a single license or remove hardware and maintenance work. Hosted access also does not guarantee identical tools, quotas, or features across products.",
+            "Compare the current terms of the specific release: access controls, data handling, regional availability, and permitted use. The upstream fix merged on 2026-11-10 checks client model lists and calls by resource authorization. Administrator identity no longer grants client access to a system model by itself. Open weights describe a distribution method; they do not guarantee a single license or remove hardware and maintenance work. Hosted access also does not guarantee identical tools, quotas, or features across products.",
             "Measure response time and usage with your own inputs. Read the current official pricing and model documentation before estimating ongoing cost. Include retries, human review, and integration work. A result that needs extensive correction may be less useful for your workflow even if the initial response looks impressive."
           ],
           "bullets": [
@@ -89,7 +90,7 @@
         {
           "heading": "核对部署与长期使用的取舍",
           "paragraphs": [
-            "查看具体版本的访问控制、数据处理、地区可用性和使用条款。“开放权重”说明了一种分发方式，并不代表只有一种许可证，也不会免除硬件配置和维护工作。托管入口同样不保证不同产品拥有相同的工具、额度或功能。",
+            "查看具体版本的访问控制、数据处理、地区可用性和使用条款。2026-11-10 合并的上游修复说明，客户端模型列表和实际调用按资源授权校验；管理员身份本身不再自动获得系统模型的客户端访问。“开放权重”说明了一种分发方式，并不代表只有一种许可证，也不会免除硬件配置和维护工作。托管入口同样不保证不同产品拥有相同的工具、额度或功能。",
             "用自己的材料测量响应时间和用量；估算长期成本前，阅读当前官方价格与型号说明。把重试、人工检查和接入维护的成本一并考虑。如果结果需要大量返工，即使第一眼很出色，也未必适合你的工作流程。"
           ],
           "bullets": [
@@ -140,7 +141,7 @@
         {
           "heading": "Comprueba las condiciones operativas",
           "paragraphs": [
-            "Consulta el acceso, el tratamiento de datos, la disponibilidad regional y las condiciones de la versión concreta. Los pesos abiertos describen una forma de distribución: no garantizan una licencia única ni eliminan el trabajo de hardware y mantenimiento. El acceso alojado tampoco asegura herramientas, cuotas o funciones idénticas entre productos.",
+            "Consulta el acceso, el tratamiento de datos, la disponibilidad regional y las condiciones de la versión concreta. La corrección de upstream fusionada el 2026-11-10 comprueba las listas y llamadas del cliente según la autorización del recurso. La identidad de administrador ya no concede por sí sola acceso en el cliente a un modelo del sistema. Los pesos abiertos describen una forma de distribución: no garantizan una licencia única ni eliminan el trabajo de hardware y mantenimiento. El acceso alojado tampoco asegura herramientas, cuotas o funciones idénticas entre productos.",
             "Mide tiempo de respuesta y consumo con tus propios materiales. Revisa los precios y la documentación actuales antes de estimar el coste. Incluye reintentos, revisión humana e integración. Una respuesta que exige muchas correcciones puede resultar menos útil aunque su primera impresión sea buena."
           ],
           "bullets": [
@@ -161,6 +162,6 @@
         }
       ]
     },
-    "reviewed": "2026-11-09"
+    "reviewed": "2026-11-10"
   }
 ]
