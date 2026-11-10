@@ -236,7 +236,7 @@
         {
           "heading": "Set capabilities and credit rules",
           "paragraphs": [
-            "For a text model, the official team guide requires context size and maximum output tokens greater than zero. In the reviewed admin code, context is entered in K units and converted to tokens by multiplying by 1,000; verify the unit in your installed form. For example, a documented 128,000-token context corresponds to 128 K in that form.",
+            "For a text model, the official team guide requires context size and maximum output tokens greater than zero. In the reviewed admin code, context is entered in K units and converted to tokens by multiplying by 1,000; verify the unit in your installed form. For example, a documented 128,000-token context corresponds to 128 K in that form. The v20261104 changelog says copying a model can prefill the existing configuration for a new one, and context size and maximum output are entered in K, meaning thousands of tokens.",
             "The reviewed form also accepts a positive credit multiplier and flags for image input and reasoning support. Set the multiplier according to the team’s credit and billing rules. Set capability flags according to what the specific model and interface actually support; changing a flag does not give a model a capability it lacks. Check provider limits and current pricing directly."
           ],
           "bullets": [
@@ -310,7 +310,7 @@
         {
           "heading": "设置能力与积分规则",
           "paragraphs": [
-            "官方团队资源指南要求文本模型的上下文大小和最大输出 Token 大于 0。当前核对的管理后台源码中，上下文字段以 K 为单位，保存时将输入值乘以 1,000；请确认实际版本界面显示的单位。例如，官方模型说明为 128,000 Token 时，该表单填写 128 K。",
+            "官方团队资源指南要求文本模型的上下文大小和最大输出 Token 大于 0。当前核对的管理后台源码中，上下文字段以 K 为单位，保存时将输入值乘以 1,000；请确认实际版本界面显示的单位。例如，官方模型说明为 128,000 Token 时，该表单填写 128 K。v20261104 更新日志说明，复制模型时可以预填现有配置再创建新模型，上下文容量和最大输出统一按 K（千 Token）输入。",
             "所核对的表单还包含正数的积分倍率，以及图片输入、推理能力开关。积分倍率应按团队的积分与计费规则设置；能力开关应按具体模型和接口真实支持的能力设置，打开开关不会凭空增加功能。上游模型的额度和当前价格请在服务商处另行确认。"
           ],
           "bullets": [
@@ -384,7 +384,7 @@
         {
           "heading": "Ajusta capacidades y créditos",
           "paragraphs": [
-            "La guía oficial exige que el contexto y el máximo de tokens de salida del modelo de texto sean mayores que cero. En el código administrativo revisado, el contexto se introduce en unidades K y se multiplica por 1.000 al guardarlo; confirma la unidad en tu versión. Por ejemplo, un límite documentado de 128.000 tokens corresponde a 128 K en ese formulario.",
+            "La guía oficial exige que el contexto y el máximo de tokens de salida del modelo de texto sean mayores que cero. En el código administrativo revisado, el contexto se introduce en unidades K y se multiplica por 1.000 al guardarlo; confirma la unidad en tu versión. Por ejemplo, un límite documentado de 128.000 tokens corresponde a 128 K en ese formulario. El registro v20261104 indica que copiar un modelo puede rellenar la configuración existente para crear uno nuevo, y que el contexto y la salida máxima se introducen en K, es decir, miles de tokens.",
             "El formulario revisado también admite un multiplicador positivo de créditos y opciones para imágenes y razonamiento. Ajusta el multiplicador según las reglas de créditos y facturación del equipo. Activa las capacidades según lo que admitan el modelo y la interfaz concretos; una opción de configuración no añade por sí sola una capacidad inexistente. Consulta la cuota y los precios vigentes del proveedor."
           ],
           "bullets": [
