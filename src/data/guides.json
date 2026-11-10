@@ -172,7 +172,8 @@
     "sourceUrls": [
       "https://work.baizhi.cloud/",
       "https://github.com/chaitin/MonkeyCode",
-      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md"
+      "https://github.com/chaitin/MonkeyCode/blob/ad169c9b946ea04a1fc19a7abff9815d38116a73/README.md",
+      "https://github.com/chaitin/MonkeyCode/pull/1507"
     ],
     "en": {
       "title": "Build an AI workflow that you can verify",
@@ -214,7 +215,7 @@
         {
           "heading": "Make a checked workflow reusable",
           "paragraphs": [
-            "Continue revisions in the same conversation so that corrections remain connected to the original goal. Once a workflow works, save a concise version of the brief and its review checklist. Team resources can include models, knowledge bases, skills, experts, MCP connectors, and rules; administrators manage access and usage.",
+            "Continue revisions in the same conversation so that corrections remain connected to the original goal. Once a workflow works, save a concise version of the brief and its review checklist. Team resources can include models, knowledge bases, skills, experts, MCP connectors, and rules; administrators manage access and usage. The upstream fix merged on 2026-11-10 checks client model lists and calls by resource authorization. Administrator identity no longer grants client access to a system model by itself.",
             "Treat a reusable workflow as a starting point rather than a guarantee. Update its instructions when inputs, tools, or requirements change. Keep confidential inputs within the boundaries set by your team, and confirm external model and tool data flows before applying the workflow to sensitive work."
           ],
           "bullets": [
@@ -264,7 +265,7 @@
         {
           "heading": "沉淀经过检查的流程",
           "paragraphs": [
-            "在同一会话中继续修改，使补充要求与原始目标保持关联。流程跑通后，保存简明的任务说明与检查清单。团队可以共享模型、知识库、技能、专家、MCP 连接器和规则，具体资源访问及用量由管理员管理。资源共享适合沉淀经验，但不能代替每次任务的验收。",
+            "在同一会话中继续修改，使补充要求与原始目标保持关联。流程跑通后，保存简明的任务说明与检查清单。团队可以共享模型、知识库、技能、专家、MCP 连接器和规则，具体资源访问及用量由管理员管理。2026-11-10 合并的上游修复说明，客户端模型列表和实际调用按资源授权校验；管理员身份本身不再自动获得系统模型的客户端访问。资源共享适合沉淀经验，但不能代替每次任务的验收。",
             "可复用流程是一份起点，不是正确性的保证。资料类型、模型、工具或业务要求发生变化时，应同步更新说明。处理敏感材料前，先确认团队规定，以及外部模型和工具的数据流向。重复出现的错误往往提示任务要求还不够明确，可以据此改进流程。"
           ],
           "bullets": [
@@ -314,7 +315,7 @@
         {
           "heading": "Reutiliza lo que ya has revisado",
           "paragraphs": [
-            "Continúa las revisiones en la misma conversación para mantener las correcciones ligadas al objetivo. Cuando un proceso funcione, guarda sus instrucciones y sus comprobaciones. Los recursos compartidos pueden incluir modelos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas, con permisos gestionados por el administrador.",
+            "Continúa las revisiones en la misma conversación para mantener las correcciones ligadas al objetivo. Cuando un proceso funcione, guarda sus instrucciones y sus comprobaciones. Los recursos compartidos pueden incluir modelos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas, con permisos gestionados por el administrador. La corrección de upstream fusionada el 2026-11-10 comprueba las listas y llamadas del cliente según la autorización del recurso. La identidad de administrador ya no concede por sí sola acceso en el cliente a un modelo del sistema.",
             "Un flujo reutilizable sigue necesitando revisión. Actualízalo cuando cambien las entradas, los modelos o los requisitos. Antes de aplicarlo a información confidencial, confirma las normas del equipo y qué datos llegarán a servicios externos. Un error repetido puede indicar que falta una condición en las instrucciones."
           ],
           "bullets": [
@@ -324,7 +325,7 @@
         }
       ]
     },
-    "reviewed": "2026-11-09"
+    "reviewed": "2026-11-10"
   },
   {
     "slug": "models-and-mcp",
