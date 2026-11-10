@@ -653,10 +653,11 @@
     "slug": "rules-and-policy",
     "category": "Start here",
     "docGroup": "start",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 5,
     "sourceUrls": [
-      "https://work.docs.baizhi.cloud/node/01a15cb5-b752-7e86-a479-e6252f4a3be4"
+      "https://work.docs.baizhi.cloud/node/01a15cb5-b752-7e86-a479-e6252f4a3be4",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Write rules the assistant actually follows",
@@ -687,7 +688,7 @@
         {
           "heading": "Who controls team-wide rules",
           "paragraphs": [
-            "Team rules are managed under resource management in the management console, where an administrator adds the rule, sets the scope and authorises it for everyone, a group or selected users. The mandatory flag is set there too. Members receive what was authorised and can switch ordinary rules on or off in their client, which is why a rule that must apply to all work has to be marked mandatory at the source.",
+            "Team rules are managed under resource management in the management console, where an administrator adds the rule, sets the scope and authorises it for everyone, a group or selected users. The mandatory flag is set there too. The v20261104 changelog says skills, experts, connectors, and rules support batch enablement, labels, authorization, and deletion, and rules now include label configuration. Batch operations provide confirmation, progress feedback, and failed-item retry. Members receive what was authorised and can switch ordinary rules on or off in their client, which is why a rule that must apply to all work has to be marked mandatory at the source.",
             "Because scope is set centrally, a rule that a member cannot see is usually a scope or authorisation question rather than a client problem. Ask the administrator which group the rule was authorised for before recreating it locally."
           ],
           "bullets": [
@@ -726,7 +727,7 @@
         {
           "heading": "团队规则的权限在谁手上",
           "paragraphs": [
-            "团队规则在后台的「资源管理 → 规则」中维护：管理员添加规则、设置使用范围，并授权给全员、指定分组或用户，「强制规则」也在那里勾选。成员拿到的是已授权的内容，可以在客户端开关普通规则，所以必须对所有人生效的规则要在源头标为强制。",
+            "团队规则在后台的「资源管理 → 规则」中维护：管理员添加规则、设置使用范围，并授权给全员、指定分组或用户，「强制规则」也在那里勾选。v20261104 更新日志说明，技能、专家、连接器和规则支持批量启停、标签、授权及删除，规则也补齐了标签配置；批量操作会提供确认、进度反馈和失败重试。成员拿到的是已授权的内容，可以在客户端开关普通规则，所以必须对所有人生效的规则要在源头标为强制。",
             "由于范围由后台集中设置，成员看不到某条规则，通常属于范围或授权问题，而不是客户端故障。先在本地重建之前，先向管理员确认这条规则授权给了哪个分组。"
           ],
           "bullets": [
@@ -765,7 +766,7 @@
         {
           "heading": "Quién controla las reglas del equipo",
           "paragraphs": [
-            "Las reglas del equipo se gestionan en la gestión de recursos de la consola de administración, donde un administrador añade la regla, fija el alcance y la autoriza para todos, un grupo o usuarios concretos. La marca de obligatoria también se ajusta allí. Los miembros reciben lo autorizado y pueden activar o desactivar las ordinarias en su cliente, por lo que una regla que debe aplicarse a todo el trabajo tiene que marcarse como obligatoria en el origen.",
+            "Las reglas del equipo se gestionan en la gestión de recursos de la consola de administración, donde un administrador añade la regla, fija el alcance y la autoriza para todos, un grupo o usuarios concretos. La marca de obligatoria también se ajusta allí. El registro de cambios v20261104 indica que las habilidades, los expertos, los conectores y las reglas admiten activación, etiquetas, autorización y eliminación por lotes, y que las reglas también incluyen etiquetas. Las operaciones por lotes ofrecen confirmación, progreso y reintento de los elementos fallidos. Los miembros reciben lo autorizado y pueden activar o desactivar las ordinarias en su cliente, por lo que una regla que debe aplicarse a todo el trabajo tiene que marcarse como obligatoria en el origen.",
             "Como el alcance se fija de forma central, una regla que un miembro no ve suele ser una cuestión de alcance o autorización y no un fallo del cliente. Pregunta al administrador para qué grupo se autorizó antes de recrearla localmente."
           ],
           "bullets": [
