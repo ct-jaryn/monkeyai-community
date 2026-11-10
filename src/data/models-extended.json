@@ -6,7 +6,7 @@
     "officialUrl": "https://qwen.ai/",
     "apiDocsUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
     "access": "hybrid",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "ollama",
       "hugging-face"
@@ -33,7 +33,7 @@
         "A family name does not guarantee that every release accepts images, audio, or tools.",
         "Local deployment needs compatible inference software and sufficient hardware; check the actual checkpoint license."
       ],
-      "accessNote": "Hosted access is documented in Alibaba Cloud Model Studio; downloadable releases have their own model cards, runtime requirements, and licenses. Qwen Studio and API access are separate products.",
+      "accessNote": "Hosted access is documented in Alibaba Cloud Model Studio; downloadable releases have their own model cards, runtime requirements, and licenses. Qwen Studio and API access are separate products. The recommended-model page checked on 2026-11-10 labels qwen3.8-max for complex reasoning and coding, qwen3.7-plus for balanced performance, speed, and cost, and qwen3.8-flash for fast, lower-cost use. Model names can change, so confirm the current documentation before use.",
       "selectionTip": "Choose Qwen when multilingual work or a hosted-versus-self-managed comparison matters, then test the specific release on your real task."
     },
     "zh": {
@@ -52,7 +52,7 @@
         "同属 Qwen 不代表所有版本都支持图像、音频或工具调用。",
         "本地运行需要兼容的推理软件和足够硬件，许可证应以具体检查点为准。"
       ],
-      "accessNote": "托管服务入口见阿里云 Model Studio。可下载版本各有模型卡、运行要求和许可证；Qwen Studio 与 API 访问是不同产品。",
+      "accessNote": "托管服务入口见阿里云 Model Studio。可下载版本各有模型卡、运行要求和许可证；Qwen Studio 与 API 访问是不同产品。2026-11-10 核查的推荐页把 qwen3.8-max 标为复杂推理和编程，qwen3.7-plus 标为平衡性能、速度和成本，qwen3.8-flash 标为快速且成本较低；型号可能变化，使用前以当前文档为准。",
       "selectionTip": "如果你重视多语言任务，或希望比较托管与自主部署，Qwen 值得纳入候选，但应测试具体版本。"
     },
     "es": {
@@ -71,7 +71,7 @@
         "No todas las versiones aceptan imágenes, audio o herramientas.",
         "La ejecución local requiere software compatible y hardware suficiente; comprueba la licencia del modelo concreto."
       ],
-      "accessNote": "Model Studio documenta el acceso alojado. Cada versión descargable tiene su ficha, requisitos y licencia. Qwen Studio y el acceso por API son productos distintos.",
+      "accessNote": "Model Studio documenta el acceso alojado. Cada versión descargable tiene su ficha, requisitos y licencia. Qwen Studio y el acceso por API son productos distintos. La página de modelos recomendados revisada el 2026-11-10 marca qwen3.8-max para razonamiento complejo y programación, qwen3.7-plus para equilibrar rendimiento, velocidad y coste, y qwen3.8-flash para un uso rápido y de menor coste. Los nombres pueden cambiar, así que confirma la documentación vigente antes de usarlos.",
       "selectionTip": "Incluye Qwen si te importa el trabajo multilingüe o comparar API y alojamiento propio; evalúa la versión elegida con tus tareas."
     }
   },
