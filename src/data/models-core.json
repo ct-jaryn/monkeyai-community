@@ -164,7 +164,7 @@
     "officialUrl": "https://deepmind.google/models/gemini/",
     "apiDocsUrl": "https://aistudio.google.com/docs/models",
     "access": "hosted",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "gemini",
       "notebooklm"
@@ -193,7 +193,7 @@
         "Input types, tools, and release stability vary across model endpoints.",
         "Grounding and schema compliance do not remove the need to check sources and factual values."
       ],
-      "accessNote": "Prototype with Google AI Studio and integrate through the Gemini API. Check the selected endpoint rather than inferring API access from an app feature.",
+      "accessNote": "Prototype with Google AI Studio and integrate through the Gemini API. Check the selected endpoint rather than inferring API access from an app feature. The model page checked on 2026-11-10 labels Gemini 4 Argon as the flagship reasoning model, with the gemini-4-argon endpoint. Model names can change, so confirm the current documentation before use.",
       "selectionTip": "Create a small test set with text-only and visual examples. Check source fidelity and output format before comparing task time or usage."
     },
     "zh": {
@@ -212,7 +212,7 @@
         "不同模型端点的输入类型、工具和发布稳定性存在差异。",
         "Grounding 或符合结构约束的输出，不能替代来源核对和事实校验。"
       ],
-      "accessNote": "可在 Google AI Studio 中试验，再通过 Gemini API 集成。请核对具体端点，不要由应用功能推断 API 权限。",
+      "accessNote": "可在 Google AI Studio 中试验，再通过 Gemini API 集成。请核对具体端点，不要由应用功能推断 API 权限。2026-11-10 核查的模型页把 Gemini 4 Argon 标为旗舰推理模型，端点为 gemini-4-argon；型号可能变化，使用前以当前文档为准。",
       "selectionTip": "准备包含纯文本与视觉样例的小型测试集，先检查是否忠实于材料和输出格式，再比较任务时间与用量。"
     },
     "es": {
@@ -233,7 +233,7 @@
         "Las entradas, herramientas y estabilidad de publicación varían entre endpoints.",
         "La fundamentación y el cumplimiento del esquema no sustituyen la verificación de fuentes y valores."
       ],
-      "accessNote": "Haz pruebas en Google AI Studio e integra mediante la API de Gemini. Comprueba cada endpoint sin deducir sus permisos de una función de la aplicación.",
+      "accessNote": "Haz pruebas en Google AI Studio e integra mediante la API de Gemini. Comprueba cada endpoint sin deducir sus permisos de una función de la aplicación. La página de modelos revisada el 2026-11-10 marca Gemini 4 Argon como el modelo insignia de razonamiento, con el endpoint gemini-4-argon. Los nombres pueden cambiar, así que confirma la documentación vigente antes de usarlo.",
       "selectionTip": "Prepara un conjunto pequeño con ejemplos de texto e imágenes. Comprueba fidelidad al material y formato antes de comparar tiempo o consumo."
     }
   },
