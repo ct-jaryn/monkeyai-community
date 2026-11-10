@@ -58,7 +58,7 @@
         {
           "heading": "Private services and version differences",
           "paragraphs": [
-            "Private-network rules changed between upstream releases. The pinned revision reviewed on 2026-10-28 rejected private and other restricted destinations unless they were listed in MONKEYAI_MCP_ALLOWED_CIDRS. In the revision reviewed on 2026-11-09, the RFC 1918 ranges 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16 plus fc00::/7 are allowed by default; a non-empty MONKEYAI_MCP_ALLOWED_CIDRS replaces those defaults, public destinations stay reachable, and loopback or link-local targets still need an explicitly allowed range. Confirm which release your instance runs and the effective policy with its operator.",
+            "Private-network rules changed between upstream releases. The pinned revision reviewed on 2026-10-28 rejected private and other restricted destinations unless they were listed in MONKEYAI_MCP_ALLOWED_CIDRS. In the revision reviewed again on 2026-11-10, the RFC 1918 ranges 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16 plus fc00::/7 are allowed by default; a non-empty MONKEYAI_MCP_ALLOWED_CIDRS replaces those defaults, public destinations stay reachable, and loopback or link-local targets still need an explicitly allowed range. Confirm which release your instance runs and the effective policy with its operator.",
             "The reviewed backend blocks automatic redirects, applies the destination check to the resolved addresses, and implements an HTTP MCP exchange that can return JSON or event-stream responses. Use the final service URL and check transport compatibility with your installed release; an older or SSE-only endpoint should not be assumed to work."
           ],
           "bullets": []
@@ -109,7 +109,7 @@
         {
           "heading": "内网服务与版本差异",
           "paragraphs": [
-            "私网访问规则在不同上游版本之间有变化。2026-10-28 核对的固定版本中，远程 MCP 连接默认拒绝私网等受限地址，除非列入 MONKEYAI_MCP_ALLOWED_CIDRS。2026-11-09 核对的版本改为默认允许 RFC 1918 网段（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16）和 fc00::/7；把 MONKEYAI_MCP_ALLOWED_CIDRS 设为非空值会替换这些默认网段，公网仍然可达，回环和链路本地地址仍需显式放行对应网段。请确认所在实例的发布版本，并与运维核对实际生效的策略。",
+            "私网访问规则在不同上游版本之间有变化。2026-10-28 核对的固定版本中，远程 MCP 连接默认拒绝私网等受限地址，除非列入 MONKEYAI_MCP_ALLOWED_CIDRS。2026-11-10 再次核对的版本改为默认允许 RFC 1918 网段（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16）和 fc00::/7；把 MONKEYAI_MCP_ALLOWED_CIDRS 设为非空值会替换这些默认网段，公网仍然可达，回环和链路本地地址仍需显式放行对应网段。请确认所在实例的发布版本，并与运维核对实际生效的策略。",
             "查阅的后端实现禁止自动重定向，解析 DNS 后校验目标地址，并实现了可返回 JSON 或事件流响应的 HTTP MCP 交互。请使用最终服务地址，并确认当前安装版本支持服务的传输方式；不能默认仅支持旧版 SSE 的端点可用。"
           ],
           "bullets": []
@@ -160,7 +160,7 @@
         {
           "heading": "Servicios privados y diferencias de versión",
           "paragraphs": [
-            "Las reglas de red privada cambian entre versiones. En la revisión fijada del 28-10-2026 se rechazaban por defecto los destinos privados y otros restringidos salvo que figuraran en MONKEYAI_MCP_ALLOWED_CIDRS. En la revisión del 09-11-2026 se admiten por defecto los rangos RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) y fc00::/7; un valor no vacío en MONKEYAI_MCP_ALLOWED_CIDRS sustituye esos rangos predeterminados, los destinos públicos siguen siendo accesibles, y el bucle local o el enlace local requieren un rango permitido explícito. Confirma la versión de tu instancia y la política efectiva con su operador.",
+            "Las reglas de red privada cambian entre versiones. En la revisión fijada del 28-10-2026 se rechazaban por defecto los destinos privados y otros restringidos salvo que figuraran en MONKEYAI_MCP_ALLOWED_CIDRS. En la revisión del 10-11-2026 se admiten por defecto los rangos RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) y fc00::/7; un valor no vacío en MONKEYAI_MCP_ALLOWED_CIDRS sustituye esos rangos predeterminados, los destinos públicos siguen siendo accesibles, y el bucle local o el enlace local requieren un rango permitido explícito. Confirma la versión de tu instancia y la política efectiva con su operador.",
             "El backend revisado bloquea las redirecciones automáticas, comprueba el destino sobre las direcciones resueltas e implementa un intercambio MCP por HTTP que puede devolver JSON o un flujo de eventos. Usa la URL final del servicio y comprueba la compatibilidad del transporte con tu versión instalada; no des por supuesto que funcionará un endpoint antiguo que solo admita SSE."
           ],
           "bullets": []
