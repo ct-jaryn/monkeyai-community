@@ -349,7 +349,7 @@
         {
           "heading": "Why does the test succeed but my task fail?",
           "paragraphs": [
-            "Check that the tool was discovered and enabled, that the correct connector and credential are selected in the conversation, and that the credential has permission for the target data and operation. An expert may also need its required connector assigned and authorized. Try a small task with accessible sample data and compare the error with the service logs. The v20261106 changelog says connector cards show the enabled tool count and total tool count, which can show whether a tool is enabled before retrying. The v20261024 changelog also says a connector is no longer enabled automatically just because it already has authorization, so confirm it is enabled before use."
+            "Check that the tool was discovered and enabled, that the correct connector and credential are selected in the conversation, and that the credential has permission for the target data and operation. An expert may also need its required connector assigned and authorized. Try a small task with accessible sample data and compare the error with the service logs. The v20261106 changelog says connector cards show the enabled tool count and total tool count, which can show whether a tool is enabled before retrying. The v20261024 changelog also says a connector is no longer enabled automatically just because it already has authorization, so confirm it is enabled before use. The v20261031 changelog also fixes some connector tools missing their names in usage statistics. If a statistic has no tool name, compare the connector card and the current conversation to confirm which tool was actually called."
           ],
           "bullets": []
         },
@@ -398,7 +398,7 @@
         {
           "heading": "为什么测试成功但任务仍失败？",
           "paragraphs": [
-            "检查工具是否已被发现并启用，对话中是否选中了正确的连接器和凭证，以及凭证是否有目标数据与操作的权限。专家还可能需要配置并授权其依赖的连接器。用有权访问的少量测试数据重试，并对照服务日志查看错误。v20261106 更新日志说明，连接器卡片会显示已启用工具数和工具总数，可先用它判断工具是否已启用。v20261024 更新日志还说明，连接器不再因已有授权自动启用，使用前请确认已手动启用。"
+            "检查工具是否已被发现并启用，对话中是否选中了正确的连接器和凭证，以及凭证是否有目标数据与操作的权限。专家还可能需要配置并授权其依赖的连接器。用有权访问的少量测试数据重试，并对照服务日志查看错误。v20261106 更新日志说明，连接器卡片会显示已启用工具数和工具总数，可先用它判断工具是否已启用。v20261024 更新日志还说明，连接器不再因已有授权自动启用，使用前请确认已手动启用。v20261031 更新日志还修复了部分连接器工具在使用统计中名称缺失的问题；如果统计里看不到工具名，先对照连接器卡片和当前对话确认实际调用的工具。"
           ],
           "bullets": []
         },
@@ -447,7 +447,7 @@
         {
           "heading": "¿Por qué falla la tarea si la prueba funciona?",
           "paragraphs": [
-            "Comprueba que la herramienta se haya detectado y habilitado, que hayas elegido el conector y la credencial correctos en la conversación y que la credencial permita acceder a los datos y realizar la operación. Un experto también puede necesitar que su conector requerido esté asignado y autorizado. Prueba una tarea pequeña con datos accesibles y compara el error con los registros del servicio. El registro v20261106 indica que las tarjetas de conectores muestran el número de herramientas habilitadas y el total, así que puedes comprobar ahí si una herramienta está habilitada antes de reintentar. El registro v20261024 también indica que un conector ya no se habilita automáticamente solo por tener autorización, así que confirma que está habilitado antes de usarlo."
+            "Comprueba que la herramienta se haya detectado y habilitado, que hayas elegido el conector y la credencial correctos en la conversación y que la credencial permita acceder a los datos y realizar la operación. Un experto también puede necesitar que su conector requerido esté asignado y autorizado. Prueba una tarea pequeña con datos accesibles y compara el error con los registros del servicio. El registro v20261106 indica que las tarjetas de conectores muestran el número de herramientas habilitadas y el total, así que puedes comprobar ahí si una herramienta está habilitada antes de reintentar. El registro v20261024 también indica que un conector ya no se habilita automáticamente solo por tener autorización, así que confirma que está habilitado antes de usarlo. El registro v20261031 también corrige que algunas herramientas de conectores no mostraran su nombre en las estadísticas de uso. Si falta el nombre, compara la tarjeta del conector y la conversación actual para confirmar qué herramienta se usó realmente."
           ],
           "bullets": []
         },

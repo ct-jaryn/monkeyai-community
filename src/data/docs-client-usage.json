@@ -276,7 +276,7 @@
           "heading": "Choose the design task and a category",
           "paragraphs": [
             "Switch the new-session input to design task and a set of design categories appears. Design tasks cover posters, logos, brand design, image generation, web prototypes, PPTX decks, sticker sets, games and video. Choose the category closest to the intended result; some categories offer a second level to narrow the use case further. The v20261108 changelog fixes a case where a selected style and design system did not apply before a design type was chosen, so choose the design type before relying on those settings.",
-            "Image generation needs a working image model. Confirm you have access to one before starting, and ask your administrator for configuration and authorisation when none is available. Different design tasks rely on different capabilities, so check what the task and the interface say is required."
+            "Image generation needs a working image model. Confirm you have access to one before starting, and ask your administrator for configuration and authorisation when none is available. Different design tasks rely on different capabilities, so check what the task and the interface say is required. The v20261024 changelog says a missing design-resource authorization can fall back to public OhMyInspire resources. If the content is still empty after that fallback, sign in again and refresh the resource list before treating it as a permission problem."
           ],
           "bullets": [
             "Prefer creating the matching blank container first, then describe in the conversation what should go into it.",
@@ -316,7 +316,7 @@
           "heading": "选择设计任务与分类",
           "paragraphs": [
             "在新会话输入框上方切换到「设计任务」，会出现设计分类。设计任务适合海报、Logo、品牌设计、图片生成、网页原型、PPTX、表情包、游戏和视频等创作。选择与目标成果最接近的分类，部分分类还支持二级分类，可以继续细化用途。v20261108 更新日志修复了尚未选择设计类型时，已选风格和设计系统没有随任务生效的问题；因此应先选择设计类型，再确认风格或设计系统。",
-            "生成图片需要可用的生图模型。开始前请确认已获得相应模型的使用权限；没有可用模型时请联系管理员配置和授权。不同设计任务所需能力可能不同，请根据任务和界面提示确认相关资源已准备就绪。"
+            "生成图片需要可用的生图模型。开始前请确认已获得相应模型的使用权限；没有可用模型时请联系管理员配置和授权。不同设计任务所需能力可能不同，请根据任务和界面提示确认相关资源已准备就绪。v20261024 更新日志说明，缺少设计资源授权时可回退到 OhMyInspire 公开资源；如果回退后内容仍为空，先重新登录并刷新资源列表，再判断权限。"
           ],
           "bullets": [
             "优先双击创建对应的空白容器，再在对话中描述想要放入的内容。",
@@ -356,7 +356,7 @@
           "heading": "Elige la tarea de diseño y una categoría",
           "paragraphs": [
             "Cambia el cuadro de una sesión nueva a tarea de diseño y aparecen las categorías. Las tareas de diseño cubren carteles, logotipos, diseño de marca, generación de imágenes, prototipos web, presentaciones PPTX, pegatinas, juegos y vídeo. Elige la categoría más cercana al resultado buscado; algunas ofrecen un segundo nivel para afinar el uso. El registro de cambios v20261108 corrige un caso en el que un estilo y un sistema de diseño seleccionados no se aplicaban antes de elegir el tipo de diseño, así que elige primero el tipo y después confirma esos ajustes.",
-            "La generación de imágenes necesita un modelo de imagen disponible. Confirma que tienes acceso antes de empezar y pide al administrador la configuración y autorización cuando no haya ninguno. Cada tarea de diseño depende de capacidades distintas, así que revisa lo que indican la tarea y la interfaz."
+            "La generación de imágenes necesita un modelo de imagen disponible. Confirma que tienes acceso antes de empezar y pide al administrador la configuración y autorización cuando no haya ninguno. Cada tarea de diseño depende de capacidades distintas, así que revisa lo que indican la tarea y la interfaz. El registro v20261024 indica que, si falta la autorización de un recurso de diseño, se puede volver a los recursos públicos de OhMyInspire. Si el contenido sigue vacío después de esa alternativa, vuelve a iniciar sesión y actualiza la lista antes de tratarlo como un problema de permisos."
           ],
           "bullets": [
             "Conviene crear primero el contenedor vacío correspondiente y describir después en la conversación qué debe contener.",
