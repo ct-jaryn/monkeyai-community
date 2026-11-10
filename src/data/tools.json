@@ -358,12 +358,12 @@
     "mark": "Fi",
     "color": "#c76667",
     "sourceUrl": "https://firefly.adobe.com/",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "en": {
       "tagline": "Generate images, video, audio, and more",
       "seoTitle": "Explore generative ideas visually",
       "seoDescription": "Explore Adobe Firefly for generating images, video, audio, and more with multiple AI models. Confirm the current terms before publishing.",
-      "description": "Adobe Firefly is a generative media app. Its official app page, reviewed on 2026-11-09, says it can generate images, video, audio, and more with more than 30 AI models in one place. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. Inspect generated assets and confirm the current terms before publishing. Vector support and which models belong to Adobe or partners were not confirmed on that page.",
+      "description": "Adobe Firefly is a generative media app. Its official app page, reviewed again on 2026-11-10, says it can generate images, video, audio, and more with more than 30 AI models in one place. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. Inspect generated assets and confirm the current terms before publishing. Vector support and which models belong to Adobe or partners were not confirmed on that page.",
       "useCases": [
         "Explore a visual direction",
         "Generate and refine images, video, or audio",
@@ -374,7 +374,7 @@
     "zh": {
       "tagline": "生成图像、视频、音频等内容",
       "seoDescription": "了解 Adobe Firefly：用多种 AI 模型生成图像、视频、音频等内容；发布前确认当前使用条款。",
-      "description": "Adobe Firefly 是生成式媒体应用。2026-11-09 复查的官方应用页称，它可以在同一处使用 30 多种 AI 模型生成图像、视频、音频等内容。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。使用生成素材前，应检查异常细节并确认当前条款。该页面没有确认矢量支持，也没有说明哪些模型属于 Adobe 或合作方。",
+      "description": "Adobe Firefly 是生成式媒体应用。2026-11-10 再次复查的官方应用页称，它可以在同一处使用 30 多种 AI 模型生成图像、视频、音频等内容。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。使用生成素材前，应检查异常细节并确认当前条款。该页面没有确认矢量支持，也没有说明哪些模型属于 Adobe 或合作方。",
       "useCases": [
         "探索视觉方向",
         "生成并调整图像、视频或音频",
@@ -386,7 +386,7 @@
       "tagline": "Genera imágenes, vídeo, audio y más",
       "seoTitle": "Explora ideas generativas visuales",
       "seoDescription": "Descubre Adobe Firefly para generar imágenes, vídeo, audio y más con varios modelos de IA. Confirma las condiciones antes de publicar.",
-      "description": "Adobe Firefly es una aplicación de medios generativos. Su página oficial, revisada el 2026-11-09, indica que puede generar imágenes, vídeo, audio y más con más de 30 modelos de IA en un mismo lugar. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones vigentes antes de publicar. Esa página no confirma la compatibilidad con vectores ni qué modelos son de Adobe o de socios.",
+      "description": "Adobe Firefly es una aplicación de medios generativos. Su página oficial, revisada de nuevo el 2026-11-10, indica que puede generar imágenes, vídeo, audio y más con más de 30 modelos de IA en un mismo lugar. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones vigentes antes de publicar. Esa página no confirma la compatibilidad con vectores ni qué modelos son de Adobe o de socios.",
       "useCases": [
         "Explorar una dirección visual",
         "Generar y ajustar imagen, vídeo o audio",
