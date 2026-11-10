@@ -131,10 +131,11 @@
     "slug": "browser-connection",
     "category": "Start here",
     "docGroup": "start",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 6,
     "sourceUrls": [
-      "https://work.docs.baizhi.cloud/node/01a1535e-ce5b-778c-8fcc-069a0874159e"
+      "https://work.docs.baizhi.cloud/node/01a1535e-ce5b-778c-8fcc-069a0874159e",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Let a task drive your own browser",
@@ -167,7 +168,7 @@
           "heading": "Check the result in the page itself",
           "paragraphs": [
             "The AI reports what it did in the conversation, but the page is the record that matters. Open the site and confirm the state it should be in: a submitted form shows a confirmation, a filled form still waiting for review keeps its values, and a read-only pass changed nothing.",
-            "When something has to change, keep the follow-up in the same conversation rather than starting a new one, because a new conversation has no knowledge of the page state it did not observe. If the page was closed or the conversation ended, read the page again instead of assuming the earlier state still holds. The official guide also says one page can be used by only one conversation at a time; if it reports that another conversation holds the page, stop that work before switching. A model without image input reads the page structure rather than pictures or complex visual layout, so switch to an image-capable model when the task depends on what the page looks like."
+            "When something has to change, keep the follow-up in the same conversation rather than starting a new one, because a new conversation has no knowledge of the page state it did not observe. If the page was closed or the conversation ended, read the page again instead of assuming the earlier state still holds. The official guide also says one page can be used by only one conversation at a time; if it reports that another conversation holds the page, stop that work before switching. A model without image input reads the page structure rather than pictures or complex visual layout, so switch to an image-capable model when the task depends on what the page looks like. The v20261031 changelog fixes a page script error leaving the browser unable to continue, and admin pages that could not be filled or clicked. If it still stalls, stop the current browser task and read the page again."
           ],
           "bullets": [
             "Verify money, recipients and account details on the page before accepting the result.",
@@ -207,7 +208,7 @@
           "heading": "在页面上核对结果",
           "paragraphs": [
             "AI 会在对话里说明做了什么，但真正作准的是页面。请打开网站确认当前状态是否符合预期：已提交的表单应有成功提示，等待检查的填写页应保留已填内容，只读任务不应改动任何数据。",
-            "需要调整时请留在同一个会话中继续，而不是新开会话，因为新会话并不知道它没有观察到的页面状态。如果页面已关闭或会话已结束，应重新读取页面，而不要假定之前的状态仍然有效。官方指南还说明，同一网页同时只能被一个对话使用；如果提示被其他对话占用，先停止原对话的相关任务再切换。当前模型不支持图片输入时，AI 主要通过页面结构读取内容；任务依赖图片或复杂视觉布局时，应切换到支持图片输入的模型。"
+            "需要调整时请留在同一个会话中继续，而不是新开会话，因为新会话并不知道它没有观察到的页面状态。如果页面已关闭或会话已结束，应重新读取页面，而不要假定之前的状态仍然有效。官方指南还说明，同一网页同时只能被一个对话使用；如果提示被其他对话占用，先停止原对话的相关任务再切换。当前模型不支持图片输入时，AI 主要通过页面结构读取内容；任务依赖图片或复杂视觉布局时，应切换到支持图片输入的模型。v20261031 更新日志修复了网页脚本报错后浏览器无法继续操作，以及后台页面无法填写或点击的问题；如果仍卡住，先停止当前浏览器任务并重新读取页面。"
           ],
           "bullets": [
             "接受结果前，在页面上核对金额、收件人和账号信息。",
@@ -247,7 +248,7 @@
           "heading": "Comprueba el resultado en la propia página",
           "paragraphs": [
             "La IA informa en la conversación de lo que hizo, pero el registro que cuenta es la página. Abre el sitio y confirma el estado esperado: un formulario enviado muestra una confirmación, uno rellenado y pendiente de revisión conserva sus valores y una pasada de solo lectura no cambió nada.",
-            "Si hay que cambiar algo, continúa en la misma conversación en lugar de abrir otra, porque una conversación nueva no conoce el estado de la página que no observó. Si la página se cerró o la conversación terminó, vuelve a leer la página en lugar de suponer que el estado anterior sigue vigente. La guía oficial también indica que una página solo puede usarla una conversación a la vez; si avisa de que otra conversación la tiene ocupada, detén ese trabajo antes de cambiar. Un modelo sin entrada de imágenes lee la estructura de la página, no las imágenes ni los diseños visuales complejos, así que cambia a un modelo compatible con imágenes cuando la tarea dependa del aspecto de la página."
+            "Si hay que cambiar algo, continúa en la misma conversación en lugar de abrir otra, porque una conversación nueva no conoce el estado de la página que no observó. Si la página se cerró o la conversación terminó, vuelve a leer la página en lugar de suponer que el estado anterior sigue vigente. La guía oficial también indica que una página solo puede usarla una conversación a la vez; si avisa de que otra conversación la tiene ocupada, detén ese trabajo antes de cambiar. Un modelo sin entrada de imágenes lee la estructura de la página, no las imágenes ni los diseños visuales complejos, así que cambia a un modelo compatible con imágenes cuando la tarea dependa del aspecto de la página. El registro de cambios v20261031 corrige que un error de script dejara el navegador sin poder continuar y que las páginas de administración no se pudieran rellenar o pulsar. Si sigue bloqueado, detén la tarea del navegador y vuelve a leer la página."
           ],
           "bullets": [
             "Verifica importes, destinatarios y datos de cuenta en la página antes de aceptar el resultado.",
