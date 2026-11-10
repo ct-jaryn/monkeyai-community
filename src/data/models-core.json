@@ -85,7 +85,7 @@
     "officialUrl": "https://claude.com/product/overview",
     "apiDocsUrl": "https://platform.claude.com/docs/en/models/overview",
     "access": "hosted",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "relatedTools": [
       "claude"
     ],
@@ -113,7 +113,7 @@
         "Image interpretation can be imperfect; verify small text, counts, and important visual details.",
         "Tool execution and structured-output support depend on the selected model, platform, and integration."
       ],
-      "accessNote": "Use the Claude app for an end-user workflow or choose a hosted model through the Claude API and supported provider platforms.",
+      "accessNote": "Use the Claude app for an end-user workflow or choose a hosted model through the Claude API and supported provider platforms. The model overview checked on 2026-11-10 labels Claude Opus 5.5 for most workloads and Claude Fable 5.2 for more demanding reasoning and long-running agent work. Model names can change, so confirm the current documentation before use.",
       "selectionTip": "Compare a reasoning-heavy document task with a short extraction task. Evaluate completeness and constraint following using your own examples."
     },
     "zh": {
@@ -132,7 +132,7 @@
         "图像理解可能出错，小字、数量和关键视觉细节需要核对。",
         "工具执行与结构化输出支持情况取决于所选型号、平台及接入方式。"
       ],
-      "accessNote": "面向个人任务可使用 Claude 应用；开发集成则通过 Claude API 或受支持的服务平台选择托管模型。",
+      "accessNote": "面向个人任务可使用 Claude 应用；开发集成则通过 Claude API 或受支持的服务平台选择托管模型。2026-11-10 核查的模型概览把 Claude Opus 5.5 标为多数任务的选择，把 Claude Fable 5.2 标为更高要求的推理和长程代理任务；型号可能变化，使用前以当前文档为准。",
       "selectionTip": "用一项推理较多的文档任务和一项简短提取任务进行对照，以自己的样例检查完整性和遵守要求的情况。"
     },
     "es": {
@@ -153,7 +153,7 @@
         "La interpretación de imágenes puede fallar; comprueba texto pequeño, cantidades y detalles importantes.",
         "Las herramientas y salidas estructuradas dependen del modelo, la plataforma y la integración seleccionados."
       ],
-      "accessNote": "Utiliza la aplicación Claude para tareas de usuario, o un modelo alojado mediante la API de Claude y los proveedores compatibles.",
+      "accessNote": "Utiliza la aplicación Claude para tareas de usuario, o un modelo alojado mediante la API de Claude y los proveedores compatibles. La descripción de modelos revisada el 2026-11-10 marca Claude Opus 5.5 para la mayoría de las tareas y Claude Fable 5.2 para razonamiento más exigente y trabajo de agente de larga duración. Los nombres pueden cambiar, así que confirma la documentación vigente antes de usarlos.",
       "selectionTip": "Compara una tarea documental exigente con una extracción breve. Evalúa integridad y cumplimiento de requisitos con ejemplos propios."
     }
   },
