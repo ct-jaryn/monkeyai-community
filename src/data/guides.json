@@ -27,9 +27,9 @@
         {
           "heading": "Choose how to connect",
           "paragraphs": [
-            "The upstream project provides a browser demo and desktop download links for Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64. Open the official downloads section to choose the current build for your device. Android, iOS, Linux ARM64, and HarmonyOS desktop are listed as coming soon in the reviewed upstream information.",
+            "The official download page reviewed on 2026-11-10 offers a browser demo and desktop downloads for Windows x64, a separate Windows 7-compatible x64 build, macOS Apple Silicon, macOS Intel, and Linux x64. UnionTech UOS uses that same Linux x64 AppImage, while Kylin is labeled as the Kylin app market without a direct download link on the page. Android, iOS, Linux ARM64, HarmonyOS phone, and HarmonyOS desktop are listed as coming soon.",
             "To try the desktop client, the upstream README instructs users to enter https://demo.work.baizhi.cloud/ as the server address and sign in using an email verification code. For an existing team, use the server address and access method supplied by your administrator.",
-            "The upstream README reviewed on 2026-11-09 lists a browser demo, Windows x64, macOS Apple Silicon, macOS Intel and Linux x64 builds in its download table, and marks Android, iOS, Linux ARM64 and HarmonyOS desktop as coming soon. Confirm the current table before sending someone a link, because availability can change between releases."
+            "The upstream README reviewed on 2026-11-10 still lists only the browser demo, Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64, and marks Android, iOS, Linux ARM64, and HarmonyOS desktop as coming soon. The official site’s download section is broader, so check that current section before sending a link; availability can change between releases."
           ],
           "bullets": [
             "Get installers through upstream links.",
@@ -78,9 +78,9 @@
         {
           "heading": "选择连接方式",
           "paragraphs": [
-            "上游提供浏览器演示入口，以及 Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64 的客户端下载链接。请从官方客户端下载区域选择当前版本。在本次核对的上游信息中，Android、iOS、Linux ARM64 和鸿蒙桌面仍标为敬请期待，不应理解为已经发布。",
+            "2026-11-10 核对的官方下载页提供浏览器演示，以及 Windows x64、单独的 Win7 兼容 x64、macOS Apple Silicon、macOS Intel 和 Linux x64 客户端下载。统信 UOS 使用同一个 Linux x64 AppImage；银河麒麟只标注为麒麟应用市场，页面上没有直接下载链接。Android、iOS、Linux ARM64、鸿蒙手机和鸿蒙桌面仍标为敬请期待。",
             "根据上游 README，体验桌面客户端时可填写 https://demo.work.baizhi.cloud/ 作为演示服务器地址，再通过邮箱验证码登录。如果加入现有团队，请向管理员获取服务器地址和团队采用的登录方式，不要把演示空间当成自己的正式团队环境。",
-            "2026-11-09 核对的上游 README 在下载表里列出浏览器演示、Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64，并把 Android、iOS、Linux ARM64 与鸿蒙桌面标为敬请期待。把下载链接发给别人之前请再看一眼当前表格，各发布版本之间可用性可能变化。"
+            "2026-11-10 核对的上游 README 仍只列出浏览器演示、Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64，并把 Android、iOS、Linux ARM64 与鸿蒙桌面标为敬请期待。官网下载区的范围更广，转发链接前应查看当前下载区；各发布版本之间的可用性可能变化。"
           ],
           "bullets": [
             "从上游页面进入下载安装链接。",
@@ -129,9 +129,9 @@
         {
           "heading": "Elige cómo conectarte",
           "paragraphs": [
-            "El proyecto ofrece una demostración en el navegador y enlaces de descarga para Windows x64, macOS Apple Silicon, macOS Intel y Linux x64. Visita la sección oficial de descargas para obtener la versión actual de tu plataforma. Android, iOS, Linux ARM64 y el escritorio de HarmonyOS figuran como próximos lanzamientos en la información revisada.",
+            "La página oficial de descargas revisada el 10-11-2026 ofrece una demostración web y descargas para Windows x64, una versión x64 compatible con Windows 7, macOS Apple Silicon, macOS Intel y Linux x64. UnionTech UOS usa esa misma AppImage de Linux x64, mientras que Kylin aparece como mercado de aplicaciones Kylin y no tiene un enlace directo en la página. Android, iOS, Linux ARM64, el teléfono HarmonyOS y el escritorio HarmonyOS figuran como próximos.",
             "Para probar el cliente de escritorio, el README indica introducir https://demo.work.baizhi.cloud/ como dirección del servidor y acceder mediante un código de verificación enviado por correo electrónico. Si te incorporas a un equipo existente, utiliza la dirección y el método de acceso proporcionados por su administrador.",
-            "El README revisado el 09-11-2026 incluye en su tabla de descargas una demostración web, Windows x64, macOS Apple Silicon, macOS Intel y Linux x64, y marca Android, iOS, Linux ARM64 y el escritorio de HarmonyOS como próximos. Comprueba la tabla vigente antes de enviar un enlace, porque la disponibilidad cambia entre versiones."
+            "El README revisado el 10-11-2026 todavía incluye solo la demostración web, Windows x64, macOS Apple Silicon, macOS Intel y Linux x64, y marca Android, iOS, Linux ARM64 y el escritorio de HarmonyOS como próximos. La sección de descargas del sitio oficial es más amplia, así que compruébala antes de enviar un enlace; la disponibilidad cambia entre versiones."
           ],
           "bullets": [
             "Descarga los instaladores mediante los enlaces del proyecto.",
@@ -162,7 +162,7 @@
         }
       ]
     },
-    "reviewed": "2026-11-09"
+    "reviewed": "2026-11-10"
   },
   {
     "slug": "ai-workflows",
@@ -493,7 +493,7 @@
     "readMinutes": 7,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/README.md",
-        "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
+      "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
       "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d"
