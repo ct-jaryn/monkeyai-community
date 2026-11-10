@@ -260,10 +260,11 @@
     "slug": "design-tasks",
     "category": "Start here",
     "docGroup": "start",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 5,
     "sourceUrls": [
-      "https://work.docs.baizhi.cloud/node/01a1535e-f696-7c44-9d01-b91765ccaa81"
+      "https://work.docs.baizhi.cloud/node/01a1535e-f696-7c44-9d01-b91765ccaa81",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Start a design task and use templates",
@@ -272,7 +273,7 @@
         {
           "heading": "Choose the design task and a category",
           "paragraphs": [
-            "Switch the new-session input to design task and a set of design categories appears. Design tasks cover posters, logos, brand design, image generation, web prototypes, PPTX decks, sticker sets, games and video. Choose the category closest to the intended result; some categories offer a second level to narrow the use case further.",
+            "Switch the new-session input to design task and a set of design categories appears. Design tasks cover posters, logos, brand design, image generation, web prototypes, PPTX decks, sticker sets, games and video. Choose the category closest to the intended result; some categories offer a second level to narrow the use case further. The v20261108 changelog fixes a case where a selected style and design system did not apply before a design type was chosen, so choose the design type before relying on those settings.",
             "Image generation needs a working image model. Confirm you have access to one before starting, and ask your administrator for configuration and authorisation when none is available. Different design tasks rely on different capabilities, so check what the task and the interface say is required."
           ],
           "bullets": [
@@ -312,7 +313,7 @@
         {
           "heading": "选择设计任务与分类",
           "paragraphs": [
-            "在新会话输入框上方切换到「设计任务」，会出现设计分类。设计任务适合海报、Logo、品牌设计、图片生成、网页原型、PPTX、表情包、游戏和视频等创作。选择与目标成果最接近的分类，部分分类还支持二级分类，可以继续细化用途。",
+            "在新会话输入框上方切换到「设计任务」，会出现设计分类。设计任务适合海报、Logo、品牌设计、图片生成、网页原型、PPTX、表情包、游戏和视频等创作。选择与目标成果最接近的分类，部分分类还支持二级分类，可以继续细化用途。v20261108 更新日志修复了尚未选择设计类型时，已选风格和设计系统没有随任务生效的问题；因此应先选择设计类型，再确认风格或设计系统。",
             "生成图片需要可用的生图模型。开始前请确认已获得相应模型的使用权限；没有可用模型时请联系管理员配置和授权。不同设计任务所需能力可能不同，请根据任务和界面提示确认相关资源已准备就绪。"
           ],
           "bullets": [
@@ -352,7 +353,7 @@
         {
           "heading": "Elige la tarea de diseño y una categoría",
           "paragraphs": [
-            "Cambia el cuadro de una sesión nueva a tarea de diseño y aparecen las categorías. Las tareas de diseño cubren carteles, logotipos, diseño de marca, generación de imágenes, prototipos web, presentaciones PPTX, pegatinas, juegos y vídeo. Elige la categoría más cercana al resultado buscado; algunas ofrecen un segundo nivel para afinar el uso.",
+            "Cambia el cuadro de una sesión nueva a tarea de diseño y aparecen las categorías. Las tareas de diseño cubren carteles, logotipos, diseño de marca, generación de imágenes, prototipos web, presentaciones PPTX, pegatinas, juegos y vídeo. Elige la categoría más cercana al resultado buscado; algunas ofrecen un segundo nivel para afinar el uso. El registro de cambios v20261108 corrige un caso en el que un estilo y un sistema de diseño seleccionados no se aplicaban antes de elegir el tipo de diseño, así que elige primero el tipo y después confirma esos ajustes.",
             "La generación de imágenes necesita un modelo de imagen disponible. Confirma que tienes acceso antes de empezar y pide al administrador la configuración y autorización cuando no haya ninguno. Cada tarea de diseño depende de capacidades distintas, así que revisa lo que indican la tarea y la interfaz."
           ],
           "bullets": [
