@@ -484,7 +484,8 @@
       "https://work.docs.baizhi.cloud/node/01a15361-2b73-7c79-8e64-a533a648648e",
       "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
       "https://work.docs.baizhi.cloud/node/01a1535e-8e6f-73e0-9d77-f8b4e4ec4ac5",
-      "https://work.docs.baizhi.cloud/node/01a1535f-91b0-7585-beb0-c56f268c7997"
+      "https://work.docs.baizhi.cloud/node/01a1535f-91b0-7585-beb0-c56f268c7997",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Account, permissions, models, and credits FAQ",
@@ -529,7 +530,7 @@
           "heading": "Where do I check credits and usage?",
           "paragraphs": [
             "Open Settings → Credits (设置 → 积分) to inspect your balance and usage or refunds. Team credits and an external model provider’s balance are separate, so check both when a model request fails. For an unexpected charge or refund, provide the transaction ID and time to the administrator without exposing credentials.",
-            "If your team sets periodic limits, their reset cadence and available amount depend on the administrator’s configuration. The official guide describes daily, weekly or monthly resets and says a periodic reset replaces the allowance rather than adding unused credits to it. An administrator can also reset a member or group immediately. The credits guide reviewed on 2026-11-10 also says group allowances use the highest value rather than adding together, and a blank group or member allowance inherits from the nearest parent group or the member’s group."
+            "If your team sets periodic limits, their reset cadence and available amount depend on the administrator’s configuration. The official guide describes daily, weekly or monthly resets and says a periodic reset replaces the allowance rather than adding unused credits to it. An administrator can also reset a member or group immediately. The credits guide reviewed on 2026-11-10 also says group allowances use the highest value rather than adding together, and a blank group or member allowance inherits from the nearest parent group or the member’s group. The v20261109 changelog adds member-usage analysis for totals, 7-day and 24-hour activity, period comparisons, a 90-day trend, and a member’s 30-day tasks, conversations, net credit use, created resources, and one-year activity heatmap. The v20261103 changelog also says admin user filters support exact user-ID lookup, and list filters and pagination are stored in the URL so refresh, sharing, and back or forward navigation can restore them."
           ],
           "bullets": []
         }
@@ -578,7 +579,7 @@
           "heading": "在哪里查看积分和使用记录？",
           "paragraphs": [
             "打开「设置 → 积分」查看余额、消费或退款记录。团队积分与外部模型提供方余额是两回事，模型请求失败时两者都应检查。遇到不明消费或退款，可向管理员提供交易编号和时间，不要暴露凭证。",
-            "如果团队设置了周期额度，重置周期和可用数量取决于管理员配置。官方文档说明积分可按日、周或月重置，周期刷新是重置额度，不会把未使用的积分逐期累加；管理员也可按成员或分组立即重置。2026-11-10 复核的积分指南还说明，分组额度取最高值，不叠加；分组或成员留空时分别继承最近上级分组或所属分组的额度。"
+            "如果团队设置了周期额度，重置周期和可用数量取决于管理员配置。官方文档说明积分可按日、周或月重置，周期刷新是重置额度，不会把未使用的积分逐期累加；管理员也可按成员或分组立即重置。2026-11-10 复核的积分指南还说明，分组额度取最高值，不叠加；分组或成员留空时分别继承最近上级分组或所属分组的额度。v20261109 更新日志新增「成员使用分析」，可查看成员总数、近 7 天和 24 小时活跃成员、周期对比、近 90 天趋势，以及单个成员近 30 天任务、对话、积分净消耗、本人创建资源和近一年活跃热力图。v20261103 更新日志还说明，后台用户筛选支持按用户 ID 精确查询，列表筛选和分页状态会同步到 URL，刷新、分享、前进和后退后可以恢复。"
           ],
           "bullets": []
         }
@@ -627,7 +628,7 @@
           "heading": "¿Dónde consulto créditos y uso?",
           "paragraphs": [
             "Abre Ajustes → Créditos (设置 → 积分) para consultar el saldo y los registros de uso o reembolso. Los créditos del equipo y el saldo de un proveedor externo de modelos son distintos, por lo que conviene revisar ambos si falla una solicitud. Para una operación inesperada, facilita al administrador el identificador y la hora sin revelar credenciales.",
-            "Si el equipo establece límites periódicos, la frecuencia de reinicio y la cantidad disponible dependen de la configuración del administrador. La guía oficial describe reinicios diarios, semanales o mensuales y señala que el reinicio reemplaza la asignación en lugar de sumar los créditos no usados; un administrador también puede reiniciar a un miembro o grupo de inmediato. La guía de créditos revisada el 10-11-2026 también indica que las asignaciones de grupo usan el valor más alto y no se suman; si un grupo o miembro queda en blanco, hereda del grupo superior más cercano o del grupo al que pertenece."
+            "Si el equipo establece límites periódicos, la frecuencia de reinicio y la cantidad disponible dependen de la configuración del administrador. La guía oficial describe reinicios diarios, semanales o mensuales y señala que el reinicio reemplaza la asignación en lugar de sumar los créditos no usados; un administrador también puede reiniciar a un miembro o grupo de inmediato. La guía de créditos revisada el 10-11-2026 también indica que las asignaciones de grupo usan el valor más alto y no se suman; si un grupo o miembro queda en blanco, hereda del grupo superior más cercano o del grupo al que pertenece. El registro v20261109 añade el análisis de uso por miembro: totales, actividad de 7 días y 24 horas, comparación por periodo, tendencia de 90 días y, para cada miembro, tareas, conversaciones, consumo neto de créditos, recursos creados y mapa de actividad de un año. El registro v20261103 también indica que el filtro administrativo admite búsqueda exacta por ID de usuario y que los filtros y la paginación se guardan en la URL para restaurarlos al actualizar, compartir o usar atrás y adelante."
           ],
           "bullets": []
         }
