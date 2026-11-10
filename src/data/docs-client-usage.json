@@ -546,7 +546,7 @@
         {
           "heading": "Import rules that decide whether you lose work",
           "paragraphs": [
-            "Import accepts a ZIP file or a folder containing SKILL.md, and both accept multiple selections. The client parses the package and shows a preview first: check that each item can be imported, select the ones you want, and confirm. A package that cannot be read shows as unparseable in the preview, which means the skill file itself has to be corrected before importing again. Each package may contain only one SKILL.md.",
+            "Import accepts a ZIP file or a folder containing SKILL.md, and both accept multiple selections. The v20261105 changelog says skill-package upload has been simplified to a single step. The client parses the package and shows a preview first: check that each item can be imported, select the ones you want, and confirm. A package that cannot be read shows as unparseable in the preview, which means the skill file itself has to be corrected before importing again. Each package may contain only one SKILL.md.",
             "Two rules matter before you click import. A skill with the same name replaces the existing one, so confirm that replacement is what you want. When several skills in one selection share a name, only one of each name is kept. Creating a skill instead of importing one requires a name of one to 64 characters from English letters, digits, hyphens and underscores, starting with a letter or digit, plus the instructions in Markdown."
           ],
           "bullets": [
@@ -586,7 +586,7 @@
         {
           "heading": "决定会不会丢内容的导入规则",
           "paragraphs": [
-            "导入支持 ZIP 文件或包含 SKILL.md 的文件夹，两种方式都可以多选。系统会先解析技能包并显示预览：逐项确认是否可导入，勾选需要的技能再确认。无法解析的条目会在预览中显示「无法解析」，说明技能文件本身需要修正后重新导入。每个技能包只能包含一个 SKILL.md。",
+            "导入支持 ZIP 文件或包含 SKILL.md 的文件夹，两种方式都可以多选。v20261105 更新日志说明，技能包上传已简化为单步上传。系统会先解析技能包并显示预览：逐项确认是否可导入，勾选需要的技能再确认。无法解析的条目会在预览中显示「无法解析」，说明技能文件本身需要修正后重新导入。每个技能包只能包含一个 SKILL.md。",
             "有两条规则要在点确认之前想清楚。同名技能导入会覆盖已有内容，请先确认是否要替换；同批选择的技能出现重名时，每个名称只保留一项。如果选择新建而不是导入，名称需为 1—64 个英文字母、数字、短横线或下划线，并以字母或数字开头，内容用 Markdown 编写。"
           ],
           "bullets": [
@@ -626,7 +626,7 @@
         {
           "heading": "Reglas de importación que deciden si pierdes trabajo",
           "paragraphs": [
-            "La importación acepta un archivo ZIP o una carpeta con SKILL.md, y ambas admiten varias selecciones. El cliente analiza el paquete y muestra una vista previa: comprueba qué elementos se pueden importar, marca los que quieras y confirma. Un paquete ilegible aparece como no analizable en la vista previa, lo que significa que hay que corregir el archivo de la habilidad antes de volver a importar. Cada paquete puede contener un solo SKILL.md.",
+            "La importación acepta un archivo ZIP o una carpeta con SKILL.md, y ambas admiten varias selecciones. El registro de cambios v20261105 indica que la carga del paquete de habilidades se ha simplificado a un solo paso. El cliente analiza el paquete y muestra una vista previa: comprueba qué elementos se pueden importar, marca los que quieras y confirma. Un paquete ilegible aparece como no analizable en la vista previa, lo que significa que hay que corregir el archivo de la habilidad antes de volver a importar. Cada paquete puede contener un solo SKILL.md.",
             "Dos reglas importan antes de confirmar. Una habilidad con el mismo nombre sustituye a la existente, así que confirma que el reemplazo es lo que quieres. Cuando varias habilidades de una misma selección comparten nombre, solo se conserva una por nombre. Si creas la habilidad en lugar de importarla, el nombre debe tener de 1 a 64 caracteres entre letras inglesas, dígitos, guiones y guiones bajos, empezando por letra o dígito, y las instrucciones van en Markdown."
           ],
           "bullets": [
