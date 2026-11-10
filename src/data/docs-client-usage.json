@@ -299,7 +299,7 @@
           "heading": "Iterate from the delivered file",
           "paragraphs": [
             "Design work is rarely finished in one pass. Ask for the specific change against the current result: a different ratio, a smaller headline, a palette that matches a brand colour, or the QR area moved. Vague feedback such as make it better gives the next attempt nothing to aim at.",
-            "The official guide says to double-click and create the matching blank container before describing what should go inside it. The page reviewed on 2026-11-09 lists image, video, video-project, audio-project, text, and web-prototype containers; the interface may offer a more detailed guide, and the types available are those shown there. Keep the container and the conversation together for the same piece of work, so later requests refer to the same object. When a result is close but the wording or the numbers are wrong, correcting the text is usually faster than regenerating the whole design."
+            "The official guide says to double-click and create the matching blank container before describing what should go inside it. The page reviewed on 2026-11-09 lists image, video, video-project, audio-project, text, and web-prototype containers; the interface may offer a more detailed guide, and the types available are those shown there. Keep the container and the conversation together for the same piece of work, so later requests refer to the same object. When a result is close but the wording or the numbers are wrong, correcting the text is usually faster than regenerating the whole design. The v20261030 changelog fixes poster and web preview screenshots that occasionally stalled or produced a blank image. If a preview is still blank, regenerate the screenshot before judging the design itself."
           ],
           "bullets": [
             "State ratios and dimensions in the brief, then confirm them in the exported file.",
@@ -339,7 +339,7 @@
           "heading": "基于交付文件继续调整",
           "paragraphs": [
             "设计很少一次成型。请针对当前成果提出具体修改：换比例、标题缩小、配色改用品牌色、二维码区域移位。只说「再好看一点」这样的反馈，下一轮无从下手。",
-            "官方说明要求先双击创建对应的空白容器，再在对话中描述要放入的内容。2026-11-09 复查的页面列出图片、视频、视频工程、音频工程、文本和网页原型容器；界面可能提供更详细的指南，实际可用类型以当前界面为准。同一件作品应保持在同一个容器和会话中，后续要求才能指向同一对象。成果接近但文字或数字有误时，直接改文字通常比整张重做更快。"
+            "官方说明要求先双击创建对应的空白容器，再在对话中描述要放入的内容。2026-11-09 复查的页面列出图片、视频、视频工程、音频工程、文本和网页原型容器；界面可能提供更详细的指南，实际可用类型以当前界面为准。同一件作品应保持在同一个容器和会话中，后续要求才能指向同一对象。成果接近但文字或数字有误时，直接改文字通常比整张重做更快。v20261030 更新日志修复了海报和网页预览截图偶尔卡住或生成空白图片的问题；如果预览仍空白，先重新生成截图，再判断设计本身。"
           ],
           "bullets": [
             "在需求中写清比例和尺寸，并在导出文件中确认。",
@@ -379,7 +379,7 @@
           "heading": "Itera a partir del archivo entregado",
           "paragraphs": [
             "El trabajo de diseño rara vez queda listo en una pasada. Pide el cambio concreto sobre el resultado actual: otra proporción, un titular más pequeño, una paleta que coincida con el color de marca o la zona del QR en otro sitio. Un comentario vago como hazlo mejor no da nada a lo que apuntar.",
-            "La guía oficial indica que primero hay que hacer doble clic y crear el contenedor vacío correspondiente, y después describir en la conversación lo que debe ir dentro. La página revisada el 2026-11-09 enumera contenedores de imagen, vídeo, proyecto de vídeo, proyecto de audio, texto y prototipo web; la interfaz puede ofrecer una guía más detallada y los tipos disponibles son los que muestra. Mantén el contenedor y la conversación juntos para la misma pieza, de modo que las peticiones posteriores se refieran al mismo objeto. Cuando el resultado está cerca pero el texto o los números fallan, corregir el texto suele ser más rápido que regenerar todo el diseño."
+            "La guía oficial indica que primero hay que hacer doble clic y crear el contenedor vacío correspondiente, y después describir en la conversación lo que debe ir dentro. La página revisada el 2026-11-09 enumera contenedores de imagen, vídeo, proyecto de vídeo, proyecto de audio, texto y prototipo web; la interfaz puede ofrecer una guía más detallada y los tipos disponibles son los que muestra. Mantén el contenedor y la conversación juntos para la misma pieza, de modo que las peticiones posteriores se refieran al mismo objeto. Cuando el resultado está cerca pero el texto o los números fallan, corregir el texto suele ser más rápido que regenerar todo el diseño. El registro v20261030 corrige capturas de vista previa de carteles y páginas web que a veces se quedaban bloqueadas o salían en blanco. Si la vista previa sigue vacía, vuelve a generar la captura antes de juzgar el diseño."
           ],
           "bullets": [
             "Indica proporciones y medidas en el encargo y confírmalas en el archivo exportado.",
