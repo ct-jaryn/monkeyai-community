@@ -3,12 +3,13 @@
     "slug": "connect-a-personal-model",
     "category": "Models",
     "docGroup": "models",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 8,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a1535d-e514-7636-9590-97f1c85d1f19",
       "https://work.docs.baizhi.cloud/node/01a15360-fa4c-72b0-9a71-21b6e407f552",
-      "https://work.docs.baizhi.cloud/node/01a15db1-c10e-7e14-8efb-0b6b3208af8d"
+      "https://work.docs.baizhi.cloud/node/01a15db1-c10e-7e14-8efb-0b6b3208af8d",
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
     ],
     "en": {
       "title": "Connect and use your own AI model in MonkeyAI",
@@ -61,7 +62,7 @@
         {
           "heading": "Set defaults, adjust reasoning and share",
           "paragraphs": [
-            "In model settings you may set a default model for new conversations; choose another model in the input selector for an individual task. For models that support reasoning depth, the documented options include low, medium and high. Higher depth can take more time and tokens, so compare results on the work you actually do.",
+            "In model settings you may set a default model for new conversations; choose another model in the input selector for an individual task. For models that support reasoning depth, the documented options include low, medium and high. Higher depth can take more time and tokens, so compare results on the work you actually do. The v20261108 changelog says switching reasoning depth uses a sliding animation and keeps the model dialog stable.",
             "Share a personal model only with intended members after reviewing provider terms and a budget. The official guide says usage costs for a shared personal model remain with its associated upstream service account. Recipients can find it in Shared by others (他人分享)."
           ],
           "bullets": [
@@ -122,7 +123,7 @@
         {
           "heading": "设置默认模型、思考深度与共享",
           "paragraphs": [
-            "在模型设置中指定默认模型后，新会话会自动使用它；单次任务可通过输入框右侧选择器临时切换。支持思考深度的模型可选择低、中、高等选项。较高深度通常增加耗时与 Token 消耗，应结合实际任务效果调整。",
+            "在模型设置中指定默认模型后，新会话会自动使用它；单次任务可通过输入框右侧选择器临时切换。支持思考深度的模型可选择低、中、高等选项。较高深度通常增加耗时与 Token 消耗，应结合实际任务效果调整。v20261108 更新日志说明，思考深度切换加入滑动动画，切换时模型弹窗保持稳定。",
             "将个人模型共享给他人前，确认上游服务使用范围与调用预算。官方文档说明，共享个人模型产生的上游费用仍由对应服务账号承担；接收者可在「他人分享」中查看。"
           ],
           "bullets": [
@@ -183,7 +184,7 @@
         {
           "heading": "Configura el valor predeterminado y comparte",
           "paragraphs": [
-            "En los ajustes puedes definir un modelo predeterminado para conversaciones nuevas; el selector permite cambiarlo en una tarea concreta. En modelos compatibles, la profundidad de razonamiento puede ser baja, media o alta. Una profundidad mayor suele consumir más tiempo y tokens: evalúa el resultado con tus tareas.",
+            "En los ajustes puedes definir un modelo predeterminado para conversaciones nuevas; el selector permite cambiarlo en una tarea concreta. En modelos compatibles, la profundidad de razonamiento puede ser baja, media o alta. Una profundidad mayor suele consumir más tiempo y tokens: evalúa el resultado con tus tareas. El registro v20261108 indica que cambiar la profundidad de razonamiento usa una animación deslizante y mantiene estable el diálogo del modelo.",
             "Antes de compartir un modelo personal, revisa las condiciones del proveedor, el presupuesto y los destinatarios. La guía oficial indica que el coste externo de uso sigue correspondiendo a la cuenta del servicio asociada. Los destinatarios lo encuentran en Compartidos por otros (他人分享)."
           ],
           "bullets": [
