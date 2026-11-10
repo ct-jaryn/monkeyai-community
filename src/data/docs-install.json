@@ -220,7 +220,7 @@
     "slug": "install-from-source-docker-compose",
     "category": "Installation and deployment",
     "docGroup": "install",
-    "reviewed": "2026-11-09",
+    "reviewed": "2026-11-10",
     "readMinutes": 10,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
@@ -238,7 +238,7 @@
           "heading": "Use a matching source revision",
           "paragraphs": [
             "The pinned revision this walkthrough follows was checked on 28 October 2026; the version note below was added on 9 November 2026. It describes that revision’s source-based Compose deployment, which is distinct from the packaged installer. You need Git, Docker and Docker Compose. Work in a new deployment directory; do not overwrite an existing .env or data directory.",
-            "The upstream revision reviewed on 2026-11-06 is newer than the one pinned here and is a different release. Read its README and release notes before choosing a checkout: notably, that revision allows private MCP destinations by default and documents Nginx access logging for the admin container. Do not mix steps from different revisions."
+            "The upstream revision reviewed again on 2026-11-10 is newer than the one pinned here and is a different release. Read its README and release notes before choosing a checkout: notably, that revision allows private MCP destinations by default and documents Nginx access logging for the admin container. Do not mix steps from different revisions."
           ],
           "bullets": [
             "Review the linked README and Compose file when selecting a newer version."
@@ -298,7 +298,7 @@
           "heading": "使用匹配的源码版本",
           "paragraphs": [
             "本指南沿用的固定版本于 2026 年 10 月 28 日核对，下面的版本提示于 2026 年 11 月 9 日补充。内容适用该版本的源码 Compose 部署，与安装器发布包是不同路径。需要 Git、Docker 和 Docker Compose。请在新的部署目录操作，不要覆盖现有 .env 或数据目录。",
-            "2026-11-06 核对的上游修订比这里固定的版本更新，属于另一个发布版本。选择代码版本前先阅读它的 README 与发布说明：该修订默认放行私网 MCP 目标，并记录了管理容器的 Nginx 访问日志。不要把不同修订的步骤混用。"
+            "2026-11-10 再次核对的上游修订比这里固定的版本更新，属于另一个发布版本。选择代码版本前先阅读它的 README 与发布说明：该修订默认放行私网 MCP 目标，并记录了管理容器的 Nginx 访问日志。不要把不同修订的步骤混用。"
           ],
           "bullets": [
             "选择较新版本时，应重新阅读对应 README 和 Compose 文件。"
@@ -358,7 +358,7 @@
           "heading": "Usa una revisión de código coherente",
           "paragraphs": [
             "La revisión fijada que sigue esta guía se comprobó el 28 de octubre de 2026; la nota de versión de abajo se añadió el 9 de noviembre de 2026. Describe el despliegue Compose desde código de esa revisión, distinto del instalador empaquetado. Necesitas Git, Docker y Docker Compose. Usa un directorio nuevo y no sobrescribas una instalación o un archivo .env existente.",
-            "La revisión revisada el 06-11-2026 es más reciente que la fijada aquí y corresponde a otra entrega. Lee su README y sus notas antes de elegir la revisión: en concreto, permite por defecto destinos MCP privados y documenta el registro de acceso de Nginx del contenedor de administración. No mezcles pasos de revisiones distintas."
+            "La revisión revisada de nuevo el 10-11-2026 es más reciente que la fijada aquí y corresponde a otra entrega. Lee su README y sus notas antes de elegir la revisión: en concreto, permite por defecto destinos MCP privados y documenta el registro de acceso de Nginx del contenedor de administración. No mezcles pasos de revisiones distintas."
           ],
           "bullets": [
             "Si eliges una versión más reciente, revisa su README y su archivo Compose."
