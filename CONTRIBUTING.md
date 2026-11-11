@@ -8,6 +8,14 @@ Open the tool suggestion form with the project name, official website or reposit
 
 A complete listing normally needs a unique slug and category in `src/data/tools.json`, accurate English/Chinese/Spanish descriptions, and a sourced, appropriately reusable logo in `public/logos/`, `src/data/logos.json` and `docs/logo-sources.json`. Include the source and SHA-256 of a new asset. See `THIRD_PARTY.md`; do not upload third-party assets if their use is not permitted. Maintainers can help with translations and review.
 
+### Who can use the free queue
+
+Only an AI tool can join the free review queue, using the suggestion issue above. A non-AI tool, including a generic utility or a video or image downloader, is not eligible for that queue. It needs a paid listing. The minimum is Express at $7. A labelled home-page feature is $15 for 30 days. Price, refunds, timing, and what a payment does not buy follow the current sponsor terms: <https://globalaiproductindex.com/sponsors/#express-listing>.
+
+Say what the tool is for and which limits you know. If a limit is unknown, write that it is unknown. This community does not own, operate, or endorse the third-party product. Visitors judge legality, copyright, platform terms, privacy, and security themselves. A paid placement must be labelled Sponsored. These rules do not claim to remove legal responsibility.
+
+Email only supplements a notice about one review. It is not an application form and does not reserve a queue place or a featured slot. Do not add a separate intake form for this.
+
 ## Report a problem
 
 Search existing issues first. Use the website issue form and include the affected public URL, a short reproduction, expected and actual behavior, and browser details where useful. Product bugs in MonkeyAI itself belong in the [upstream tracker](https://github.com/chaitin/MonkeyCode/issues). Do not post secrets, access tokens, credentials, personal information, server details, private logs or screenshots containing them. Use the private process in `SECURITY.md` for security vulnerabilities.
@@ -26,4 +34,8 @@ The canonical site, Cloudflare configuration, server operations, credentials and
 
 本站是独立社区。网站、导航工具、推荐 GitHub 仓库和本社区文档的问题请提交到本仓库；MonkeyAI 产品本身的问题请提交到上游。欢迎用中文提交 Issue 或 PR，维护者可协助完善翻译。
 
+只有 AI 工具可以免费排队审核。非 AI 工具必须付费收录，最低为 Express 7 美元；带标注的首页推荐为 15 美元 / 30 天。价格、退款和档期以赞助页当前条款为准：<https://globalaiproductindex.com/sponsors/#express-listing>。工具页要写明用途和已知限制，未知就写未知。本社区不拥有、不运营、也不背书第三方产品；合法性、版权、平台条款、隐私和安全由访客自行判断。付费展示必须标注 Sponsored（赞助）。这些说明并不声称能绝对免除法律责任。邮件只补充个别审核通知，不是投稿入口，也不保留档期。
+
 Este es un sitio comunitario independiente. Propón herramientas, repositorios y correcciones de este sitio aquí; los problemas del producto MonkeyAI deben ir al proyecto original. Puedes contribuir en español y pedir ayuda con las traducciones.
+
+Solo una herramienta de IA puede entrar en la cola de revisión gratuita. Una herramienta que no es de IA necesita una ficha de pago, desde Express a 7 USD; una recomendación etiquetada en la portada cuesta 15 USD por 30 días. El precio, los reembolsos y el plazo siguen las condiciones vigentes: <https://globalaiproductindex.com/sponsors/#express-listing>. La ficha debe decir para qué sirve y qué límites se conocen; si un límite es desconocido, se dice. Esta comunidad no posee, no opera ni respalda el producto de terceros. Quien visita juzga la legalidad, los derechos de autor, las condiciones de la plataforma, la privacidad y la seguridad. Un espacio de pago se marca como Sponsored. Estas reglas no pretenden eliminar la responsabilidad legal. El correo solo complementa un aviso sobre una revisión concreta: no es una solicitud ni reserva un lugar.
