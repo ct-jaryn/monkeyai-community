@@ -5,7 +5,8 @@ import {communityUi} from '../src/community-ui.mjs';
 const config = JSON.parse(fs.readFileSync('site.config.json', 'utf8'));
 const tools = JSON.parse(fs.readFileSync('src/data/tools.json', 'utf8'));
 const sponsorTerms = 'https://globalaiproductindex.com/sponsors/#express-listing';
-const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
+const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingMailLink','listingMailSubject','listingMailBody','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
+assert.equal(config.contactEmail, 'contact@monkeyai.online');
 const pointCount = communityUi.en.listingPoints.length;
 assert.equal(pointCount, 7);
 for (const l of ['en','zh','es']) {
@@ -31,6 +32,10 @@ for (const [prefix, lang] of [['', 'en'], ['zh/', 'zh'], ['es/', 'es']]) {
     assert.ok(page.includes('id="listing-rules"'), `${prefix || 'en/'} listing rules missing`);
     assert.ok(page.includes(`href="${sponsorTerms}"`), `${prefix || 'en/'} sponsor terms link missing`);
     assert.ok(page.includes(copy.listingEmailNote), `${prefix || 'en/'} email note missing`);
+    assert.ok(page.includes(`mailto:${config.contactEmail}?subject=`), `${prefix || 'en/'} mailto draft missing`);
+    assert.ok(page.includes(encodeURIComponent(copy.listingMailSubject)), `${prefix || 'en/'} mailto subject missing`);
+    assert.ok(!page.includes('mail.grokbot.com'), `${prefix || 'en/'} private forward address leaked`);
+    assert.ok(!/It is not a way to apply|不是投稿入口|No sirve para solicitar/.test(page), `${prefix || 'en/'} still says email cannot apply`);
     assert.ok(!page.includes('<form'), `${prefix || 'en/'} unexpected listing form`);
     for (const point of copy.listingPoints) assert.ok(page.includes(point), `${prefix || 'en/'} missing a listing rule`);
   }
@@ -52,10 +57,11 @@ for (const [prefix, lang] of [['', 'en'], ['zh/', 'zh'], ['es/', 'es']]) {
     assert.ok(detail.includes(`rel="${tool.sponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}"`), `${prefix || 'en/'}${tool.slug} visit link rel mismatch`);
     if (!tool.sponsored) assert.ok(!detail.includes('class="sponsor-flag"'), `${prefix || 'en/'}${tool.slug} is labelled sponsored without a sponsorship record`);
   }
-  for (const link of [toolForm, bugForm, `${repo}/pulls`, `${repo}/blob/main/CONTRIBUTING.md`, `${config.upstream}/issues`]) {
+  for (const link of [bugForm, `${repo}/pulls`, `${repo}/blob/main/CONTRIBUTING.md`, `${config.upstream}/issues`]) {
     assert.ok(community.includes(`href="${link.replaceAll('&', '&amp;')}"`), `${prefix || 'en/'}community missing ${link}`);
   }
-  assert.ok(directory.includes(`href="${toolForm}"`), `${prefix || 'en/'}tools missing tool suggestion form`);
+  assert.ok(directory.includes(`mailto:${config.contactEmail}?subject=`), `${prefix || 'en/'}tools missing mailto draft`);
+  assert.ok(!directory.includes(`href="${toolForm}"`), `${prefix || 'en/'}tools still requires the GitHub suggestion form`);
   assert.ok(home.includes(`href="${repo}"`), `${prefix || 'en/'}home missing community repository`);
   // A public issue is the wrong place for a vulnerability or a conduct concern; the
   // page must point at the private routes instead of letting people guess.
@@ -74,10 +80,14 @@ for (const [name, text] of [['CONTRIBUTING.md', contributing], ['tool-suggestion
   assert.ok(text.includes('$7') || text.includes('7 美元') || text.includes('7 USD'), `${name} missing Express price`);
   assert.ok(text.includes('$15') || text.includes('15 美元') || text.includes('15 USD'), `${name} missing home-feature price`);
   assert.ok(/do not claim to remove legal responsibility|并不声称能绝对免除法律责任|no pretenden eliminar la responsabilidad legal|no eliminan la responsabilidad legal/.test(text), `${name} missing liability limit`);
-  assert.ok(/Email only supplements|邮件只补充个别审核通知|El correo solo complementa/.test(text), `${name} missing email limit`);
+  assert.ok(text.includes(config.contactEmail), `${name} missing public contact address`);
+  assert.ok(/prepares a draft|只准备一封草稿|solo prepara un borrador/.test(text), `${name} missing draft notice`);
+  assert.ok(!/It is not a way to apply|不是投稿入口|no es una solicitud/.test(text), `${name} still says email cannot apply`);
   assert.ok(!/<form/i.test(text), `${name} adds a form`);
 }
 assert.ok(contributing.includes('并不声称能绝对免除法律责任') && contributing.includes('no pretenden eliminar la responsabilidad legal'), 'CONTRIBUTING.md is missing a language');
+assert.ok(contributing.includes(toolForm), 'CONTRIBUTING.md dropped the repository suggestion issue');
+assert.ok(contributing.includes(`${repo}/pulls`) || contributing.includes('pull request'), 'CONTRIBUTING.md dropped pull requests');
 assert.ok(readme.includes('并不声称能绝对免除法律责任') && readme.includes('no eliminan la responsabilidad legal'), 'README.md is missing a language');
 assert.match(suggestion, /id: eligibility/);
 assert.doesNotMatch(suggestion, /type: textarea\n\s+id: email|id: email/);
