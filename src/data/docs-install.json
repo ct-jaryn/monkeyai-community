@@ -75,7 +75,8 @@
             "Confirm which container is unhealthy: database, object storage, backend and admin should report healthy, while the one-off migration container is expected to have exited successfully.",
             "Check that the browser-facing URL and port match the management listener, and that the host firewall and any cloud security group allow that port. A security group is the one layer you cannot test from inside the server.",
             "Use up -d rather than restart after changing .env, because restart does not re-read the environment file.",
-            "Share sanitised diagnostics only: logs and configuration can contain private information."
+            "Share sanitised diagnostics only: logs and configuration can contain private information.",
+            "The command in this section uses the installer's default directory; if you chose a different one during installation, read .env from that directory instead."
           ],
           "code": "grep MONKEYAI_INITIAL_ADMIN_PASSWORD /data/monkeyai/.env"
         }
@@ -142,7 +143,8 @@
             "先确认是哪个容器不健康：数据库、对象存储、backend 和 admin 应为 healthy，而一次性迁移容器正常状态是已成功退出。",
             "核对浏览器访问地址与端口是否和管理页监听端口一致，并确认主机防火墙和云安全组已放行该端口；云安全组无法从服务器内部验证。",
             "修改 .env 后请用 up -d 重建容器，restart 不会重新读取环境变量。",
-            "只分享脱敏后的诊断信息：日志和配置可能包含隐私内容。"
+            "只分享脱敏后的诊断信息：日志和配置可能包含隐私内容。",
+            "本节的命令使用的是安装器默认目录；如果安装时选了别的目录，请到那个目录读取 .env。"
           ],
           "code": "grep MONKEYAI_INITIAL_ADMIN_PASSWORD /data/monkeyai/.env"
         }
@@ -209,7 +211,8 @@
             "Comprueba qué contenedor no está sano: base de datos, almacenamiento de objetos, backend y admin deben estar sanos, mientras que el contenedor de migración puntual debe haber terminado correctamente.",
             "Verifica que la dirección y el puerto que usa el navegador coincidan con el puerto de administración y que el cortafuegos del host y el grupo de seguridad del proveedor permitan ese puerto; el grupo de seguridad no se puede probar desde dentro del servidor.",
             "Tras cambiar .env usa up -d en lugar de restart, porque restart no vuelve a leer el archivo de entorno.",
-            "Comparte solo diagnósticos saneados: los registros y la configuración pueden contener datos privados."
+            "Comparte solo diagnósticos saneados: los registros y la configuración pueden contener datos privados.",
+            "El comando de este apartado usa el directorio predeterminado del instalador; si elegiste otro durante la instalación, lee .env desde ese directorio."
           ],
           "code": "grep MONKEYAI_INITIAL_ADMIN_PASSWORD /data/monkeyai/.env"
         }
