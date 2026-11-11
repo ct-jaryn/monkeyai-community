@@ -258,6 +258,10 @@
         "Comparar resultados con ejemplos propios"
       ],
       "caveat": "Los requisitos de hardware y las licencias varían. Los modelos en la nube y conexiones externas tienen límites de datos distintos."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/ollama/ollama/blob/main/LICENSE"
     }
   },
   {
@@ -304,6 +308,10 @@
         "Comparar inferencia local y un servicio alojado"
       ],
       "caveat": "El hardware, las licencias y los backends varían. Una API compatible no pone todas las funciones alojadas a disposición local."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/mudler/LocalAI/blob/master/LICENSE"
     }
   },
   {
@@ -348,6 +356,10 @@
         "Crear un flujo visual repetible"
       ],
       "caveat": "Revisa las licencias de modelos y extensiones, los requisitos de hardware y la confianza en nodos de terceros."
+    },
+    "license": {
+      "name": "GPL-3.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE"
     }
   },
   {
@@ -438,6 +450,10 @@
         "Refinar un concepto visual en 3D"
       ],
       "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento. El 11-11-2026 la página LTS seguía mostrando 5.2 LTS (actualizada a 5.2.4 el 10-11-2026), mientras el manual más reciente ya era 5.3."
+    },
+    "license": {
+      "name": "GNU GPL",
+      "url": "https://www.blender.org/about/license/"
     }
   },
   {
@@ -615,6 +631,10 @@
         "Coordinar agentes especialistas en un proyecto"
       ],
       "caveat": "Comprueba créditos, costos del proveedor, versiones y permisos. No trates los resultados generados como verificados."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/Orkas-AI/Orkas/blob/main/LICENSE"
     }
   }
 ]
