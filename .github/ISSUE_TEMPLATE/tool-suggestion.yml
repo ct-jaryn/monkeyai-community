@@ -1,10 +1,27 @@
 name: Suggest an AI tool or GitHub repository
-description: Recommend a useful AI tool or open-source project for the directory.
+description: Recommend an AI tool for the free review queue. Non-AI tools are not eligible here.
 title: "[Tool]: "
 body:
   - type: markdown
     attributes:
-      value: "Thanks for contributing! 中文和西班牙语也欢迎。Please do not share secrets, private URLs or personal data."
+      value: |
+        Thanks for contributing! 中文和西班牙语也欢迎。Please do not share secrets, private URLs or personal data.
+
+        Only an AI tool can use this free review queue. A non-AI tool, including a generic utility or a video or image downloader, is not eligible here. The minimum paid listing is Express at $7. A labelled home-page feature is $15 for 30 days. Current terms, including refunds: https://globalaiproductindex.com/sponsors/#express-listing
+
+        Say what the tool is for and the limits you know. If a limit is unknown, write unknown. This community does not own, operate, or endorse third-party tools. Visitors judge legality, copyright, platform terms, privacy, and security. A paid placement must be labelled Sponsored. These notes do not claim to remove legal responsibility.
+
+        Email only supplements a notice about one review. Do not put an email address in this issue. This form does not reserve a queue place or a featured slot.
+  - type: dropdown
+    id: eligibility
+    attributes:
+      label: What are you suggesting?
+      description: The free queue is only for AI tools. Choose the second option if this is not an AI tool; it will not be reviewed through this queue.
+      options:
+        - AI tool or AI-related GitHub repository (free review queue)
+        - Non-AI tool (not eligible for this free queue)
+    validations:
+      required: true
   - type: input
     id: name
     attributes:
