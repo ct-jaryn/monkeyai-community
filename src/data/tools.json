@@ -258,6 +258,10 @@
         "Comparar resultados con ejemplos propios"
       ],
       "caveat": "Los requisitos de hardware y las licencias varían. Los modelos en la nube y conexiones externas tienen límites de datos distintos."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/ollama/ollama/blob/main/LICENSE"
     }
   },
   {
@@ -304,6 +308,10 @@
         "Comparar inferencia local y un servicio alojado"
       ],
       "caveat": "El hardware, las licencias y los backends varían. Una API compatible no pone todas las funciones alojadas a disposición local."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/mudler/LocalAI/blob/master/LICENSE"
     }
   },
   {
@@ -348,6 +356,10 @@
         "Crear un flujo visual repetible"
       ],
       "caveat": "Revisa las licencias de modelos y extensiones, los requisitos de hardware y la confianza en nodos de terceros."
+    },
+    "license": {
+      "name": "GPL-3.0",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE"
     }
   },
   {
@@ -358,12 +370,12 @@
     "mark": "Fi",
     "color": "#c76667",
     "sourceUrl": "https://firefly.adobe.com/",
-    "reviewed": "2026-11-10",
+    "reviewed": "2026-11-11",
     "en": {
       "tagline": "Generate images, video, audio, and more",
       "seoTitle": "Explore generative ideas visually",
       "seoDescription": "Explore Adobe Firefly for generating images, video, audio, and more with multiple AI models. Confirm the current terms before publishing.",
-      "description": "Adobe Firefly is a generative media app. Its official app page, reviewed again on 2026-11-10, says it can generate images, video, audio, and more with more than 30 AI models in one place. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. Inspect generated assets and confirm the current terms before publishing. Vector support and which models belong to Adobe or partners were not confirmed on that page.",
+      "description": "Adobe Firefly is a generative media app. Its official app page, reviewed again on 2026-11-11, says it can generate images, video, audio, and more with more than 30 AI models in one place. Use it to explore a project's visual direction, build a mood board, or try variations before committing to production. Inspect generated assets and confirm the current terms before publishing. The page also lists text-to-vector and generative recolor features; which models belong to Adobe or to partners is not stated there.",
       "useCases": [
         "Explore a visual direction",
         "Generate and refine images, video, or audio",
@@ -374,7 +386,7 @@
     "zh": {
       "tagline": "生成图像、视频、音频等内容",
       "seoDescription": "了解 Adobe Firefly：用多种 AI 模型生成图像、视频、音频等内容；发布前确认当前使用条款。",
-      "description": "Adobe Firefly 是生成式媒体应用。2026-11-10 再次复查的官方应用页称，它可以在同一处使用 30 多种 AI 模型生成图像、视频、音频等内容。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。使用生成素材前，应检查异常细节并确认当前条款。该页面没有确认矢量支持，也没有说明哪些模型属于 Adobe 或合作方。",
+      "description": "Adobe Firefly 是生成式媒体应用。2026-11-11 再次复查的官方应用页称，它可以在同一处使用 30 多种 AI 模型生成图像、视频、音频等内容。可以用它探索项目的视觉方向、整理情绪板，或在正式制作前尝试不同方案。使用生成素材前，应检查异常细节并确认当前条款。该页面同时列出了文字转矢量（Text to Vector）与生成式重上色（Generative Recolor）功能；但哪些模型属于 Adobe、哪些来自合作方，页面并未说明。",
       "useCases": [
         "探索视觉方向",
         "生成并调整图像、视频或音频",
@@ -386,7 +398,7 @@
       "tagline": "Genera imágenes, vídeo, audio y más",
       "seoTitle": "Explora ideas generativas visuales",
       "seoDescription": "Descubre Adobe Firefly para generar imágenes, vídeo, audio y más con varios modelos de IA. Confirma las condiciones antes de publicar.",
-      "description": "Adobe Firefly es una aplicación de medios generativos. Su página oficial, revisada de nuevo el 2026-11-10, indica que puede generar imágenes, vídeo, audio y más con más de 30 modelos de IA en un mismo lugar. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones vigentes antes de publicar. Esa página no confirma la compatibilidad con vectores ni qué modelos son de Adobe o de socios.",
+      "description": "Adobe Firefly es una aplicación de medios generativos. Su página oficial, revisada de nuevo el 2026-11-11, indica que puede generar imágenes, vídeo, audio y más con más de 30 modelos de IA en un mismo lugar. Úsala para explorar una dirección visual, preparar un tablero de inspiración o probar variantes antes de producir la pieza. Revisa los detalles y confirma las condiciones vigentes antes de publicar. La página también menciona funciones de texto a vector y recolor generativo; no indica qué modelos son de Adobe y cuáles de socios.",
       "useCases": [
         "Explorar una dirección visual",
         "Generar y ajustar imagen, vídeo o audio",
@@ -403,7 +415,7 @@
     "mark": "Bl",
     "color": "#cf7a37",
     "sourceUrl": "https://docs.blender.org/manual/en/latest/getting_started/about/index.html",
-    "reviewed": "2026-11-10",
+    "reviewed": "2026-11-11",
     "en": {
       "tagline": "An open-source 3D companion for creative workflows",
       "seoTitle": "An open-source 3D companion for creators",
@@ -414,7 +426,7 @@
         "Develop animation assets",
         "Refine a visual concept in 3D"
       ],
-      "caveat": "AI integrations are separate from Blender itself; check each add-on’s origin, permissions, and license. The manual checked again on 2026-11-10 was still the 5.2 LTS edition."
+      "caveat": "AI integrations are separate from Blender itself; check each add-on’s origin, permissions, and license. On 2026-11-11 the LTS page still listed 5.2 LTS (updated to 5.2.4 on 2026-11-10), while the latest manual had moved to 5.3."
     },
     "zh": {
       "tagline": "搭配创意工作流的开源 3D 工具",
@@ -425,7 +437,7 @@
         "开发动画素材",
         "用 3D 完善视觉概念"
       ],
-      "caveat": "AI 集成与 Blender 本体需分别评估，请检查各插件的来源、权限和许可。2026-11-10 再次核对的手册仍为 5.2 LTS 版本。"
+      "caveat": "AI 集成与 Blender 本体需分别评估，请检查各插件的来源、权限和许可。2026-11-11 核对时，LTS 页面仍列出 5.2 LTS（2026-11-10 更新至 5.2.4），而 latest 手册已升到 5.3。"
     },
     "es": {
       "tagline": "Un complemento abierto de 3D para el trabajo creativo",
@@ -437,7 +449,11 @@
         "Desarrollar recursos de animación",
         "Refinar un concepto visual en 3D"
       ],
-      "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento. El manual revisado de nuevo el 10-11-2026 seguía siendo la edición 5.2 LTS."
+      "caveat": "Las integraciones de IA son independientes; comprueba el origen, los permisos y la licencia de cada complemento. El 11-11-2026 la página LTS seguía mostrando 5.2 LTS (actualizada a 5.2.4 el 10-11-2026), mientras el manual más reciente ya era 5.3."
+    },
+    "license": {
+      "name": "GNU GPL",
+      "url": "https://www.blender.org/about/license/"
     }
   },
   {
@@ -615,6 +631,10 @@
         "Coordinar agentes especialistas en un proyecto"
       ],
       "caveat": "Comprueba créditos, costos del proveedor, versiones y permisos. No trates los resultados generados como verificados."
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/Orkas-AI/Orkas/blob/main/LICENSE"
     }
   }
 ]
