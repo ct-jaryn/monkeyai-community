@@ -114,6 +114,7 @@ body[data-locale=zh] h1,body[data-locale=zh] h2,body[data-locale=zh] h3{letter-s
 .model-sidebar>.text-link{display:flex;white-space:normal;line-height:1.7;justify-content:space-between}
 .model-comparison{padding-bottom:70px}
 .comparison-note{margin-top:0;margin-bottom:27px}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:13px;background:#fff}
 .comparison-table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.85;min-width:850px;text-align:left}
 .comparison-table caption{text-align:left;background:#f7f3fa;padding:17px 23px;color:#9d88ad;font-size:10px;letter-spacing:.2px;caption-side:top}
