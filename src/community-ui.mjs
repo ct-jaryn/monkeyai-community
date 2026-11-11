@@ -40,6 +40,9 @@ export const communityUi = {
     sponsorRecordText: 'A paid placement is labelled Sponsored. An unlabelled record is not a paid ranking, and payment does not change the written facts.',
     liabilityText: 'This notice explains the listing. It does not claim to remove legal responsibility for the product, this site, or a visitor.',
     sponsoredBadge: 'Sponsored',
+    recordFeedback: 'Spot something out of date?',
+    recordFeedbackText: 'Each record is checked against the source linked on the page. If a fact has changed, report the page; if a tool is missing, suggest it.',
+    reportCorrection: 'Report a correction',
   },
   zh: {
     togetherText: '一起维护这个独立社区：推荐 AI 工具或 GitHub 仓库，提交问题，或通过 Pull Request 改进内容。',
@@ -80,6 +83,9 @@ export const communityUi = {
     sponsorRecordText: '付费展示会标注 Sponsored（赞助）。未标注的记录不是付费排名，付费也不改变已经写明的事实。',
     liabilityText: '这段说明只解释收录方式，并不声称能绝对免除产品、本站或访客的法律责任。',
     sponsoredBadge: 'Sponsored（赞助）',
+    recordFeedback: '发现内容过时？',
+    recordFeedbackText: '每一条记录都依据页面所链接的来源核对。若事实已经变化，可以反馈页面问题；若有工具尚未收录，欢迎推荐。',
+    reportCorrection: '反馈更正',
   },
   es: {
     togetherText: 'Ayuda a mantener esta comunidad independiente: sugiere una herramienta de IA o un repositorio de GitHub, informa de un problema o envía una pull request.',
@@ -120,5 +126,8 @@ export const communityUi = {
     sponsorRecordText: 'Un espacio de pago se marca como Sponsored. Una ficha sin esa marca no es una clasificación de pago, y el pago no cambia los hechos escritos.',
     liabilityText: 'Este aviso explica la ficha. No pretende eliminar la responsabilidad legal del producto, de este sitio ni de quien visita.',
     sponsoredBadge: 'Sponsored',
+    recordFeedback: '¿Ves algo desactualizado?',
+    recordFeedbackText: 'Cada ficha se comprueba con la fuente enlazada en la página. Si un dato cambió, informa del problema; si falta una herramienta, sugiérela.',
+    reportCorrection: 'Informar de una corrección',
   }
 };
