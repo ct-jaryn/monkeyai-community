@@ -1,5 +1,5 @@
 name: Suggest an AI tool or GitHub repository
-description: Recommend an AI tool for the free review queue. Non-AI tools are not eligible here.
+description: Recommend an AI tool from a small company, startup, or independent developer for free review. Products from large or well-known companies, and non-AI tools, are not eligible here.
 title: "[Tool]: "
 body:
   - type: markdown
@@ -7,19 +7,20 @@ body:
       value: |
         Thanks for contributing! 中文和西班牙语也欢迎。Please do not share secrets, private URLs or personal data.
 
-        Only an AI tool can use this free review queue. A non-AI tool, including a generic utility or a video or image downloader, is not eligible here. The minimum paid listing is Express at $7. A labelled home-page feature is $15 for 30 days. Current terms, including refunds: https://globalaiproductindex.com/sponsors/#express-listing
+        AI tools from small companies, startups and independent developers can apply for free review. Review follows queue order, with no fixed date and no guarantee of approval. Products from large or well-known companies are not eligible for free review. Non-AI tools, including a generic utility or a video or image downloader, are not eligible either. Both need a paid listing. The minimum is Express at $7. A labelled home-page feature is $15 for 30 days. An approved listing may also be listed on our related sister directories. Current terms, including refunds: https://globalaiproductindex.com/sponsors/#express-listing
 
-        Say what the tool is for and the limits you know. If a limit is unknown, write unknown. This community does not own, operate, or endorse third-party tools. Visitors judge legality, copyright, platform terms, privacy, and security. A paid placement must be labelled Sponsored. These notes do not claim to remove legal responsibility.
+        Say honestly what the tool is for and the limits you know. If a limit is unknown, write unknown. This community does not own, operate, or endorse third-party tools. Visitors judge legality, copyright, platform terms, privacy, and security. A paid placement must be labelled Sponsored. These notes do not claim to remove legal responsibility.
 
         Public tool suggestions and other contact can go to contact@monkeyai.online without a GitHub account. A mailto link only prepares a draft; nothing is delivered until the sender sends it. This GitHub form remains available for people already using the repository. Do not put secrets in either place. Neither a draft nor this form reserves a queue place or a featured slot.
   - type: dropdown
     id: eligibility
     attributes:
       label: What are you suggesting?
-      description: The free queue is only for AI tools. Choose the second option if this is not an AI tool; it will not be reviewed through this queue.
+      description: Free review is only for AI tools from small companies, startups and independent developers. It follows queue order, with no fixed date and no guarantee of approval. Choose another option for a product from a large or well-known company, or for a non-AI tool. Those are not reviewed through this queue and need a paid listing, starting at Express for $7.
       options:
-        - AI tool or AI-related GitHub repository (free review queue)
-        - Non-AI tool (not eligible for this free queue)
+        - AI tool from a small company, startup, or independent developer (free review queue)
+        - Product from a large or well-known company (not eligible for free review)
+        - Non-AI tool (not eligible for free review)
     validations:
       required: true
   - type: input
