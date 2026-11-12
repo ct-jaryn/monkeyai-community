@@ -5,7 +5,7 @@ import {communityUi} from '../src/community-ui.mjs';
 const config = JSON.parse(fs.readFileSync('site.config.json', 'utf8'));
 const tools = JSON.parse(fs.readFileSync('src/data/tools.json', 'utf8'));
 const sponsorTerms = 'https://globalaiproductindex.com/sponsors/#express-listing';
-const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingMailLink','listingMailSubject','listingMailBody','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
+const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingMailLink','listingMailSubject','listingMailBody','listingGithubNote','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
 assert.equal(config.contactEmail, 'contact@monkeyai.online');
 const pointCount = communityUi.en.listingPoints.length;
 assert.equal(pointCount, 7);
@@ -61,7 +61,14 @@ for (const [prefix, lang] of [['', 'en'], ['zh/', 'zh'], ['es/', 'es']]) {
     assert.ok(community.includes(`href="${link.replaceAll('&', '&amp;')}"`), `${prefix || 'en/'}community missing ${link}`);
   }
   assert.ok(directory.includes(`mailto:${config.contactEmail}?subject=`), `${prefix || 'en/'}tools missing mailto draft`);
+  // The directory keeps email as the primary route; no GitHub form is required there.
   assert.ok(!directory.includes(`href="${toolForm}"`), `${prefix || 'en/'}tools still requires the GitHub suggestion form`);
+  // A contributor already on GitHub must still be able to reach the suggestion form from the
+  // community rules and from each tool record, without losing the email draft.
+  for (const page of [community, ...tools.map(tool => fs.readFileSync(`dist/${prefix}tools/${tool.slug}/index.html`, 'utf8'))]) {
+    assert.ok(page.includes(`href="${toolForm}"`), `${prefix || 'en/'} a contribution page cannot reach the GitHub suggestion form`);
+  }
+  assert.ok(community.includes(copy.listingGithubNote), `${prefix || 'en/'} community missing the GitHub suggestion note`);
   assert.ok(home.includes(`href="${repo}"`), `${prefix || 'en/'}home missing community repository`);
   // A public issue is the wrong place for a vulnerability or a conduct concern; the
   // page must point at the private routes instead of letting people guess.
