@@ -676,7 +676,7 @@
         {
           "heading": "Know which project you are contributing to",
           "paragraphs": [
-            "This independent community website has its own GitHub repository for tool and repository suggestions, website issues, documentation, translations, and pull requests. Include an official project link, a useful description, and sources. The maintainers review suggestions; submitting a link does not guarantee inclusion.",
+            "This independent community website has its own GitHub repository for tool and repository suggestions, website issues, documentation, translations, and pull requests. Include an official project link, a useful description, and sources. The maintainers review suggestions; submitting a link does not guarantee inclusion. Free review is for AI tools from small companies, startups and independent developers, in queue order, with no fixed date and no guarantee of approval. Products from large or well-known companies, and non-AI tools, need a paid listing starting at Express for $7. A labelled home-page feature is $15 for 30 days. An approved listing may also be listed on our related sister directories. Listing pages describe purpose and limits honestly.",
             "MonkeyAI Community is not the official product or its support team. Report problems with the MonkeyAI product itself in the upstream chaitin/MonkeyCode issue tracker; use the community tracker for this website and its directory."
           ],
           "bullets": [
@@ -727,7 +727,7 @@
         {
           "heading": "先分清贡献对象",
           "paragraphs": [
-            "这个独立社区网站有自己的 GitHub 仓库，欢迎推荐工具和 GitHub 项目、反馈网站问题、完善文档与翻译，或提交 Pull Request。推荐时请提供项目官方链接、用途说明和可靠来源；提交并不保证收录，维护者会审核。",
+            "这个独立社区网站有自己的 GitHub 仓库，欢迎推荐工具和 GitHub 项目、反馈网站问题、完善文档与翻译，或提交 Pull Request。推荐时请提供项目官方链接、用途说明和可靠来源；提交并不保证收录，维护者会审核。小公司、初创团队和独立开发者的 AI 工具可以申请免费审核，按队列顺序，没有固定日期，也不保证通过。大型或知名公司的产品以及非 AI 工具必须付费收录，最低 Express 7 美元；带标注的首页推荐为 15 美元 / 30 天。通过的收录可能会被列入我们的相关姐妹目录。收录页会如实说明用途和限制。",
             "MonkeyAI Community 不是官方产品或支持团队。MonkeyAI 产品本身的问题请提交至上游 chaitin/MonkeyCode；本网站和工具导航的问题请提交至社区仓库。"
           ],
           "bullets": [
@@ -778,7 +778,7 @@
         {
           "heading": "Identifica el proyecto al que contribuyes",
           "paragraphs": [
-            "Este sitio comunitario independiente tiene su propio repositorio de GitHub para proponer herramientas y repositorios, informar de problemas y mejorar documentación, traducciones o código mediante pull requests. Incluye el enlace oficial, una descripción útil y fuentes; el equipo revisará cada propuesta y su envío no garantiza la inclusión.",
+            "Este sitio comunitario independiente tiene su propio repositorio de GitHub para proponer herramientas y repositorios, informar de problemas y mejorar documentación, traducciones o código mediante pull requests. Incluye el enlace oficial, una descripción útil y fuentes; el equipo revisará cada propuesta y su envío no garantiza la inclusión. La revisión gratuita es para herramientas de IA de empresas pequeñas, startups y desarrolladores independientes, por orden de cola, sin fecha fija y sin garantía de aprobación. Los productos de empresas grandes o conocidas, y las herramientas que no son de IA, necesitan una ficha de pago desde Express a 7 USD. Una recomendación etiquetada en la portada cuesta 15 USD por 30 días. Una ficha aprobada puede figurar también en nuestros directorios hermanos relacionados. Cada ficha describe con honestidad el uso y los límites.",
             "MonkeyAI Community no es el producto oficial ni su equipo de soporte. Comunica los problemas del producto MonkeyAI al proyecto original chaitin/MonkeyCode; usa el repositorio comunitario para el sitio y el directorio."
           ],
           "bullets": [

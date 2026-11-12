@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {communityUi} from '../src/community-ui.mjs';
+import {ui} from '../src/i18n.mjs';
 
 const config = JSON.parse(fs.readFileSync('site.config.json', 'utf8'));
 const tools = JSON.parse(fs.readFileSync('src/data/tools.json', 'utf8'));
@@ -17,6 +18,15 @@ for (const l of ['en','zh','es']) {
   assert.match(joined, /15/);
   assert.match(joined, /30/);
   assert.doesNotMatch(joined, /@/);
+  assert.match(joined, /small compan|小公司|empresas? pequeñas?/);
+  assert.match(joined, /large or well-known|大型或知名|grandes? o conocidas?/);
+  assert.match(joined, /no fixed date|没有固定日期|sin fecha fija/);
+  assert.match(joined, /no guarantee of approval|也不保证通过|sin garantía de aprobación/);
+  assert.match(joined, /may also be listed on our related sister directories|可能会被列入我们的相关姐妹目录|puede figurar también en nuestros directorios hermanos relacionados/);
+  assert.doesNotMatch(joined, /will also be listed|will be listed on our|一定会被列入|将被列入我们的相关|se incluirá en nuestros|se publicará en nuestros/);
+  assert.match(communityUi[l].listingDirectoryNote, /small compan|小公司|empresas pequeñas/);
+  assert.match(communityUi[l].listingMailBody, /may also be listed on our related sister directories|可能会被列入我们的相关姐妹目录|puede figurar también en nuestros directorios hermanos relacionados/);
+  assert.match(communityUi[l].listingMailBody, /mailto:|\$7|7 美元|7 USD|Express/);
 }
 const repo = config.communityRepo;
 assert.match(repo, /^https:\/\/github\.com\/[^/]+\/[^/]+$/);
@@ -91,7 +101,23 @@ for (const [name, text] of [['CONTRIBUTING.md', contributing], ['tool-suggestion
   assert.ok(/prepares a draft|只准备一封草稿|solo prepara un borrador/.test(text), `${name} missing draft notice`);
   assert.ok(!/It is not a way to apply|不是投稿入口|no es una solicitud/.test(text), `${name} still says email cannot apply`);
   assert.ok(!/<form/i.test(text), `${name} adds a form`);
+  assert.match(text, /small compan|小公司|empresas pequeñas/);
+  assert.match(text, /may also be listed on our related sister directories|可能会被列入我们的相关姐妹目录|directorios hermanos relacionados/);
+  assert.doesNotMatch(text, /Only an AI tool can join the free review queue|只有 AI 工具可以免费排队审核|Solo una herramienta de IA puede entrar en la cola de revisión gratuita|Solo las herramientas de IA entran en la cola gratuita/);
+  assert.doesNotMatch(text, /will also be listed|will be listed on our|一定会被列入|将被列入我们的相关|se incluirá en nuestros|se publicará en nuestros/);
 }
+for (const [lang, pattern] of [['en', /small companies, startups and independent developers/], ['zh', /小公司、初创团队和独立开发者/], ['es', /empresas pequeñas, startups y desarrolladores independientes/]]) {
+  assert.match(ui[lang].answer3, pattern, `${lang} FAQ still uses the old free-review rule`);
+  assert.match(ui[lang].answer3, /\$7|7 美元|7 USD/);
+  assert.match(ui[lang].answer3, /\$15|15 美元|15 USD/);
+}
+const contributingGuide = JSON.parse(fs.readFileSync('src/data/guides.json', 'utf8')).find(guide => guide.slug === 'contributing');
+assert.match(contributingGuide.en.sections[0].paragraphs[0], /small companies, startups and independent developers/);
+assert.match(contributingGuide.zh.sections[0].paragraphs[0], /小公司、初创团队和独立开发者/);
+assert.match(contributingGuide.es.sections[0].paragraphs[0], /empresas pequeñas, startups y desarrolladores independientes/);
+assert.match(contributingGuide.en.sections[0].paragraphs[0], /may also be listed on our related sister directories/);
+assert.match(contributingGuide.zh.sections[0].paragraphs[0], /可能会被列入我们的相关姐妹目录/);
+assert.match(contributingGuide.es.sections[0].paragraphs[0], /puede figurar también en nuestros directorios hermanos relacionados/);
 assert.ok(contributing.includes('并不声称能绝对免除法律责任') && contributing.includes('no pretenden eliminar la responsabilidad legal'), 'CONTRIBUTING.md is missing a language');
 assert.ok(contributing.includes(toolForm), 'CONTRIBUTING.md dropped the repository suggestion issue');
 assert.ok(contributing.includes(`${repo}/pulls`) || contributing.includes('pull request'), 'CONTRIBUTING.md dropped pull requests');
