@@ -1,0 +1,54 @@
+# Mirrors worker.js headers for requests the assets layer now answers directly
+# (run_worker_first excludes canonical pages and static file types).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: no-cache
+
+/*.png
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/*.svg
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/*.ttf
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/*.woff2
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/*.css
+  ! Cache-Control
+  Cache-Control: max-age=14400
+
+/*.js
+  ! Cache-Control
+  Cache-Control: max-age=14400
+
+/*.txt
+  ! Cache-Control
+  Cache-Control: max-age=14400
+
+# worker.js answered text types with an explicit UTF-8 charset.
+/
+  Content-Type: text/html; charset=utf-8
+
+/*/
+  Content-Type: text/html; charset=utf-8
+
+/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/*.txt
+  Content-Type: text/plain; charset=utf-8
+
+/*.xml
+  Content-Type: text/xml; charset=utf-8
+
+# workers.dev copies (production and staging names) stay out of search indexes.
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex
