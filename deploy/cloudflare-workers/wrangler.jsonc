@@ -1,0 +1,36 @@
+// monkeyai.online on Workers Static Assets. Asset-first for canonical
+// trailing-slash pages and static files (no Worker invocation). worker.js still
+// runs for slashless paths (307->301), /index.html, /404.html, dotfiles (403)
+// and /.well-known/acme-challenge/* (origin passthrough). http->https and
+// www->apex are answered by the zone Single Redirect rule before the Worker.
+{
+  "name": "monkeyai-online-static",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-10",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "../../dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": [
+      "/*",
+      "!/",
+      "!/*/",
+      "!/assets/*",
+      "!/*.css",
+      "!/*.js",
+      "!/*.png",
+      "!/*.svg",
+      "!/*.ttf",
+      "!/*.woff2",
+      "!/*.json",
+      "!/*.xml",
+      "!/*.txt"
+    ]
+  }
+}

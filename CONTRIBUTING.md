@@ -30,7 +30,7 @@ Search existing issues first. Use the website issue form and include the affecte
 4. Run `npm run build` and `npm run check` in a clean checkout. **Build clears `dist/` and regenerates `route-manifest.json`; back up any local-only data in those paths first.** Run `npm run dev` for a local preview.
 5. Open a PR describing the user-visible change, source links, and checks run. Include screenshots for visual changes when useful, with any personal data removed. Be responsive to review and do not claim tests were run if they were not.
 
-The canonical site, Cloudflare configuration, server operations, credentials and private reports are maintained separately and should never be included in a PR.
+Credentials, API tokens, zone identifiers, server operations, and private reports are maintained separately and should never be included in a PR. The public Workers static-asset files belong in `deploy/cloudflare-workers/` and must not contain secrets.
 
 ## 社区与上游 / Comunidad y proyecto original
 

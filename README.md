@@ -33,7 +33,7 @@ npm run dev
 
 Open `http://127.0.0.1:4173/`. Build generates static output in `dist/` and `route-manifest.json`. **It clears `dist/` on every build:** work in a clean checkout and back up any local-only files there first. The preview server handles directory URLs and missing pages.
 
-Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials. The public repository does not contain production server configuration or account data.
+Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials. The public Workers static-asset files for the live site are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository.
 
 ## Project layout
 
@@ -47,6 +47,7 @@ Search-engine verification values are optional. For a deployment that needs them
 | `src/*-pages.mjs`, `scripts/build.mjs` | Static page templates and generator |
 | `public/` | Styles, browser interactions, fonts and attributed assets |
 | `scripts/check*.mjs` | Site and robots validation |
+| `deploy/cloudflare-workers/` | Live Workers static-asset config. No zone credentials or tokens. |
 | `docs/logo-sources.json`, `docs/research/` | Asset provenance and source research |
 
 ## Privacy, licensing and safety
