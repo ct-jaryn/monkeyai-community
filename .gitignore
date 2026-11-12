@@ -8,6 +8,8 @@ site.config.local.json
 .env
 .env.*
 !.env.example
+# Wrangler keeps an account cache after wrangler login; never commit it.
+.wrangler/
 *.pem
 *.key
 .openai/
