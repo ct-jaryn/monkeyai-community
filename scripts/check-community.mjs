@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import assert from 'node:assert/strict';
 import {communityUi} from '../src/community-ui.mjs';
 import {ui} from '../src/i18n.mjs';
@@ -6,7 +7,7 @@ import {ui} from '../src/i18n.mjs';
 const config = JSON.parse(fs.readFileSync('site.config.json', 'utf8'));
 const tools = JSON.parse(fs.readFileSync('src/data/tools.json', 'utf8'));
 const sponsorTerms = 'https://globalaiproductindex.com/sponsors/#express-listing';
-const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingMailLink','listingMailSubject','listingMailBody','listingGithubNote','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
+const listingKeys = ['listingTitle','listingLead','listingLinkLabel','listingTermsNote','listingEmailNote','listingMailLink','listingMailSubject','listingMailBody','correctionMailSubject','correctionMailBody','listingRulesLink','listingDirectoryNote','purposeTitle','limitsTitle','limitsUnknown','recordTitle','recordText','visitorText','sponsorRecordText','liabilityText','sponsoredBadge'];
 assert.equal(config.contactEmail, 'contact@monkeyai.online');
 const pointCount = communityUi.en.listingPoints.length;
 assert.equal(pointCount, 7);
@@ -67,18 +68,21 @@ for (const [prefix, lang] of [['', 'en'], ['zh/', 'zh'], ['es/', 'es']]) {
     assert.ok(detail.includes(`rel="${tool.sponsored ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}"`), `${prefix || 'en/'}${tool.slug} visit link rel mismatch`);
     if (!tool.sponsored) assert.ok(!detail.includes('class="sponsor-flag"'), `${prefix || 'en/'}${tool.slug} is labelled sponsored without a sponsorship record`);
   }
-  for (const link of [bugForm, `${repo}/pulls`, `${repo}/blob/main/CONTRIBUTING.md`, `${config.upstream}/issues`]) {
+  for (const link of [`${repo}/pulls`, `${repo}/blob/main/CONTRIBUTING.md`, `${config.upstream}/issues`]) {
     assert.ok(community.includes(`href="${link.replaceAll('&', '&amp;')}"`), `${prefix || 'en/'}community missing ${link}`);
   }
   assert.ok(directory.includes(`mailto:${config.contactEmail}?subject=`), `${prefix || 'en/'}tools missing mailto draft`);
-  // The directory keeps email as the primary route; no GitHub form is required there.
-  assert.ok(!directory.includes(`href="${toolForm}"`), `${prefix || 'en/'}tools still requires the GitHub suggestion form`);
-  // A contributor already on GitHub must still be able to reach the suggestion form from the
-  // community rules and from each tool record, without losing the email draft.
-  for (const page of [community, ...tools.map(tool => fs.readFileSync(`dist/${prefix}tools/${tool.slug}/index.html`, 'utf8'))]) {
-    assert.ok(page.includes(`href="${toolForm}"`), `${prefix || 'en/'} a contribution page cannot reach the GitHub suggestion form`);
+  assert.ok(directory.includes(encodeURIComponent(copy.listingMailSubject)), `${prefix || 'en/'}tools missing the suggestion subject`);
+  const suggestionSubject = encodeURIComponent(copy.listingMailSubject);
+  const correctionSubject = encodeURIComponent(copy.correctionMailSubject);
+  const visitorIntake = [community, about, ...tools.map(tool => fs.readFileSync(`dist/${prefix}tools/${tool.slug}/index.html`, 'utf8'))];
+  for (const page of visitorIntake) {
+    assert.ok(!page.includes(toolForm), `${prefix || 'en/'} still links visitors to the GitHub suggestion form`);
+    assert.ok(!page.includes(bugForm), `${prefix || 'en/'} still links visitors to the GitHub bug form`);
+    assert.ok(page.includes(`mailto:${config.contactEmail}?subject=${suggestionSubject}`), `${prefix || 'en/'} missing the public suggestion draft`);
+    assert.ok(page.includes(`mailto:${config.contactEmail}?subject=${correctionSubject}`), `${prefix || 'en/'} missing the public correction draft`);
   }
-  assert.ok(community.includes(copy.listingGithubNote), `${prefix || 'en/'} community missing the GitHub suggestion note`);
+  assert.ok(!community.includes('listingGithubNote') && !/Prefer GitHub\?|更习惯用 GitHub|¿Prefieres GitHub/.test(community), `${prefix || 'en/'} community still offers a GitHub suggestion route`);
   assert.ok(home.includes(`href="${repo}"`), `${prefix || 'en/'}home missing community repository`);
   // A public issue is the wrong place for a vulnerability or a conduct concern; the
   // page must point at the private routes instead of letting people guess.
@@ -86,8 +90,29 @@ for (const [prefix, lang] of [['', 'en'], ['zh/', 'zh'], ['es/', 'es']]) {
     assert.ok(community.includes(`href="${link}"`), `${prefix || 'en/'}community missing ${link}`);
   }
 }
-for (const path of ['.github/ISSUE_TEMPLATE/tool-suggestion.yml', '.github/ISSUE_TEMPLATE/bug-report.yml', '.github/PULL_REQUEST_TEMPLATE.md', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md']) {
-  assert.ok(fs.existsSync(path), `missing contribution file ${path}`);
+// Visitor pages may name the public upstream product tracker. They must not
+// offer a GitHub issue form for a tool suggestion, a recommendation, contact, or a correction.
+function collectHtml(dir, found = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) collectHtml(full, found);
+    else if (entry.name.endsWith('.html')) found.push(full);
+  }
+  return found;
+}
+const allowedIssueHref = `${config.upstream}/issues`;
+for (const file of collectHtml('dist')) {
+  const html = fs.readFileSync(file, 'utf8');
+  assert.doesNotMatch(html, /template=tool-suggestion\.yml|template=bug-report\.yml/, `${file} still links a visitor to a GitHub issue form`);
+  for (const match of html.matchAll(/href="([^"]+)"/g)) {
+    const href = match[1].replaceAll('&amp;', '&');
+    if (/github\.com\/[^/"']+\/[^/"']+\/issues/.test(href)) {
+      assert.equal(href, allowedIssueHref, `${file} has a visitor GitHub issue link: ${href}`);
+    }
+  }
+}
+for (const file of ['.github/ISSUE_TEMPLATE/tool-suggestion.yml', '.github/ISSUE_TEMPLATE/bug-report.yml', '.github/PULL_REQUEST_TEMPLATE.md', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md']) {
+  assert.ok(fs.existsSync(file), `missing contribution file ${file}`);
 }
 const contributing = fs.readFileSync('CONTRIBUTING.md', 'utf8');
 const suggestion = fs.readFileSync('.github/ISSUE_TEMPLATE/tool-suggestion.yml', 'utf8');
