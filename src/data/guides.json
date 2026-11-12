@@ -665,7 +665,6 @@
       "https://github.com/ct-jaryn/monkeyai-community",
       "https://github.com/ct-jaryn/monkeyai-community/blob/main/CONTRIBUTING.md",
       "https://github.com/chaitin/MonkeyCode",
-      "https://github.com/chaitin/MonkeyCode/issues",
       "https://github.com/chaitin/MonkeyCode/blob/main/LICENSE",
       "https://work.docs.baizhi.cloud/"
     ],
@@ -676,8 +675,8 @@
         {
           "heading": "Know which project you are contributing to",
           "paragraphs": [
-            "This independent community website has its own GitHub repository for tool and repository suggestions, website issues, documentation, translations, and pull requests. Include an official project link, a useful description, and sources. The maintainers review suggestions; submitting a link does not guarantee inclusion. Free review is for AI tools from small companies, startups and independent developers, in queue order, with no fixed date and no guarantee of approval. Products from large or well-known companies, and non-AI tools, need a paid listing starting at Express for $7. A labelled home-page feature is $15 for 30 days. An approved listing may also be listed on our related sister directories. Listing pages describe purpose and limits honestly.",
-            "MonkeyAI Community is not the official product or its support team. Report problems with the MonkeyAI product itself in the upstream chaitin/MonkeyCode issue tracker; use the community tracker for this website and its directory."
+            "Public tool suggestions, other contact, and corrections for this independent community website go to contact@monkeyai.online. Opening the address only prepares a draft; nothing is delivered until you send it. Include an official project link, a useful description, and sources. The maintainers review suggestions; sending a message does not guarantee inclusion. Free review is for AI tools from small companies, startups and independent developers, in queue order, with no fixed date and no guarantee of approval. Products from large or well-known companies, and non-AI tools, need a paid listing starting at Express for $7. A labelled home-page feature is $15 for 30 days. An approved listing may also be listed on our related sister directories. Listing pages describe purpose and limits honestly. Code changes still use a pull request.",
+            "MonkeyAI Community is not the official product or its support team. Report problems with the MonkeyAI product itself to the upstream chaitin/MonkeyCode project. Corrections to this website and its directory use the public email above."
           ],
           "bullets": [
             "Link to the exact page or repository involved.",
@@ -685,10 +684,10 @@
           ]
         },
         {
-          "heading": "Write a useful issue report",
+          "heading": "Write a useful message",
           "paragraphs": [
-            "The community repository provides separate forms for a tool suggestion and a website bug report, so a report can start from a template instead of a blank issue. Use the form that matches your case and fill in the required fields.",
-            "Before opening an issue in either repository, search existing reports. For website bugs, include the affected page, steps, expected and actual results, and browser details. For tool suggestions, share the official website or repository and explain its relevance.",
+            "Send a tool suggestion or a website correction to contact@monkeyai.online. The draft is not delivered until you send it from your mail app. For a suggestion, name the tool, the official website or repository, what it is for, and the limits you know. For a correction, name the page, what should change, and a reliable source.",
+            "For a website correction, include the affected page, steps, expected and actual results, and browser details when they matter. For a tool suggestion, share the official website or repository and explain its relevance. Do not include secrets or private URLs.",
             "Include only the logs and screenshots needed to explain the behavior. Remove passwords, API keys, access tokens, private server details, and confidential files. If the problem depends on an external service, identify the service and the observed response without publishing credentials. Do not invent a reproduction or claim a fix was tested when it was not."
           ],
           "bullets": [
@@ -727,8 +726,8 @@
         {
           "heading": "先分清贡献对象",
           "paragraphs": [
-            "这个独立社区网站有自己的 GitHub 仓库，欢迎推荐工具和 GitHub 项目、反馈网站问题、完善文档与翻译，或提交 Pull Request。推荐时请提供项目官方链接、用途说明和可靠来源；提交并不保证收录，维护者会审核。小公司、初创团队和独立开发者的 AI 工具可以申请免费审核，按队列顺序，没有固定日期，也不保证通过。大型或知名公司的产品以及非 AI 工具必须付费收录，最低 Express 7 美元；带标注的首页推荐为 15 美元 / 30 天。通过的收录可能会被列入我们的相关姐妹目录。收录页会如实说明用途和限制。",
-            "MonkeyAI Community 不是官方产品或支持团队。MonkeyAI 产品本身的问题请提交至上游 chaitin/MonkeyCode；本网站和工具导航的问题请提交至社区仓库。"
+            "本站的工具投稿、其他联系和内容勘误都发到 contact@monkeyai.online。打开这个地址只准备一封草稿，在你发送之前不会送达。推荐时请提供项目官方链接、用途说明和可靠来源；发送并不保证收录，维护者会审核。小公司、初创团队和独立开发者的 AI 工具可以申请免费审核，按队列顺序，没有固定日期，也不保证通过。大型或知名公司的产品以及非 AI 工具必须付费收录，最低 Express 7 美元；带标注的首页推荐为 15 美元 / 30 天。通过的收录可能会被列入我们的相关姐妹目录。收录页会如实说明用途和限制。代码修改仍请使用 Pull Request。",
+            "MonkeyAI Community 不是官方产品或支持团队。MonkeyAI 产品本身的问题请提交至上游 chaitin/MonkeyCode。本网站和工具导航的勘误请使用上面的公开邮箱。"
           ],
           "bullets": [
             "提供涉及的具体页面或仓库链接。",
@@ -736,10 +735,10 @@
           ]
         },
         {
-          "heading": "写一份有帮助的问题报告",
+          "heading": "写一份有帮助的说明",
           "paragraphs": [
-            "社区仓库为工具推荐和网站问题提供了不同的表单，报告可以从模板开始，而不必面对空白输入框。选择与情况相符的表单，并填写必填项。",
-            "在任一仓库提交问题前，请先搜索是否已有相同反馈。网站问题请附页面、复现步骤、预期与实际结果以及浏览器信息；推荐工具时请提供官方网站或仓库，并说明相关用途。",
+            "工具推荐和网站勘误请发到 contact@monkeyai.online。草稿在你从邮件软件发送之前不会送达。推荐时写上工具名称、官方网站或仓库、用途和已知限制。勘误时写上页面、应修改的内容和可靠来源。",
+            "网站勘误请附页面、复现步骤、预期与实际结果，以及必要时的浏览器信息。推荐工具时请提供官方网站或仓库，并说明相关用途。请不要写入密钥或私密链接。",
             "只提供解释问题必需的日志和截图，移除密码、API Key、访问令牌、私有服务器信息和机密文件。问题依赖外部服务时，可以说明服务与响应，但不要公开凭据。没有真正复现的现象应如实标注，未运行过的修复也不能声称已经通过验证。"
           ],
           "bullets": [
@@ -778,8 +777,8 @@
         {
           "heading": "Identifica el proyecto al que contribuyes",
           "paragraphs": [
-            "Este sitio comunitario independiente tiene su propio repositorio de GitHub para proponer herramientas y repositorios, informar de problemas y mejorar documentación, traducciones o código mediante pull requests. Incluye el enlace oficial, una descripción útil y fuentes; el equipo revisará cada propuesta y su envío no garantiza la inclusión. La revisión gratuita es para herramientas de IA de empresas pequeñas, startups y desarrolladores independientes, por orden de cola, sin fecha fija y sin garantía de aprobación. Los productos de empresas grandes o conocidas, y las herramientas que no son de IA, necesitan una ficha de pago desde Express a 7 USD. Una recomendación etiquetada en la portada cuesta 15 USD por 30 días. Una ficha aprobada puede figurar también en nuestros directorios hermanos relacionados. Cada ficha describe con honestidad el uso y los límites.",
-            "MonkeyAI Community no es el producto oficial ni su equipo de soporte. Comunica los problemas del producto MonkeyAI al proyecto original chaitin/MonkeyCode; usa el repositorio comunitario para el sitio y el directorio."
+            "Las sugerencias de herramientas, el resto de contacto y las correcciones de este sitio comunitario independiente van a contact@monkeyai.online. Abrir la dirección solo prepara un borrador; no se entrega hasta que lo envías. Incluye el enlace oficial, una descripción útil y fuentes; el equipo revisará cada propuesta y enviarla no garantiza la inclusión. La revisión gratuita es para herramientas de IA de empresas pequeñas, startups y desarrolladores independientes, por orden de cola, sin fecha fija y sin garantía de aprobación. Los productos de empresas grandes o conocidas, y las herramientas que no son de IA, necesitan una ficha de pago desde Express a 7 USD. Una recomendación etiquetada en la portada cuesta 15 USD por 30 días. Una ficha aprobada puede figurar también en nuestros directorios hermanos relacionados. Cada ficha describe con honestidad el uso y los límites. Los cambios de código siguen en pull requests.",
+            "MonkeyAI Community no es el producto oficial ni su equipo de soporte. Comunica los problemas del producto MonkeyAI al proyecto original chaitin/MonkeyCode. Las correcciones de este sitio y de su directorio usan el correo público de arriba."
           ],
           "bullets": [
             "Enlaza la página o el repositorio concreto.",
@@ -787,10 +786,10 @@
           ]
         },
         {
-          "heading": "Prepara un informe útil",
+          "heading": "Escribe un mensaje útil",
           "paragraphs": [
-            "El repositorio de la comunidad ofrece formularios distintos para sugerir una herramienta y para informar de un fallo del sitio, de modo que la incidencia parte de una plantilla en lugar de un formulario vacío. Elige el que corresponda y completa los campos obligatorios.",
-            "Antes de abrir una incidencia en cualquiera de los repositorios, busca informes existentes. Para errores del sitio indica la página, pasos, resultado esperado y real y navegador. Para una propuesta, comparte el sitio oficial o repositorio y explica su utilidad.",
+            "Envía una sugerencia de herramienta o una corrección del sitio a contact@monkeyai.online. El borrador no se entrega hasta que lo envías desde tu aplicación de correo. Para una sugerencia, indica el nombre, el sitio oficial o repositorio, para qué sirve y los límites que conoces. Para una corrección, indica la página, qué debe cambiar y una fuente fiable.",
+            "Para una corrección del sitio incluye la página, los pasos, el resultado esperado y el real, y el navegador cuando importe. Para una propuesta, comparte el sitio oficial o repositorio y explica su utilidad. No incluyas secretos ni enlaces privados.",
             "Incluye solamente registros y capturas necesarios. Elimina contraseñas, claves de API, tokens, datos privados del servidor y archivos confidenciales. Si interviene un servicio externo, identifica el servicio y su respuesta sin publicar credenciales. No inventes una reproducción ni afirmes haber probado una corrección que no has ejecutado."
           ],
           "bullets": [
@@ -822,6 +821,6 @@
         }
       ]
     },
-    "reviewed": "2026-11-10"
+    "reviewed": "2026-11-12"
   }
 ]
