@@ -79,7 +79,7 @@ export const communityUi = {
     listingEmailNote: '这个链接只在你的邮件软件里准备一封发给 contact@monkeyai.online 的草稿。在你亲手发送之前，邮件并不会送达，发送后也不保留队列位置或推荐档期。',
     listingMailLink: '准备邮件草稿',
     listingMailSubject: 'MonkeyAI 社区工具投稿',
-    listingMailBody: '这封草稿在你从邮件软件发送之前不会送达。\n\n工具或项目名称：\n官方网站或仓库：\n谁开发、是否 AI？小公司、初创团队和独立开发者的 AI 工具可免费审核，按队列，没有固定日期，也不保证通过。大型或知名公司与非 AI 工具须付费，最低 Express 7 美元；首页 15 美元 / 30 天。可能会被列入我们的相关姐妹目录。条款：https://globalaiproductindex.com/sponsors/#express-listing\n用途：\n已知限制（不知道就写“未知”）：\n你与该项目的关系：\n如果这不是工具投稿，请在这里写下联系内容：\n\n请不要写入密钥或私密链接。\n',
+    listingMailBody: '这封草稿在你从邮件软件发送之前不会送达。\n\n工具或项目名称：\n官方网站或仓库：\n谁开发、是否 AI？小公司、初创团队和独立开发者的 AI 工具可免费审核：按队列、无固定日期、不保证通过。大公司或知名公司与非 AI 工具须付费，Express 7 美元起；首页 15 美元 / 30 天。可能同时收录于姐妹目录。条款：https://globalaiproductindex.com/sponsors/#express-listing\n用途：\n已知限制（不知道写“未知”）：\n你与该项目的关系：\n非工具投稿请写在下面：\n\n请不要写入密钥或私密链接。\n',
     correctionMailSubject: 'MonkeyAI 社区内容勘误',
     correctionMailBody: '这封草稿在你从邮件软件发送之前不会送达。\n\n页面地址：\n应修改的内容：\n勘误来源：\n\n请不要写入密钥或私密链接。\n',
     listingRulesLink: '收录规则',
