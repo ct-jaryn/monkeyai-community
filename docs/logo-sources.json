@@ -188,15 +188,17 @@
     "file": "public/logos/localai.png",
     "sourceUrl": "https://raw.githubusercontent.com/mudler/LocalAI/master/core/http/static/logo.png",
     "pageUrl": "https://localai.io/",
-    "sha256": "98f62f85e1bbcfa8032cb54123bdc4947d2764c4b2bad68f591c106323cf154d",
-    "bytes": 914776,
+    "sha256": "90d2339dd66d5a857edf255f73d9c50eda69fc2495679fa8a9713d325e5689ba",
+    "bytes": 64378,
     "type": "image/png",
     "verified": "2026-11-09",
     "dimensions": [
-      1024,
-      1024
+      256,
+      256
     ],
-    "note": "Copied unchanged from the logo displayed by the official LocalAI README in the MIT-licensed repository."
+    "note": "Downscaled with sips from the 1024x1024 logo displayed by the official LocalAI README in the MIT-licensed repository; no recoloring or shape change.",
+    "originalSha256": "98f62f85e1bbcfa8032cb54123bdc4947d2764c4b2bad68f591c106323cf154d",
+    "originalBytes": 914776
   },
   {
     "key": "ollama",
