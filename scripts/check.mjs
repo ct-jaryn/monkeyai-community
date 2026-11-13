@@ -273,7 +273,7 @@ if(exists('dist/llms.txt')){
   const llms=read('dist/llms.txt');
   expect(llms.startsWith('# MonkeyAI Community'),'llms','must open with the site heading');
   expect(!/\bundefined\b|\[object Object\]|\bTODO\b/.test(llms),'llms','contains placeholder content');
-  const listed=[...llms.matchAll(/^- \[[^\]]+\]\((https?:\/\/[^)]+)\)/gm)].map(m=>new URL(m[1]).pathname);
+  const listed=[...llms.matchAll(/\[[^\]]*\]\((https?:\/\/[^)\s]+)\)/g)].map(m=>new URL(m[1]).pathname);
   for(const p of listed){if(p==='/sitemap.xml'||p==='/robots.txt')continue;expect(routeMap.has(p),'llms',`points at a page that is not built: ${p}`);}
   for(const r of routeMap.values())if(r.lang==='en')expect(listed.includes(r.path),'llms',`omits ${r.path}`);
 }else error('llms','llms.txt missing');
@@ -322,7 +322,10 @@ for(const [kind,items] of [['tools',tools],['guides',guides],['models',models]])
 // Tab starts over in the header.
 for(const file of Object.keys(documents)){
   const html=read('dist/'+file);
-  expect(/<a class="skip-link" href="#main">/.test(html),file,'skip link missing or not pointing at #main');
+  // Match on attributes, not on attribute order: several equivalent spellings
+  // behave identically, so the check should not demand one exact tag.
+  const skip=[...html.matchAll(/<a\b[^>]*>/g)].map(m=>m[0]).find(tag=>/class="[^"]*\bskip-link\b/.test(tag)&&/href="#main"/.test(tag));
+  expect(Boolean(skip),file,'skip link missing or not pointing at #main');
   const main=html.match(/<main\b[^>]*>/);
   expect(Boolean(main)&&/id="main"/.test(main[0])&&/tabindex="-1"/.test(main[0]),file,'main region cannot receive skip-link focus');
 }
@@ -337,11 +340,14 @@ for(const file of Object.keys(documents)){
   let graph;
   try{graph=JSON.parse(raw[1])['@graph']||[];}catch{error(file,'structured data is not valid JSON');continue;}
   const article=graph.find(node=>node['@type']==='Article');
-  if(!article)continue;
+  const dated=graph.filter(node=>typeof node.dateModified==='string');
+  if(!article&&!dated.length)continue;
   const route=file==='index.html'?'/':'/'+file.replace(/index\.html$/,'');
   const date=sitemapDates.get(new URL(route,origin).href);
-  expect(Boolean(date),file,'Article page is absent from the sitemap');
-  if(date&&article.dateModified)expect(article.dateModified===date,file,`schema dateModified ${article.dateModified} differs from sitemap ${date}`);
+  expect(Boolean(date),file,'page with a review date is absent from the sitemap');
+  // An Article without a date cannot be compared, so it must not slip through.
+  if(article)expect(/^\d{4}-\d{2}-\d{2}$/.test(article.dateModified||''),file,'Article carries no review date');
+  for(const node of dated)if(date)expect(node.dateModified===date,file,`schema dateModified ${node.dateModified} differs from sitemap ${date}`);
 }
 
 const officialHosts={
