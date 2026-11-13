@@ -326,6 +326,23 @@ for(const file of Object.keys(documents)){
   const main=html.match(/<main\b[^>]*>/);
   expect(Boolean(main)&&/id="main"/.test(main[0])&&/tabindex="-1"/.test(main[0]),file,'main region cannot receive skip-link focus');
 }
+// The sitemap and the Article schema describe the same page. Two different
+// freshness dates read as a contradiction, so both must come from one source.
+const sitemapDates=new Map(sitemapEntries.map(e=>[e.loc,e.lastmod]));
+for(const file of Object.keys(documents)){
+  if(file==='404.html')continue;
+  const html=read('dist/'+file);
+  const raw=html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if(!raw)continue;
+  let graph;
+  try{graph=JSON.parse(raw[1])['@graph']||[];}catch{error(file,'structured data is not valid JSON');continue;}
+  const article=graph.find(node=>node['@type']==='Article');
+  if(!article)continue;
+  const route=file==='index.html'?'/':'/'+file.replace(/index\.html$/,'');
+  const date=sitemapDates.get(new URL(route,origin).href);
+  expect(Boolean(date),file,'Article page is absent from the sitemap');
+  if(date&&article.dateModified)expect(article.dateModified===date,file,`schema dateModified ${article.dateModified} differs from sitemap ${date}`);
+}
 
 const officialHosts={
   'openai-gpt':['developers.openai.com','platform.openai.com'],
