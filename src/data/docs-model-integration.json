@@ -238,7 +238,7 @@
         {
           "heading": "Set capabilities and credit rules",
           "paragraphs": [
-            "For a text model, the official team guide requires context size and maximum output tokens greater than zero. In the reviewed admin code, context is entered in K units and converted to tokens by multiplying by 1,000; verify the unit in your installed form. For example, a documented 128,000-token context corresponds to 128 K in that form. The v20261104 changelog says copying a model can prefill the existing configuration for a new one, and context size and maximum output are entered in K, meaning thousands of tokens.",
+            "For a text model, the official team guide requires context size and maximum output tokens greater than zero. In the reviewed admin code, context is entered in K units and converted to tokens by multiplying by 1,000; verify the unit in your installed form. For example, a documented 128,000-token context corresponds to 128 K in that form. The v20261103 changelog says copying a model can prefill the existing configuration for a new one, and context size and maximum output are entered in K, meaning thousands of tokens.",
             "The reviewed form also accepts a positive credit multiplier and flags for image input and reasoning support. Set the multiplier according to the team’s credit and billing rules. Set capability flags according to what the specific model and interface actually support; changing a flag does not give a model a capability it lacks. Check provider limits and current pricing directly."
           ],
           "bullets": [
@@ -250,7 +250,7 @@
           "heading": "Authorize members and test",
           "paragraphs": [
             "Choose the authorization scope and save: all members, selected groups or selected users. The official resource guide says authorization of a parent group also grants access to its child-group members. Authorization allows use; it does not grant permission to edit the administrator’s resource. The upstream fix merged on 2026-11-10 checks client model lists, labels, and actual calls by resource authorization. Administrator identity or system-model creator identity no longer grants client access by itself. Admin-console permissions and personal models created for your own use remain unchanged. An administrator still needs direct, group, or everyone authorization before viewing or calling a system model in the client.",
-            "Ask an authorized member to refresh the client model list, open a new conversation, select the model beside the task input and send a short non-sensitive test. Verify the returned answer and check usage in the appropriate system. If the model is missing, confirm team membership, enabled state and authorization before changing provider settings. The v20261109 changelog says large-language-model tests now wait for the complete result and display it once, and fixes test content overflowing the dialog. Do not treat a brief lack of word-by-word output as a failure in that admin test. The v20261104 changelog also says system model streaming tests send the saved protocol, address, key, and network proxy upstream and display the response live in the admin console. They support OpenAI Chat, OpenAI Responses, and Anthropic."
+            "Ask an authorized member to refresh the client model list, open a new conversation, select the model beside the task input and send a short non-sensitive test. Verify the returned answer and check usage in the appropriate system. If the model is missing, confirm team membership, enabled state and authorization before changing provider settings. The v20261109 changelog says large-language-model tests now wait for the complete result and display it once, and fixes test content overflowing the dialog. Do not treat a brief lack of word-by-word output as a failure in that admin test. The v20261103 changelog also says system model streaming tests send the saved protocol, address, key, and network proxy upstream and display the response live in the admin console. They support OpenAI Chat, OpenAI Responses, and Anthropic."
           ],
           "bullets": [
             "Verify at least one intended recipient can select and use the model.",
@@ -312,7 +312,7 @@
         {
           "heading": "设置能力与积分规则",
           "paragraphs": [
-            "官方团队资源指南要求文本模型的上下文大小和最大输出 Token 大于 0。当前核对的管理后台源码中，上下文字段以 K 为单位，保存时将输入值乘以 1,000；请确认实际版本界面显示的单位。例如，官方模型说明为 128,000 Token 时，该表单填写 128 K。v20261104 更新日志说明，复制模型时可以预填现有配置再创建新模型，上下文容量和最大输出统一按 K（千 Token）输入。",
+            "官方团队资源指南要求文本模型的上下文大小和最大输出 Token 大于 0。当前核对的管理后台源码中，上下文字段以 K 为单位，保存时将输入值乘以 1,000；请确认实际版本界面显示的单位。例如，官方模型说明为 128,000 Token 时，该表单填写 128 K。v20261103 更新日志说明，复制模型时可以预填现有配置再创建新模型，上下文容量和最大输出统一按 K（千 Token）输入。",
             "所核对的表单还包含正数的积分倍率，以及图片输入、推理能力开关。积分倍率应按团队的积分与计费规则设置；能力开关应按具体模型和接口真实支持的能力设置，打开开关不会凭空增加功能。上游模型的额度和当前价格请在服务商处另行确认。"
           ],
           "bullets": [
@@ -324,7 +324,7 @@
           "heading": "授权成员并验证",
           "paragraphs": [
             "选择授权范围并保存：全员、指定分组或指定用户。官方资源指南说明，对父分组授权后，其子分组成员也可使用；资源授权表示可以使用，并不自动给予修改后台配置的权限。2026-11-10 合并的上游修复说明，客户端模型列表、标签和实际调用按资源授权校验，不再因为管理员身份或系统模型创建者身份而放行。管理端权限和个人自建模型自用保持不变；管理员要在客户端查看或调用系统模型，仍需本人、分组或全员授权。",
-            "请一位已获授权的成员刷新客户端模型列表，打开新会话，在输入框右侧选择该模型并发送简短、无敏感信息的测试请求。检查回复，并在相应系统查看使用情况。若未出现该模型，先确认登录的团队、启用状态和授权范围，再调整服务商配置。v20261109 更新日志说明，大语言模型测试改为等待完整结果后一次性展示，并修复测试内容溢出对话框的问题；因此管理端测试时不要把短暂没有逐字输出当成失败。v20261104 更新日志还说明，系统大语言模型流式测试会按已保存的协议、地址、密钥和网络代理向上游发送请求，并在管理端实时显示响应；支持 OpenAI Chat、OpenAI Responses 和 Anthropic 协议。"
+            "请一位已获授权的成员刷新客户端模型列表，打开新会话，在输入框右侧选择该模型并发送简短、无敏感信息的测试请求。检查回复，并在相应系统查看使用情况。若未出现该模型，先确认登录的团队、启用状态和授权范围，再调整服务商配置。v20261109 更新日志说明，大语言模型测试改为等待完整结果后一次性展示，并修复测试内容溢出对话框的问题；因此管理端测试时不要把短暂没有逐字输出当成失败。v20261103 更新日志还说明，系统大语言模型流式测试会按已保存的协议、地址、密钥和网络代理向上游发送请求，并在管理端实时显示响应；支持 OpenAI Chat、OpenAI Responses 和 Anthropic 协议。"
           ],
           "bullets": [
             "至少确认一位预期成员能够选择并使用模型。",
@@ -386,7 +386,7 @@
         {
           "heading": "Ajusta capacidades y créditos",
           "paragraphs": [
-            "La guía oficial exige que el contexto y el máximo de tokens de salida del modelo de texto sean mayores que cero. En el código administrativo revisado, el contexto se introduce en unidades K y se multiplica por 1.000 al guardarlo; confirma la unidad en tu versión. Por ejemplo, un límite documentado de 128.000 tokens corresponde a 128 K en ese formulario. El registro v20261104 indica que copiar un modelo puede rellenar la configuración existente para crear uno nuevo, y que el contexto y la salida máxima se introducen en K, es decir, miles de tokens.",
+            "La guía oficial exige que el contexto y el máximo de tokens de salida del modelo de texto sean mayores que cero. En el código administrativo revisado, el contexto se introduce en unidades K y se multiplica por 1.000 al guardarlo; confirma la unidad en tu versión. Por ejemplo, un límite documentado de 128.000 tokens corresponde a 128 K en ese formulario. El registro v20261103 indica que copiar un modelo puede rellenar la configuración existente para crear uno nuevo, y que el contexto y la salida máxima se introducen en K, es decir, miles de tokens.",
             "El formulario revisado también admite un multiplicador positivo de créditos y opciones para imágenes y razonamiento. Ajusta el multiplicador según las reglas de créditos y facturación del equipo. Activa las capacidades según lo que admitan el modelo y la interfaz concretos; una opción de configuración no añade por sí sola una capacidad inexistente. Consulta la cuota y los precios vigentes del proveedor."
           ],
           "bullets": [
@@ -398,7 +398,7 @@
           "heading": "Autoriza y verifica",
           "paragraphs": [
             "Selecciona el alcance de autorización y guarda: todos, grupos seleccionados o usuarios seleccionados. La guía oficial indica que autorizar un grupo padre también permite el uso a sus subgrupos. El permiso de uso no concede automáticamente permiso para editar el recurso administrativo. La corrección de upstream fusionada el 2026-11-10 comprueba listas, etiquetas y llamadas reales del cliente según la autorización del recurso. La identidad de administrador o de creador del modelo del sistema ya no concede por sí sola acceso en el cliente. Los permisos de la consola y los modelos personales de uso propio no cambian. Un administrador sigue necesitando autorización directa, de grupo o para todos antes de ver o llamar a un modelo del sistema en el cliente.",
-            "Pide a una persona autorizada que actualice la lista de modelos, abra una conversación, seleccione el modelo junto al campo de tarea y envíe una petición breve sin datos sensibles. Comprueba la respuesta y el consumo. Si no aparece, revisa equipo, estado y permisos antes de cambiar los datos del proveedor. El registro de cambios v20261109 indica que la prueba de modelos de lenguaje ahora espera el resultado completo y lo muestra de una vez, y corrige el desbordamiento del contenido en el diálogo. No interpretes una breve ausencia de salida palabra por palabra como un fallo en esa prueba administrativa. El registro v20261104 también indica que la prueba en streaming usa el protocolo, la dirección, la clave y el proxy guardados, y muestra la respuesta en directo en la consola. Admite OpenAI Chat, OpenAI Responses y Anthropic."
+            "Pide a una persona autorizada que actualice la lista de modelos, abra una conversación, seleccione el modelo junto al campo de tarea y envíe una petición breve sin datos sensibles. Comprueba la respuesta y el consumo. Si no aparece, revisa equipo, estado y permisos antes de cambiar los datos del proveedor. El registro de cambios v20261109 indica que la prueba de modelos de lenguaje ahora espera el resultado completo y lo muestra de una vez, y corrige el desbordamiento del contenido en el diálogo. No interpretes una breve ausencia de salida palabra por palabra como un fallo en esa prueba administrativa. El registro v20261103 también indica que la prueba en streaming usa el protocolo, la dirección, la clave y el proxy guardados, y muestra la respuesta en directo en la consola. Admite OpenAI Chat, OpenAI Responses y Anthropic."
           ],
           "bullets": [
             "Confirma que al menos un destinatario previsto puede seleccionar y usar el modelo.",
@@ -463,7 +463,7 @@
           "heading": "The model does not appear",
           "paragraphs": [
             "Open Settings → Assistant configuration → Models (设置 → 助手配置 → 模型) and inspect Team (团队), Mine (我的), and Shared by others (他人分享). Team models need an administrator’s authorization; models shared by another member appear in the shared category. Refresh the client list and confirm that the account belongs to the intended team.",
-            "Ask the administrator or owner to review the resource’s enabled state, the intended recipient and group membership. The official guide says parent-group authorization includes child-group members. A recipient’s permission to use a shared personal model does not allow them to change or reshare its configuration. The v20261031 changelog fixes Agnes video models that could not be added. If one still cannot be added, check the installed version, model type, and interface configuration first."
+            "Ask the administrator or owner to review the resource’s enabled state, the intended recipient and group membership. The official guide says parent-group authorization includes child-group members. A recipient’s permission to use a shared personal model does not allow them to change or reshare its configuration. The v20261029 changelog fixes Agnes video models that could not be added. If one still cannot be added, check the installed version, model type, and interface configuration first."
           ],
           "bullets": [
             "Confirm a personal model was saved under Mine.",
@@ -513,7 +513,7 @@
           "heading": "模型没有出现在列表里",
           "paragraphs": [
             "进入「设置 → 助手配置 → 模型」，分别查看「团队」「我的」「他人分享」。团队模型需要管理员授权；其他成员共享的模型应出现在「他人分享」。刷新客户端列表，并确认账号登录的是预期团队。",
-            "请管理员或资源所有者核对启用状态、共享对象和分组。官方文档说明父分组授权会覆盖子分组成员；个人模型的被共享者可以使用，但不能修改或继续转共享。v20261031 更新日志修复了 Agnes 视频模型无法添加的问题；如果仍无法添加，先核对当前安装版本、模型类型和接口配置。"
+            "请管理员或资源所有者核对启用状态、共享对象和分组。官方文档说明父分组授权会覆盖子分组成员；个人模型的被共享者可以使用，但不能修改或继续转共享。v20261029 更新日志修复了 Agnes 视频模型无法添加的问题；如果仍无法添加，先核对当前安装版本、模型类型和接口配置。"
           ],
           "bullets": [
             "确认个人模型已保存在「我的」中。",
@@ -563,7 +563,7 @@
           "heading": "El modelo no aparece",
           "paragraphs": [
             "Abre Ajustes → Configuración del asistente → Modelos (设置 → 助手配置 → 模型) y revisa Equipo (团队), Mis modelos (我的) y Compartidos por otros (他人分享). Un modelo de equipo requiere autorización administrativa; los modelos compartidos se muestran en la categoría correspondiente. Actualiza la lista y comprueba el equipo activo.",
-            "Pide al administrador o propietario que revise el estado, los destinatarios y la pertenencia a los grupos. La guía oficial indica que la autorización de un grupo padre incluye a sus subgrupos. Quien recibe un modelo personal puede usarlo, pero no editarlo ni volver a compartirlo. El registro v20261031 corrige que los modelos de vídeo Agnes no se pudieran añadir. Si sigue sin poder añadirse, revisa primero la versión instalada, el tipo de modelo y la configuración de la interfaz."
+            "Pide al administrador o propietario que revise el estado, los destinatarios y la pertenencia a los grupos. La guía oficial indica que la autorización de un grupo padre incluye a sus subgrupos. Quien recibe un modelo personal puede usarlo, pero no editarlo ni volver a compartirlo. El registro v20261029 corrige que los modelos de vídeo Agnes no se pudieran añadir. Si sigue sin poder añadirse, revisa primero la versión instalada, el tipo de modelo y la configuración de la interfaz."
           ],
           "bullets": [
             "Comprueba que el modelo personal se guardó en Mis modelos.",
