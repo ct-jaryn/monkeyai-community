@@ -317,6 +317,15 @@ for(const [kind,items] of [['tools',tools],['guides',guides],['models',models]])
     for(const source of sourceUrls||[])try{expect(new URL(source).protocol==='https:',where,`non-HTTPS source ${source}`);}catch{error(where,`invalid source URL ${source}`);}
   }
 }
+// The skip link only helps if its target can take focus. Without tabindex="-1"
+// on <main> the browser moves the hash but leaves focus on <body>, so the next
+// Tab starts over in the header.
+for(const file of Object.keys(documents)){
+  const html=read('dist/'+file);
+  expect(/<a class="skip-link" href="#main">/.test(html),file,'skip link missing or not pointing at #main');
+  const main=html.match(/<main\b[^>]*>/);
+  expect(Boolean(main)&&/id="main"/.test(main[0])&&/tabindex="-1"/.test(main[0]),file,'main region cannot receive skip-link focus');
+}
 
 const officialHosts={
   'openai-gpt':['developers.openai.com','platform.openai.com'],
