@@ -431,6 +431,8 @@ const contrastPairs=[
   ['.directory-meta','#fcfbf9'],
   ['.docs-sidebar>a','#fcfbf9'],
   ['.search-trigger','#fcfbf9'],
+  ['.model-side-facts>span','#fcfbf9'],
+  ['.not-found>span','#fcfbf9'],
   ['.footer-heart','#f0ebf5'],
   ['.ribbon-inner','#f0ebf5'],
 ];
