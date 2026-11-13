@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 // installation is required; Python's standard library handles entities and tags.
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const issues=[];
-const metrics={htmlFiles:0,indexableRoutes:0,languageGroups:0,internalLinks:0,assetReferences:0,jsonLdBlocks:0,sitemapUrls:0,tools:0,guides:0,models:0,logoMappings:0,uniqueLogoAssets:0,brandInstances:0,svgAssetsChecked:0,localizedDataEntries:0};
+const metrics={htmlFiles:0,indexableRoutes:0,languageGroups:0,internalLinks:0,assetReferences:0,jsonLdBlocks:0,sitemapUrls:0,tools:0,guides:0,models:0,logoMappings:0,uniqueLogoAssets:0,brandInstances:0,svgAssetsChecked:0,localizedDataEntries:0,contrastPairsChecked:0};
 const error=(where,message)=>issues.push(`${where}: ${message}`);
 const expect=(ok,where,message)=>{if(!ok)error(where,message);};
 const exists=p=>fs.existsSync(path.join(root,p));
@@ -418,6 +418,37 @@ print('safe')`,path.join(root,'public'+src)],{encoding:'utf8'});
   }else expect(['.webp','.jpg','.jpeg'].includes(ext),src,'unsupported logo image format');
 }
 
+// Small-text contrast guard. The palette leans on pale lavender grays, so the
+// metadata selectors below are pinned to WCAG AA against the background each
+// one actually renders on. Without this, a later palette tweak can quietly drop
+// breadcrumbs, review dates, or the in-page table of contents below 4.5:1.
+const contrastPairs=[
+  ['.breadcrumbs','#fcfbf9'],
+  ['.article-meta','#fcfbf9'],
+  ['.toc>a','#fcfbf9'],
+  ['.tool-bottom','#ffffff'],
+  ['.footer-bottom p','#f5f3f0'],
+  ['.directory-meta','#fcfbf9'],
+  ['.docs-sidebar>a','#fcfbf9'],
+  ['.search-trigger','#fcfbf9'],
+  ['.footer-heart','#f0ebf5'],
+  ['.ribbon-inner','#f0ebf5'],
+];
+const cssRules=[...read('public/styles.css').matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(match=>({selectors:match[1].split(',').map(s=>s.trim()),body:match[2]}));
+const channel=v=>{const c=v/255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);};
+const luminance=hex=>0.2126*channel(parseInt(hex.slice(1,3),16))+0.7152*channel(parseInt(hex.slice(3,5),16))+0.0722*channel(parseInt(hex.slice(5,7),16));
+const contrast=(a,b)=>{const [lighter,darker]=[luminance(a),luminance(b)].sort((p,q)=>q-p);return (lighter+0.05)/(darker+0.05);};
+for(const [selector,background] of contrastPairs){
+  const rule=cssRules.find(item=>item.selectors.includes(selector));
+  expect(Boolean(rule),`styles.css ${selector}`,'no rule declares this selector');
+  if(!rule)continue;
+  const color=rule.body.match(/(?:^|;)color:\s*(#[0-9a-f]{6})/i);
+  expect(Boolean(color),`styles.css ${selector}`,'text color is not a literal hex value');
+  if(!color)continue;
+  const ratio=contrast(color[1],background);
+  expect(ratio>=4.5,`styles.css ${selector}`,`contrast ${ratio.toFixed(2)}:1 against ${background} is below the 4.5:1 minimum`);
+  metrics.contrastPairsChecked++;
+}
 console.log(JSON.stringify({status:issues.length?'failed':'passed',...metrics,issues:issues.length},null,2));
 if(issues.length){for(const message of issues)console.error(`- ${message}`);process.exitCode=1;}
 else console.log('All delivered routes, reciprocal language groups, static content, links, sources, and sitemap checks passed.');
