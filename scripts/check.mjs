@@ -240,6 +240,19 @@ for(const [file,doc] of Object.entries(documents)){
     expect(exists('dist/'+decodeURIComponent(target.pathname).slice(1)),pagePath,`missing local asset ${asset}`);
   }
 }
+// Heading levels must not skip: a section that jumps from h1 to an h3 card
+// title is announced out of order by screen readers and flattens the outline.
+// The 404 page is exempt; its only deep headings sit in the footer.
+for(const file of Object.keys(documents)){
+  if(file==='404.html')continue;
+  const levels=[...read('dist/'+file).matchAll(/<h([1-6])[\s>]/g)].map(m=>Number(m[1]));
+  const pagePath=file==='index.html'?'/':'/'+file.replace(/index\.html$/,'');
+  let previous=0;
+  for(const level of levels){
+    expect(!previous||level<=previous+1,pagePath,`heading level jumps from h${previous} to h${level}`);
+    previous=level;
+  }
+}
 const notFound=documents['404.html'];
 expect(Boolean(notFound),'404','404.html is missing');
 if(notFound)expect(notFound.robots.some(v=>/\bnoindex\b/i.test(v)),'404','must have noindex');
