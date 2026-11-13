@@ -266,6 +266,17 @@ for(const loc of sitemap){
 }
 expect(!sitemap.some(s=>/404(?:\.html|\/)/.test(s)),'sitemap','must exclude the error page');
 if(exists('dist/robots.txt'))expect(read('dist/robots.txt').includes(`Sitemap: ${origin.origin}/sitemap.xml`),'robots','missing canonical sitemap declaration');else error('robots','robots.txt missing');
+// llms.txt is generated from the same records as the pages. Keep it complete and
+// honest: every English route must appear, and nothing may point at a page that
+// was not built.
+if(exists('dist/llms.txt')){
+  const llms=read('dist/llms.txt');
+  expect(llms.startsWith('# MonkeyAI Community'),'llms','must open with the site heading');
+  expect(!/\bundefined\b|\[object Object\]|\bTODO\b/.test(llms),'llms','contains placeholder content');
+  const listed=[...llms.matchAll(/^- \[[^\]]+\]\((https?:\/\/[^)]+)\)/gm)].map(m=>new URL(m[1]).pathname);
+  for(const p of listed){if(p==='/sitemap.xml'||p==='/robots.txt')continue;expect(routeMap.has(p),'llms',`points at a page that is not built: ${p}`);}
+  for(const r of routeMap.values())if(r.lang==='en')expect(listed.includes(r.path),'llms',`omits ${r.path}`);
+}else error('llms','llms.txt missing');
 const nonempty=v=>typeof v==='string'&&v.trim().length>0;
 for(const [kind,items] of [['tools',tools],['guides',guides],['models',models]]){
   expect(Array.isArray(items)&&items.length>0,kind,'source data must contain entries');

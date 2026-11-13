@@ -75,3 +75,39 @@ function write(l,p,title,description,content,type='WebPage',extra={},lastmod=con
 for(const l of locales){const u=ui[l];write(l,'',l==='en'?'AI tools, practical guides & an open-source community':l==='zh'?'AI 工具导航、实践指南与开源社区':'Herramientas de IA, guías y comunidad abierta',u.heroMeta||u.heroText,home(l));write(l,'models',u.models,u.modelsMeta||u.modelsDescription,modelPages.index(l),'CollectionPage',{mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListUnordered',numberOfItems:models.length,itemListElement:models.map(m=>({'@type':'ListItem',position:models.indexOf(m)+1,item:{'@type':'WebPage',name:m.name,url:abs(l,`models/${m.slug}`)}}))}},newest(models,config.updated));write(l,'models/compare',u.compareTitle,u.compareDescription,modelPages.compare(l),'Article',{headline:u.compareTitle,dateModified:newest(models,config.updated),author:{'@type':'Organization',name:config.name,url:abs(l,'about')},about:models.map(m=>({'@type':'Thing',name:m.name,sameAs:m.officialUrl})),citation:models.map(m=>m.apiDocsUrl)},newest(models,config.updated));for(const m of models)write(l,`models/${m.slug}`,`${m.name} — ${m[l].seoTitle||m[l].tagline}`,(m[l].seoDescription||m[l].description),modelPages.detail(m,l),'Article',{headline:m.name,dateModified:m.reviewed,author:{'@type':'Organization',name:config.name,url:abs(l,'about')},about:{'@type':'Thing',name:m.name,sameAs:m.officialUrl},image:config.origin+logos[m.slug].src,citation:m.sourceUrls});write(l,'tools',u.tools,u.directoryMeta||u.directoryDescription,directory(l),'CollectionPage',{mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListUnordered',numberOfItems:tools.length,itemListElement:tools.map((t,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'WebPage',name:t.name,url:abs(l,`tools/${t.slug}`)}}))}},newest(tools,config.updated));for(const t of tools)write(l,`tools/${t.slug}`,`${t.name} — ${t[l].seoTitle||t[l].tagline}`,t[l].seoDescription,toolDetail(t,l),'WebPage',{about:{'@type':'SoftwareApplication',name:t.name,url:t.url,image:config.origin+logos[t.slug].src,applicationCategory:u[t.category],description:t[l].description},citation:[t.sourceUrl]},t.reviewed||config.updated);write(l,'docs',u.docs,u.docsMeta||u.docsDescription,docsIndex(l),'CollectionPage',{dateModified:newestGuideReview,mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListUnordered',numberOfItems:guides.length,itemListElement:guides.map((g,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'WebPage',name:g[l].title,url:abs(l,`docs/${g.slug}`)}}))}},newestGuideReview);for(const g of guides)write(l,`docs/${g.slug}`,g[l].title,g[l].description,guideDetail(g,l),'Article',{headline:g[l].title,dateModified:g.reviewed||config.updated,about:{'@type':'Thing',name:'MonkeyAI',sameAs:config.upstream},citation:g.sourceUrls,author:{'@type':'Organization',name:config.name,url:config.origin+'/about/'}},g.reviewed||config.updated);write(l,'community',u.community,u.communityText,community(l));write(l,'about',u.about,u.aboutMeta||u.aboutText,about(l));fs.writeFileSync(path.join(out,l==='en'?'search-index.json':`${l}/search-index.json`),JSON.stringify([...models.map(m=>({title:m.name,url:url(l,`models/${m.slug}`)})),...tools.map(t=>({title:t.name,url:url(l,`tools/${t.slug}`)})),...guides.map(g=>({title:g[l].title,url:url(l,`docs/${g.slug}`)}))]));}
 const notFound=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | MonkeyAI Community</title><link rel="icon" type="image/png" href="/brand/monkeyai-logo.png"><meta name="robots" content="noindex"><link rel="stylesheet" href="${stylesheet}"></head><body><header class="header"><div class="shell header-inner"><a class="brand" href="/">${logo}<span>MonkeyAI<small>COMMUNITY</small></span></a></div></header><main id="main" class="shell not-found"><span>404 / A SMALL DETOUR</span><h1>${ui.en.notFound}</h1><p>${ui.en.notFoundText}</p>${button('/',ui.en.home)}</main>${footer('en')}</body></html>`;fs.writeFileSync(path.join(out,'404.html'),notFound);
 fs.writeFileSync(path.join(out,'robots.txt'),`User-agent: *\nContent-Signal: search=yes,ai-input=yes,ai-train=no,use=reference\nAllow: /\n\nSitemap: ${config.origin}/sitemap.xml\n`);fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${manifest.map(p=>`<url><loc>${config.origin}${p.path}</loc><lastmod>${p.lastmod}</lastmod></url>`).join('')}</urlset>`);fs.writeFileSync('route-manifest.json',JSON.stringify(manifest,null,2));console.log(`Built ${manifest.length} localized pages + a 404, sitemap, and robots.txt. Origin: ${config.origin}`);
+
+
+// llms.txt gives assistants a short, source-checked map of the site instead of
+// making them crawl every page. Entries are generated from the same records the
+// pages use, so a listing cannot drift from the page it points at.
+function buildLlms(){
+  const o=config.origin;
+  const row=(title,href,summary)=>'- ['+title+']('+o+href+')'+(summary?': '+summary:'');
+  const section=(heading,rows)=>'## '+heading+'\n\n'+rows.join('\n');
+  const core=[
+    row('AI tools','/','An independent directory of AI tools, model families and setup guides, with the date each listing was checked.'),
+    row('AI tools directory','/tools/','Every reviewed tool, separated into hosted services and self-hosted software.'),
+    row('AI model families','/models/',models.length+' model families, each with access routes and the questions to ask before adopting one.'),
+    row('Model comparison','/models/compare/','A decision table across access options and starting tasks; not a leaderboard.'),
+    row('Guides and docs','/docs/','Setup, model connection, MCP, and troubleshooting guides.'),
+    row('Community','/community/','How to suggest a tool or report a correction, and the current review and sponsorship rules.'),
+    row('About','/about/','Who maintains the site, how facts are checked, and how privacy is handled.')
+  ];
+  const toolsSection=tools.map(t=>row(t.name,'/tools/'+t.slug+'/',t.en.seoDescription||t.en.tagline));
+  const modelsSection=models.map(m=>row(m.name,'/models/'+m.slug+'/',m.en.tagline));
+  const guidesSection=guides.map(g=>row(g.en.title,'/docs/'+g.slug+'/',g.en.description));
+  return ['# MonkeyAI Community','',
+    '> Practical, source-checked notes on AI tools, model families and the MonkeyAI project. Each listing records the date its facts were checked against an official source, and hosted services are kept distinct from self-hosted releases.',
+    '',
+    'Chinese pages live under /zh/ and Spanish pages under /es/; the structure is the same.',
+    '',
+    section('Core pages',core),'',
+    section('Tools',toolsSection),'',
+    section('Model families',modelsSection),'',
+    section('Guides',guidesSection),'',
+    '## Machine-readable','',
+    '- [Sitemap]('+o+'/sitemap.xml)',
+    '- [Robots policy]('+o+'/robots.txt): search and AI input allowed; model training disallowed.',
+    ''].join('\n');
+}
+fs.writeFileSync(path.join(out,'llms.txt'),buildLlms());
