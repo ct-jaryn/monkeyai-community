@@ -155,5 +155,13 @@
     "padding": "7px",
     "kind": "official-favicon",
     "note": "Official site icon from orkas.ai reviewed on 2026-11-10; saved without recoloring or reshaping."
+  },
+  "agent-qa": {
+    "src": "/logos/agent-qa.png",
+    "sourceUrl": "https://vostride.com/brand/vostride-pixel-icon-192.png",
+    "background": "#ffffff",
+    "padding": "7px",
+    "kind": "official-logo",
+    "note": "Official vostride asset copied unchanged for this agent-qa directory submission; trademarks remain with their owner."
   }
 }
