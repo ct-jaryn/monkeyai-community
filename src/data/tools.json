@@ -507,8 +507,8 @@
     "category": "research",
     "mark": "N",
     "color": "#506ea5",
-    "sourceUrl": "https://support.google.com/gemininotebook/?hl=en",
-    "reviewed": "2026-11-10",
+    "sourceUrl": "https://support.google.com/notebooklm/?hl=en",
+    "reviewed": "2026-11-13",
     "en": {
       "tagline": "Ask focused questions of a set of sources",
       "seoTitle": "Focused Q&A on your own sources",
