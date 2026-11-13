@@ -431,6 +431,11 @@ const contrastPairs=[
   ['.directory-meta','#fcfbf9'],
   ['.docs-sidebar>a','#fcfbf9'],
   ['.search-trigger','#fcfbf9'],
+  ['.comparison-table td','#ffffff'],
+  ['.comparison-model small','#ffffff'],
+  ['.comparison-docs','#ffffff'],
+  ['.evaluation-steps article>span','#ffffff'],
+  ['.comparison-table caption','#f7f3fa'],
   ['.docs-intro>a','#f4f0f8'],
   ['.docs-home-search>span','#fcfbf9'],
   ['.docs-topic-count','#fcfbf9'],
@@ -445,7 +450,9 @@ const channel=v=>{const c=v/255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.0
 const luminance=hex=>0.2126*channel(parseInt(hex.slice(1,3),16))+0.7152*channel(parseInt(hex.slice(3,5),16))+0.0722*channel(parseInt(hex.slice(5,7),16));
 const contrast=(a,b)=>{const [lighter,darker]=[luminance(a),luminance(b)].sort((p,q)=>q-p);return (lighter+0.05)/(darker+0.05);};
 for(const [selector,background] of contrastPairs){
-  const rule=cssRules.find(item=>item.selectors.includes(selector));
+  // A selector can appear in several rules; only the one that declares a text
+  // color is relevant, otherwise the first hit may be a layout-only rule.
+  const rule=cssRules.find(item=>item.selectors.includes(selector)&&/(?:^|;)color:/.test(item.body));
   expect(Boolean(rule),`styles.css ${selector}`,'no rule declares this selector');
   if(!rule)continue;
   const color=rule.body.match(/(?:^|;)color:\s*(#[0-9a-f]{6})/i);

@@ -117,27 +117,27 @@ body[data-locale=zh] h1,body[data-locale=zh] h2,body[data-locale=zh] h3{letter-s
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:13px;background:#fff}
 .comparison-table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.85;min-width:850px;text-align:left}
-.comparison-table caption{text-align:left;background:#f7f3fa;padding:17px 23px;color:#9d88ad;font-size:10px;letter-spacing:.2px;caption-side:top}
+.comparison-table caption{text-align:left;background:#f7f3fa;padding:17px 23px;color:#7e6491;font-size:10px;letter-spacing:.2px;caption-side:top}
 .comparison-table thead th{background:#faf8fc;color:#6d577e;font-weight:600;font-size:10px;padding:17px 22px;border-bottom:1px solid var(--line)}
 .comparison-table td,.comparison-table tbody th{padding:23px 22px;border-bottom:1px solid #eee9f2;vertical-align:top}
 .comparison-table tr:last-child td,.comparison-table tr:last-child th{border-bottom:0}
 .comparison-table tbody tr:hover{background:#fefcff}
 .comparison-table tbody th{font-weight:400;width:23%}
-.comparison-table td{color:#8e7b9a}
+.comparison-table td{color:#806c8d}
 .comparison-table td:nth-child(2){width:22%}
 .comparison-table td:nth-child(3){width:22%}
 .comparison-model{display:flex;align-items:center;gap:12px}
 .comparison-model .product-logo{width:35px;height:35px;border-radius:8px;flex-shrink:0;padding:5px}
 .comparison-model strong{display:block;font-size:13px;line-height:1.5;font-weight:650;color:#5a426d}
-.comparison-model small{display:block;font-size:8px;color:#ac98b7;margin-top:4px}
-.comparison-docs{display:flex;align-items:center;gap:5px;font-size:9px;color:#a386ba;margin-top:12px}
+.comparison-model small{display:block;font-size:8px;color:#876996;margin-top:4px}
+.comparison-docs{display:flex;align-items:center;gap:5px;font-size:9px;color:#8964a7;margin-top:12px}
 .comparison-docs .icon{width:11px;height:11px}
 .comparison-method{padding:65px 0 0;max-width:1000px;margin:auto}
 .comparison-method>h2{margin-top:15px;font-size:32px}
 .comparison-method>p{font-size:14px;line-height:1.9}
 .evaluation-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:29px}
 .evaluation-steps>article{border:1px solid var(--line);border-radius:12px;background:#fff;padding:25px}
-.evaluation-steps article>span{color:#b199c2;font-size:10px;letter-spacing:1px}
+.evaluation-steps article>span{color:#8a66a3;font-size:10px;letter-spacing:1px}
 .evaluation-steps h3{font-size:19px;margin-block:15px 12px}
 .evaluation-steps p{font-size:12px;line-height:1.9;margin-bottom:0}
 .comparison-actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
