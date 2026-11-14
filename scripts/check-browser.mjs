@@ -207,6 +207,20 @@ try{
   await visit('/docs/getting-started/');
   check(await evaluate('getComputedStyle(document.querySelector(".guide-toc")).display==="none"'),'guide at 1280px: the in-page contents duplicate the rail');
   check(await evaluate('getComputedStyle(document.querySelector(".toc")).display!=="none"'),'guide at 1280px: the sticky rail is missing');
+  // The contents list should follow the reader: scrolling into section three
+  // marks that entry and clears the earlier one.
+  await evaluate('{const s=document.getElementById("section-3");scrollTo({top:s.getBoundingClientRect().top+scrollY-60,behavior:"instant"});}');
+  // A headless page reports visibilityState "hidden", and Chrome withholds the
+  // scroll events a programmatic jump would normally produce. Dispatching the same
+  // event keeps the handler under test; without a listener the mark never moves.
+  await evaluate('dispatchEvent(new Event("scroll"))');
+  check(await until("document.querySelector('.toc > a[href=\"#section-3\"]')?.getAttribute('aria-current')==='true'"),'guide at 1280px: the contents list does not follow the reader');
+  check(await evaluate("document.querySelector('.toc > a[href=\"#section-1\"]').getAttribute('aria-current')===null"),'guide at 1280px: more than one contents entry is marked current');
+  await viewport(390,844);
+  await visit('/docs/getting-started/');
+  await evaluate('{const s=document.getElementById("section-3");scrollTo({top:s.getBoundingClientRect().top+scrollY-60,behavior:"instant"});}');
+  await evaluate('dispatchEvent(new Event("scroll"))');
+  check(await until("document.querySelector('.guide-toc nav a[href=\"#section-3\"]')?.getAttribute('aria-current')==='true'"),'guide at 390px: the in-page contents do not follow the reader');
 
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
   // only checks the handlers, so the browser confirms the visible result.

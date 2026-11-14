@@ -16,3 +16,31 @@ let activeFilter='all';const toolSearch=$('#tool-search');const normalizeDirecto
 
 // Documentation search operates on the already-rendered guide index.
 (()=>{const root=document.querySelector('.docs-home');if(!root)return;const search=root.querySelector('#doc-search'),items=[...root.querySelectorAll('[data-doc]')],groups=[...root.querySelectorAll('[data-doc-group]')],count=root.querySelector('#doc-count'),empty=root.querySelector('#doc-empty'),clear=root.querySelector('#doc-clear');const normal=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase();function filter(){const q=normal(search.value.trim());let total=0;for(const item of items){const match=normal(item.dataset.search).includes(q);item.hidden=!match;if(match)total++;}for(const group of groups){const n=group.querySelectorAll('[data-doc]:not([hidden])').length;group.hidden=n===0;group.querySelector('.docs-topic-count').textContent=n+' '+root.dataset.countLabel;const link=root.querySelector(`.docs-topics a[href="#${group.id}"]`);if(link)link.hidden=n===0;}count.textContent=total+' '+root.dataset.countLabel;empty.hidden=total!==0;}search.addEventListener('input',filter);clear.addEventListener('click',()=>{search.value='';filter();search.focus();});})();
+// A reader on a long guide should be able to glance at the contents list and see
+// where they are. The current section is the last heading that has passed under
+// the sticky header; at the very bottom the final section wins, so a short last
+// section still highlights instead of leaving the previous one marked.
+(()=>{
+  const links=[...document.querySelectorAll('.toc > a[href^="#"], .guide-toc nav a[href^="#"]')];
+  if(!links.length)return;
+  const sections=[...new Set(links.map(a=>document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean))];
+  if(!sections.length)return;
+  const header=document.querySelector('.header');
+  const sync=()=>{
+    const offset=(header?header.getBoundingClientRect().height:0)+24;
+    let current=sections[0];
+    if(Math.ceil(scrollY+innerHeight)>=document.documentElement.scrollHeight-2)current=sections[sections.length-1];
+    else for(const s of sections)if(s.getBoundingClientRect().top-offset<=1)current=s;
+    for(const a of links){
+      if(a.getAttribute('href')==='#'+current.id)a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
+    }
+  };
+  // Reading a few positions is cheap next to a layout the browser already did for
+  // this scroll, and running directly keeps the mark correct even when animation
+  // frames are throttled (background tabs, some headless runs).
+  let last=null;
+  addEventListener('scroll',()=>{const y=Math.round(scrollY);if(y===last)return;last=y;sync();},{passive:true});
+  addEventListener('resize',sync);
+  sync();
+})();
