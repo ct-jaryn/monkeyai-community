@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import zlib from 'node:zlib';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
@@ -387,6 +388,29 @@ for(const file of Object.keys(documents)){
   }
   const preloadAt=html.indexOf('<link rel="preload"'),stylesheetAt=html.indexOf('<link rel="stylesheet"');
   expect(preloadAt>=0&&preloadAt<stylesheetAt,file,'font preloads must come before the stylesheet');
+}
+// Each guide card carries a searchable digest, and the filter page used to copy
+// whole paragraphs into it. That made /docs/ four times heavier than any other
+// page, so the digest now keeps the title, description, headings and bullets.
+for(const file of ['dist/docs/index.html','dist/zh/docs/index.html','dist/es/docs/index.html']){
+  const html=read(file),compressed=zlib.gzipSync(Buffer.from(html)).length;
+  expect(compressed<=22528,file,'guide index is '+Math.round(compressed/1024)+' KB compressed, over the 22 KB budget');
+  const digests=[...html.matchAll(/data-search="([^"]*)"/g)].map(match=>match[1]);
+  expect(digests.length>20,file,'the guide index no longer carries a digest per guide');
+  expect(digests.reduce((sum,digest)=>sum+digest.length,0)<=42000,file,'guide digests total over 42 000 characters, which means prose is back in them');
+  for(const digest of digests)expect(digest.length>=40&&digest.length<=2600,file,'a guide digest is empty or has whole paragraphs copied back into it');
+  // A digest that lost its headings or title would still pass the size budget
+  // while quietly making the filter useless, so compare against the source copy.
+  const language=file.includes('/zh/')?'zh':file.includes('/es/')?'es':'en';
+  const unescape=text=>text.replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+  const cards=new Map([...html.matchAll(/data-doc="([^"]+)" data-search="([^"]+)"/g)].map(match=>[match[1],unescape(match[2]).toLocaleLowerCase()]));
+  for(const guide of guides){
+    const copy=guide[language],digest=cards.get(guide.slug);
+    expect(Boolean(digest),file+' '+guide.slug,'guide has no searchable card');
+    if(!digest)continue;
+    expect(digest.includes(copy.title.toLocaleLowerCase()),file+' '+guide.slug,'the digest does not contain the guide title');
+    for(const section of copy.sections)expect(digest.includes(section.heading.toLocaleLowerCase()),file+' '+guide.slug,'the digest does not contain the heading "'+section.heading+'"');
+  }
 }
 // The search hint is read by people whose keyboards differ. Every page must ship
 // both the advertised shortcuts and the label that the client rewrites for
