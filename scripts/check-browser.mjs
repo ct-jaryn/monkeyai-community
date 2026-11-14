@@ -250,7 +250,7 @@ try{
   await viewport(1280,900);
   await visit('/no-such-page-here/');
   check(await evaluate('!!document.querySelector("[data-open-search]")'),'404: a missing page offers no search');
-  await evaluate('document.querySelector("[data-open-search]").click()');
+  await evaluate('document.querySelector("[data-open-search]").focus();document.querySelector("[data-open-search]").click();');
   check(await until('document.querySelector("#search-dialog")?.open===true'),'404: the search trigger does not open the dialog');
   await evaluate('document.querySelector("#global-search").focus()');
   await send('Input.insertText',{text:'mcp'});
