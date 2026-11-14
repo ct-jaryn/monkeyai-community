@@ -376,6 +376,8 @@ const clientAsset=fs.readdirSync(path.join(root,'dist/assets')).find(name=>/^app
 expect(Boolean(clientAsset),'dist/assets','no hashed client script found');
 const clientSource=clientAsset?read('dist/assets/'+clientAsset):'';
 expect(/function shortcutLabel\(platform\)\{[^}]*'Ctrl K'/.test(clientSource),'app.js','client script cannot relabel the shortcut for non-Mac keyboards');
+expect(/fetch\(data\.searchIndex/.test(clientSource),'app.js','client script never requests the search asset');
+expect(!/data\.searchItems/.test(clientSource),'app.js','client script still reads an inline search index');
 for(const file of Object.keys(documents)){
   // The 404 page is a deliberate minimal page with no header search.
   if(file==='404.html')continue;
@@ -399,6 +401,38 @@ for(const file of Object.keys(documents)){
   for(const key of ['↑','↓','Enter','Esc'])expect(help[1].includes('<kbd>'+key+'</kbd>'),file,'keyboard help omits '+key);
   expect(help[1].includes(searchHelpWords[locale]),file,'keyboard help is not written in '+locale);
   for(const [other,word] of Object.entries(searchHelpWords))if(other!==locale)expect(!help[1].includes(word),file,'keyboard help leaks '+other+' wording');
+}
+// Search data now lives in a cacheable asset, so no page may carry a second copy
+// and the asset a page names must exist and hold the whole index.
+const searchRefs=new Map();
+for(const file of Object.keys(documents)){
+  if(file==='404.html')continue;
+  const html=read('dist/'+file);
+  const raw=html.match(/<script type="application\/json" id="page-data">([\s\S]*?)<\/script>/);
+  expect(Boolean(raw),file,'page data block missing');
+  if(!raw)continue;
+  let page;
+  try{page=JSON.parse(raw[1]);}catch{error(file,'page data is not valid JSON');continue;}
+  expect(!('searchItems' in page),file,'page embeds the whole search index instead of linking the asset');
+  const ref=page.searchIndex;
+  expect(/^\/assets\/search-[a-z]{2}\.[a-f0-9]{12}\.json$/.test(ref||''),file,'search index is not a content-addressed asset');
+  if(!ref)continue;
+  const locale=file.startsWith('zh/')?'zh':file.startsWith('es/')?'es':'en';
+  expect(ref.startsWith('/assets/search-'+locale+'.'),file,'search index asset does not match the page language');
+  expect(exists('dist'+ref),file,'search index asset '+ref+' is missing');
+  searchRefs.set(ref,locale);
+}
+for(const [ref,locale] of searchRefs){
+  let items;
+  try{items=JSON.parse(read('dist'+ref));}catch{error('search',ref+' is not valid JSON');continue;}
+  expect(Array.isArray(items)&&items.length>=50,'search',ref+' holds too few entries');
+  if(!Array.isArray(items))continue;
+  const routes=new Set(items.map(x=>x.url));
+  for(const hub of ['docs','tools','models','models/compare','community','about']){
+    const route=(locale==='en'?'':locale+'/')+hub;
+    expect(routes.has('/'+route+'/'),'search',ref+' cannot reach the '+hub+' landing page');
+  }
+  for(const item of items)expect(typeof item.title==='string'&&item.title!==''&&typeof item.description==='string'&&typeof item.url==='string'&&item.url.startsWith('/'),'search',ref+' has an incomplete entry');
 }
 // The sitemap and the Article schema describe the same page. Two different
 // freshness dates read as a contradiction, so both must come from one source.
