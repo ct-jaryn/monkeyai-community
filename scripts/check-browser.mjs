@@ -167,6 +167,10 @@ try{
   await send('Input.insertText',{text:'mcp'});
   await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'search: typing a known term shows no results in a real browser');
+  // A live region on the whole list re-reads a dozen links on every keystroke. One
+  // status line saying how many matched is the feedback a screen-reader user needs.
+  check(await evaluate('document.querySelector("#search-results").getAttribute("aria-live")===null'),'search: the whole result list is still a live region');
+  check(/^Matches: \d+$/.test(await evaluate('document.querySelector("#search-status").textContent')),'search: the result count is not announced in the status line');
   const realLinks=await evaluate('[...document.querySelectorAll("#search-results a")].every(a=>a.getAttribute("href").startsWith("/"))');
   check(realLinks,'search: a rendered result does not link to a site path');
   // Escape is a macOS virtual key 53 and a Windows/Linux key 27; send both forms
