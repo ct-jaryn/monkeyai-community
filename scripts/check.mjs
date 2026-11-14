@@ -275,6 +275,17 @@ for(const file of fs.readdirSync(path.join(root,'dist/assets')).filter(f=>f.ends
     expect(exists('dist/'+clean),'assets/'+file,`missing CSS reference ${target}`);
   }
 }
+// The woff2 fonts are subsets of the original families, so a character added
+// later could silently fall back to a different face. The coverage list is
+// regenerated from the fonts themselves; CJK text renders from system fonts.
+if(exists('docs/font-coverage.json')){
+  const covered=new Set(JSON.parse(read('docs/font-coverage.json')).codepoints);
+  const used=new Set();
+  for(const doc of Object.values(documents))for(const ch of doc.visible)used.add(ch);
+  const systemFont=/[\u2E80-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF\u{20000}-\u{2FA1F}\u2190-\u21FF\u2300-\u23FF\u25A0-\u25FF\u2700-\u27BF]/u;
+  const missing=[...used].filter(ch=>ch.trim()&&!systemFont.test(ch)&&!covered.has(ch.codePointAt(0).toString(16).toUpperCase().padStart(4,'0')));
+  expect(missing.length===0,'fonts','woff2 subsets lack '+missing.slice(0,8).map(c=>JSON.stringify(c)).join(', ')+'; add these glyphs to the subsets in public/fonts');
+}
 metrics.sitemapUrls=sitemap.length;
 const sitemapSet=new Set(sitemap);
 expect(sitemapSet.size===sitemap.length,'sitemap','contains duplicate URLs');

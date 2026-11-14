@@ -23,7 +23,7 @@ This is an enthusiast community, independent of Chaitin and the upstream [Monkey
 
 ## Run locally
 
-Requires Node.js 20+ and Python 3. There are no npm dependencies to install.
+Requires Node.js 20+ and Python 3. There are no npm dependencies to install. The woff2 files in `public/fonts` are subsets of DM Sans and Manrope; `npm run check` fails when page text uses a character they no longer cover, so re-subset the family from upstream and refresh `docs/font-coverage.json`.
 
 ```sh
 npm run build
