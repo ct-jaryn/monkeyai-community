@@ -369,6 +369,23 @@ for(const file of Object.keys(documents)){
   const main=html.match(/<main\b[^>]*>/);
   expect(Boolean(main)&&/id="main"/.test(main[0])&&/tabindex="-1"/.test(main[0]),file,'main region cannot receive skip-link focus');
 }
+// The search hint is read by people whose keyboards differ. Every page must ship
+// both the advertised shortcuts and the label that the client rewrites for
+// non-Mac platforms; a hard-coded command sign alone is a false promise.
+const clientAsset=fs.readdirSync(path.join(root,'dist/assets')).find(name=>/^app\.[a-f0-9]+\.js$/.test(name));
+expect(Boolean(clientAsset),'dist/assets','no hashed client script found');
+const clientSource=clientAsset?read('dist/assets/'+clientAsset):'';
+expect(/function shortcutLabel\(platform\)\{[^}]*'Ctrl K'/.test(clientSource),'app.js','client script cannot relabel the shortcut for non-Mac keyboards');
+for(const file of Object.keys(documents)){
+  // The 404 page is a deliberate minimal page with no header search.
+  if(file==='404.html')continue;
+  const html=read('dist/'+file);
+  const trigger=html.match(/<button\b[^>]*data-open-search[^>]*>[\s\S]*?<\/button>/);
+  expect(Boolean(trigger),file,'search trigger missing');
+  if(!trigger)continue;
+  expect(/aria-keyshortcuts="Meta\+K Control\+K"/.test(trigger[0]),file,'search trigger does not list both keyboard shortcuts');
+  expect(/<span[^>]*data-shortcut[^>]*>/.test(trigger[0]),file,'search trigger has no platform-aware shortcut label');
+}
 // The sitemap and the Article schema describe the same page. Two different
 // freshness dates read as a contradiction, so both must come from one source.
 const sitemapDates=new Map(sitemapEntries.map(e=>[e.loc,e.lastmod]));
