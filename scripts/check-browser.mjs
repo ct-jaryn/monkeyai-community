@@ -246,6 +246,16 @@ try{
   const firstHref=await evaluate('document.querySelector("#search-results a").getAttribute("href")');
   for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Enter',code:'Enter',windowsVirtualKeyCode:13,nativeVirtualKeyCode:36});
   check(await until('location.pathname==='+JSON.stringify(firstHref),3000),'search: Enter does not open the first result');
+  // A mistyped address should still let a visitor search instead of dead-ending.
+  await viewport(1280,900);
+  await visit('/no-such-page-here/');
+  check(await evaluate('!!document.querySelector("[data-open-search]")'),'404: a missing page offers no search');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'404: the search trigger does not open the dialog');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'404: searching from a missing page returns no results');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
