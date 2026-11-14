@@ -226,6 +226,21 @@ try{
   await evaluate('dispatchEvent(new Event("scroll"))');
   check(await until("document.querySelector('.guide-toc nav a[href=\"#section-3\"]')?.getAttribute('aria-current')==='true'"),'guide at 390px: the in-page contents do not follow the reader');
 
+  // A long command scrolls inside its own box on a phone. That box needs a tab stop
+  // and a name, or the end of the line is unreachable without a mouse.
+  await viewport(390,844);
+  await visit('/docs/install-from-source-docker-compose/');
+  check(await evaluate('[...document.querySelectorAll(".code-block pre")].filter(p=>p.scrollWidth>p.clientWidth+1).every(p=>p.getAttribute("tabindex")==="0"&&p.getAttribute("role")==="region"&&(p.getAttribute("aria-label")||"").length>4)'),'code blocks: an overflowing sample cannot be reached from the keyboard');
+  check(await evaluate('[...document.querySelectorAll(".code-block pre")].filter(p=>p.scrollWidth<=p.clientWidth+1).every(p=>!p.hasAttribute("tabindex"))'),'code blocks: a sample that fits still takes a tab stop');
+  await evaluate('document.querySelector(".code-block .copy-code").focus()');
+  for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:48});
+  await sleep(150);
+  check(await evaluate('document.activeElement.tagName==="PRE"'),'code blocks: Tab does not reach the overflowing sample');
+  check(await evaluate('getComputedStyle(document.activeElement).outlineStyle==="solid"'),'code blocks: the focused sample shows no ring');
+  await viewport(1280,900);
+  await visit('/docs/install-from-source-docker-compose/');
+  check(await evaluate('[...document.querySelectorAll(".code-block pre")].every(p=>!p.hasAttribute("tabindex"))'),'code blocks: a wide screen still adds tab stops to code that fits');
+
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
   // only checks the handlers, so the browser confirms the visible result.
   await viewport(390,844);

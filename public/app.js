@@ -44,3 +44,22 @@ let activeFilter='all';const toolSearch=$('#tool-search');const normalizeDirecto
   addEventListener('resize',sync);
   sync();
 })();
+// A command wider than a phone screen scrolls inside its own box. Without a tab
+// stop that box cannot be reached from the keyboard, so the end of the line stays
+// unreadable even though it is on the page. Only overflowing blocks get a tab stop,
+// and the label explains why focus landed there.
+(()=>{
+  const blocks=[...document.querySelectorAll('.code-block pre')];
+  if(!blocks.length)return;
+  const label=(document.querySelector('#page-data')?JSON.parse(document.querySelector('#page-data').textContent).ui.codeScroll:'')||'Code sample';
+  const mark=()=>{
+    for(const pre of blocks){
+      const over=pre.scrollWidth>pre.clientWidth+1;
+      if(over&&!pre.hasAttribute('tabindex')){pre.setAttribute('tabindex','0');pre.setAttribute('role','region');pre.setAttribute('aria-label',label);}
+      else if(!over&&pre.dataset.autoScroll){pre.removeAttribute('tabindex');pre.removeAttribute('role');pre.removeAttribute('aria-label');}
+      if(over)pre.dataset.autoScroll='1';
+    }
+  };
+  mark();
+  addEventListener('resize',mark);
+})();
