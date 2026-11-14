@@ -369,6 +369,25 @@ for(const file of Object.keys(documents)){
   const main=html.match(/<main\b[^>]*>/);
   expect(Boolean(main)&&/id="main"/.test(main[0])&&/tabindex="-1"/.test(main[0]),file,'main region cannot receive skip-link focus');
 }
+// The two above-the-fold faces are preloaded so their download overlaps the
+// stylesheet instead of following it. A preload without crossorigin is treated as
+// a different request, so the same file would download twice.
+const stylesheetAsset=fs.readdirSync(path.join(root,'dist/assets')).find(name=>/^styles\.[a-f0-9]+\.css$/.test(name));
+const stylesheetSource=stylesheetAsset?read('dist/assets/'+stylesheetAsset):'';
+for(const file of Object.keys(documents)){
+  const html=read('dist/'+file);
+  const preloads=[...html.matchAll(/<link rel="preload"[^>]*>/g)].map(m=>m[0]);
+  expect(preloads.length===2,file,'expected two font preloads, found '+preloads.length);
+  for(const tag of preloads){
+    expect(/as="font"/.test(tag)&&/type="font\/woff2"/.test(tag),file,'font preload does not describe a woff2 font');
+    expect(/crossorigin="anonymous"/.test(tag),file,'font preload lacks crossorigin, so the font downloads twice');
+    const href=tag.match(/href="([^"]+)"/);
+    expect(Boolean(href)&&exists('dist'+href[1]),file,'preloaded font file is missing');
+    if(href)expect(stylesheetSource.includes(href[1]),file,'preloaded font is not used by the stylesheet');
+  }
+  const preloadAt=html.indexOf('<link rel="preload"'),stylesheetAt=html.indexOf('<link rel="stylesheet"');
+  expect(preloadAt>=0&&preloadAt<stylesheetAt,file,'font preloads must come before the stylesheet');
+}
 // The search hint is read by people whose keyboards differ. Every page must ship
 // both the advertised shortcuts and the label that the client rewrites for
 // non-Mac platforms; a hard-coded command sign alone is a false promise.
