@@ -159,6 +159,28 @@ try{
   check(await evaluate('!!document.querySelector("[data-open-search]")'),'home: the search trigger is missing at desktop width');
   check(await evaluate('!!document.querySelector(".mobile-toggle")&&getComputedStyle(document.querySelector(".mobile-toggle")).display==="none"'),'home: the mobile menu button is visible on a desktop');
 
+  // Broad queries match more pages than the twelve the dialog shows. Saying so
+  // keeps the list honest; a narrow query must not carry the note.
+  await viewport(1280,900);
+  await visit('/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the truncation check');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'a'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('!!document.querySelector(".search-more")'),'search: a broad query silently stops at twelve results');
+  check(/^\d+ more matches/.test(await evaluate('(document.querySelector(".search-more")||{}).textContent||""')),'search: the note does not say how many matches were left out');
+  check(await evaluate('document.querySelectorAll("#search-results a").length<=12'),'search: more than twelve results are rendered at once');
+  await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the narrow query shows nothing after the truncation check');
+  check(await evaluate('!document.querySelector(".search-more")'),'search: a narrow query still claims results were left out');
+  await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(150);
+
   // The shortcut is the part a DOM shim cannot exercise: a key event on document,
   // the dialog opening, the index arriving over the network, and Escape closing it.
   await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
@@ -170,7 +192,7 @@ try{
   // A live region on the whole list re-reads a dozen links on every keystroke. One
   // status line saying how many matched is the feedback a screen-reader user needs.
   check(await evaluate('document.querySelector("#search-results").getAttribute("aria-live")===null'),'search: the whole result list is still a live region');
-  check(/^Matches: \d+$/.test(await evaluate('document.querySelector("#search-status").textContent')),'search: the result count is not announced in the status line');
+  check(/^Matches: \d+/.test(await evaluate('document.querySelector("#search-status").textContent')),'search: the result count is not announced in the status line');
   const realLinks=await evaluate('[...document.querySelectorAll("#search-results a")].every(a=>a.getAttribute("href").startsWith("/"))');
   check(realLinks,'search: a rendered result does not link to a site path');
   // Escape is a macOS virtual key 53 and a Windows/Linux key 27; send both forms
