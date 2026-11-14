@@ -255,6 +255,13 @@ try{
   check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the directory does not show how many tools are saved');
   await visit('/tools/');
   check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the saved count is lost after a reload');
+  // A shared or bookmarked saved view may open with nothing saved; that state has
+  // to explain how to fill it instead of claiming the filter found nothing.
+  await evaluate('localStorage.clear()');
+  await visit('/tools/?category=saved');
+  check(await evaluate('document.querySelector("#empty-state").hidden===false'),'toolkit: an empty saved view shows no message');
+  check(await evaluate('/is empty/i.test(document.querySelector("#empty-state h2").textContent)'),'toolkit: an empty saved view does not explain how to save a tool');
+  await visit('/tools/');
   // Filtering must be announced, not only drawn: without a live region a screen
   // reader user changes the list and hears nothing, so the count is the feedback.
   check(await evaluate('document.querySelector("#result-count").parentElement.getAttribute("aria-live")==="polite"'),'tools: the result count is not a live region');
