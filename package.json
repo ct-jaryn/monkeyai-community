@@ -6,6 +6,6 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node scripts/check.mjs && node scripts/check-ai-robots.mjs && node scripts/check-community.mjs && node scripts/check-languages.mjs"
+    "check": "node scripts/check.mjs && node scripts/check-search.mjs && node scripts/check-ai-robots.mjs && node scripts/check-community.mjs && node scripts/check-languages.mjs"
   }
 }
