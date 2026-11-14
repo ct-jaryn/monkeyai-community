@@ -262,6 +262,19 @@ for(const file of Object.keys(documents)){
 const notFound=documents['404.html'];
 expect(Boolean(notFound),'404','404.html is missing');
 if(notFound)expect(notFound.robots.some(v=>/\bnoindex\b/i.test(v)),'404','must have noindex');
+// CSS references fonts and images that no HTML page names directly, so a
+// renamed font would otherwise ship as a silent 404.
+metrics.cssReferences=0;
+for(const file of fs.readdirSync(path.join(root,'dist/assets')).filter(f=>f.endsWith('.css'))){
+  const css=read('dist/assets/'+file);
+  for(const match of css.matchAll(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g)){
+    const target=match[2].trim();
+    if(/^(?:data:|https?:|\/\/)/i.test(target))continue;
+    metrics.cssReferences++;
+    const clean=decodeURIComponent(target.split(/[?#]/)[0]).replace(/^\//,'');
+    expect(exists('dist/'+clean),'assets/'+file,`missing CSS reference ${target}`);
+  }
+}
 metrics.sitemapUrls=sitemap.length;
 const sitemapSet=new Set(sitemap);
 expect(sitemapSet.size===sitemap.length,'sitemap','contains duplicate URLs');
