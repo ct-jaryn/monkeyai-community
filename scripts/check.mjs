@@ -386,6 +386,20 @@ for(const file of Object.keys(documents)){
   expect(/aria-keyshortcuts="Meta\+K Control\+K"/.test(trigger[0]),file,'search trigger does not list both keyboard shortcuts');
   expect(/<span[^>]*data-shortcut[^>]*>/.test(trigger[0]),file,'search trigger has no platform-aware shortcut label');
 }
+// Arrow-key navigation only helps people who know it exists, so the dialog must
+// spell out the keys it supports, in the reader's own language.
+const searchHelpWords={en:'to move',zh:'移动',es:'moverte'};
+for(const file of Object.keys(documents)){
+  if(file==='404.html')continue;
+  const html=read('dist/'+file);
+  const help=html.match(/<div class="search-help">([\s\S]*?)<\/div>/);
+  expect(Boolean(help),file,'search dialog has no keyboard help');
+  if(!help)continue;
+  const locale=file.startsWith('zh/')?'zh':file.startsWith('es/')?'es':'en';
+  for(const key of ['↑','↓','Enter','Esc'])expect(help[1].includes('<kbd>'+key+'</kbd>'),file,'keyboard help omits '+key);
+  expect(help[1].includes(searchHelpWords[locale]),file,'keyboard help is not written in '+locale);
+  for(const [other,word] of Object.entries(searchHelpWords))if(other!==locale)expect(!help[1].includes(word),file,'keyboard help leaks '+other+' wording');
+}
 // The sitemap and the Article schema describe the same page. Two different
 // freshness dates read as a contradiction, so both must come from one source.
 const sitemapDates=new Map(sitemapEntries.map(e=>[e.loc,e.lastmod]));
