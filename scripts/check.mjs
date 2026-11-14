@@ -409,10 +409,22 @@ for(const file of Object.keys(documents)){
   const preloadAt=html.indexOf('<link rel="preload"'),stylesheetAt=html.indexOf('<link rel="stylesheet"');
   expect(preloadAt>=0&&preloadAt<stylesheetAt,file,'font preloads must come before the stylesheet');
 }
-// A guide runs for several screens, so the section list has to be reachable at
-// every width, not only on phones. The card is useless if a later rule hides it
-// again, and a link to a section that no longer exists is worse than no link.
-expect(!/\.guide-toc\{[^}]*display:none/.test(stylesheetSource),'css','the in-page guide contents are hidden again');
+// Two tables of contents exist: a sticky rail on wide screens and a card in the
+// article on narrower ones. A guide that shows neither leaves the reader without
+// a way to jump ahead, and one that shows both repeats itself, so the stylesheet
+// has to switch at exactly the width where the rail disappears.
+expect(stylesheetSource.includes('.guide-toc{display:none'),'css','the in-page guide contents have no hidden default');
+const narrowStart=stylesheetSource.indexOf('@media(max-width:1120px){');
+let narrowStyles='';
+if(narrowStart!==-1){
+  let depth=0;
+  for(let i=stylesheetSource.indexOf('{',narrowStart);i<stylesheetSource.length;i++){
+    if(stylesheetSource[i]==='{')depth++;
+    else if(stylesheetSource[i]==='}'){depth--;if(!depth){narrowStyles=stylesheetSource.slice(narrowStart,i+1);break;}}
+  }
+}
+expect(narrowStyles.includes('.toc{display:none}'),'css','the sticky rail is not hidden below 1121px');
+expect(narrowStyles.includes('.guide-toc{display:block}'),'css','the in-page guide contents never take over where the sticky rail is hidden');
 let guidePages=0;
 for(const file of Object.keys(documents)){
   if(!/^(?:(?:zh|es)\/)?docs\/[^/]+\/index\.html$/.test(file))continue;
