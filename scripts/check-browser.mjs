@@ -233,6 +233,9 @@ try{
   await evaluate('document.querySelector("[data-save]").click()');
   check(await evaluate('document.querySelector("[data-save]").getAttribute("aria-pressed")==="true"'),'toolkit: saving a tool does not update the button');
   check(await evaluate('JSON.parse(localStorage.getItem("monkeyai-toolkit-v1")||"[]").length===1'),'toolkit: the saved tool is not written to storage');
+  check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the directory does not show how many tools are saved');
+  await visit('/tools/');
+  check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the saved count is lost after a reload');
   // Typing a query and pressing Enter should open the top result, which is what a
   // visitor expects from a search box once the list is on screen.
   await viewport(1280,900);
