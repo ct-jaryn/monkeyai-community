@@ -277,6 +277,16 @@ if(exists('dist/llms.txt')){
   for(const p of listed){if(p==='/sitemap.xml'||p==='/robots.txt')continue;expect(routeMap.has(p),'llms',`points at a page that is not built: ${p}`);}
   for(const r of routeMap.values())if(r.lang==='en')expect(listed.includes(r.path),'llms',`omits ${r.path}`);
 }else error('llms','llms.txt missing');
+// The site search has to reach the section landing pages by name, not only the
+// individual entries, or a query like "community" returns an empty state.
+for(const [l,prefix] of [['en',''],['zh','zh/'],['es','es/']]){
+  const file=`dist/${prefix}search-index.json`;
+  if(!exists(file)){error('search',`${prefix}search-index.json missing`);continue;}
+  let index;
+  try{index=JSON.parse(read(file));}catch(e){error('search',`${prefix}search-index.json is not valid JSON`);continue;}
+  for(const route of ['docs','tools','models','models/compare','community','about'])
+    expect(index.some(x=>x.url===`/${prefix}${route}/`),'search',`${prefix}search-index.json omits /${prefix}${route}/`);
+}
 const nonempty=v=>typeof v==='string'&&v.trim().length>0;
 for(const [kind,items] of [['tools',tools],['guides',guides],['models',models]]){
   expect(Array.isArray(items)&&items.length>0,kind,'source data must contain entries');
