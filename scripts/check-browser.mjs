@@ -219,6 +219,19 @@ try{
   await evaluate('document.querySelector("[data-save]").click()');
   check(await evaluate('document.querySelector("[data-save]").getAttribute("aria-pressed")==="true"'),'toolkit: saving a tool does not update the button');
   check(await evaluate('JSON.parse(localStorage.getItem("monkeyai-toolkit-v1")||"[]").length===1'),'toolkit: the saved tool is not written to storage');
+  // Typing a query and pressing Enter should open the top result, which is what a
+  // visitor expects from a search box once the list is on screen.
+  await viewport(1280,900);
+  await visit('/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the Enter check');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: no results to open with Enter');
+  const firstHref=await evaluate('document.querySelector("#search-results a").getAttribute("href")');
+  for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Enter',code:'Enter',windowsVirtualKeyCode:13,nativeVirtualKeyCode:36});
+  check(await until('location.pathname==='+JSON.stringify(firstHref),3000),'search: Enter does not open the first result');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
