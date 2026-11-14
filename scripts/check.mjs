@@ -409,6 +409,23 @@ for(const file of Object.keys(documents)){
   const preloadAt=html.indexOf('<link rel="preload"'),stylesheetAt=html.indexOf('<link rel="stylesheet"');
   expect(preloadAt>=0&&preloadAt<stylesheetAt,file,'font preloads must come before the stylesheet');
 }
+// A guide runs for several screens, so the section list has to be reachable at
+// every width, not only on phones. The card is useless if a later rule hides it
+// again, and a link to a section that no longer exists is worse than no link.
+expect(!/\.guide-toc\{[^}]*display:none/.test(stylesheetSource),'css','the in-page guide contents are hidden again');
+let guidePages=0;
+for(const file of Object.keys(documents)){
+  if(!/^(?:(?:zh|es)\/)?docs\/[^/]+\/index\.html$/.test(file))continue;
+  guidePages++;
+  const html=read('dist/'+file);
+  const contents=html.match(/<details class="guide-toc">([\s\S]*?)<\/details>/);
+  expect(Boolean(contents),file,'guide page has no in-page table of contents');
+  if(!contents)continue;
+  const targets=[...contents[1].matchAll(/href="#([^"]+)"/g)].map(match=>match[1]);
+  expect(targets.length>=2,file,'the in-page table of contents lists fewer than two sections');
+  for(const id of targets)expect(html.includes('id="'+id+'"'),file,'the table of contents points at a section that is not on the page: '+id);
+}
+expect(guidePages===guides.length*3,'docs','expected '+guides.length*3+' guide pages, found '+guidePages);
 // Each guide card carries a searchable digest, and the filter page used to copy
 // whole paragraphs into it. That made /docs/ four times heavier than any other
 // page, so the digest now keeps the title, description, headings and bullets.
