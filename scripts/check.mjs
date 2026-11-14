@@ -304,7 +304,7 @@ if(exists('dist/llms.txt')){
   expect(llms.startsWith('# MonkeyAI Community'),'llms','must open with the site heading');
   expect(!/\bundefined\b|\[object Object\]|\bTODO\b/.test(llms),'llms','contains placeholder content');
   const listed=[...llms.matchAll(/\[[^\]]*\]\((https?:\/\/[^)\s]+)\)/g)].map(m=>new URL(m[1]).pathname);
-  for(const p of listed){if(p==='/sitemap.xml'||p==='/robots.txt')continue;expect(routeMap.has(p),'llms',`points at a page that is not built: ${p}`);}
+  for(const p of listed){if(p==='/sitemap.xml'||p==='/robots.txt')continue;if(/\.json$/.test(p)){expect(exists('dist'+p),'llms',`points at a data file that is not built: ${p}`);continue;}expect(routeMap.has(p),'llms',`points at a page that is not built: ${p}`);}
   for(const r of routeMap.values())if(r.lang==='en')expect(listed.includes(r.path),'llms',`omits ${r.path}`);
 }else error('llms','llms.txt missing');
 // The site search has to reach the section landing pages by name, not only the

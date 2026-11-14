@@ -122,6 +122,8 @@ function buildLlms(){
     '',
     'Chinese pages live under /zh/ and Spanish pages under /es/; the structure is the same.',
     '',
+    'Facts were last reviewed on '+[...tools,...guides,...models].map(x=>x.reviewed).filter(Boolean).sort().pop()+'; each page states its own review date.',
+    '',
     section('Core pages',core),'',
     section('Tools',toolsSection),'',
     section('Model families',modelsSection),'',
@@ -129,6 +131,7 @@ function buildLlms(){
     '## Machine-readable','',
     '- [Sitemap]('+o+'/sitemap.xml)',
     '- [Robots policy]('+o+'/robots.txt): search and AI input allowed; model training disallowed.',
+    '- [Search index]('+o+'/search-index.json), [Chinese]('+o+'/zh/search-index.json), [Spanish]('+o+'/es/search-index.json): titles and summaries used by the on-site search dialog.',
     ''].join('\n');
 }
 fs.writeFileSync(path.join(out,'llms.txt'),buildLlms());
