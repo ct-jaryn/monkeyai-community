@@ -89,6 +89,24 @@ async function onlineRun(locale,file){
   const suggestions=app.results.children.find(kid=>kid.className==='search-suggestions');
   check(Boolean(suggestions)&&suggestions.children.length===6,at('a miss still offers the six sections'));
 
+  // People type two words, not phrases. Pick the first and last word of a long
+  // title: the pair never appears together, so only token matching can find it.
+  const spaced=index.find(item=>item.title.split(/\s+/).filter(word=>word.length>2).length>=3);
+  if(spaced){
+    const words=spaced.title.split(/\s+/).filter(word=>word.length>2);
+    const pair=[words[0],words[words.length-1]].join(' ').toLocaleLowerCase();
+    const phraseKnown=index.some(item=>JSON.stringify(item).toLocaleLowerCase().includes(pair));
+    check(!phraseKnown,at('the probe words never appear as a phrase'));
+    app.input.value=pair;
+    app.input.dispatch('input');
+    await settle();
+    check(app.results.children.filter(kid=>kid.tagName==='A').length>0,at('two words from one title still find something')+' — '+pair);
+    app.input.value=pair+' zzzznotathing';
+    app.input.dispatch('input');
+    await settle();
+    check(flatten(app.results).includes(page.ui.searchEmpty),at('a word nobody has removes every result'));
+  }
+
   // A term taken from the index itself, so the probe works in every language.
   app.input.value=index[0].title.slice(0,3);
   app.input.dispatch('input');
