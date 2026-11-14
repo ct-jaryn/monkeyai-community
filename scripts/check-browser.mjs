@@ -135,6 +135,18 @@ try{
     check(scroll<=inner+1,route+': content is '+scroll+'px wide on a '+inner+'px screen');
   }
 
+  // A 24px square is the smallest comfortable thumb target. Links inside a
+  // sentence are exempt from that rule, so only controls and navigation lists are
+  // measured; a short input or summary here is a real miss.
+  const tapSelectors=['.language-switch summary','.search-field input','.guide-toc nav a','.mobile-guide-nav summary','.footer a','.breadcrumbs a'];
+  const measure='JSON.stringify([...document.querySelectorAll('+JSON.stringify(tapSelectors.join(','))+')].filter(el=>{const r=el.getBoundingClientRect();return r.height>0&&r.height<24;}).map(el=>el.tagName.toLowerCase()+" "+Math.round(el.getBoundingClientRect().height)+"px"))';
+  for(const route of ['/','/tools/','/docs/','/docs/getting-started/','/zh/']){
+    await viewport(390,844);
+    await visit(route);
+    const short=JSON.parse(await evaluate(measure))||[];
+    check(short.length===0,route+': a tap target is shorter than 24px ('+short.slice(0,4).join(', ')+')');
+  }
+
   await viewport(1280,900);
   await visit('/');
   check(await evaluate('!!document.querySelector("[data-open-search]")'),'home: the search trigger is missing at desktop width');
