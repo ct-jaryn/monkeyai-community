@@ -218,6 +218,15 @@ for(const [file,doc] of Object.entries(documents)){
   }
   expect(new Set(doc.ids).size===doc.ids.length,pagePath,'duplicate element IDs');
   for(const href of doc.hrefs){
+    // A mailto draft is a URL. Clients and operating systems cut these off near
+    // 2,000 characters, so a draft that restates policy risks arriving truncated;
+    // the fields have to stay short and the policy has to be linked, not copied.
+    if(href.startsWith('mailto:')&&href.includes('body=')){
+      expect(href.length<=1800,pagePath,`the email draft URL is ${href.length} characters and may be truncated`);
+      let body='';
+      try{body=decodeURIComponent(href.slice(href.indexOf('body=')+5));}catch{error(pagePath,'the email draft body is not valid percent-encoding');}
+      for(const line of body.split('\n'))expect(!(/[?？]/.test(line)&&/(\$|USD|美元)/.test(line)),pagePath,'the email draft mixes pricing into a question line');
+    }
     let target;
     try{target=new URL(href,new URL(pagePath,origin));}catch{error(pagePath,`malformed href ${href}`);continue;}
     if(target.origin!==origin.origin||!['http:','https:'].includes(target.protocol))continue;
