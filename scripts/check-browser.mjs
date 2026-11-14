@@ -147,6 +147,13 @@ try{
     check(short.length===0,route+': a tap target is shorter than 24px ('+short.slice(0,4).join(', ')+')');
   }
 
+  // The hero illustration bleeds past its column on purpose. At 768px the
+  // decorative orbit used to push the document 4px sideways, so a tablet got a
+  // horizontal scrollbar for art that is meant to run off the edge.
+  await viewport(768,900);
+  await visit('/');
+  check(await evaluate('document.documentElement.scrollWidth<=document.documentElement.clientWidth'),'home at 768px: the page scrolls sideways');
+
   await viewport(1280,900);
   await visit('/');
   check(await evaluate('!!document.querySelector("[data-open-search]")'),'home: the search trigger is missing at desktop width');
