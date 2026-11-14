@@ -47,11 +47,11 @@ function readPage(file){
   return JSON.parse(raw[1]);
 }
 
-function boot(pageData,fetchIndex){
+function boot(pageData,fetchIndex,extra={}){
   const dialog=makeEl('dialog'),input=makeEl('input'),results=makeEl('div'),toast=makeEl('div');
   const dataNode=makeEl('script');
   dataNode.textContent=JSON.stringify(pageData);
-  const known={'#page-data':dataNode,'#search-dialog':dialog,'#global-search':input,'#search-results':results,'#toast':toast};
+  const known={'#page-data':dataNode,'#search-dialog':dialog,'#global-search':input,'#search-results':results,'#toast':toast,...extra};
   const document={createElement:makeEl,querySelector:selector=>known[selector]??null,querySelectorAll:()=>[],addEventListener(){},body:makeEl('body')};
   const windowRef={addEventListener(){},matchMedia:()=>({matches:false,addEventListener(){}})};
   const state={requests:[],fetch:fetchIndex};
@@ -97,6 +97,66 @@ async function onlineRun(locale,file){
   check(app.results.children.filter(kid=>kid.tagName==='A').length>0,at('a later query still renders results'));
 }
 
+// The guide index has its own filter with its own empty state, so it gets the
+// same treatment: the delivered script runs, and the built digests must keep it
+// answering questions about the cards on the page.
+function docsFilterRun(){
+  const html=fs.readFileSync(path.join(dist,'docs/index.html'),'utf8');
+  const cards=[],groups=[],topicLinks=new Map();
+  for(const section of html.split('<section class="docs-topic-section"').slice(1)){
+    const key=section.match(/data-doc-group="([^"]+)"/)?.[1]||section.match(/id="topic-([^"]+)"/)?.[1];
+    if(!key)continue;
+    const group=makeEl('section');
+    group.id='topic-'+key;
+    group.dataset={docGroup:key};
+    group.cards=[...section.matchAll(/data-doc="([^"]+)" data-search="([^"]+)"/g)].map(match=>{
+      const card=makeEl('a');
+      card.dataset={doc:match[1],search:match[2]};
+      return card;
+    });
+    const countStub=makeEl('span');
+    group.querySelector=selector=>selector==='.docs-topic-count'?countStub:group.querySelectorAll(selector)[0]??null;
+    group.querySelectorAll=selector=>selector==='[data-doc]:not([hidden])'?group.cards.filter(card=>!card.hidden):selector==='[data-doc]'?group.cards:[];
+    cards.push(...group.cards);
+    groups.push(group);
+    const link=makeEl('a');
+    topicLinks.set('.docs-topics a[href="#topic-'+key+'"]',link);
+  }
+  const root=makeEl('div'),search=makeEl('input'),count=makeEl('span'),empty=makeEl('p'),clear=makeEl('button');
+  root.dataset={countLabel:'guides'};
+  root.querySelector=selector=>{
+    if(selector==='#doc-search')return search;
+    if(selector==='#doc-count')return count;
+    if(selector==='#doc-empty')return empty;
+    if(selector==='#doc-clear')return clear;
+    return topicLinks.get(selector)??null;
+  };
+  root.querySelectorAll=selector=>selector==='[data-doc]'?cards:selector==='[data-doc-group]'?groups:[];
+  boot(readPage('docs/index.html'),async()=>{throw new Error('the guide filter must not need the network');},{'.docs-home':root});
+
+  const visible=()=>cards.filter(card=>!card.hidden).length;
+  const first=cards[0];
+  const probe=(first.dataset.search.match(/[a-z]{4,}/i)||['guide'])[0].toLocaleLowerCase();
+  search.value=probe;
+  search.dispatch('input');
+  check(!first.hidden,'docs: a word from a card keeps that card',probe);
+  check(visible()>0&&visible()<=cards.length,'docs: the filter keeps a sensible subset','visible='+visible()+'/'+cards.length);
+  check(count.textContent===visible()+' guides','docs: the count matches the visible cards',count.textContent);
+  check(empty.hidden===true,'docs: the empty state stays hidden while cards match');
+
+  search.value='zzzznotathing';
+  search.dispatch('input');
+  check(visible()===0,'docs: a miss hides every card');
+  check(count.textContent==='0 guides','docs: a miss reports zero',count.textContent);
+  check(empty.hidden===false,'docs: a miss shows the empty state');
+  check(groups.every(group=>group.hidden===true),'docs: a miss hides the empty topic groups');
+  check([...topicLinks.values()].every(link=>link.hidden===true),'docs: a miss hides the topic shortcuts');
+
+  clear.dispatch('click');
+  check(visible()===cards.length,'docs: clearing brings every card back');
+  check(empty.hidden===true,'docs: clearing hides the empty state again');
+}
+
 async function offlineRun(){
   const page=readPage('index.html');
   const app=boot(page,async()=>{throw new Error('offline');});
@@ -118,6 +178,7 @@ async function offlineRun(){
 try{
   for(const [locale,file] of [['en','index.html'],['zh','zh/index.html'],['es','es/index.html']])await onlineRun(locale,file);
   await offlineRun();
+  docsFilterRun();
 }catch(error){
   failures.push('harness error: '+error.message);
 }

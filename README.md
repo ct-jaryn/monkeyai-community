@@ -23,7 +23,7 @@ This is an enthusiast community, independent of Chaitin and the upstream [Monkey
 
 ## Run locally
 
-Requires Node.js 20+ and Python 3. There are no npm dependencies to install. `scripts/check-search.mjs` runs the delivered browser script against a small DOM shim, so the search dialog is tested without installing a browser. The woff2 files in `public/fonts` are subsets of DM Sans and Manrope; `npm run check` fails when page text uses a character they no longer cover, so re-subset the family from upstream and refresh `docs/font-coverage.json`.
+Requires Node.js 20+ and Python 3. There are no npm dependencies to install. `scripts/check-search.mjs` runs the delivered browser script against a small DOM shim, so the search dialog and the guide-index filter are tested without installing a browser. The woff2 files in `public/fonts` are subsets of DM Sans and Manrope; `npm run check` fails when page text uses a character they no longer cover, so re-subset the family from upstream and refresh `docs/font-coverage.json`.
 
 ```sh
 npm run build
