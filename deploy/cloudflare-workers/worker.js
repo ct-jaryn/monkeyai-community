@@ -25,7 +25,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const onWorkersDev = url.hostname.endsWith('.workers.dev');
-    const base = { 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' };
+    const base = {
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'X-Frame-Options': 'DENY',
+      'Content-Security-Policy': "frame-ancestors 'none'",
+      'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+    };
     if (onWorkersDev) base['X-Robots-Tag'] = 'noindex';
 
     // Keep Let's Encrypt HTTP-01 renewals on the origin working (rollback safety):

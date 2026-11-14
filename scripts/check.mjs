@@ -246,7 +246,27 @@ for(const [file,doc] of Object.entries(documents)){
 }
 // Hashed assets are served with a one-year immutable cache, so the deploy header
 // file has to keep that promise for the /assets/ prefix.
-if(exists('deploy/cloudflare-workers/_headers'))expect(/^\/assets\/\*\s*\n\s*! Cache-Control\s*\n\s*Cache-Control: public, max-age=31536000, immutable/m.test(read('deploy/cloudflare-workers/_headers')),'headers','/assets/* must be cached as immutable');
+const headersFile=exists('deploy/cloudflare-workers/_headers')?read('deploy/cloudflare-workers/_headers'):'';
+if(headersFile)expect(/^\/assets\/\*\s*\n\s*! Cache-Control\s*\n\s*Cache-Control: public, max-age=31536000, immutable/m.test(headersFile),'headers','/assets/* must be cached as immutable');
+// A selector listed twice silently lets one block override the other, and a
+// security header present in only one of the two response paths leaves half the
+// site without it.
+const seenHeaders=new Set();
+for(const block of headersFile.split(/^(?=[^\s#!])/m).slice(1)){
+  const selector=block.split('\n')[0].trim();
+  for(const match of block.matchAll(/^[ \t]+([A-Za-z-]+):/gm)){
+    const key=selector+' '+match[1].toLowerCase();
+    expect(!seenHeaders.has(key),'headers','_headers sets '+match[1]+' twice for '+selector);
+    seenHeaders.add(key);
+  }
+}
+const securityHeaders={"X-Content-Type-Options":"nosniff","Referrer-Policy":"strict-origin-when-cross-origin","X-Frame-Options":"DENY","Permissions-Policy":"camera=(), microphone=(), geolocation=()"};
+const workerSource=exists('deploy/cloudflare-workers/worker.js')?read('deploy/cloudflare-workers/worker.js'):'';
+for(const [name,value] of Object.entries(securityHeaders)){
+  expect(headersFile.includes(name+': '+value),'headers','_headers does not send '+name);
+  expect(workerSource.includes("'"+name+"': '"+value+"'"),'worker','worker.js does not send the same '+name);
+}
+expect(workerSource.includes("frame-ancestors 'none'")&&headersFile.includes("frame-ancestors 'none'"),'headers','the frame-ancestors policy is missing from worker.js or _headers');
 // Heading levels must not skip: a section that jumps from h1 to an h3 card
 // title is announced out of order by screen readers and flattens the outline.
 // The 404 page is exempt; its only deep headings sit in the footer.
