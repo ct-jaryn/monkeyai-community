@@ -26,8 +26,13 @@ for (const l of ['en','zh','es']) {
   assert.match(joined, /may also be listed on our related sister directories|可能会被列入我们的相关姐妹目录|puede figurar también en nuestros directorios hermanos relacionados/);
   assert.doesNotMatch(joined, /will also be listed|will be listed on our|一定会被列入|将被列入我们的相关|se incluirá en nuestros|se publicará en nuestros/);
   assert.match(communityUi[l].listingDirectoryNote, /small compan|小公司|empresas pequeñas/);
-  assert.match(communityUi[l].listingMailBody, /may also be listed on our related sister directories|可能会被列入我们的相关姐妹目录|puede figurar también en nuestros directorios hermanos relacionados/);
-  assert.match(communityUi[l].listingMailBody, /mailto:|\$7|7 美元|7 USD|Express/);
+  // The draft is kept short on purpose: fields, one link to the rules, and a
+  // warning about secrets. Mail clients truncate long bodies, and a price in an
+  // outreach question reads like a quote, so the disclosure lives on the rules
+  // page that listingPoints above already pins down.
+  assert.match(communityUi[l].listingMailBody, /https:\/\/monkeyai\.online\/community\/#listing-rules/, `${l} draft should link to the listing rules`);
+  assert.doesNotMatch(communityUi[l].listingMailBody, /\$7|7 美元|7 USD|\$15|15 美元|15 USD|Express/, `${l} draft should leave prices to the rules page`);
+  assert.ok(communityUi[l].listingMailBody.length <= 900, `${l} draft is too long for a mail client`);
 }
 const repo = config.communityRepo;
 assert.match(repo, /^https:\/\/github\.com\/[^/]+\/[^/]+$/);
