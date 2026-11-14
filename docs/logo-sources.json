@@ -21,10 +21,15 @@
     "file": "public/logos/gemini.png",
     "sourceUrl": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png",
     "pageUrl": "https://gemini.google.com/",
-    "sha256": "5e7cfecaa53f4f65a313fe89b0f389548126544a78fad8489510c70ae641a4a1",
-    "bytes": 61823,
+    "sha256": "a6b6dbfdbe9006192d3daba0142af35847f833bc94e9924186a19ab92208d93b",
+    "bytes": 10059,
     "type": "image/png",
-    "verified": "2026-11-09"
+    "verified": "2026-11-14",
+    "dimensions": [
+      128,
+      128
+    ],
+    "note": "Downscaled to 128x128 for a 64 px slot (128 px covers 2x screens); no recolouring, crop or shape change."
   },
   {
     "key": "cursor",
@@ -51,10 +56,15 @@
     "file": "public/logos/adobe-firefly.png",
     "sourceUrl": "https://firefly.adobe.com/releases/a5533ca32996f1652cbadd1b72f18e6a049cc80c/assets/fi_android_192-DXlUnW6D.png",
     "pageUrl": "https://firefly.adobe.com/",
-    "sha256": "a1bfa88c8ccf656beff5b54e947e0b9240ab36025fdac858c729b78e8c529ed8",
-    "bytes": 7195,
+    "sha256": "328f2a168e2cac316d3f2fc9ee497098ef927a598a3274e14de5f9a47cbf5c51",
+    "bytes": 4268,
     "type": "image/png",
-    "verified": "2026-11-09"
+    "verified": "2026-11-14",
+    "dimensions": [
+      128,
+      128
+    ],
+    "note": "Downscaled to 128x128 for a 64 px slot (128 px covers 2x screens); no recolouring, crop or shape change."
   },
   {
     "key": "blender",
@@ -106,7 +116,7 @@
     "sha256": "cba0168e484cf74016847e09aff47c839f4198000a52f19e76f44a73dafe24e4",
     "bytes": 6370,
     "type": "image/png",
-    "verified": "2026-11-09",
+    "verified": "2026-11-14",
     "originalSha256": "30a4420e6e4dcb17fd7de560c5004346c2bc8cd971d2d5f5ee15326603e51321",
     "originalBytes": 209762,
     "note": "Official ICO decoded at largest embedded size and saved as PNG; no recoloring or shape change.",
@@ -157,10 +167,15 @@
     "file": "public/logos/kimi.png",
     "sourceUrl": "https://www.kimi.com/pwa-192.png",
     "pageUrl": "https://www.kimi.com/",
-    "sha256": "6c14f9c3062e953b3ed57ae3e19db931c1c1bba38d4d8d55550544f31d55e469",
-    "bytes": 21645,
+    "sha256": "1e39ffe775b93268fe72d00cffef4814702aa305e03414844ad72c019443b2b9",
+    "bytes": 12804,
     "type": "image/png",
-    "verified": "2026-11-09"
+    "verified": "2026-11-14",
+    "dimensions": [
+      128,
+      128
+    ],
+    "note": "Downscaled to 128x128 for a 64 px slot (128 px covers 2x screens); no recolouring, crop or shape change."
   },
   {
     "key": "glm",
@@ -188,15 +203,15 @@
     "file": "public/logos/localai.png",
     "sourceUrl": "https://raw.githubusercontent.com/mudler/LocalAI/master/core/http/static/logo.png",
     "pageUrl": "https://localai.io/",
-    "sha256": "90d2339dd66d5a857edf255f73d9c50eda69fc2495679fa8a9713d325e5689ba",
-    "bytes": 64378,
+    "sha256": "d2c65ae9d23304f9d1b657287f96d9799cb00ce1bb3770079dcece06bd8bb482",
+    "bytes": 21205,
     "type": "image/png",
-    "verified": "2026-11-09",
+    "verified": "2026-11-14",
     "dimensions": [
-      256,
-      256
+      128,
+      128
     ],
-    "note": "Downscaled with sips from the 1024x1024 logo displayed by the official LocalAI README in the MIT-licensed repository; no recoloring or shape change.",
+    "note": "Downscaled with sips from the 1024x1024 logo displayed by the official LocalAI README in the MIT-licensed repository; no recoloring or shape change. Downscaled to 128x128 for a 64 px slot (128 px covers 2x screens); no recolouring, crop or shape change.",
     "originalSha256": "98f62f85e1bbcfa8032cb54123bdc4947d2764c4b2bad68f591c106323cf154d",
     "originalBytes": 914776
   },
@@ -218,7 +233,12 @@
     "sha256": "a3487e9bfbe49df853c51c5bdbf980bfb3bec782bfdd398a9bf333bb648b832f",
     "bytes": 8579,
     "type": "image/png",
-    "verified": "2026-11-09"
+    "verified": "2026-11-14",
+    "dimensions": [
+      180,
+      180
+    ],
+    "note": ""
   },
   {
     "key": "claude",
@@ -253,10 +273,14 @@
     "file": "public/logos/orkas.png",
     "sourceUrl": "https://orkas.ai/res/orkas.png",
     "pageUrl": "https://orkas.ai/",
-    "sha256": "f7b48f39625deec52ce716d2088596f0d972dc79c0631110581a0c02a5752115",
-    "bytes": 37581,
+    "sha256": "0b380081f60a188ad796e7ac9d7da6f136594603d3036a3ed19cbb8174c0ddda",
+    "bytes": 11019,
     "type": "image/png",
-    "verified": "2026-11-10",
-    "note": "Official PNG saved unchanged."
+    "verified": "2026-11-14",
+    "note": "Official PNG saved unchanged. Downscaled to 128x128 for a 64 px slot (128 px covers 2x screens); no recolouring, crop or shape change.",
+    "dimensions": [
+      128,
+      128
+    ]
   }
 ]
