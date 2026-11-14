@@ -236,6 +236,17 @@ try{
   check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the directory does not show how many tools are saved');
   await visit('/tools/');
   check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: the saved count is lost after a reload');
+  // Filtering must be announced, not only drawn: without a live region a screen
+  // reader user changes the list and hears nothing, so the count is the feedback.
+  check(await evaluate('document.querySelector("#result-count").parentElement.getAttribute("aria-live")==="polite"'),'tools: the result count is not a live region');
+  const countBefore=await evaluate('document.querySelector("#result-count").textContent');
+  await evaluate('document.querySelector("#tool-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#tool-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelector("#result-count").textContent!=='+JSON.stringify(countBefore)),'tools: the result count does not change when the list is filtered');
+  await viewport(1280,900);
+  await visit('/models/');
+  check(await evaluate('document.querySelector("#model-result-count").parentElement.getAttribute("aria-live")==="polite"'),'models: the result count is not a live region');
   // Typing a query and pressing Enter should open the top result, which is what a
   // visitor expects from a search box once the list is on screen.
   await viewport(1280,900);
