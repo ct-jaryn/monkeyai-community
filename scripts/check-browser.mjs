@@ -171,6 +171,24 @@ try{
   }
   check(await evaluate('document.querySelector("#search-dialog").open===false'),'search: Escape does not close the dialog');
 
+  // A modal dialog should keep Tab inside it. Without a trap, focus lands on the
+  // document body between the last control and the first, so the focus ring
+  // disappears for one key press and screen readers lose the context.
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not reopen for the focus cycle');
+  const tabThrough=async shift=>{for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:48,modifiers:shift?8:0});await sleep(120);};
+  let outside=0;
+  for(let i=0;i<8;i++){
+    await tabThrough(false);
+    if(!await evaluate('document.querySelector("#search-dialog").contains(document.activeElement)'))outside++;
+  }
+  check(outside===0,`search: Tab leaves the dialog ${outside} time(s) instead of wrapping inside it`);
+  await evaluate('document.querySelector("#global-search").focus()');
+  await tabThrough(true);
+  check(await evaluate('document.querySelector("#search-dialog").contains(document.activeElement)'),'search: Shift+Tab from the search box leaves the dialog');
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(150);
+
   // Narrow screens keep the guide contents inside the article; wide screens use the
   // sticky rail. Reading this from the engine is the only way to know the cascade
   // and the breakpoint agree.
