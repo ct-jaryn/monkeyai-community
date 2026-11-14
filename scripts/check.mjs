@@ -238,8 +238,14 @@ for(const [file,doc] of Object.entries(documents)){
     if(target.origin!==origin.origin)continue;
     metrics.assetReferences++;
     expect(exists('dist/'+decodeURIComponent(target.pathname).slice(1)),pagePath,`missing local asset ${asset}`);
+    // The deploy headers cache /assets/* for a year, which is only safe while every
+    // file there carries a content hash in its name.
+    if(target.pathname.startsWith('/assets/'))expect(/^\/assets\/[a-z0-9-]+\.[0-9a-f]{8,}\.(js|css|woff2?|png|svg)$/i.test(target.pathname),pagePath,`asset lacks a content hash: ${asset}`);
   }
 }
+// Hashed assets are served with a one-year immutable cache, so the deploy header
+// file has to keep that promise for the /assets/ prefix.
+if(exists('deploy/cloudflare-workers/_headers'))expect(/^\/assets\/\*\s*\n\s*! Cache-Control\s*\n\s*Cache-Control: public, max-age=31536000, immutable/m.test(read('deploy/cloudflare-workers/_headers')),'headers','/assets/* must be cached as immutable');
 // Heading levels must not skip: a section that jumps from h1 to an h3 card
 // title is announced out of order by screen readers and flattens the outline.
 // The 404 page is exempt; its only deep headings sit in the footer.

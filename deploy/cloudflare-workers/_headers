@@ -33,6 +33,12 @@
   ! Cache-Control
   Cache-Control: max-age=14400
 
+# Build assets carry a content hash in the name, so a cached copy can never go
+# stale; the generic .css/.js rules above still cover unhashed files.
+/assets/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
 # worker.js answered text types with an explicit UTF-8 charset.
 /
   Content-Type: text/html; charset=utf-8
