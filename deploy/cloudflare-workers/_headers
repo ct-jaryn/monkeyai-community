@@ -21,6 +21,10 @@
   ! Cache-Control
   Cache-Control: public, max-age=86400
 
+/*.woff2
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
 /*.css
   ! Cache-Control
   Cache-Control: max-age=14400
