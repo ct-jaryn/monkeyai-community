@@ -33,6 +33,20 @@ npm run dev
 
 Open `http://127.0.0.1:4173/`. Build generates static output in `dist/` and `route-manifest.json`. **It clears `dist/` on every build:** work in a clean checkout and back up any local-only files there first. The preview server handles directory URLs and missing pages.
 
+## Look at the result
+
+A local Chrome can render the built site without any automation server, which is how layout and breakpoints get checked in environments without a browser integration:
+
+```sh
+cd dist && python3 -m http.server 8797 --bind 127.0.0.1 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --hide-scrollbars --user-data-dir=/tmp/mai-chrome \
+  --window-size=1120,1100 --screenshot=/tmp/page.png \
+  http://127.0.0.1:8797/docs/getting-started/
+```
+
+Headless Chrome refuses to lay out narrower than 500 CSS pixels, so verify phones on a device or with device emulation; anything at or above 500 renders faithfully. Store screenshots outside the repository and delete them afterwards.
+
 Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials. The public Workers static-asset files for the live site are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository.
 
 ## Project layout

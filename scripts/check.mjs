@@ -413,7 +413,13 @@ for(const file of Object.keys(documents)){
 // article on narrower ones. A guide that shows neither leaves the reader without
 // a way to jump ahead, and one that shows both repeats itself, so the stylesheet
 // has to switch at exactly the width where the rail disappears.
-expect(stylesheetSource.includes('.guide-toc{display:none'),'css','the in-page guide contents have no hidden default');
+const hiddenDefault=stylesheetSource.indexOf('.guide-toc{display:none');
+expect(hiddenDefault!==-1,'css','the in-page guide contents have no hidden default');
+// The override has to come after the default in source order, or an equal-specificity
+// rule further down silently wins and the card never appears.
+const narrowRule=stylesheetSource.indexOf('@media(max-width:1120px){.guide-toc{display:block}}');
+expect(narrowRule!==-1,'css','nothing shows the in-page contents where the sticky rail is hidden');
+expect(narrowRule>hiddenDefault,'css','a later rule overrides the narrow-screen contents back to hidden');
 const narrowStart=stylesheetSource.indexOf('@media(max-width:1120px){');
 let narrowStyles='';
 if(narrowStart!==-1){
@@ -424,7 +430,6 @@ if(narrowStart!==-1){
   }
 }
 expect(narrowStyles.includes('.toc{display:none}'),'css','the sticky rail is not hidden below 1121px');
-expect(narrowStyles.includes('.guide-toc{display:block}'),'css','the in-page guide contents never take over where the sticky rail is hidden');
 let guidePages=0;
 for(const file of Object.keys(documents)){
   if(!/^(?:(?:zh|es)\/)?docs\/[^/]+\/index\.html$/.test(file))continue;
