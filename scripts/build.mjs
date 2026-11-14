@@ -14,7 +14,7 @@ function searchItemsFor(l){
   const u=ui[l];
   const hub=[u.docs,u.tools,u.models,u.modelCompare||u.compareTitle,u.community,u.about].map((title,i)=>{
     const route=['docs','tools','models','models/compare','community','about'][i];
-    const item={title,category:'',url:url(l,route)};
+    const item={title,category:'',hub:true,url:url(l,route)};
     if(route==='docs')item.description=u.docsMeta||u.docsDescription;
     if(route==='tools')item.description=u.directoryMeta||u.directoryDescription;
     if(route==='models')item.description=u.modelsMeta||u.modelsDescription;
