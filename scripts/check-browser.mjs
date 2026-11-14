@@ -256,6 +256,17 @@ try{
   await send('Input.insertText',{text:'mcp'});
   await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'404: searching from a missing page returns no results');
+  // A filtered guide index should survive a reload or a shared link, the way the
+  // tool directory already does.
+  await viewport(1280,900);
+  await visit('/docs/');
+  await evaluate('document.querySelector("#doc-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#doc-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('location.search.includes("q=mcp")'),'docs: filtering the guide index does not update the address');
+  await visit('/docs/?q=mcp');
+  check(await evaluate('document.querySelector("#doc-search").value==="mcp"'),'docs: a filtered guide link does not restore the query');
+  check(await evaluate('document.querySelectorAll("[data-doc]:not([hidden])").length>0'),'docs: a restored query hides every guide');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
