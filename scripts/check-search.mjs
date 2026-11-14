@@ -105,6 +105,25 @@ async function onlineRun(locale,file){
     app.input.dispatch('input');
     await settle();
     check(flatten(app.results).includes(page.ui.searchEmpty),at('a word nobody has removes every result'));
+    app.input.value=pair+',';
+    app.input.dispatch('input');
+    await settle();
+    check(app.results.children.filter(kid=>kid.tagName==='A').length>0,at('a trailing comma does not stop the query'));
+    app.input.value=' ,, ';
+    app.input.dispatch('input');
+    await settle();
+    check(app.results.children[0]?.textContent===page.ui.searchPrompt,at('punctuation alone shows the prompt instead of everything'));
+  }
+
+  // Typing a title in full should put that page first, not merely somewhere in
+  // the list; the tier order is what makes the first result trustworthy.
+  const exact=index.find(item=>item.title.length>6);
+  if(exact){
+    app.input.value=exact.title;
+    app.input.dispatch('input');
+    await settle();
+    const first=app.results.children.filter(kid=>kid.tagName==='A')[0];
+    check(first?.href===exact.url,at('an exact title match ranks first')+' — '+exact.title);
   }
 
   // A term taken from the index itself, so the probe works in every language.
