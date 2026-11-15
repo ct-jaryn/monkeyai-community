@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import zlib from 'node:zlib';
 import {spawnSync} from 'node:child_process';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 
 // Parse the delivered HTML independently of the generator. No browser or package
 // installation is required; Python's standard library handles entities and tags.
@@ -540,6 +540,41 @@ for(const [ref,locale] of searchRefs){
   }
   for(const item of items)expect(typeof item.title==='string'&&item.title!==''&&typeof item.description==='string'&&typeof item.url==='string'&&item.url.startsWith('/'),'search',ref+' has an incomplete entry');
 }
+// Every translated string lives in one of these tables; a key present in one
+// language and missing from another falls back to English, or to nothing at all,
+// exactly where a visitor needs it. Nothing else compares the three sides.
+const uiTables=[
+  ['src/i18n.mjs','ui'],
+  ['src/docs-ui.mjs','docsUi'],
+  ['src/model-ui.mjs','modelUi'],
+  ['src/community-ui.mjs','communityUi'],
+];
+const walkStrings=(value,prefix,out)=>{
+  if(typeof value==='string'){if(!value.trim())out.push(prefix);return out;}
+  if(value&&typeof value==='object')for(const [key,item] of Object.entries(value))walkStrings(item,prefix?prefix+'.'+key:key,out);
+  return out;
+};
+const walkKeys=(value,prefix,out)=>{
+  if(value&&typeof value==='object'&&!Array.isArray(value))for(const [key,item] of Object.entries(value))walkKeys(item,prefix?prefix+'.'+key:key,out);
+  else out.add(prefix);
+  return out;
+};
+for(const [file,exportName] of uiTables){
+  let table;
+  try{table=(await import(pathToFileURL(path.join(root,file)).href))[exportName];}catch(e){error(file,'could not be loaded: '+e.message);continue;}
+  if(!table||typeof table!=='object'){error(file,'exports no '+exportName+' table');continue;}
+  const locales=['en','zh','es'];
+  for(const locale of locales)if(!table[locale]||typeof table[locale]!=='object')error(file,'has no '+locale+' table');
+  const keys=locale=>walkKeys(table[locale]||{},'',new Set());
+  const all=new Set(locales.flatMap(locale=>[...keys(locale)]));
+  for(const locale of locales){
+    const missing=[...all].filter(key=>!keys(locale).has(key));
+    expect(missing.length===0,file+' ('+locale+')','missing '+missing.join(', '));
+    const blank=walkStrings(table[locale]||{},'',[]);
+    expect(blank.length===0,file+' ('+locale+')','blank string for '+blank.join(', '));
+  }
+}
+
 // The sitemap and the Article schema describe the same page. Two different
 // freshness dates read as a contradiction, so both must come from one source.
 const sitemapDates=new Map(sitemapEntries.map(e=>[e.loc,e.lastmod]));
