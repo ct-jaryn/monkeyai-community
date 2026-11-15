@@ -389,6 +389,15 @@ try{
   check(await evaluate('document.activeElement===document.querySelector(".mobile-toggle")'),'mobile menu: Escape does not return focus to the button');
   if(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")!=="true"'))await evaluate('document.querySelector(".mobile-toggle").click()');
   check(await evaluate('document.querySelector(".mobile-nav").hidden===false'),'mobile menu: the menu is not open for the outside-click check');
+  // Desktop marks the current section; the phone panel is a separate list that used
+  // to render every entry identically, so a visitor opening it on a tool page had no
+  // way to tell where they already were.
+  const activeEntry=JSON.parse(await evaluate('(()=>{const links=[...document.querySelectorAll(".mobile-nav a")];const on=links.find(a=>a.getAttribute("aria-current")==="page");const off=links.find(a=>a!==on);return JSON.stringify({href:on&&on.getAttribute("href"),differs:!!on&&!!off&&getComputedStyle(on).color!==getComputedStyle(off).color});})()'));
+  check(activeEntry.href==='/tools/','mobile menu: the current section is not marked on a tool page (got '+(activeEntry.href||'nothing')+')');
+  check(activeEntry.differs,'mobile menu: the current section looks like every other entry');
+  const menuContrast=JSON.parse(await evaluate(contrastAudit));
+  check(menuContrast.length===0,'mobile menu: an entry is below AA contrast ('+menuContrast.slice(0,3).map(item=>item.ratio+':1 '+item.cls).join(', ')+')');
+
   await evaluate('document.querySelector("h1").click()');
   check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"'),'mobile menu: a click outside the menu leaves it open');
   // The language menu is a details element, so Escape has to be wired by hand; a
