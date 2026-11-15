@@ -459,10 +459,13 @@ try{
   await visit('/tools/');
   await evaluate('Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:()=>Promise.reject(new Error("denied"))}})');
   await evaluate('document.querySelector("#copy-toolkit").click()');
-  check(await until('document.querySelector("#toolkit-output").hidden===false'),'toolkit: a refused clipboard leaves nothing to copy from');
+  check(await until('document.querySelector("#toolkit-output-wrap").hidden===false'),'toolkit: a refused clipboard leaves nothing to copy from');
+  check(await evaluate('(()=>{const o=document.querySelector("#toolkit-output");return o instanceof HTMLTextAreaElement&&o.readOnly;})()'),'toolkit: the fallback list is not a read-only field');
   check(await evaluate('document.activeElement.id==="toolkit-output"'),'toolkit: the fallback text does not take focus');
-  check(await evaluate('(()=>{const r=document.querySelector("#toolkit-output").getBoundingClientRect();return r.top>=0&&r.top<innerHeight;})()'),'toolkit: the fallback text appears out of view');
-  check(await evaluate('document.querySelector("#toolkit-output").textContent.includes("https://")'),'toolkit: the fallback text is empty');
+  check(await evaluate('(()=>{const o=document.querySelector("#toolkit-output");return o.selectionStart===0&&o.selectionEnd===o.value.length;})()'),'toolkit: the fallback list is not selected, so a copy key would copy nothing');
+  check(await evaluate('(()=>{const o=document.querySelector("#toolkit-output");return (o.labels?.[0]?.textContent||"").trim().length>10;})()'),'toolkit: the fallback field has no visible, associated label');
+  check(await until('(()=>{const r=document.querySelector("#toolkit-output").getBoundingClientRect();return r.top>=0&&r.top<innerHeight;})()'),'toolkit: the fallback text appears out of view');
+  check(await evaluate('document.querySelector("#toolkit-output").value.includes("https://")'),'toolkit: the fallback text is empty');
   check(await evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'toolkit: the fallback text pushes the page sideways');
   await visit('/tools/?category=saved');
   check(await evaluate('document.querySelector("#result-count").textContent==="1"&&document.querySelector("#result-label").textContent==="tool to explore"'),'tools: one saved tool is still counted as "1 tools"');
