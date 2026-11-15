@@ -57,14 +57,15 @@ function boot(pageData,fetchIndex,extra={}){
   const state={requests:[],fetch:fetchIndex};
   const globals={document,window:windowRef,navigator:{clipboard:{writeText:async()=>{}},platform:'MacIntel'},localStorage:{getItem:()=>null,setItem(){}},location:{search:'',pathname:'/'},history:{replaceState(){}},fetch:(...args)=>{state.requests.push(args[0]);return state.fetch(...args);},console,setTimeout,clearTimeout};
   new Function('document','window','navigator','localStorage','location','history','fetch',clientSource)(globals.document,globals.window,globals.navigator,globals.localStorage,globals.location,globals.history,globals.fetch);
-  return {dialog,input,results,requests:state.requests,setFetch:fn=>{state.fetch=fn;}};
+  return {dialog,input,results,toast,requests:state.requests,setFetch:fn=>{state.fetch=fn;}};
 }
 
 async function onlineRun(locale,file){
   const page=readPage(file);
   const index=JSON.parse(fs.readFileSync(path.join(dist,page.searchIndex),'utf8'));
   const serve=async url=>{if(url!==page.searchIndex)throw new Error('client asked for '+url);return {ok:true,status:200,json:async()=>index};};
-  const app=boot(page,serve);
+  const copy=makeEl('button');
+  const app=boot(page,serve,{'#copy-toolkit':copy});
   const at=label=>locale+': '+label;
 
   app.dialog.showModal();
@@ -159,6 +160,13 @@ async function onlineRun(locale,file){
   app.input.dispatch('input');
   await settle();
   check(marksIn(app.results).length===0,at('a one-letter query stirs up highlights'));
+
+  // An empty toolkit has nothing to copy, so the button must say so. Switching the
+  // directory to an empty list instead looks like the saved tools were lost.
+  app.toast.textContent='';
+  copy.dispatch('click');
+  await settle();
+  check(app.toast.textContent===page.ui.copyEmpty,at('copying an empty toolkit does not explain itself')+' — '+app.toast.textContent);
 }
 
 // The guide index has its own filter with its own empty state, so it gets the
@@ -187,7 +195,7 @@ function docsFilterRun(){
     topicLinks.set('.docs-topics a[href="#topic-'+key+'"]',link);
   }
   const root=makeEl('div'),search=makeEl('input'),count=makeEl('span'),empty=makeEl('p'),clear=makeEl('button');
-  root.dataset={countLabel:'guides'};
+  root.dataset={countLabel:'guides',countLabelOne:'guide'};
   root.querySelector=selector=>{
     if(selector==='#doc-search')return search;
     if(selector==='#doc-count')return count;
@@ -205,7 +213,7 @@ function docsFilterRun(){
   search.dispatch('input');
   check(!first.hidden,'docs: a word from a card keeps that card',probe);
   check(visible()>0&&visible()<=cards.length,'docs: the filter keeps a sensible subset','visible='+visible()+'/'+cards.length);
-  check(count.textContent===visible()+' guides','docs: the count matches the visible cards',count.textContent);
+  check(count.textContent===visible()+' '+(visible()===1?'guide':'guides'),'docs: the count matches the visible cards',count.textContent);
   check(empty.hidden===true,'docs: the empty state stays hidden while cards match');
 
   search.value='zzzznotathing';
@@ -215,6 +223,22 @@ function docsFilterRun(){
   check(empty.hidden===false,'docs: a miss shows the empty state');
   check(groups.every(group=>group.hidden===true),'docs: a miss hides the empty topic groups');
   check([...topicLinks.values()].every(link=>link.hidden===true),'docs: a miss hides the topic shortcuts');
+
+  // A count of one must not read "1 guides", neither in the summary nor in the
+  // topic heading. The probe word appears in exactly one card.
+  const matches=(card,term)=>card.dataset.search.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase().includes(term);
+  const wordCounts=new Map();
+  for(const card of cards)for(const term of new Set((card.dataset.search||'').split(/[^\p{L}\p{N}]+/u).filter(term=>term.length>=4)))wordCounts.set(term,(wordCounts.get(term)||0)+1);
+  const single=[...wordCounts].find(([term,n])=>n===1&&cards.filter(card=>matches(card,term)).length===1);
+  check(Boolean(single),'docs: no word belonging to exactly one card was found');
+  if(single){
+    search.value=single[0];
+    search.dispatch('input');
+    check(visible()===1,'docs: the single-match probe matched '+visible()+' cards');
+    check(count.textContent==='1 guide','docs: one match is still called a plural',count.textContent);
+    const only=groups.find(group=>group.cards.some(card=>matches(card,single[0])));
+    check(only.querySelector('.docs-topic-count').textContent==='1 guide','docs: a topic holding one match is still called a plural',only.querySelector('.docs-topic-count').textContent);
+  }
 
   clear.dispatch('click');
   check(visible()===cards.length,'docs: clearing brings every card back');

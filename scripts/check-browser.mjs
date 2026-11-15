@@ -292,6 +292,27 @@ try{
   await send('Input.insertText',{text:'mcp'});
   await evaluate('document.querySelector("#tool-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelector("#result-count").textContent!=='+JSON.stringify(countBefore)),'tools: the result count does not change when the list is filtered');
+  // A copy button that copies nothing but empties the list reads as data loss.
+  await visit('/tools/');
+  await evaluate('document.querySelector("#copy-toolkit").click()');
+  await sleep(200);
+  check(await evaluate('location.search===""'),'toolkit: copying an empty toolkit changes the filter');
+  check(await evaluate('document.querySelectorAll("#tool-grid [data-tool]:not([hidden])").length>5'),'toolkit: copying an empty toolkit hides every tool');
+  check(await evaluate('document.querySelector("#toast").classList.contains("visible")&&document.querySelector("#toast").textContent.length>10'),'toolkit: copying an empty toolkit says nothing');
+  await evaluate('document.querySelector("[data-save]").click()');
+  await evaluate('document.querySelector("#copy-toolkit").click()');
+  await sleep(250);
+  check(await evaluate('document.querySelector("#toast").textContent!==JSON.parse(document.querySelector("#page-data").textContent).ui.copyEmpty'),'toolkit: a saved tool still reports an empty toolkit');
+  await visit('/tools/?category=saved');
+  check(await evaluate('document.querySelector("#result-count").textContent==="1"&&document.querySelector("#result-label").textContent==="tool to explore"'),'tools: one saved tool is still counted as "1 tools"');
+  await viewport(1280,900);
+  await visit('/models/');
+  const modelName=await evaluate('document.querySelector("[data-model] h3").textContent');
+  await evaluate('document.querySelector("#model-search").focus()');
+  await send('Input.insertText',{text:modelName});
+  await evaluate('document.querySelector("#model-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelector("#model-result-count").textContent==="1"'),'models: searching one model name does not narrow to one');
+  check(await evaluate('document.querySelector("#model-count-label").textContent==="model family"'),'models: one match is still called "1 model families"');
   await viewport(1280,900);
   await visit('/models/');
   check(await evaluate('document.querySelector("#model-result-count").parentElement.getAttribute("aria-live")==="polite"'),'models: the result count is not a live region');
