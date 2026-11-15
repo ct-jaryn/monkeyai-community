@@ -277,6 +277,17 @@ try{
   check(await evaluate('document.querySelector("#doc-empty").hidden===true'),'docs: clearing does not bring the guides back');
   check(await evaluate('document.activeElement.id==="doc-search"'),'docs: clearing does not return focus to the search box');
 
+  // Every aside is a complementary landmark; two carrying the same name, or none,
+  // are announced identically, so the guide list and the page contents sound alike.
+  for(const route of ['/docs/getting-started/','/models/openai-gpt/','/tools/claude/']){
+    await viewport(1280,900);
+    await visit(route);
+    const names=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll("aside")].map(a=>{const ref=a.getAttribute("aria-labelledby");return (a.getAttribute("aria-label")||(ref?document.getElementById(ref)?.textContent:"")||"").trim();}))'));
+    check(names.length>0,route+': the page has no complementary landmark to check');
+    check(names.every(name=>name.length>0),route+': an aside has no accessible name');
+    check(new Set(names).size===names.length,route+': two asides share one name ('+names.join(', ')+')');
+  }
+
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
   // only checks the handlers, so the browser confirms the visible result.
   await viewport(390,844);

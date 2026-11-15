@@ -494,6 +494,21 @@ for(const file of Object.keys(documents)){
   expect(/aria-keyshortcuts="Meta\+K Control\+K"/.test(trigger[0]),file,'search trigger does not list both keyboard shortcuts');
   expect(/<span[^>]*data-shortcut[^>]*>/.test(trigger[0]),file,'search trigger has no platform-aware shortcut label');
 }
+// An aside becomes a complementary landmark. Two unnamed ones on a page are read
+// out identically, so a reader cannot tell the guide list from the page contents;
+// the guide article shipped exactly that pair. Every aside must carry a name, and
+// a name that points at a heading must point at one that exists.
+let asidesChecked=0;
+for(const file of Object.keys(documents)){
+  const html=read('dist/'+file);
+  for(const tag of html.match(/<aside\b[^>]*>/g)||[]){
+    asidesChecked++;
+    const ref=tag.match(/aria-labelledby="([^"]+)"/)?.[1];
+    expect(/aria-label="[^"]+"/.test(tag)||Boolean(ref),file,'aside has no accessible name: '+tag.slice(0,70));
+    if(ref)expect(html.includes('id="'+ref+'"'),file,'aside names a heading that is not on the page: '+ref);
+  }
+}
+metrics.asidesChecked=asidesChecked;
 // A page that quietly grows to a megabyte still builds, still renders and still
 // passes every behavioural check, so the growth itself has to be measured. These
 // ceilings sit well above the current sizes (54 KB stylesheet, 20 KB script,
