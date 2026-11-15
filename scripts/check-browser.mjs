@@ -580,6 +580,20 @@ try{
   await evaluate('document.querySelector(".search-retry").click()');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the retry button does not recover');
   check(await evaluate('document.querySelector("#global-search").value==="mcp"'),'search: the retry loses the query');
+  // The comparison matrix is wider than a phone. Once a reader scrolls it, the
+  // model name has to stay in view, otherwise every row loses its subject.
+  await viewport(390,844);
+  await visit('/models/compare/');
+  const matrix='(()=>{const w=document.querySelector(".table-scroll");const wr=w.getBoundingClientRect();const off=e=>Math.round(e.getBoundingClientRect().left-wr.left);return JSON.stringify({scrollable:w.scrollWidth-w.clientWidth,head:off(w.querySelector("thead th")),cell:off(w.querySelector("tbody th")),data:off(w.querySelector("tbody td"))});})()';
+  const matrixBefore=JSON.parse(await evaluate(matrix));
+  check(matrixBefore.scrollable>0,'compare: the matrix no longer scrolls on a phone');
+  check(matrixBefore.cell<5,'compare: the model name does not start at the left edge');
+  await evaluate('(()=>{const w=document.querySelector(".table-scroll");w.scrollLeft=160;w.dispatchEvent(new Event("scroll"));})()');
+  await sleep(200);
+  const matrixAfter=JSON.parse(await evaluate(matrix));
+  check(Math.abs(matrixAfter.cell-matrixBefore.cell)<=2,'compare: the model name scrolls out of view');
+  check(Math.abs(matrixAfter.head-matrixBefore.head)<=2,'compare: the column heading scrolls out of view');
+  check(matrixAfter.data<matrixBefore.data-100,'compare: scrolling the matrix does not move its other columns');
   // A printed guide should be the article alone: no site chrome, no clipped code.
   await viewport(1280,900);
   await send('Emulation.setEmulatedMedia',{media:'print'});
