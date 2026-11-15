@@ -263,6 +263,20 @@ try{
   await visit('/docs/install-from-source-docker-compose/');
   check(await evaluate('[...document.querySelectorAll(".code-block pre")].every(p=>!p.hasAttribute("tabindex"))'),'code blocks: a wide screen still adds tab stops to code that fits');
 
+  // A miss in the guide index must look like a miss in the other directories: a
+  // heading, a way back, and focus where the typing happened.
+  await viewport(390,844);
+  await visit('/docs/');
+  await evaluate('document.querySelector("#doc-search").focus()');
+  await send('Input.insertText',{text:'zzzznotathing'});
+  await evaluate('document.querySelector("#doc-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelector("#doc-empty").hidden===false'),'docs: a miss shows no empty state');
+  check(await evaluate('(document.querySelector("#doc-empty h2")||{textContent:""}).textContent.length>5'),'docs: the empty state has no heading');
+  check(await evaluate('document.querySelector("#doc-count").textContent==="0 guides"'),'docs: a miss still counts guides');
+  await evaluate('document.querySelector("#doc-clear").click()');
+  check(await evaluate('document.querySelector("#doc-empty").hidden===true'),'docs: clearing does not bring the guides back');
+  check(await evaluate('document.activeElement.id==="doc-search"'),'docs: clearing does not return focus to the search box');
+
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
   // only checks the handlers, so the browser confirms the visible result.
   await viewport(390,844);

@@ -194,6 +194,10 @@ function docsFilterRun(){
     const link=makeEl('a');
     topicLinks.set('.docs-topics a[href="#topic-'+key+'"]',link);
   }
+  // The other two directories explain a miss with a heading; the guide index used
+  // to offer a bare sentence, which gives a screen reader nothing to land on.
+  check(/<div id="doc-empty" class="doc-empty" hidden><h2>[^<]+<\/h2><p>[^<]+<\/p>/.test(html),'docs: the empty state has no heading to land on');
+
   const root=makeEl('div'),search=makeEl('input'),count=makeEl('span'),empty=makeEl('p'),clear=makeEl('button');
   root.dataset={countLabel:'guides',countLabelOne:'guide'};
   root.querySelector=selector=>{

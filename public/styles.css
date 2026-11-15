@@ -183,7 +183,7 @@ body[data-locale=zh] h1,body[data-locale=zh] h2,body[data-locale=zh] h3{letter-s
 .doc-result-body>span{font-size:11px;line-height:1.8;color:#7a6e82}
 .doc-result-body small{font-size:9px;color:#7e6b8a;margin-top:2px}
 .doc-result-arrow{color:#a78db9}.doc-result-arrow .icon{width:16px;height:16px}
-.doc-empty{padding:50px 0;text-align:center}.doc-empty p{font-size:13px}
+.doc-empty{padding:50px 0;text-align:center}.doc-empty h2{font-size:20px;line-height:1.7;color:#8f799e;margin:0 auto 8px;max-width:520px}.doc-empty p{font-size:13px;margin:0 0 25px}
 .docs-sidebar{max-height:calc(100vh - 65px);overflow-y:auto;padding-right:10px;scrollbar-width:thin}
 .docs-nav-group{margin-bottom:6px}
 .docs-nav-group>summary{display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none;cursor:pointer;color:#7f698d;font-size:10px;font-weight:650;line-height:1.6;padding:9px 10px;border-radius:7px}
