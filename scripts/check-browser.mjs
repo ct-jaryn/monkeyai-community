@@ -303,6 +303,18 @@ try{
   await evaluate('document.querySelector("#copy-toolkit").click()');
   await sleep(250);
   check(await evaluate('document.querySelector("#toast").textContent!==JSON.parse(document.querySelector("#page-data").textContent).ui.copyEmpty'),'toolkit: a saved tool still reports an empty toolkit');
+  // When the clipboard refuses, the text must appear where the click happened and
+  // must be reachable without a mouse; it used to sit after every card.
+  await viewport(390,844);
+  await evaluate('localStorage.setItem("monkeyai-toolkit-v1",JSON.stringify(["claude"]))');
+  await visit('/tools/');
+  await evaluate('Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:()=>Promise.reject(new Error("denied"))}})');
+  await evaluate('document.querySelector("#copy-toolkit").click()');
+  check(await until('document.querySelector("#toolkit-output").hidden===false'),'toolkit: a refused clipboard leaves nothing to copy from');
+  check(await evaluate('document.activeElement.id==="toolkit-output"'),'toolkit: the fallback text does not take focus');
+  check(await evaluate('(()=>{const r=document.querySelector("#toolkit-output").getBoundingClientRect();return r.top>=0&&r.top<innerHeight;})()'),'toolkit: the fallback text appears out of view');
+  check(await evaluate('document.querySelector("#toolkit-output").textContent.includes("https://")'),'toolkit: the fallback text is empty');
+  check(await evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'toolkit: the fallback text pushes the page sideways');
   await visit('/tools/?category=saved');
   check(await evaluate('document.querySelector("#result-count").textContent==="1"&&document.querySelector("#result-label").textContent==="tool to explore"'),'tools: one saved tool is still counted as "1 tools"');
   await viewport(1280,900);
