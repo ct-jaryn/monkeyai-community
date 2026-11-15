@@ -271,6 +271,22 @@ try{
   await evaluate('document.querySelector(".mobile-toggle").click()');
   check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="true"'),'mobile menu: the button does not report an expanded state');
   check(await evaluate('document.querySelector(".mobile-nav").hidden===false'),'mobile menu: the navigation stays hidden after the click');
+  check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-label")==="Close menu"'),'mobile menu: the button still offers to open a menu that is open');
+  check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-controls")==="mobile-nav"'),'mobile menu: the button does not name the panel it controls');
+  // Escape closes an overlay and returns focus; a menu that only closes by
+  // pressing its own button again traps a keyboard user's attention.
+  for(const nativeVirtualKeyCode of [53,27]){
+    await send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});
+    await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});
+    if(await until('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"',600))break;
+  }
+  check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"'),'mobile menu: Escape does not close the menu');
+  check(await evaluate('document.querySelector(".mobile-nav").hidden===true'),'mobile menu: the navigation stays open after Escape');
+  check(await evaluate('document.activeElement===document.querySelector(".mobile-toggle")'),'mobile menu: Escape does not return focus to the button');
+  if(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")!=="true"'))await evaluate('document.querySelector(".mobile-toggle").click()');
+  check(await evaluate('document.querySelector(".mobile-nav").hidden===false'),'mobile menu: the menu is not open for the outside-click check');
+  await evaluate('document.querySelector("h1").click()');
+  check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"'),'mobile menu: a click outside the menu leaves it open');
   await evaluate('document.querySelector("[data-save]").click()');
   check(await evaluate('document.querySelector("[data-save]").getAttribute("aria-pressed")==="true"'),'toolkit: saving a tool does not update the button');
   check(await evaluate('JSON.parse(localStorage.getItem("monkeyai-toolkit-v1")||"[]").length===1'),'toolkit: the saved tool is not written to storage');
