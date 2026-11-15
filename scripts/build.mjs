@@ -46,7 +46,7 @@ const stylesheet=fingerprintAsset('styles.css');
 // fold on every page. Announcing them early lets the download run alongside the
 // stylesheet instead of waiting for it to parse; crossorigin matches the way fonts
 // are requested, so the browser does not fetch the same file twice.
-const fontPreloads=['manrope-700','dm-sans-400'].map(name=>`<link rel="preload" as="font" type="font/woff2" href="/fonts/${name}.woff2" crossorigin="anonymous">`).join('');
+const fontPreloads=['dm-sans-var','manrope-var'].map(name=>`<link rel="preload" as="font" type="font/woff2" href="/fonts/${name}.woff2" crossorigin="anonymous">`).join('');
 // The search index is 40 KB of JSON on every page but is only read once the
 // dialog opens, so it ships as its own content-addressed asset and is fetched on
 // demand. Hashing keeps the one-year cache rule honest when the data changes.

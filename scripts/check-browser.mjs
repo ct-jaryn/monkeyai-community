@@ -174,6 +174,33 @@ try{
   await send('Page.enable');
   await send('Runtime.enable');
 
+  // Nine static subsets became two variable faces. A page should fetch at most two
+  // font files, and weight 550 must lay out differently from 600 — proof that the
+  // weight axis is real rather than silently rounded to the nearest static file.
+  await viewport(1280);
+  await visit('/');
+  await until('document.fonts.status==="loaded"');
+  const fontUsage=JSON.parse(await evaluate(`JSON.stringify((()=>{
+    const fonts=performance.getEntriesByType('resource').filter(r=>r.name.indexOf('/fonts/')>=0);
+    const measure=(weight,text)=>{
+      const ctx=document.createElement('canvas').getContext('2d');
+      ctx.font=weight+' 40px Manrope, sans-serif';
+      return Math.round(ctx.measureText(text).width*100)/100;
+    };
+    const sample='MonkeyAI community guides';
+    return {
+      count:fonts.length,
+      bytes:fonts.reduce((sum,r)=>sum+(r.encodedBodySize||0),0),
+      external:fonts.filter(r=>r.name.indexOf(location.origin+'/fonts/')!==0).map(r=>r.name),
+      w400:measure(400,sample),w550:measure(550,sample),w600:measure(600,sample),w800:measure(800,sample)
+    };
+  })())`));
+  check(fontUsage.count<=2,'/ requests '+fontUsage.count+' font files; only the two variable faces should ship');
+  check(fontUsage.bytes<=80000,'/ downloads '+Math.round(fontUsage.bytes/1024)+'KB of fonts, above the 80KB budget');
+  check(fontUsage.external.length===0,'/ loads fonts from '+fontUsage.external.join(', ')+' instead of its own origin');
+  check(fontUsage.w550!==fontUsage.w600,'/ lays out weight 550 exactly like 600, so the variable weight axis is missing');
+  check(fontUsage.w800>fontUsage.w400,'/ renders weight 800 no wider than 400');
+
   // Nothing should stick out of a phone screen. A single wide table or unbreakable
   // URL makes the whole page scroll sideways, which is what this measures.
   for(const route of ['/','/tools/','/models/','/docs/','/docs/getting-started/','/zh/docs/','/es/tools/']){
