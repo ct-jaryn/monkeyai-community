@@ -42,10 +42,10 @@ const out='dist'; fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{r
 // Content-addressed runtime URLs prevent stale CDN/browser CSS and JS after releases.
 function fingerprintAsset(file){const bytes=fs.readFileSync(path.join('public',file));const hash=createHash('sha256').update(bytes).digest('hex').slice(0,12);const ext=path.extname(file);const asset=`/assets/${path.basename(file,ext)}.${hash}${ext}`;fs.mkdirSync(path.join(out,'assets'),{recursive:true});fs.writeFileSync(path.join(out,asset),bytes);return asset;}
 const stylesheet=fingerprintAsset('styles.css');
-// The headline (Manrope 700) and body (DM Sans 400) faces are painted above the
-// fold on every page. Announcing them early lets the download run alongside the
-// stylesheet instead of waiting for it to parse; crossorigin matches the way fonts
-// are requested, so the browser does not fetch the same file twice.
+// Both variable faces are painted above the fold on every page (Manrope sets the
+// headings, DM Sans the body). Announcing them early lets the download run
+// alongside the stylesheet instead of waiting for it to parse; crossorigin matches
+// the way fonts are requested, so the browser does not fetch the same file twice.
 const fontPreloads=['dm-sans-var','manrope-var'].map(name=>`<link rel="preload" as="font" type="font/woff2" href="/fonts/${name}.woff2" crossorigin="anonymous">`).join('');
 // The search index is 40 KB of JSON on every page but is only read once the
 // dialog opens, so it ships as its own content-addressed asset and is fetched on
@@ -68,7 +68,11 @@ function mailDraft(subject,body){return esc(`mailto:${config.contactEmail}?subje
 function listingMailHref(l){const u=ui[l];return mailDraft(u.listingMailSubject,u.listingMailBody);}
 function correctionMailHref(l){const u=ui[l];return mailDraft(u.correctionMailSubject,u.correctionMailBody);}
 const button=(href,label,secondary=false)=>`<a class="button ${secondary?'secondary':''}" href="${href}">${label}${icon('arrow')}</a>`;
-const brandLogo=(slug,size='')=>{const asset=logos[slug];if(!asset)throw new Error(`Missing official logo for ${slug}`);return `<span class="tool-logo product-logo ${size}" data-brand="${esc(slug)}" style="--logo-background:${esc(asset.background)};--logo-padding:${esc(asset.padding||'7px')}" aria-hidden="true"><img src="${esc(asset.src)}" width="64" height="64" alt="" loading="${size==='large'?'eager':'lazy'}" decoding="async"></span>`;};
+// Raster logos ship as WebP next to the original PNG. The <img> keeps the PNG as
+// the declared fallback, but a browser that understands WebP only downloads the
+// smaller file; logos whose WebP came out no smaller keep the PNG alone.
+const webpSibling=src=>{const candidate=src.replace(/\.png$/i,'.webp');return candidate!==src&&fs.existsSync(path.join('public',candidate))?candidate:'';};
+const brandLogo=(slug,size='')=>{const asset=logos[slug];if(!asset)throw new Error(`Missing official logo for ${slug}`);const webp=webpSibling(asset.src);const source=webp?`<source srcset="${esc(webp)}" type="image/webp">`:'';return `<span class="tool-logo product-logo ${size}" data-brand="${esc(slug)}" style="--logo-background:${esc(asset.background)};--logo-padding:${esc(asset.padding||'7px')}" aria-hidden="true"><picture>${source}<img src="${esc(asset.src)}" width="64" height="64" alt="" loading="${size==='large'?'eager':'lazy'}" decoding="async"></picture></span>`;};
 
 function card(t,l){const tr=t[l],u=ui[l];return `<article class="tool-card" data-tool="${esc(t.slug)}" data-category="${esc(t.category)}" data-search="${esc(`${t.name} ${tr.tagline} ${tr.description} ${tr.useCases.join(' ')}`.toLowerCase())}"><div class="tool-top">${brandLogo(t.slug)}<button class="save-button" data-save="${esc(t.slug)}" aria-pressed="false" aria-label="${esc(u.save)}: ${esc(t.name)}">${icon('bookmark')}</button></div><div class="tool-title"><a href="${url(l,`tools/${t.slug}`)}"><h3>${esc(t.name)}</h3></a><span class="category-dot">${esc(u[t.category])}</span></div><p>${esc(tr.tagline)}</p><div class="tool-bottom"><span>${esc(new URL(t.url).hostname.replace('www.',''))}</span><a href="${url(l,`tools/${t.slug}`)}" aria-label="${esc(u.details)}: ${esc(t.name)}">${icon('arrow')}</a></div></article>`;}
 function guideCard(g,l,i=0){const tr=g[l],u=ui[l];return `<a class="guide-card guide-color-${i%3}" href="${url(l,`docs/${g.slug}`)}"><div class="guide-art" aria-hidden="true"><span class="guide-number">0${i+1}</span><span class="guide-symbol">${icon(i%3===0?'spark':i%3===1?'code':'book')}</span><span class="art-orbit"></span></div><div class="guide-content"><span class="small-label">${esc(g.readMinutes)} ${esc(u.minutes)}</span><h3>${esc(tr.title)}</h3><p>${esc(tr.description)}</p><span class="text-link">${esc(u.read)} ${icon('arrow')}</span></div></a>`;}

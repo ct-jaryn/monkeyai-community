@@ -216,6 +216,28 @@ try{
   check(!brand.resources.some(r=>r.name==='monkeyai-logo-128.png'),'/ downloads the PNG logo even though the WebP source is supported');
   check(brand.resources.some(r=>r.name==='favicon-32.png'),'/ does not request the small favicon');
 
+  // Raster tool logos carry a WebP twin. The directory should decode the smaller
+  // file everywhere it exists, and the raster set must stay inside a small budget.
+  await viewport(1280);
+  await visit('/tools/');
+  await evaluate('window.scrollTo({top:document.body.scrollHeight,behavior:"instant"});window.dispatchEvent(new Event("scroll"))');
+  await sleep(600);
+  const logoLoad=JSON.parse(await evaluate(`JSON.stringify((()=>{
+    const resources=performance.getEntriesByType('resource').filter(r=>r.name.indexOf('/logos/')>=0);
+    const imgs=[...document.querySelectorAll('.tool-logo img')];
+    return {
+      raster:resources.filter(r=>!/\.svg$/i.test(r.name)).map(r=>({name:r.name.split('/').pop(),size:r.encodedBodySize||0})),
+      broken:imgs.filter(i=>i.complete&&i.naturalWidth===0).length,
+      cards:imgs.length,
+      pngInUse:imgs.map(i=>i.currentSrc).filter(s=>/\.png$/i.test(s)).map(s=>s.split('/').pop())
+    };
+  })())`));
+  check(logoLoad.cards>=14,'/tools/ shows '+logoLoad.cards+' tool logos');
+  check(logoLoad.broken===0,'/tools/ has '+logoLoad.broken+' tool logos that failed to decode');
+  check(logoLoad.pngInUse.length===0,'/tools/ still renders PNG logos: '+logoLoad.pngInUse.join(', '));
+  const rasterKB=Math.round(logoLoad.raster.reduce((sum,r)=>sum+r.size,0)/1024);
+  check(rasterKB<=20,'/tools/ downloads '+rasterKB+'KB of raster logos, above the 20KB budget');
+
   // Nothing should stick out of a phone screen. A single wide table or unbreakable
   // URL makes the whole page scroll sideways, which is what this measures.
   for(const route of ['/','/tools/','/models/','/docs/','/docs/getting-started/','/zh/docs/','/es/tools/']){
