@@ -363,6 +363,22 @@ try{
   await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the one-letter query renders nothing to inspect');
   check(await evaluate('document.querySelectorAll("#search-results mark").length===0'),'search: a one-letter query marks almost every character');
+  // A flaky connection must not leave the dialog stuck on an apology. The retry
+  // button repeats the failed request and keeps the query that led nowhere.
+  await viewport(1280,900);
+  await visit('/');
+  await evaluate('{const real=window.fetch;window.__maiFailSearch=true;window.fetch=(input,init)=>window.__maiFailSearch?Promise.reject(new Error("offline")):real(input,init);}');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the retry check');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'mcp'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('!!document.querySelector(".search-retry")'),'search: a failed load leaves no way to retry');
+  check(await evaluate('document.querySelector("#search-status").textContent.length>0'),'search: a failed load says nothing in the status line');
+  await evaluate('window.__maiFailSearch=false');
+  await evaluate('document.querySelector(".search-retry").click()');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the retry button does not recover');
+  check(await evaluate('document.querySelector("#global-search").value==="mcp"'),'search: the retry loses the query');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{

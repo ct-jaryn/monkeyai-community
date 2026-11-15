@@ -230,19 +230,47 @@ async function offlineRun(){
   await settle();await settle();
   check(app.results.children[0]?.textContent===page.ui.searchUnavailable,'en: a failed fetch explains itself');
 
+  // An apology without a way out makes the visitor retype the query or reload the
+  // page. The button must repeat the failed request and must not claim success
+  // while the outage lasts.
+  const retry=()=>app.results.children.find(kid=>kid.className==='search-retry');
+  check(Boolean(retry())&&retry().textContent===page.ui.searchRetry,'en: a failed load offers no retry');
+  retry().dispatch('click');
+  await settle();await settle();
+  check(app.requests.length===2,'en: the retry button does not ask again');
+  check(app.results.children[0]?.textContent===page.ui.searchUnavailable,'en: a retry during an outage claims success');
+
   const index=JSON.parse(fs.readFileSync(path.join(dist,page.searchIndex),'utf8'));
   app.setFetch(async()=>({ok:true,status:200,json:async()=>index}));
-  app.input.value='mcp';
-  app.input.dispatch('input');
+  retry().dispatch('click');
   await settle();await settle();
-  check(app.requests.length===2,'en: a retry asks again instead of caching the failure');
-  check(app.results.children.filter(kid=>kid.tagName==='A').length>0,'en: the retry renders results');
+  check(app.requests.length===3,'en: the retry after the outage still treats the failure as final');
+  check(app.results.children.filter(kid=>kid.tagName==='A').length>0,'en: the retry after the outage renders no results');
+  check(app.input.value==='guide','en: the retry loses the query');
+}
+
+// The client script reads its interface strings from the page data, which is built
+// from a hand-maintained whitelist. A string added to the script but not to that
+// list once left the dialog silent and empty; comparing both sides turns that
+// omission into a failed check instead of a visitor's broken search.
+function clientKeyRun(){
+  const clientName=fs.readdirSync(path.join(dist,'assets')).find(name=>/^app\.[a-f0-9]+\.js$/.test(name));
+  const source=fs.readFileSync(path.join(dist,'assets',clientName),'utf8');
+  const used=new Set();
+  for(const match of source.matchAll(/\bu\.([A-Za-z_$][\w$]*)/g))used.add(match[1]);
+  check(used.size>5,'client: the interface keys were not found in the built script');
+  for(const [locale,file] of [['en','index.html'],['zh','zh/index.html'],['es','es/index.html'],['404','404.html']]){
+    const page=readPage(file);
+    const missing=[...used].filter(key=>!(key in page.ui));
+    check(missing.length===0,'client/'+locale+': the page data omits '+missing.join(', '));
+  }
 }
 
 try{
   for(const [locale,file] of [['en','index.html'],['zh','zh/index.html'],['es','es/index.html']])await onlineRun(locale,file);
   await offlineRun();
   docsFilterRun();
+  clientKeyRun();
 }catch(error){
   failures.push('harness error: '+error.message);
 }
