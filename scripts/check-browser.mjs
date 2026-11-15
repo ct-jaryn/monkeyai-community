@@ -201,6 +201,21 @@ try{
   check(fontUsage.w550!==fontUsage.w600,'/ lays out weight 550 exactly like 600, so the variable weight axis is missing');
   check(fontUsage.w800>fontUsage.w400,'/ renders weight 800 no wider than 400');
 
+  // The brand mark ships as a 10KB WebP with the PNG kept only as a fallback, and
+  // the tab icon is a small dedicated file instead of the 30KB logo.
+  const brand=JSON.parse(await evaluate(`JSON.stringify((()=>{
+    const img=document.querySelector('.header .brand-mark img');
+    const resources=performance.getEntriesByType('resource')
+      .filter(r=>r.name.indexOf('/brand/')>=0)
+      .map(r=>({name:r.name.split('/').pop(),size:r.encodedBodySize||0}));
+    return {currentSrc:img?img.currentSrc:'',resources};
+  })())`));
+  check(/\.webp$/.test(brand.currentSrc),'/ renders the brand mark from '+brand.currentSrc+' instead of the WebP source');
+  const logoWebp=brand.resources.find(r=>r.name==='monkeyai-logo-256.webp');
+  check(Boolean(logoWebp)&&logoWebp.size>0&&logoWebp.size<=16000,'/ fetches the brand mark as '+(logoWebp?Math.round(logoWebp.size/1024)+'KB':'nothing'));
+  check(!brand.resources.some(r=>r.name==='monkeyai-logo-128.png'),'/ downloads the PNG logo even though the WebP source is supported');
+  check(brand.resources.some(r=>r.name==='favicon-32.png'),'/ does not request the small favicon');
+
   // Nothing should stick out of a phone screen. A single wide table or unbreakable
   // URL makes the whole page scroll sideways, which is what this measures.
   for(const route of ['/','/tools/','/models/','/docs/','/docs/getting-started/','/zh/docs/','/es/tools/']){
