@@ -494,6 +494,33 @@ for(const file of Object.keys(documents)){
   expect(/aria-keyshortcuts="Meta\+K Control\+K"/.test(trigger[0]),file,'search trigger does not list both keyboard shortcuts');
   expect(/<span[^>]*data-shortcut[^>]*>/.test(trigger[0]),file,'search trigger has no platform-aware shortcut label');
 }
+// A page that quietly grows to a megabyte still builds, still renders and still
+// passes every behavioural check, so the growth itself has to be measured. These
+// ceilings sit well above the current sizes (54 KB stylesheet, 20 KB script,
+// 41 KB search index, 81 KB page); they catch an accidental duplicate, not a few
+// bytes, and each run prints the current figures so drift is visible before it
+// crosses one.
+const sizeKB=file=>Math.round(fs.statSync(path.join(root,file)).size/1024);
+const cssAssetName=fs.readdirSync(path.join(root,'dist/assets')).find(name=>/^styles\.[a-f0-9]+\.css$/.test(name));
+const indexAssetName=fs.readdirSync(path.join(root,'dist/assets')).find(name=>/^search-en\.[a-f0-9]+\.json$/.test(name));
+const pageCeilingKB=120;
+const ceilings=[
+  ['css','dist/assets/'+cssAssetName,80,'stylesheet'],
+  ['js','dist/assets/'+clientAsset,40,'client script'],
+  ['searchIndex','dist/assets/'+indexAssetName,120,'search index'],
+];
+for(const [metric,file,limit,label] of ceilings){
+  expect(/^dist\/assets\/[a-z-]/.test(file),'dist/assets','no hashed '+label+' found for the size check');
+  if(!exists(file))continue;
+  metrics[metric+'KB']=sizeKB(file);
+  expect(sizeKB(file)<=limit,'dist/assets',label+' is '+sizeKB(file)+' KB, over the '+limit+' KB ceiling');
+}
+const largestPage=Object.keys(documents).map(file=>[file,sizeKB('dist/'+file)]).sort((a,b)=>b[1]-a[1])[0];
+if(largestPage){
+  metrics.largestPageKB=largestPage[1];
+  expect(largestPage[1]<=pageCeilingKB,largestPage[0],'page HTML is '+largestPage[1]+' KB, over the '+pageCeilingKB+' KB ceiling');
+}
+
 // Arrow-key navigation only helps people who know it exists, so the dialog must
 // spell out the keys it supports, in the reader's own language.
 const searchHelpWords={en:'to move',zh:'移动',es:'moverte'};
