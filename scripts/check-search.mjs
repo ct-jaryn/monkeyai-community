@@ -52,7 +52,7 @@ function boot(pageData,fetchIndex,extra={}){
   const dataNode=makeEl('script');
   dataNode.textContent=JSON.stringify(pageData);
   const known={'#page-data':dataNode,'#search-dialog':dialog,'#global-search':input,'#search-results':results,'#toast':toast,...extra};
-  const document={createElement:makeEl,querySelector:selector=>known[selector]??null,querySelectorAll:()=>[],addEventListener(){},body:makeEl('body')};
+  const document={createElement:makeEl,createTextNode:text=>{const node=makeEl('#text');node.textContent=text;return node;},querySelector:selector=>known[selector]??null,querySelectorAll:()=>[],addEventListener(){},body:makeEl('body')};
   const windowRef={addEventListener(){},matchMedia:()=>({matches:false,addEventListener(){}})};
   const state={requests:[],fetch:fetchIndex};
   const globals={document,window:windowRef,navigator:{clipboard:{writeText:async()=>{}},platform:'MacIntel'},localStorage:{getItem:()=>null,setItem(){}},location:{search:'',pathname:'/'},history:{replaceState(){}},fetch:(...args)=>{state.requests.push(args[0]);return state.fetch(...args);},console,setTimeout,clearTimeout};
@@ -132,6 +132,33 @@ async function onlineRun(locale,file){
   await settle();
   check(app.requests.length===1,at('a later query reuses the cached index'));
   check(app.results.children.filter(kid=>kid.tagName==='A').length>0,at('a later query still renders results'));
+
+  // An empty box is a dead end for someone who does not know the site's
+  // vocabulary. The chips must be buttons, must fill the box, and must lead to
+  // results; a topic that finds nothing would be a broken promise.
+  app.input.value='';
+  app.input.dispatch('input');
+  const topics=app.results.children.find(kid=>kid.className==='search-topics');
+  check(Boolean(topics)&&topics.children.length===page.ui.searchSuggestions.length+1,at('an empty query offers no starting topics'));
+  const chip=topics.children[1];
+  chip.dispatch('click');
+  check(app.input.value===chip.textContent,at('a topic chip does not fill the search box'));
+  await settle();
+  check(app.results.children.filter(kid=>kid.tagName==='A').length>0,at('a suggested topic finds nothing')+' — '+chip.textContent);
+
+  // A result matched only in its keywords looks arbitrary unless the word the
+  // visitor typed is visible. Marks must name the query, and a one-letter query
+  // must not speckle the list.
+  const marksIn=root=>{const marks=[];const walk=el=>{for(const kid of el.children){if(kid.tagName==='MARK')marks.push(kid.textContent);walk(kid);}};walk(root);return marks;};
+  app.input.value='mcp';
+  app.input.dispatch('input');
+  await settle();
+  const marks=marksIn(app.results);
+  check(marks.length>0&&marks.every(mark=>mark.toLocaleLowerCase()==='mcp'),at('the matched word is not highlighted')+' — '+marks.slice(0,3).join(','));
+  app.input.value='a';
+  app.input.dispatch('input');
+  await settle();
+  check(marksIn(app.results).length===0,at('a one-letter query stirs up highlights'));
 }
 
 // The guide index has its own filter with its own empty state, so it gets the

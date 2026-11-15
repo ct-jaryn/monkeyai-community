@@ -202,3 +202,8 @@ body[data-locale=zh] h1,body[data-locale=zh] h2,body[data-locale=zh] h3{letter-s
 .sponsor-flag{display:inline-block;margin:0 0 14px;padding:4px 10px;border-radius:999px;background:#f4eff9;border:1px solid #e8e0f1;color:#5c3cbe;font-size:11px;font-weight:700;letter-spacing:.04em}
 .listing-policy{padding-bottom:8px}
 .tool-record-notes h2{font-size:22px}@media(max-width:1120px){.guide-toc{display:block}}
+#search-results .search-topics{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:2px 10px 6px}
+#search-results .search-topics-label{font-size:11px;color:#7d6f83}
+#search-results .search-topic{font-size:11px;line-height:1.4;padding:6px 12px;border:1px solid #eadff2;border-radius:999px;background:#faf7fd;color:#6d577e;min-height:28px}
+#search-results .search-topic:hover{border-color:#d9c8e6;background:#f0e9f8}
+#search-results mark{background:#e6d6ff;color:#332a3d;border-radius:2px;padding:0 1px}

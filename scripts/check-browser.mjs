@@ -329,6 +329,40 @@ try{
   await visit('/docs/?q=mcp');
   check(await evaluate('document.querySelector("#doc-search").value==="mcp"'),'docs: a filtered guide link does not restore the query');
   check(await evaluate('document.querySelectorAll("[data-doc]:not([hidden])").length>0'),'docs: a restored query hides every guide');
+
+  // The dialog opens on an empty box, which is a dead end for someone who does not
+  // know the site's vocabulary. Topics the index really covers must appear, be
+  // reachable with Tab, and run a real search when chosen.
+  await viewport(1280,900);
+  await visit('/');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the topic check');
+  check(await until('document.querySelectorAll(".search-topic").length>=3'),'search: an empty dialog offers no starting topics');
+  await evaluate('document.querySelector("#global-search").focus()');
+  for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:48});
+  await sleep(150);
+  check(await evaluate('document.activeElement.classList.contains("search-topic")'),'search: a topic chip cannot be reached with Tab');
+  const topic=await evaluate('document.querySelector(".search-topic").textContent');
+  await evaluate('document.querySelector(".search-topic").click()');
+  check(await evaluate('document.querySelector("#global-search").value==='+JSON.stringify(topic)),'search: a topic chip does not fill the search box');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: a suggested topic returns no results');
+  const marks=await evaluate('[...document.querySelectorAll("#search-results mark")].map(m=>m.textContent.toLowerCase())');
+  check(Array.isArray(marks)&&marks.length>0&&marks.every(mark=>mark===topic.toLowerCase()),'search: the suggested topic is not marked in the results ('+String(marks).slice(0,60)+')');
+  // The query becomes marked-up text inside a result, so it must stay text: a
+  // pasted tag is a search string, not a template.
+  await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'<img src=x onerror=window.__maiXss=1>'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await sleep(400);
+  check(await evaluate('!document.querySelector("#search-results img")&&window.__maiXss!==1'),'search: a typed tag is parsed as HTML');
+  // Marking every occurrence of one letter would speckle the list without helping.
+  await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'a'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the one-letter query renders nothing to inspect');
+  check(await evaluate('document.querySelectorAll("#search-results mark").length===0'),'search: a one-letter query marks almost every character');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
