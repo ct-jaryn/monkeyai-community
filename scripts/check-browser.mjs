@@ -433,6 +433,22 @@ try{
   check(await evaluate('document.querySelector("#empty-state").hidden===false'),'toolkit: an empty saved view shows no message');
   check(await evaluate('/is empty/i.test(document.querySelector("#empty-state h2").textContent)'),'toolkit: an empty saved view does not explain how to save a tool');
   await visit('/tools/');
+  // Selection must survive without colour: high-contrast modes and monochrome
+  // printing drop the lavender fill, so a drawn tick is what distinguishes the
+  // filter. It is an empty box, so it must not leak into the accessible name.
+  const markerStyle='(()=>{const s=getComputedStyle(document.querySelector(".filter-chip[aria-pressed=true]"),"::after");return JSON.stringify({content:s.content,width:s.width,border:s.borderLeftWidth});})()';
+  const marker=JSON.parse(await evaluate(markerStyle));
+  check(marker.width==='7px'&&marker.border==='2px','tools: the active filter is marked by colour alone');
+  check(marker.content==='""','tools: the selection tick leaks text into the filter name');
+  check(await evaluate('getComputedStyle(document.querySelector(".filter-chip[aria-pressed=false]"),"::after").content')==='none','tools: an inactive filter also shows the selection tick');
+  await evaluate('document.querySelector(".filter-chip[data-filter=coding]").click()');
+  check(await evaluate('getComputedStyle(document.querySelector(".filter-chip[data-filter=coding]"),"::after").width==="7px"'),'tools: the tick does not follow the active filter');
+  check(await evaluate('document.querySelector(".filter-chip[data-filter=all]").getAttribute("aria-pressed")==="false"'),'tools: the previous filter stays pressed');
+  await visit('/models/');
+  check(await evaluate('getComputedStyle(document.querySelector(".filter-chip[aria-pressed=true]"),"::after").width==="7px"'),'models: the active filter is marked by colour alone');
+  await visit('/');
+  check(await evaluate('getComputedStyle(document.querySelector(".home-categories .filter-chip.selected"),"::after").width==="7px"'),'home: the current category is marked by colour alone');
+  await visit('/tools/');
   // Filtering must be announced, not only drawn: without a live region a screen
   // reader user changes the list and hears nothing, so the count is the feedback.
   check(await evaluate('document.querySelector("#result-count").parentElement.getAttribute("aria-live")==="polite"'),'tools: the result count is not a live region');
