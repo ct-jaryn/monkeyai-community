@@ -564,6 +564,20 @@ try{
   await evaluate('document.querySelector(".search-retry").click()');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the retry button does not recover');
   check(await evaluate('document.querySelector("#global-search").value==="mcp"'),'search: the retry loses the query');
+  // A printed guide should be the article alone: no site chrome, no clipped code.
+  await viewport(1280,900);
+  await send('Emulation.setEmulatedMedia',{media:'print'});
+  await visit('/docs/install-with-official-installer/');
+  check(await evaluate('getComputedStyle(document.querySelector(".header")).display==="none"'),'print: the site header still prints');
+  check(await evaluate('getComputedStyle(document.querySelector(".footer")).display==="none"'),'print: the site footer still prints');
+  check(await evaluate('getComputedStyle(document.querySelector(".docs-sidebar")).display==="none"'),'print: the guide sidebar still prints');
+  check(await evaluate('getComputedStyle(document.querySelector(".toc")).display==="none"'),'print: the in-page contents still print');
+  check(await evaluate('getComputedStyle(document.body).backgroundColor==="rgb(255, 255, 255)"'),'print: the page background still uses a tint');
+  check(await evaluate('(()=>{const pre=document.querySelector(".code-block pre");return !!pre&&getComputedStyle(pre).overflowX==="visible"&&getComputedStyle(pre).whiteSpace==="pre-wrap";})()'),'print: a code sample is still a clipped scroll box');
+  check(await evaluate('(()=>{const s=document.querySelector(".source-box");return !!s&&getComputedStyle(s).display!=="none"&&getComputedStyle(s).backgroundColor==="rgb(255, 255, 255)";})()'),'print: the source list loses its white background');
+  await visit('/');
+  check(await evaluate('getComputedStyle(document.querySelector(".hero-art")).display==="none"'),'print: the hero illustration still prints');
+  await send('Emulation.setEmulatedMedia',{media:''});
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
