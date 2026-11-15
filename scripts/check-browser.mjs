@@ -339,6 +339,25 @@ try{
     check(new Set(names).size===names.length,route+': two asides share one name ('+names.join(', ')+')');
   }
 
+  // A control can have a focus rule and still show nothing, because a later rule of
+  // equal specificity wins the cascade: the tool search lost its ring that way, and
+  // the comparison table fell back to the browser's one-pixel ring. Walking the real
+  // tab order catches both, and proves the first stop is the skip link.
+  const focusStop=`(()=>{const el=document.activeElement;const style=getComputedStyle(el);const rect=el.getBoundingClientRect();return JSON.stringify({tag:el.tagName,cls:(el.className&&el.className.toString().slice(0,30))||'',outline:style.outlineStyle,width:parseFloat(style.outlineWidth),w:rect.width,h:rect.height,top:Math.round(rect.top)});})()`;
+  for(const route of ['/','/tools/','/models/compare/']){
+    await viewport(1280,900);
+    await visit(route);
+    for(let step=1;step<=12;step++){
+      for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:48});
+      await sleep(60);
+      const stop=JSON.parse(await evaluate(focusStop));
+      const where=stop.tag.toLowerCase()+(stop.cls?'.'+stop.cls:'');
+      check(stop.tag!=='BODY'&&stop.tag!=='HTML',route+': Tab '+step+' lands on the page body instead of a control');
+      check(stop.outline==='solid'&&stop.width>=2,route+': the focus ring on '+where+' at Tab '+step+' is '+stop.outline+' '+stop.width+'px');
+      if(step===1)check(stop.cls==='skip-link'&&stop.top>=0,route+': the first Tab does not reveal the skip link ('+where+', top '+stop.top+')');
+    }
+  }
+
   // A token can look fine in isolation and still land under 4.5:1 on the colour it
   // is painted over, which is how the FAQ toggle and a model link were missed.
   for(const route of ['/','/tools/claude/','/models/compare/','/docs/getting-started/']){
