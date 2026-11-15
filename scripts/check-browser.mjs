@@ -102,6 +102,57 @@ async function until(expression,timeout=8000){
   return false;
 }
 
+// Contrast is a property of the rendered page, not of a token in the stylesheet:
+// the same colour passes on white and fails on lavender. This measures every text
+// node against the background it is actually painted on. Illustrations marked
+// role="img" and hidden subtrees are exempt, because their text is a picture.
+const contrastAudit=String.raw`(() => {
+  const parse = c => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return null; const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number); return {r:p[0],g:p[1],b:p[2],a:p.length>3?p[3]:1}; };
+  const lum = ({r,g,b}) => { const f = v => { v/=255; return v<=0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); }; return 0.2126*f(r)+0.7152*f(g)+0.0722*f(b); };
+  const ratio = (a,b) => { const l1=lum(a), l2=lum(b); return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05); };
+  const blend = (t,u) => ({ r:t.r*t.a+u.r*(1-t.a), g:t.g*t.a+u.g*(1-t.a), b:t.b*t.a+u.b*(1-t.a), a:1 });
+  const bgOf = el => {
+    let node=el, stack=[];
+    while (node && node!==document.documentElement) {
+      const cs=getComputedStyle(node);
+      if (cs.backgroundImage && cs.backgroundImage!=='none') return {unknown:true};
+      const c=parse(cs.backgroundColor);
+      if (c && c.a>0) { stack.push(c); if (c.a===1) break; }
+      node=node.parentElement;
+    }
+    let base={r:252,g:251,b:249,a:1};
+    for (let i=stack.length-1;i>=0;i--) base = stack[i].a===1 ? {...stack[i]} : blend(stack[i],base);
+    return base;
+  };
+  const out=[], seen=new Set();
+  const walker=document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const text=walker.currentNode.textContent.trim();
+    if (!text) continue;
+    const el=walker.currentNode.parentElement;
+    if (!el || el.closest('[aria-hidden="true"]') || el.closest('[role="img"]') || el.closest('script,style,noscript')) continue;
+    const rect=el.getBoundingClientRect();
+    if (rect.width<2 || rect.height<2) continue;
+    const cs=getComputedStyle(el);
+    if (cs.visibility==='hidden' || cs.display==='none' || Number(cs.opacity)===0) continue;
+    const fg=parse(cs.color);
+    if (!fg || fg.a===0) continue;
+    const bg=bgOf(el);
+    if (bg.unknown) continue;
+    const color=fg.a<1?blend(fg,bg):fg;
+    const weight=Number(cs.fontWeight)||400, size=parseFloat(cs.fontSize);
+    const large=size>=24||(size>=18.66&&weight>=700);
+    const r=ratio(color,bg), need=large?3:4.5;
+    if (r+0.05<need) {
+      const key=cs.color+'|'+Math.round(bg.r)+','+Math.round(bg.g)+','+Math.round(bg.b)+'|'+size+'|'+weight;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({text:text.slice(0,30), ratio:Number(r.toFixed(2)), need, cls:(el.className&&el.className.toString().slice(0,30))||el.tagName});
+    }
+  }
+  return JSON.stringify(out);
+})()`;
+
 async function viewport(width,height=900){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
 }
@@ -286,6 +337,15 @@ try{
     check(names.length>0,route+': the page has no complementary landmark to check');
     check(names.every(name=>name.length>0),route+': an aside has no accessible name');
     check(new Set(names).size===names.length,route+': two asides share one name ('+names.join(', ')+')');
+  }
+
+  // A token can look fine in isolation and still land under 4.5:1 on the colour it
+  // is painted over, which is how the FAQ toggle and a model link were missed.
+  for(const route of ['/','/tools/claude/','/models/compare/','/docs/getting-started/']){
+    await viewport(390,844);
+    await visit(route);
+    const low=JSON.parse(await evaluate(contrastAudit));
+    check(low.length===0,route+': text under AA contrast ('+low.slice(0,3).map(item=>item.ratio+':1 needs '+item.need+' — '+item.cls).join(', ')+')');
   }
 
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
