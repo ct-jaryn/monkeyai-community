@@ -316,7 +316,7 @@ if(exists('docs/font-coverage.json')){
   for(const doc of Object.values(documents))for(const ch of doc.visible)used.add(ch);
   const systemFont=/[\u2E80-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF\u{20000}-\u{2FA1F}\u2190-\u21FF\u2200-\u22FF\u2300-\u23FF\u25A0-\u25FF\u2700-\u27BF]/u;
   const missing=[...used].filter(ch=>ch.trim()&&!systemFont.test(ch)&&!covered.has(ch.codePointAt(0).toString(16).toUpperCase().padStart(4,'0')));
-  expect(missing.length===0,'fonts','woff2 subsets lack '+missing.slice(0,8).map(c=>JSON.stringify(c)).join(', ')+'; add these glyphs to the subsets in public/fonts');
+  expect(missing.length===0,'fonts','woff2 subsets lack '+missing.slice(0,8).map(c=>JSON.stringify(c)).join(', ')+'; run python3 scripts/subset-fonts.py after adding the text');
 }
 metrics.sitemapUrls=sitemap.length;
 const sitemapSet=new Set(sitemap);

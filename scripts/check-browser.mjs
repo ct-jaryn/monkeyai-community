@@ -196,7 +196,7 @@ try{
     };
   })())`));
   check(fontUsage.count<=2,'/ requests '+fontUsage.count+' font files; only the two variable faces should ship');
-  check(fontUsage.bytes<=80000,'/ downloads '+Math.round(fontUsage.bytes/1024)+'KB of fonts, above the 80KB budget');
+  check(fontUsage.bytes<=45000,'/ downloads '+Math.round(fontUsage.bytes/1024)+'KB of fonts, above the 45KB budget for the two cut-down variable faces');
   check(fontUsage.external.length===0,'/ loads fonts from '+fontUsage.external.join(', ')+' instead of its own origin');
   check(fontUsage.w550!==fontUsage.w600,'/ lays out weight 550 exactly like 600, so the variable weight axis is missing');
   check(fontUsage.w800>fontUsage.w400,'/ renders weight 800 no wider than 400');
