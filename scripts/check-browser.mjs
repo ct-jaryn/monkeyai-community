@@ -287,6 +287,26 @@ try{
   check(await evaluate('document.querySelector(".mobile-nav").hidden===false'),'mobile menu: the menu is not open for the outside-click check');
   await evaluate('document.querySelector("h1").click()');
   check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"'),'mobile menu: a click outside the menu leaves it open');
+  // The language menu is a details element, so Escape has to be wired by hand; a
+  // menu that only closes by choosing a language is a dead end for the keyboard.
+  const escapeOnce=async()=>{for(const nativeVirtualKeyCode of [53,27]){await send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});await sleep(120);}};
+  await viewport(1280,900);
+  await visit('/');
+  await evaluate('document.querySelector(".language-switch").open=true');
+  await evaluate('document.querySelector(".language-menu a").focus()');
+  await escapeOnce();
+  check(await evaluate('document.querySelector(".language-switch").open===false'),'language menu: Escape leaves the menu open');
+  check(await evaluate('document.activeElement===document.querySelector(".language-switch summary")'),'language menu: Escape does not return focus to the summary');
+  // Only one overlay at a time: opening search over the navigation menu must not
+  // leave the menu expanded behind the dialog.
+  await viewport(390,844);
+  await visit('/tools/');
+  await evaluate('document.querySelector(".mobile-toggle").click()');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open over the mobile menu');
+  check(await evaluate('document.querySelector(".mobile-toggle").getAttribute("aria-expanded")==="false"'),'search: the mobile menu stays open behind the dialog');
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(150);
   await evaluate('document.querySelector("[data-save]").click()');
   check(await evaluate('document.querySelector("[data-save]").getAttribute("aria-pressed")==="true"'),'toolkit: saving a tool does not update the button');
   check(await evaluate('JSON.parse(localStorage.getItem("monkeyai-toolkit-v1")||"[]").length===1'),'toolkit: the saved tool is not written to storage');
