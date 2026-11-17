@@ -644,6 +644,29 @@ for(const [file,exportName] of uiTables){
     const blank=walkStrings(table[locale]||{},'',[]);
     expect(blank.length===0,file+' ('+locale+')','blank string for '+blank.join(', '));
   }
+  // Counts and names are filled in through {n}/{name}; a translation that drops a
+  // placeholder renders the sentence without its number and nobody notices.
+  const placeholders=locale=>{
+    const out=new Map();
+    const visit=(value,prefix)=>{
+      if(typeof value==='string'){
+        out.set(prefix,[...value.matchAll(/\{([a-zA-Z0-9_]+)\}/g)].map(m=>m[1]).sort().join(','));
+      }else if(value&&typeof value==='object'){
+        for(const [key,item] of Object.entries(value))visit(item,prefix?prefix+'.'+key:key);
+      }
+    };
+    visit(table[locale]||{},'');
+    return out;
+  };
+  const sets=locales.map(placeholders);
+  for(const [key,value] of sets[0]){
+    for(let i=1;i<locales.length;i++){
+      const other=sets[i].get(key);
+      // Structural differences belong to the key check above, not to this one.
+      if(other===undefined)continue;
+      expect(other===value,file+' ('+locales[i]+')','placeholder mismatch for '+key+': "{'+value+'}" vs "{'+other+'}"');
+    }
+  }
 }
 
 // The sitemap and the Article schema describe the same page. Two different
