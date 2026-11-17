@@ -55,6 +55,9 @@ const origin='http://127.0.0.1:'+server.address().port;
 
 const profile=fs.mkdtempSync(path.join(os.tmpdir(),'mai-browser-'));
 const debugPort=9300+Math.floor(Math.random()*400);
+// A loaded machine can take over a minute to open the port; the budget stays
+// finite so a machine that cannot start Chrome still fails instead of hanging.
+const startupBudget=Number(process.env.CHECK_BROWSER_START_MS||15000);
 const chrome=spawn(browserPath,['--headless=new','--disable-gpu','--no-first-run','--no-default-browser-check','--hide-scrollbars','--user-data-dir='+profile,'--remote-debugging-port='+debugPort,'about:blank'],{stdio:'ignore'});
 
 const stop=()=>{
@@ -65,7 +68,7 @@ const stop=()=>{
 process.on('exit',stop);
 
 async function waitForDevtools(){
-  for(let i=0;i<100;i++){
+  for(let i=0;i<Math.ceil(startupBudget/100);i++){
     try{
       const version=await (await fetch('http://127.0.0.1:'+debugPort+'/json/version')).json();
       if(version.webSocketDebuggerUrl)return;
@@ -261,6 +264,16 @@ try{
     const short=JSON.parse(await evaluate(measure))||[];
     check(short.length===0,route+': a tap target is shorter than 24px ('+short.slice(0,4).join(', ')+')');
   }
+
+  // An icon-only card action carries the whole "open this tool" decision, so
+  // unlike a link inside a sentence it has to clear 24px on both sides at phone
+  // width; the icon itself stays small.
+  await viewport(390,844);
+  await visit('/tools/');
+  const cardActions=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll(".tool-bottom a")].map(el=>{const r=el.getBoundingClientRect();return [Math.round(r.width),Math.round(r.height)];}))'));
+  const tightActions=cardActions.filter(([w,h])=>w<24||h<24);
+  check(cardActions.length>0,'/tools/: no card action links were measured');
+  check(tightActions.length===0,'/tools/: a card action link is smaller than 24x24 ('+JSON.stringify(tightActions.slice(0,3))+')');
 
   // The hero illustration bleeds past its column on purpose. At 768px the
   // decorative orbit used to push the document 4px sideways, so a tablet got a
