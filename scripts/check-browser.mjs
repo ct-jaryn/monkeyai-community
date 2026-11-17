@@ -298,6 +298,7 @@ try{
   await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('!!document.querySelector(".search-more")'),'search: a broad query silently stops at twelve results');
   check(/^\d+ more matches/.test(await evaluate('(document.querySelector(".search-more")||{}).textContent||""')),'search: the note does not say how many matches were left out');
+  check(/^Matches: \d+[.。]\s+\S/.test(await evaluate('document.querySelector("#search-status").textContent')),'search: the count runs into the overflow note in the status line');
   check(await evaluate('document.querySelectorAll("#search-results a").length<=12'),'search: more than twelve results are rendered at once');
   await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   await evaluate('document.querySelector("#global-search").focus()');
