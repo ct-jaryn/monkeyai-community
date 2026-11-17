@@ -493,6 +493,57 @@ try{
   await evaluate('document.querySelector("[data-close-search]").click()');
   await sleep(150);
 
+  // A dialog that leaves the page beneath it scrollable moves the article behind
+  // the backdrop while the reader is scrolling the results, and closes back at a
+  // different place. The page must hold still; the result list keeps its own scroll.
+  await viewport(390,844);
+  await visit('/tools/');
+  await evaluate('window.scrollTo({top:600,behavior:"instant"})');
+  await sleep(250);
+  const scrollBefore=await evaluate('Math.round(scrollY)');
+  check(scrollBefore>0,'search: the page did not scroll for the background-scroll check');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the background-scroll check');
+  await sleep(250);
+  // The page behind a modal must hold still. Wheel and keyboard probes land in
+  // whichever scroll box holds focus in a headless run, so the guarantee is read
+  // from the root the reader would actually scroll: its own scroll is switched off
+  // while the dialog is open, and the result list keeps its separate scroll.
+  const rootState=JSON.parse(await evaluate('JSON.stringify({cls:document.documentElement.classList.contains("scroll-locked"),overflow:getComputedStyle(document.documentElement).overflowY})'));
+  check(rootState.cls===true,'search: the open dialog does not lock the page');
+  check(rootState.overflow==='hidden','search: the page behind the open dialog is still scrollable');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'a'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: no results for the result-list scroll check');
+  await sleep(200);
+  check(await evaluate('(()=>{const r=document.querySelector("#search-results");r.scrollTop=120;return r.scrollTop>0;})()'),'search: locking the page also froze the result list');
+  for(const nativeVirtualKeyCode of [53,27]){
+    await send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});
+    await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27,nativeVirtualKeyCode});
+    if(await until('document.querySelector("#search-dialog")?.open===false',600))break;
+  }
+  check(await evaluate('document.querySelector("#search-dialog").open===false'),'search: Escape does not close the dialog on the background-scroll check');
+  await sleep(200);
+  // Keyboard scrolling is unreliable straight after a modal closes (focus sits on a
+  // button, and Chrome latches the gesture), so the unlock is read from the root:
+  // the lock is one style on the document element and it must be gone, not stale.
+  const unlocked=await evaluate('(()=>{const cs=getComputedStyle(document.documentElement);return {cls:document.documentElement.classList.contains("scroll-locked"),overflow:cs.overflowY,open:document.querySelector("#search-dialog").open};})()');
+  const unlockDone=JSON.parse(JSON.stringify(unlocked));
+  check(unlockDone.cls===false&&unlockDone.overflow!=="hidden",'search: the page stays locked after the dialog closes');
+  check(unlockDone.open===false,'search: the dialog is still open after the background-scroll check');
+  // Reserving the scrollbar gutter keeps the layout from jumping when the lock
+  // hides the scrollbar; the header must not move sideways when the dialog opens.
+  await viewport(1280,900);
+  await visit('/tools/');
+  const brandBefore=await evaluate('Math.round(document.querySelector(".brand").getBoundingClientRect().left)');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  await until('document.querySelector("#search-dialog")?.open===true');
+  await sleep(200);
+  const brandDuring=await evaluate('Math.round(document.querySelector(".brand").getBoundingClientRect().left)');
+  check(brandDuring===brandBefore,'search: opening the dialog shifts the page sideways ('+brandBefore+' → '+brandDuring+')');
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(150);
   // Narrow screens keep the guide contents inside the article; wide screens use the
   // sticky rail. Reading this from the engine is the only way to know the cascade
   // and the breakpoint agree.
