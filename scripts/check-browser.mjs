@@ -256,7 +256,7 @@ try{
   // A 24px square is the smallest comfortable thumb target. Links inside a
   // sentence are exempt from that rule, so only controls and navigation lists are
   // measured; a short input or summary here is a real miss.
-  const tapSelectors=['.language-switch summary','.search-field input','.guide-toc nav a','.mobile-guide-nav summary','.footer a','.breadcrumbs a'];
+  const tapSelectors=['.language-switch summary','.search-field input','.guide-toc nav a','.mobile-guide-nav summary','.footer a','.breadcrumbs a','.faq-list summary'];
   const measure='JSON.stringify([...document.querySelectorAll('+JSON.stringify(tapSelectors.join(','))+')].filter(el=>{const r=el.getBoundingClientRect();return r.height>0&&r.height<24;}).map(el=>el.tagName.toLowerCase()+" "+Math.round(el.getBoundingClientRect().height)+"px"))';
   for(const route of ['/','/tools/','/docs/','/docs/getting-started/','/zh/']){
     await viewport(390,844);
