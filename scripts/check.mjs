@@ -630,6 +630,10 @@ const walkKeys=(value,prefix,out)=>{
   else out.add(prefix);
   return out;
 };
+// build.mjs merges the four tables with Object.assign, so the later table wins.
+// A key defined in two tables therefore looks alive in the first file while the
+// page renders the second value, and edits to the first copy do nothing.
+const tableOwners=new Map();
 for(const [file,exportName] of uiTables){
   let table;
   try{table=(await import(pathToFileURL(path.join(root,file)).href))[exportName];}catch(e){error(file,'could not be loaded: '+e.message);continue;}
@@ -643,6 +647,11 @@ for(const [file,exportName] of uiTables){
     expect(missing.length===0,file+' ('+locale+')','missing '+missing.join(', '));
     const blank=walkStrings(table[locale]||{},'',[]);
     expect(blank.length===0,file+' ('+locale+')','blank string for '+blank.join(', '));
+    for(const key of keys(locale)){
+      const owner=tableOwners.get(locale+'|'+key);
+      expect(!owner,file+' ('+locale+')','duplicates key '+key+' already defined in '+owner+', where the merge silently overrides it');
+      if(!owner)tableOwners.set(locale+'|'+key,file);
+    }
   }
   // Counts and names are filled in through {n}/{name}; a translation that drops a
   // placeholder renders the sentence without its number and nobody notices.
