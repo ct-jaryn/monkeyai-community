@@ -581,6 +581,31 @@ try{
   await escapeOnce();
   check(await evaluate('document.querySelector(".language-switch").open===false'),'language menu: Escape leaves the menu open');
   check(await evaluate('document.activeElement===document.querySelector(".language-switch summary")'),'language menu: Escape does not return focus to the summary');
+  // Switching language should not throw away the reader's place: someone who
+  // filtered the directory to chat tools and then switched to Chinese should see
+  // the same slice, not all fourteen cards again.
+  const langHrefs='JSON.stringify([...document.querySelectorAll(".language-switch a")].map(a=>a.getAttribute("href")))';
+  const chatCardCount=toolsData.filter(t=>t.category==='chat').length;
+  for(const [route,needle] of [['/tools/?category=chat','category=chat'],['/tools/?q=ollama','q=ollama']]){
+    await viewport(1280,900);
+    await visit(route);
+    const hrefs=JSON.parse(await evaluate(langHrefs));
+    check(hrefs.length===3,route+': the header offers '+hrefs.length+' language links');
+    check(hrefs.every(href=>href.includes(needle)),route+': the language switch drops '+needle+' ('+hrefs.join(', ')+')');
+  }
+  await viewport(1280,900);
+  await visit('/tools/');
+  const plainHrefs=JSON.parse(await evaluate(langHrefs))||[];
+  check(plainHrefs.length>0&&plainHrefs.every(href=>!href.includes('?')),'/tools/: the language switch invents a query string on an unfiltered page ('+plainHrefs.join(', ')+')');
+  await visit('/tools/?category=chat');
+  await evaluate('document.querySelector(".language-switch a[lang=zh]").click()');
+  await until('location.pathname==="/zh/tools/"');
+  await sleep(250);
+  const keptFilter=await evaluate('(document.querySelector("[data-filter].selected")||{}).dataset?.filter');
+  check(keptFilter==='chat','/zh/tools/: arriving from a filtered English page selects "'+keptFilter+'" instead of chat');
+  const keptCards=Number(await evaluate('[...document.querySelectorAll(".tool-card")].filter(c=>!c.hidden).length'));
+  check(keptCards===chatCardCount,'/zh/tools/: arriving from a filtered English page shows '+keptCards+' cards instead of '+chatCardCount);
+
   // Only one overlay at a time: opening search over the navigation menu must not
   // leave the menu expanded behind the dialog.
   await viewport(390,844);
