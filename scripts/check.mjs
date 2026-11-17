@@ -593,6 +593,27 @@ for(const locale of locales){
   for(const slug of expected)expect(seen.has(slug),file,'licensed tool '+slug+' has no card on the directory page');
 }
 
+// Tool pages print the date their facts were checked. A browser can only trust
+// that date if the structured data carries it too, so the two are compared page
+// by page; adding the date to the visible copy alone would leave crawlers
+// guessing how fresh a record is.
+for(const locale of locales){
+  const label=ui[locale].updated;
+  const marker='<small>'+label+': ';
+  for(const t of tools){
+    const file=(locale==='en'?'':locale+'/')+'tools/'+t.slug+'/index.html';
+    const html=read('dist/'+file);
+    const at=html.indexOf(marker);
+    const shown=at>=0?html.slice(at+marker.length,at+marker.length+10):'';
+    expect(/^\d{4}-\d{2}-\d{2}$/.test(shown),file,'the page does not print a review date');
+    const raw=(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)||[])[1];
+    let node=null;
+    try{node=((JSON.parse(raw)||{})['@graph']||[]).find(n=>n['@type']==='WebPage');}catch{}
+    expect(Boolean(node),file,'structured data has no WebPage node');
+    expect(node&&node.dateModified===shown,file,'structured data says dateModified '+(node&&node.dateModified)+' but the page shows '+shown);
+  }
+}
+
 // Arrow-key navigation only helps people who know it exists, so the dialog must
 // spell out the keys it supports, in the reader's own language.
 const searchHelpWords={en:'to move',zh:'移动',es:'moverte'};
