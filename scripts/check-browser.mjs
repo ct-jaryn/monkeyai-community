@@ -309,15 +309,21 @@ try{
     check(short.length===0,route+': a tap target is shorter than 24px ('+short.slice(0,4).join(', ')+')');
   }
 
-  // An icon-only card action carries the whole "open this tool" decision, so
-  // unlike a link inside a sentence it has to clear 24px on both sides at phone
-  // width; the icon itself stays small.
+  // The card itself is the link now, so the corner arrow is only a visual cue: a
+  // second anchor to the same page doubles every card's tab stop and makes a
+  // screen reader read the same destination twice. The arrow still has to sit
+  // inside the link, so a thumb on it opens the tool like anywhere else.
   await viewport(390,844);
   await visit('/tools/');
-  const cardActions=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll(".tool-bottom a")].map(el=>{const r=el.getBoundingClientRect();return [Math.round(r.width),Math.round(r.height)];}))'));
-  const tightActions=cardActions.filter(([w,h])=>w<24||h<24);
-  check(cardActions.length>0,'/tools/: no card action links were measured');
-  check(tightActions.length===0,'/tools/: a card action link is smaller than 24x24 ('+JSON.stringify(tightActions.slice(0,3))+')');
+  const cardLinks=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll(".tool-card")].map(c=>[...c.querySelectorAll("a[href]")].map(a=>a.getAttribute("href"))))'));
+  check(cardLinks.length>=14,'/tools/: only '+cardLinks.length+' cards were measured');
+  const doubled=cardLinks.filter(list=>list.length!==1);
+  check(doubled.length===0,'/tools/: '+doubled.length+' cards expose '+JSON.stringify(doubled[0]||[])+' links to the same page');
+  check(await evaluate('!!document.querySelector(".tool-card .tool-arrow")'),'/tools/: the card arrow disappeared instead of turning into a cue');
+  await evaluate('(()=>{const c=document.querySelector(".tool-card");window.scrollTo(0,c.getBoundingClientRect().top+scrollY-100);})()');
+  await sleep(500);
+  const arrowHit=await evaluate('(()=>{const c=document.querySelector(".tool-card");const a=c.querySelector(".tool-arrow");const r=a.getBoundingClientRect();const el=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);const link=el&&el.closest("a");return link?link.getAttribute("href"):"none";})()');
+  check(arrowHit==='/tools/'+JSON.parse(await evaluate('JSON.stringify(document.querySelector(".tool-card").dataset.tool)'))+'/','/tools/: the corner arrow resolves to "'+arrowHit+'" instead of the tool page');
 
   // A card is one target on a phone: the title, the logo and the description all
   // sit inside the same link, so a thumb anywhere on the card opens the tool. The
