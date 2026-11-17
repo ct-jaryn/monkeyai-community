@@ -265,6 +265,25 @@ try{
     check(scroll<=inner+1,route+': content is '+scroll+'px wide at a 320px viewport, so 400% zoom scrolls sideways');
   }
 
+  // A phone screen is smaller; that is not a reason for smaller text. These
+  // labels and controls are already compact, so the phone size must not undercut
+  // the desktop one — a media query that shrinks 11px to 9px makes the decisions
+  // on the card harder to read on the device where they matter most.
+  const sizeSelectors=['.filter-chip','.category-dot','.license-tag','.tool-bottom','.breadcrumbs','.article-meta','.directory-meta','.subtle-link','.model-card .model-access','.model-provider','.footer-grid>div:not(:first-child)>a'];
+  const sizesAt=async(route,width)=>{
+    await viewport(width,900);
+    await visit(route);
+    return JSON.parse(await evaluate('JSON.stringify(Object.fromEntries('+JSON.stringify(sizeSelectors)+'.map(s=>{const el=document.querySelector(s);return [s,el?parseFloat(getComputedStyle(el).fontSize):null];})))'));
+  };
+  for(const route of ['/tools/','/docs/getting-started/','/models/']){
+    const desktop=await sizesAt(route,1280);
+    const phone=await sizesAt(route,390);
+    for(const sel of sizeSelectors){
+      if(desktop[sel]==null||phone[sel]==null)continue;
+      check(phone[sel]>=desktop[sel]-0.4,route+': '+sel+' drops from '+desktop[sel]+'px on desktop to '+phone[sel]+'px on a phone');
+    }
+  }
+
   // The privacy page promises no account system, no newsletter database and no
   // advertising trackers. That is a statement about what the browser actually
   // requests, so it is measured here rather than trusted to review.
