@@ -243,7 +243,7 @@ try{
 
   // Nothing should stick out of a phone screen. A single wide table or unbreakable
   // URL makes the whole page scroll sideways, which is what this measures.
-  for(const route of ['/','/tools/','/models/','/docs/','/docs/getting-started/','/zh/docs/','/es/tools/']){
+  for(const route of ['/','/tools/','/models/','/models/openai-gpt/','/docs/','/docs/getting-started/','/zh/docs/','/es/tools/']){
     await viewport(390,844);
     await visit(route);
     const layout=await evaluate('JSON.stringify({inner:innerWidth,scroll:document.documentElement.scrollWidth,main:!!document.querySelector("main")})');
@@ -251,6 +251,17 @@ try{
     check(inner===390,route+': the viewport override did not apply (innerWidth '+inner+')');
     check(main,route+': the page has no main landmark in the browser');
     check(scroll<=inner+1,route+': content is '+scroll+'px wide on a '+inner+'px screen');
+  }
+
+  // A page that fits 390 can still break at 320, which is what 400% zoom on a
+  // desktop produces and what WCAG reflow is measured against.
+  for(const route of ['/','/tools/','/models/openai-gpt/','/models/compare/','/docs/getting-started/','/zh/tools/','/es/']){
+    await viewport(320,720);
+    await visit(route);
+    const layout=await evaluate('JSON.stringify({inner:innerWidth,scroll:document.documentElement.scrollWidth})');
+    const {inner,scroll}=JSON.parse(layout);
+    check(inner===320,route+': the 320px viewport override did not apply (innerWidth '+inner+')');
+    check(scroll<=inner+1,route+': content is '+scroll+'px wide at a 320px viewport, so 400% zoom scrolls sideways');
   }
 
   // A 24px square is the smallest comfortable thumb target. Links inside a
