@@ -727,6 +727,25 @@ for(const [file,exportName] of uiTables){
   }
 }
 
+// public/app.js takes its copy from the inline page data, which is a hand-kept
+// subset of the four translation tables. A string that reaches the script but not
+// that subset renders in English on the Chinese and Spanish pages, and the
+// fallback is silent — adding the search count hit exactly this.
+if(!clientSource){
+  error('dist/assets','no client bundle to compare against the inline page data');
+}else{
+  const usedKeys=[...new Set([...clientSource.matchAll(/\bu\.([A-Za-z][A-Za-z0-9]*)/g)].map(match=>match[1]))].sort();
+  expect(usedKeys.length>0,'dist/assets/'+clientAsset,'reads no interface strings, so the inline copy was not checked');
+  for(const locale of locales){
+    const file=(locale==='en'?'':locale+'/')+'index.html';
+    const inline=read('dist/'+file).match(/<script type="application\/json" id="page-data">([\s\S]*?)<\/script>/);
+    if(!inline){error(file,'has no inline page data');continue;}
+    let pageData;
+    try{pageData=JSON.parse(inline[1]);}catch{error(file,'inline page data is not valid JSON');continue;}
+    const missing=usedKeys.filter(key=>pageData.ui[key]===undefined);
+    expect(missing.length===0,file,'inline page data omits ui.'+missing.join(', ui.')+', so public/app.js falls back to English on this page');
+  }
+}
 // The sitemap and the Article schema describe the same page. Two different
 // freshness dates read as a contradiction, so both must come from one source.
 const sitemapDates=new Map(sitemapEntries.map(e=>[e.loc,e.lastmod]));
