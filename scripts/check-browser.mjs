@@ -706,6 +706,30 @@ try{
   const keptCards=Number(await evaluate('[...document.querySelectorAll(".tool-card")].filter(c=>!c.hidden).length'));
   check(keptCards===chatCardCount,'/zh/tools/: arriving from a filtered English page shows '+keptCards+' cards instead of '+chatCardCount);
 
+  // Guides and models rewrite their own URL as the reader types; the language links
+  // have to follow, or switching language silently resets the search or the filter.
+  for(const [route,needle] of [['/docs/?q=docker','q=docker'],['/models/?access=hosted','access=hosted']]){
+    await viewport(1280,900);
+    await visit(route);
+    const hrefs=JSON.parse(await evaluate(langHrefs));
+    check(hrefs.length===3,route+': the header offers '+hrefs.length+' language links');
+    check(hrefs.every(href=>href.includes(needle)),route+': the language switch drops '+needle+' ('+hrefs.join(', ')+')');
+  }
+  await viewport(1280,900);
+  await visit('/docs/');
+  await evaluate('document.querySelector("#doc-search").focus()');
+  await send('Input.insertText',{text:'docker'});
+  await evaluate('document.querySelector("#doc-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('location.search==="?q=docker"',2000),'docs: typing does not share the query in the URL');
+  await evaluate('document.querySelector(".language-switch").open=true');
+  check(await until('[...document.querySelectorAll(".language-switch a")].every(a=>a.getAttribute("href").includes("q=docker"))',2000),'docs: opening the language menu after typing keeps a stale link');
+  await evaluate('document.querySelector(".language-switch").open=false');
+  await visit('/docs/');
+  const cleanDocs=JSON.parse(await evaluate(langHrefs))||[];
+  check(cleanDocs.every(href=>!href.includes('?')),'docs: the language switch invents a query string on an unfiltered page ('+cleanDocs.join(', ')+')');
+  await viewport(390,844);
+  await visit('/docs/?q=docker');
+  check(await evaluate('document.querySelector("#doc-search").value==="docker"'),'docs at 390px: the query from the URL is not in the search box');
   // Only one overlay at a time: opening search over the navigation menu must not
   // leave the menu expanded behind the dialog.
   await viewport(390,844);
