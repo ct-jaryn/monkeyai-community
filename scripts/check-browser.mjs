@@ -319,6 +319,32 @@ try{
     check(hidden.length===0,route+': searching "'+word+'" hides licensed tools ('+hidden.join(', ')+')');
   }
 
+  // Filter chips are real buttons, so the keyboard should drive them. Enter and
+  // Space only reach the browser's default action when the synthesised key event
+  // carries text — a bare keydown ("keyDown" with no text) activates nothing, so
+  // an assertion built on one would pass without testing the page.
+  const chatTools=toolsData.filter(t=>t.category==='chat').length;
+  for(const [key,code,vk,text] of [['Enter','Enter',13,'\r'],[' ','Space',32,' ']]){
+    await viewport(1280,900);
+    await visit('/tools/');
+    await evaluate('document.querySelector("[data-filter=chat]").focus()');
+    await send('Input.dispatchKeyEvent',{type:'keyDown',key,code,text,unmodifiedText:text,windowsVirtualKeyCode:vk,nativeVirtualKeyCode:vk});
+    await send('Input.dispatchKeyEvent',{type:'keyUp',key,code,windowsVirtualKeyCode:vk,nativeVirtualKeyCode:vk});
+    await sleep(150);
+    const selected=await evaluate('(document.querySelector("[data-filter].selected")||{}).dataset?.filter');
+    check(selected==='chat','/tools/: pressing '+key+' on the chat chip selects "'+selected+'" instead');
+    const shown=Number(await evaluate('[...document.querySelectorAll(".tool-card")].filter(c=>!c.hidden).length'));
+    check(shown===chatTools,'/tools/: '+key+' on the chat chip shows '+shown+' cards instead of '+chatTools);
+    check(await evaluate('document.querySelector("[data-filter=chat]").getAttribute("aria-pressed")')==='true','/tools/: '+key+' does not update aria-pressed on the chip');
+  }
+  // A keyboard visitor has to see where they are; hover styling is not enough.
+  await viewport(1280,900);
+  await visit('/tools/');
+  await evaluate('document.querySelector("[data-filter=chat]").focus()');
+  for(const type of ['keyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:9});
+  const ring=JSON.parse(await evaluate('(()=>{const el=document.activeElement,cs=getComputedStyle(el);return JSON.stringify({tag:el.tagName,outline:cs.outlineStyle,width:parseFloat(cs.outlineWidth)});})()'));
+  check(ring.outline!=='none'&&ring.width>=2,'/tools/: the keyboard focus ring is '+ring.outline+' '+ring.width+'px on '+ring.tag);
+
   // The hero illustration bleeds past its column on purpose. At 768px the
   // decorative orbit used to push the document 4px sideways, so a tablet got a
   // horizontal scrollbar for art that is meant to run off the edge.
