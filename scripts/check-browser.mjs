@@ -319,6 +319,30 @@ try{
   check(cardActions.length>0,'/tools/: no card action links were measured');
   check(tightActions.length===0,'/tools/: a card action link is smaller than 24x24 ('+JSON.stringify(tightActions.slice(0,3))+')');
 
+  // A card is one target on a phone: the title, the logo and the description all
+  // sit inside the same link, so a thumb anywhere on the card opens the tool. The
+  // bookmark stays on top and must keep working where it sits.
+  await viewport(390,844);
+  await visit('/tools/');
+  await evaluate('(()=>{const c=document.querySelector(".tool-card");window.scrollTo(0,c.getBoundingClientRect().top+scrollY-120);})()');
+  await sleep(500);
+  const cardHit=JSON.parse(await evaluate(`(()=>{const c=document.querySelector('.tool-card');const p=c.querySelector('p').getBoundingClientRect();const b=c.querySelector('.save-button').getBoundingClientRect();return JSON.stringify({slug:c.dataset.tool,para:[Math.round(p.x+p.width/2),Math.round(p.y+p.height/2)],save:[Math.round(b.x+b.width/2),Math.round(b.y+b.height/2)]});})()`));
+  const bodyHref=await evaluate('(()=>{const el=document.elementFromPoint('+cardHit.para[0]+','+cardHit.para[1]+');const a=el&&el.closest("a");return a?a.getAttribute("href"):"";})()');
+  check(bodyHref==='/tools/'+cardHit.slug+'/','/tools/: the middle of a card links to "'+bodyHref+'" instead of /tools/'+cardHit.slug+'/');
+  for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:cardHit.para[0],y:cardHit.para[1],button:'left',clickCount:1});
+  check(await until('location.pathname==="/tools/'+cardHit.slug+'/"',3000),'/tools/: clicking the card body does not open the tool');
+  await visit('/tools/');
+  await evaluate('(()=>{const c=document.querySelector(".tool-card");window.scrollTo(0,c.getBoundingClientRect().top+scrollY-120);})()');
+  await sleep(500);
+  const savePoint=JSON.parse(await evaluate('(()=>{const r=document.querySelector(".save-button").getBoundingClientRect();return JSON.stringify([Math.round(r.x+r.width/2),Math.round(r.y+r.height/2)]);})()'));
+  for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:savePoint[0],y:savePoint[1],button:'left',clickCount:1});
+  await sleep(250);
+  check(await evaluate('document.querySelector(".save-button").getAttribute("aria-pressed")')==='true','/tools/: the card link covers the bookmark, so saving does nothing');
+  check(await evaluate('location.pathname')==='/tools/','/tools/: clicking the bookmark also navigates away');
+  // Put the toolkit back to empty: the checks below start from a clean set.
+  for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:savePoint[0],y:savePoint[1],button:'left',clickCount:1});
+  await evaluate('localStorage.removeItem("monkeyai-toolkit-v1")');
+
   // A licence link used to live only on the detail page, so readers had to open
   // every card to learn which tools are open source. The cards now say it, and
   // the directory filter has to agree with them in each language.
