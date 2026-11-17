@@ -264,6 +264,19 @@ try{
     check(scroll<=inner+1,route+': content is '+scroll+'px wide at a 320px viewport, so 400% zoom scrolls sideways');
   }
 
+  // The privacy page promises no account system, no newsletter database and no
+  // advertising trackers. That is a statement about what the browser actually
+  // requests, so it is measured here rather than trusted to review.
+  const privacyProbe='JSON.stringify({third:performance.getEntriesByType("resource").map(r=>r.name).filter(u=>!u.startsWith(location.origin)),cookies:document.cookie})';
+  for(const route of ['/','/tools/','/tools/claude/','/models/compare/','/docs/getting-started/','/es/','/zh/']){
+    await viewport(1280,900);
+    await visit(route);
+    await until('document.readyState==="complete"');
+    const {third,cookies}=JSON.parse(await evaluate(privacyProbe));
+    check(third.length===0,route+': the page loads '+third.slice(0,3).join(', ')+' from another origin, which no privacy page promises');
+    check(cookies==='',route+': the page sets a cookie ('+cookies+') although the site promises no tracking');
+  }
+
   // A 24px square is the smallest comfortable thumb target. Links inside a
   // sentence are exempt from that rule, so only controls and navigation lists are
   // measured; a short input or summary here is a real miss.
