@@ -253,6 +253,23 @@ for(const [file,doc] of Object.entries(documents)){
     if(target.pathname.startsWith('/assets/'))expect(/^\/assets\/[a-z0-9-]+\.[0-9a-f]{8,}\.(js|css|woff2?|png|svg)$/i.test(target.pathname),pagePath,`asset lacks a content hash: ${asset}`);
   }
 }
+// The submission note and its two links used to be separate paragraphs, which
+// left the links stranded above the policy with nothing to explain them. They now
+// share one block: the note first, the two actions directly under it.
+for(const l of Object.keys(languages)){
+  const page='dist/'+localizedPath(l,'tools').slice(1)+'index.html';
+  if(!exists(page))continue;
+  const html=read(page);
+  const start=html.indexOf('<div class="directory-contribute">');
+  const end=start<0?-1:html.indexOf('</div>',start);
+  expect(start>=0&&end>start,page,'the submission note and its links are not in one block');
+  if(start<0||end<0)continue;
+  const block=html.slice(start,end);
+  expect(block.includes('class="listing-note"'),page,'the submission note lost its text');
+  expect(block.includes('class="contribute-links"'),page,'the submission links lost their row');
+  expect(block.indexOf('class="listing-note"')<block.indexOf('class="contribute-links"'),page,'the submission links come before the note that explains them');
+  expect(block.indexOf('mailto:')>=0&&block.indexOf('#listing-rules')>block.indexOf('mailto:'),page,'the submission row is missing its email or policy link');
+}
 // Hashed assets are served with a one-year immutable cache, so the deploy header
 // file has to keep that promise for the /assets/ prefix.
 const headersFile=exists('deploy/cloudflare-workers/_headers')?read('deploy/cloudflare-workers/_headers'):'';
