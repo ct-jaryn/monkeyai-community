@@ -331,6 +331,10 @@ try{
     if(await until('document.querySelector("#search-dialog")?.open===false',600))break;
   }
   check(await evaluate('document.querySelector("#search-dialog").open===false'),'search: Escape does not close the dialog');
+  // Closing must hand focus back to the control that opened the dialog. Opened
+  // from the shortcut, there is no such control in focus, so the trigger takes
+  // it; otherwise the next Tab restarts at the top of the page.
+  check(await evaluate('document.activeElement===document.querySelector("[data-open-search]")'),'search: closing the dialog leaves focus on the page body');
 
   // A modal dialog should keep Tab inside it. Without a trap, focus lands on the
   // document body between the last control and the first, so the focus ring
