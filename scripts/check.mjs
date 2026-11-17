@@ -24,6 +24,9 @@ try{
   logos=JSON.parse(read('src/data/logos.json'));
   logoSources=JSON.parse(read('docs/logo-sources.json'));
 }catch(e){console.error(`Check could not start: ${e.message}\nRun npm run build after completing source data.`);process.exit(1);}
+// Delivered pages are compared against the same interface strings the build
+// renders, so a hardcoded English label cannot drift back in unnoticed.
+const {ui}=await import(pathToFileURL(path.join(root,'src/i18n.mjs')).href);
 // Every listed product carries the date its facts were last checked against the
 // official source, so a record that was never verified cannot pass unnoticed.
 for (const tool of tools) {
@@ -163,6 +166,13 @@ for(const r of manifest){
   expect(doc.canonicals.length===1&&doc.canonicals[0]===absolute,r.path,`canonical must self-reference ${absolute}`);
   expect(!doc.robots.some(v=>/\bnoindex\b/i.test(v)),r.path,'indexable route has noindex');
   expect(doc.mainCount===1,r.path,'requires one main landmark');
+  // Landmark labels are announced by screen readers, so they must speak the
+  // page's language rather than falling back to the English default.
+  const detailKey=resourceKey(r.path);
+  if(/^\/(docs|tools)\/[^/]+\/$/.test(detailKey)||/^\/models\/[^/]+\/$/.test(detailKey)&&detailKey!=='/models/compare/'){
+    const crumb=read('dist/'+htmlPath(r.path)).match(/<nav class="breadcrumbs" aria-label="([^"]*)">/);
+    expect(Boolean(crumb)&&crumb[1]===ui[r.lang]?.breadcrumbLabel,r.path,'breadcrumb landmark label must be localized');
+  }
   expect(doc.h1.length===1&&doc.h1[0].length>1,r.path,'requires one substantive H1');
   expect(doc.mainText.trim().length>100,r.path,'main content is missing from delivered HTML');
   expect(!/\bundefined\b|\[object Object\]|\bTODO\b|\bLorem ipsum\b/.test(doc.visible),r.path,'contains unresolved placeholder content');
