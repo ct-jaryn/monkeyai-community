@@ -354,6 +354,25 @@ try{
   await evaluate('document.querySelector("[data-close-search]").click()');
   await sleep(150);
 
+  // A reader who knows they want open-source software should reach those tools
+  // from the dialog too, in the language they are reading. The directory filter
+  // and the dialog are separate code paths, so both are asked the same question.
+  for(const [route,word,slug] of [['/','open source','ollama'],['/zh/','开源','blender'],['/es/','código abierto','orkas']]){
+    await viewport(1280,900);
+    await visit(route);
+    await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+    check(await until('document.querySelector("#search-dialog")?.open===true'),route+': the search dialog does not open for the licence query');
+    await evaluate('document.querySelector("#global-search").focus()');
+    await send('Input.insertText',{text:word});
+    await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+    check(await until('!!document.querySelector(\'#search-results a[href$="/tools/'+slug+'/"]\')'),route+': searching "'+word+'" does not find /tools/'+slug+'/');
+    await evaluate('document.querySelector("[data-close-search]").click()');
+    await sleep(120);
+  }
+  // The checks below read English copy, so leave the browser on an English page.
+  await viewport(1280,900);
+  await visit('/');
+
   // The shortcut is the part a DOM shim cannot exercise: a key event on document,
   // the dialog opening, the index arriving over the network, and Escape closing it.
   await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
