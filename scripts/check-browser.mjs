@@ -12,6 +12,7 @@ import {fileURLToPath} from 'node:url';
 // answered by an engine rather than by reading CSS.
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
+const toolsData=JSON.parse(fs.readFileSync(path.join(root,'src/data/tools.json'),'utf8'));
 const failures=[];
 let checks=0;
 const check=(ok,label)=>{checks++;if(!ok)failures.push(label);};
@@ -298,6 +299,25 @@ try{
   const tightActions=cardActions.filter(([w,h])=>w<24||h<24);
   check(cardActions.length>0,'/tools/: no card action links were measured');
   check(tightActions.length===0,'/tools/: a card action link is smaller than 24x24 ('+JSON.stringify(tightActions.slice(0,3))+')');
+
+  // A licence link used to live only on the detail page, so readers had to open
+  // every card to learn which tools are open source. The cards now say it, and
+  // the directory filter has to agree with them in each language.
+  const licensed=toolsData.filter(t=>t.license).map(t=>t.slug);
+  const licensedCount=licensed.length;
+  for(const [route,word] of [['/tools/','open source'],['/zh/tools/','开源'],['/es/tools/','código abierto']]){
+    await viewport(1280,900);
+    await visit(route);
+    const tags=Number(await evaluate('document.querySelectorAll(".tool-card .license-tag").length'));
+    check(tags===licensedCount,route+': the directory shows '+tags+' open-source tags for '+licensedCount+' licensed tools');
+    const tagsVisible=await evaluate('[...document.querySelectorAll(".tool-card .license-tag")].every(el=>el.getBoundingClientRect().height>0)');
+    check(tagsVisible,route+': an open-source tag is rendered but has no height');
+    await evaluate('(()=>{const i=document.querySelector(".directory-toolbar input");i.focus();i.value='+JSON.stringify(word)+';i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+    await sleep(200);
+    const visibleSlugs=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll(".tool-card")].filter(c=>c.getBoundingClientRect().height>0&&getComputedStyle(c).display!=="none").map(c=>c.dataset.tool))'));
+    const hidden=licensed.filter(slug=>!visibleSlugs.includes(slug));
+    check(hidden.length===0,route+': searching "'+word+'" hides licensed tools ('+hidden.join(', ')+')');
+  }
 
   // The hero illustration bleeds past its column on purpose. At 768px the
   // decorative orbit used to push the document 4px sideways, so a tablet got a

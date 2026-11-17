@@ -26,7 +26,7 @@ try{
 }catch(e){console.error(`Check could not start: ${e.message}\nRun npm run build after completing source data.`);process.exit(1);}
 // Delivered pages are compared against the same interface strings the build
 // renders, so a hardcoded English label cannot drift back in unnoticed.
-const {ui}=await import(pathToFileURL(path.join(root,'src/i18n.mjs')).href);
+const {ui,locales}=await import(pathToFileURL(path.join(root,'src/i18n.mjs')).href);
 // Every listed product carries the date its facts were last checked against the
 // official source, so a record that was never verified cannot pass unnoticed.
 for (const tool of tools) {
@@ -563,6 +563,34 @@ const largestPage=Object.keys(documents).map(file=>[file,sizeKB('dist/'+file)]).
 if(largestPage){
   metrics.largestPageKB=largestPage[1];
   expect(largestPage[1]<=pageCeilingKB,largestPage[0],'page HTML is '+largestPage[1]+' KB, over the '+pageCeilingKB+' KB ceiling');
+}
+
+// Seven tools publish a licence link on their detail page. Reading the same fact
+// should not require opening every card, so the directory repeats it as a tag —
+// and the tag has to follow the data: a licensed tool carries it, a hosted
+// service does not. A hand-edited label or a rebuild that drops the span fails
+// here instead of quietly telling readers the wrong thing.
+for(const locale of locales){
+  const file=locale==='en'?'tools/index.html':locale+'/tools/index.html';
+  const html=read('dist/'+file);
+  const cards=html.split('<article class="tool-card"').slice(1);
+  const expected=new Set(tools.filter(t=>t.license).map(t=>t.slug));
+  const seen=new Set();
+  expect(cards.length===tools.length,file,'the directory rendered '+cards.length+' cards for '+tools.length+' tools');
+  for(const card of cards){
+    const slug=(card.match(/data-tool="([^"]+)"/)||[])[1];
+    if(!slug)continue;
+    seen.add(slug);
+    const tag=(card.match(/<span class="license-tag">([^<]*)<\/span>/)||[])[1];
+    if(expected.has(slug)){
+      expect(tag===ui[locale].openSource,file,'card '+slug+' has no '+locale+' open-source tag');
+      const opening=card.slice(0,card.indexOf('>'));
+      expect(opening.includes(ui[locale].openSource.toLowerCase()),file,'card '+slug+' cannot be found by searching the open-source wording');
+    }else{
+      expect(tag===undefined,file,'card '+slug+' claims an open-source tag although it lists no licence');
+    }
+  }
+  for(const slug of expected)expect(seen.has(slug),file,'licensed tool '+slug+' has no card on the directory page');
 }
 
 // Arrow-key navigation only helps people who know it exists, so the dialog must
