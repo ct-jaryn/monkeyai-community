@@ -565,6 +565,29 @@ try{
   check(brandDuring===brandBefore,'search: opening the dialog shifts the page sideways ('+brandBefore+' → '+brandDuring+')');
   await evaluate('document.querySelector("[data-close-search]").click()');
   await sleep(150);
+  // A result opens in the same tab. Leaving with the dialog still open used to put
+  // it in the back/forward snapshot: coming back showed an open dialog over a page
+  // locked at the top. Going back must land where the reader left.
+  await viewport(1280,900);
+  await visit('/tools/');
+  await evaluate('window.scrollTo({top:600,behavior:"instant"})');
+  await sleep(250);
+  const backBefore=await evaluate('Math.round(scrollY)');
+  check(backBefore>0,'search: the page did not scroll for the back-navigation check');
+  await evaluate('document.querySelector("[data-open-search]").click()');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the back-navigation check');
+  await evaluate('document.querySelector("#global-search").value="claude";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0',4000),'search: no results for the back-navigation check');
+  await evaluate('document.querySelector("#search-results a").click()');
+  check(await until('location.pathname!=="/tools/"',4000),'search: clicking a result does not leave the directory');
+  await sleep(300);
+  await evaluate('history.back()');
+  check(await until('location.pathname==="/tools/"',4000),'search: Back does not return to the directory');
+  await sleep(600);
+  const backState=JSON.parse(await evaluate('JSON.stringify({open:document.querySelector("#search-dialog").open,cls:document.documentElement.classList.contains("scroll-locked"),overflow:getComputedStyle(document.documentElement).overflowY,scroll:Math.round(scrollY)})'));
+  check(backState.open===false,'search: Back restores an open search dialog');
+  check(backState.cls===false&&backState.overflow!=="hidden",'search: Back restores the page with scrolling locked');
+  check(backState.scroll>=backBefore-80,'search: Back returns to y='+backState.scroll+' instead of '+backBefore);
   // Narrow screens keep the guide contents inside the article; wide screens use the
   // sticky rail. Reading this from the engine is the only way to know the cascade
   // and the breakpoint agree.
