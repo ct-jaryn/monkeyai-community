@@ -126,7 +126,7 @@ function buildLlms(){
   const section=(heading,rows)=>'## '+heading+'\n\n'+rows.join('\n');
   const core=[
     row('AI tools','/','An independent directory of AI tools, model families and setup guides, with the date each listing was checked.'),
-    row('AI tools directory','/tools/','Every reviewed tool, separated into hosted services and self-hosted software.'),
+    row('AI tools directory','/tools/','Every reviewed tool, grouped by the task it helps with, with the licence linked for open-source software.'),
     row('AI model families','/models/',models.length+' model families, each with access routes and the questions to ask before adopting one.'),
     row('Model comparison','/models/compare/','A decision table across access options and starting tasks; not a leaderboard.'),
     row('Guides and docs','/docs/','Setup, model connection, MCP, and troubleshooting guides.'),
@@ -137,7 +137,7 @@ function buildLlms(){
   const modelsSection=models.map(m=>row(m.name,'/models/'+m.slug+'/',m.en.tagline));
   const guidesSection=guides.map(g=>row(g.en.title,'/docs/'+g.slug+'/',g.en.description));
   return ['# MonkeyAI Community','',
-    '> Practical, source-checked notes on AI tools, model families and the MonkeyAI project. Each listing records the date its facts were checked against an official source, and hosted services are kept distinct from self-hosted releases.',
+    '> Practical, source-checked notes on AI tools, model families and the MonkeyAI project. Each listing records the date its facts were checked against an official source, and each model family states how it can be reached: hosted service, hybrid, or open weights.',
     '',
     'Chinese pages live under /zh/ and Spanish pages under /es/; the structure is the same.',
     '',
