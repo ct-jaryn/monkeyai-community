@@ -440,20 +440,35 @@ try{
   check(/^\d+ more matches/.test(await evaluate('(document.querySelector(".search-more")||{}).textContent||""')),'search: the note does not say how many matches were left out');
   check(/^Matches: \d+[.。]\s+\S/.test(await evaluate('document.querySelector("#search-status").textContent')),'search: the count runs into the overflow note in the status line');
   check(await evaluate('document.querySelectorAll("#search-results a").length<=12'),'search: more than twelve results are rendered at once');
+  // The count only reached a screen reader, so a sighted reader could not tell
+  // twelve visible rows from forty matches. It is printed above the list as well,
+  // without being announced twice.
+  const countState=JSON.parse(await evaluate('JSON.stringify({hidden:document.querySelector("#search-count").hidden,aria:document.querySelector("#search-count").getAttribute("aria-hidden"),text:document.querySelector("#search-count").textContent,status:document.querySelector("#search-status").textContent})'));
+  check(countState.hidden===false,'search: the dialog hides how many matches the query has');
+  check(countState.aria==='true','search: the visible count is announced a second time by screen readers');
+  check(/^\d+ of \d+ matches\.$/.test(countState.text),'search: the visible count reads "'+countState.text+'" instead of "12 of 59 matches."');
+  check(countState.text!==countState.status,'search: the visible count repeats the whole status sentence');
+  await viewport(390,844);
+  const countBox=JSON.parse(await evaluate('JSON.stringify({h:document.querySelector("#search-count").getBoundingClientRect().height,w:document.querySelector("#search-count").scrollWidth,c:document.querySelector("#search-count").clientWidth})'));
+  check(countBox.h<=26,'search: the match count wraps to '+Math.round(countBox.h)+'px on a phone');
+  check(countBox.w<=countBox.c+1,'search: the match count overflows the dialog on a phone');
+  await viewport(1280,900);
   await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   await evaluate('document.querySelector("#global-search").focus()');
   await send('Input.insertText',{text:'mcp'});
   await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the narrow query shows nothing after the truncation check');
   check(await evaluate('!document.querySelector(".search-more")'),'search: a narrow query still claims results were left out');
+  check(await evaluate('document.querySelector("#search-count").textContent===document.querySelector("#search-status").textContent'),'search: a narrow query does not show its exact count');
   await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await evaluate('document.querySelector("#search-count").hidden'),'search: the match count survives the query being cleared');
   await evaluate('document.querySelector("[data-close-search]").click()');
   await sleep(150);
 
   // A reader who knows they want open-source software should reach those tools
   // from the dialog too, in the language they are reading. The directory filter
   // and the dialog are separate code paths, so both are asked the same question.
-  for(const [route,word,slug] of [['/','open source','ollama'],['/zh/','开源','blender'],['/es/','código abierto','orkas']]){
+  for(const [route,word,slug,countPattern] of [['/','open source','ollama',/matches/i],['/zh/','开源','blender',/匹配结果|共|条/],['/es/','código abierto','orkas',/coincidencias/i]]){
     await viewport(1280,900);
     await visit(route);
     await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
@@ -462,6 +477,8 @@ try{
     await send('Input.insertText',{text:word});
     await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
     check(await until('!!document.querySelector(\'#search-results a[href$="/tools/'+slug+'/"]\')'),route+': searching "'+word+'" does not find /tools/'+slug+'/');
+    const localizedCount=JSON.parse(await evaluate('JSON.stringify({text:document.querySelector("#search-count").textContent,hidden:document.querySelector("#search-count").hidden})'));
+    check(localizedCount.hidden===false&&countPattern.test(localizedCount.text),route+': the visible match count is missing or untranslated ("'+localizedCount.text+'")');
     await evaluate('document.querySelector("[data-close-search]").click()');
     await sleep(120);
   }
