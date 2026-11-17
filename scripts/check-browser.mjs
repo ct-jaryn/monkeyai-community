@@ -349,6 +349,27 @@ try{
   for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:savePoint[0],y:savePoint[1],button:'left',clickCount:1});
   await evaluate('localStorage.removeItem("monkeyai-toolkit-v1")');
 
+  // The whole card is the link, so the focus ring belongs around the card. The
+  // anchor wraps only the title, so the ring is painted on its ::after; without
+  // this a keyboard reader sees a ring around three words and cannot tell which
+  // card has focus.
+  const ringOf='(()=>{const a=document.activeElement;const cs=getComputedStyle(a);const after=getComputedStyle(a,"::after");const card=a.closest(".tool-card,.model-card");return JSON.stringify({inCard:!!card,own:cs.outlineStyle,after:after.outlineStyle,width:parseFloat(after.outlineWidth)||0});})()';
+  const tabOnce=async()=>{for(const type of ['rawKeyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Tab',code:'Tab',windowsVirtualKeyCode:9,nativeVirtualKeyCode:48});await sleep(200);};
+  await viewport(1280,900);
+  await visit('/tools/');
+  await evaluate('document.querySelector(".save-button").focus()');
+  await tabOnce();
+  const toolRing=JSON.parse(await evaluate(ringOf));
+  check(toolRing.inCard,'/tools/: Tab from the bookmark does not reach the card link');
+  check(toolRing.own==='none','/tools/: the focused card rings only the title, not the card');
+  check(toolRing.after==='solid'&&toolRing.width>=2,'/tools/: the focused card shows no ring at all');
+  await visit('/models/');
+  await evaluate('document.querySelector(".text-link").focus()');
+  await tabOnce();
+  const modelRing=JSON.parse(await evaluate(ringOf));
+  check(modelRing.inCard,'/models/: Tab from the guide link does not reach a model card');
+  check(modelRing.own==='none','/models/: the focused model card rings only its title');
+  check(modelRing.after==='solid'&&modelRing.width>=2,'/models/: the focused model card shows no ring at all');
   // A licence link used to live only on the detail page, so readers had to open
   // every card to learn which tools are open source. The cards now say it, and
   // the directory filter has to agree with them in each language.
