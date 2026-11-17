@@ -741,6 +741,24 @@ try{
   await viewport(1280,900);
   await visit('/models/');
   check(await evaluate('document.querySelector("#model-result-count").parentElement.getAttribute("aria-live")==="polite"'),'models: the result count is not a live region');
+  // The model card follows the tool card: one link per card, and the whole card
+  // opens the profile, so a thumb on the logo or the description does not miss.
+  await viewport(390,844);
+  await visit('/models/');
+  const modelLinks=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll(".model-card")].map(c=>[...c.querySelectorAll("a[href]")].map(a=>a.getAttribute("href"))))'));
+  check(modelLinks.length>=10,'/models/: only '+modelLinks.length+' model cards were measured');
+  const modelDoubled=modelLinks.filter(list=>list.length!==1);
+  check(modelDoubled.length===0,'/models/: '+modelDoubled.length+' model cards expose '+JSON.stringify(modelDoubled[0]||[])+' links to the same profile');
+  const modelTarget=await evaluate('document.querySelector(".model-card").dataset.model');
+  await evaluate('(()=>{const c=document.querySelector(".model-card");window.scrollTo({top:c.getBoundingClientRect().top+scrollY-120,behavior:"instant"});})()');
+  await sleep(400);
+  const modelHit=await evaluate('(()=>{const c=document.querySelector(".model-card");const r=c.getBoundingClientRect();const el=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);const a=el&&el.closest("a");return a?a.getAttribute("href"):"none";})()');
+  check(modelHit==='/models/'+modelTarget+'/','/models/: the middle of a model card links to "'+modelHit+'" instead of the profile');
+  check(await evaluate('!!document.querySelector(".model-card .text-link")'),'/models/: the card cue disappeared instead of turning into a label');
+  const modelSpot=JSON.parse(await evaluate('(()=>{const r=document.querySelector(".model-card>p").getBoundingClientRect();return JSON.stringify({x:Math.round(r.x+r.width/2),y:Math.round(r.y+r.height/2)});})()'));
+  await send('Input.dispatchMouseEvent',{type:'mousePressed',x:modelSpot.x,y:modelSpot.y,button:'left',clickCount:1});
+  await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:modelSpot.x,y:modelSpot.y,button:'left',clickCount:1});
+  check(await until('location.pathname==='+JSON.stringify('/models/'+modelTarget+'/'),3000),'/models/: clicking the description of a model card does not open the profile');
   // Typing a query and pressing Enter should open the top result, which is what a
   // visitor expects from a search box once the list is on screen.
   await viewport(1280,900);
