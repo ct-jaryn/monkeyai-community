@@ -226,6 +226,31 @@ try{
   check(!brand.resources.some(r=>r.name==='monkeyai-logo-128.png'),'/ downloads the PNG logo even though the WebP source is supported');
   check(brand.resources.some(r=>r.name==='favicon-32.png'),'/ does not request the small favicon');
 
+  // The footer repeats the header lockup. A bare `.footer a` rule once outranked
+  // `.brand` and turned it into an inline block, so the wordmark was painted on top
+  // of the logo at every width. The pair has to sit side by side, on one row, and
+  // stay clear of the paragraph under it.
+  const lockupProbe=String.raw`JSON.stringify((()=>{
+    const b=document.querySelector('.footer .brand');
+    if(!b)return null;
+    const rect=el=>{const r=el.getBoundingClientRect();return {l:Math.round(r.left),t:Math.round(r.top),r:Math.round(r.right),b:Math.round(r.bottom)};};
+    const mark=b.querySelector('.brand-mark');
+    const text=b.querySelector('span:not(.brand-mark)');
+    const para=b.parentElement.querySelector('p');
+    return {display:getComputedStyle(b).display,mark:rect(mark),text:rect(text),para:para?rect(para):null};
+  })())`;
+  for(const width of [390,1280]){
+    await viewport(width,900);
+    await visit('/');
+    const lockup=JSON.parse(await evaluate(lockupProbe));
+    check(Boolean(lockup),'/ at '+width+'px has no footer lockup to measure');
+    if(!lockup)continue;
+    check(/flex/.test(lockup.display),'/ at '+width+'px: the footer lockup is '+lockup.display+', so the logo and the wordmark are not a row');
+    check(lockup.mark.r<=lockup.text.l+1,'/ at '+width+'px: the footer wordmark starts at '+lockup.text.l+'px while the logo ends at '+lockup.mark.r+'px, so they overlap');
+    check(lockup.text.t<lockup.mark.b&&lockup.mark.t<lockup.text.b,'/ at '+width+'px: the footer logo and wordmark are not on the same row');
+    if(lockup.para)check(lockup.mark.b<=lockup.para.t,'/ at '+width+'px: the footer logo runs into the paragraph below it');
+  }
+
   // Raster tool logos carry a WebP twin. The directory should decode the smaller
   // file everywhere it exists, and the raster set must stay inside a small budget.
   await viewport(1280);
