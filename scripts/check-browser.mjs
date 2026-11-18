@@ -1162,6 +1162,27 @@ try{
   await viewport(1280,900);
   await visit('/models/');
   check(await evaluate('document.querySelector("#model-result-count").parentElement.getAttribute("aria-live")==="polite"'),'models: the result count is not a live region');
+  // A chip that only says "Open weights" makes a reader click to learn how many
+  // models that is, and after a query it hides whether the access type still has
+  // matches; the count answers both before the click.
+  const chipState=async()=>JSON.parse(await evaluate('JSON.stringify((()=>{const chips=[...document.querySelectorAll("[data-model-filter]")];const counts=chips.map(b=>Number(b.querySelector(".chip-count").textContent));return {counts,sum:counts.slice(1).reduce((s,n)=>s+n,0),shown:[...document.querySelectorAll(".model-card")].filter(c=>!c.hidden).length,total:document.querySelectorAll(".model-card").length};})())'));
+  const chipsAll=await chipState();
+  check(chipsAll.counts[0]===chipsAll.total,'/models/: the all-access chip says '+chipsAll.counts[0]+' while '+chipsAll.total+' models render');
+  check(chipsAll.sum===chipsAll.counts[0],'/models/: the access chips add up to '+chipsAll.sum+' while all-access says '+chipsAll.counts[0]);
+  await evaluate('(()=>{const i=document.querySelector("#model-search");i.focus();i.value="gemini";i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await sleep(300);
+  const chipsQuery=await chipState();
+  check(chipsQuery.counts.every((n,i)=>n<=chipsAll.counts[i]),'/models/: after a query a chip claims '+chipsQuery.counts.join('/')+' of the earlier '+chipsAll.counts.join('/')+' models');
+  check(chipsQuery.sum===chipsQuery.shown,'/models/: after a query the chips add up to '+chipsQuery.sum+' while '+chipsQuery.shown+' cards render');
+  await evaluate('(()=>{const i=document.querySelector("#model-search");i.value="zzzz";i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await sleep(300);
+  const chipsNone=await chipState();
+  check(chipsNone.counts.every(n=>n===0),'/models/: a query with no matches leaves the chips at '+chipsNone.counts.join('/'));
+  await evaluate('(()=>{const i=document.querySelector("#model-search");i.value="";i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await sleep(300);
+  const chipsBack=await chipState();
+  check(chipsBack.counts.join()===chipsAll.counts.join(),'/models/: clearing the query leaves the chips at '+chipsBack.counts.join('/'));
+
   // The model card follows the tool card: one link per card, and the whole card
   // opens the profile, so a thumb on the logo or the description does not miss.
   await viewport(390,844);
