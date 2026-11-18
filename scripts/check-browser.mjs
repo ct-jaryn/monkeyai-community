@@ -955,6 +955,12 @@ try{
     check(hrefs.length===3,route+': the header offers '+hrefs.length+' language links');
     check(hrefs.every(href=>href.includes(needle)),route+': the language switch drops '+needle+' ('+hrefs.join(', ')+')');
   }
+  // The query and the section are separate promises: a filtered directory opened at
+  // a section has to survive a language switch with both, not just one of them.
+  await viewport(1280,900);
+  await visit('/tools/?category=chat#directory');
+  const carried=JSON.parse(await evaluate(langHrefs));
+  check(carried.every(href=>href.includes('category=chat')&&href.endsWith('#directory')),'tools: the language switch drops the filter or the section when the page has both ('+carried.join(', ')+')');
   await viewport(1280,900);
   await visit('/docs/');
   await evaluate('document.querySelector("#doc-search").focus()');
@@ -1273,6 +1279,25 @@ try{
     check(dead.length===0,route+': '+dead.length+' button(s) stay clickable with no script to run them ('+dead.slice(0,3).join(', ')+')');
   }
   await send('Emulation.setScriptExecutionDisabled',{value:false});
+
+  // Section ids are index based on every translation, so a reader three sections
+  // into a guide who switches language should stay there instead of being sent
+  // back to the top; an id the target page lacks is left off rather than dangling.
+  await viewport(1280,900);
+  await visit('/docs/getting-started/#section-3');
+  const switchHrefs='JSON.stringify([...document.querySelectorAll(".language-menu a[lang]")].map(a=>a.getAttribute("href")))';
+  let switched=JSON.parse(await evaluate(switchHrefs));
+  check(switched.length===3,'language: the switch offers '+switched.length+' languages');
+  check(switched.every(h=>h.endsWith('#section-3')),'language: switching drops the section the reader is on ('+switched.join(', ')+')');
+  check(switched.includes('/zh/docs/getting-started/#section-3'),'language: the Chinese switch does not open the same guide at the same section ('+switched.join(', ')+')');
+  await evaluate('document.querySelector(".toc a[href=\\"#section-2\\"]").click()');
+  await sleep(300);
+  switched=JSON.parse(await evaluate(switchHrefs));
+  check(switched.every(h=>h.endsWith('#section-2')),'language: jumping to another section leaves the switch pointing at the old one ('+switched.join(', ')+')');
+  await evaluate('location.hash="#no-such-section"');
+  await sleep(300);
+  switched=JSON.parse(await evaluate(switchHrefs));
+  check(switched.every(h=>h.indexOf('#')<0),'language: the switch carries a fragment the target page does not have ('+switched.join(', ')+')');
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{
