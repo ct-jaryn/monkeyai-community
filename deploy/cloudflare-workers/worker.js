@@ -9,7 +9,7 @@
 // - *.workers.dev responses carry X-Robots-Tag: noindex
 // - /.well-known/acme-challenge/* is passed through to the origin (certificate renewals)
 const APEX = 'monkeyai.online';
-const LONG = /\.(?:png|svg|ttf|woff2?)$/i;
+const LONG = /\.(?:png|svg|webp|avif|ttf|woff2?)$/i;
 // Live zone serves these through Cloudflare's Browser Cache TTL (4 h) on top of Nginx's no-cache.
 const EDGE_TTL = /\.(?:css|js|txt)$/i;
 // Nginx answers text types with an explicit UTF-8 charset.
