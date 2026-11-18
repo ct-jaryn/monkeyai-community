@@ -161,6 +161,29 @@ async function onlineRun(locale,file){
   await settle();
   check(marksIn(app.results).length===0,at('a one-letter query stirs up highlights'));
 
+  // "model" matches more than thirty pages and twelve used to be the end of the
+  // road: a sentence told the reader to type something else. The list has to
+  // continue on demand, in the page's language, until every match is reachable.
+  const broad={en:'model',zh:'模型',es:'model'}[locale];
+  app.input.value=broad;
+  app.input.dispatch('input');
+  await settle();
+  const firstPage=app.results.children.filter(kid=>kid.tagName==='A');
+  const more=()=>app.results.children.find(kid=>kid.className==='search-more');
+  check(firstPage.length===12,at('a broad query stops at '+firstPage.length+' rows instead of one page of twelve'));
+  check(Boolean(more()),at('a result set longer than one page offers no way to continue'));
+  if(more()){
+    const button=more().children[0];
+    check(button?.tagName==='BUTTON',at('the continuation is not a button'));
+    check(button?.textContent===page.ui.searchShowMore,at('the continuation does not speak the page language')+' — '+button?.textContent);
+    const remaining=Number((more().textContent.match(/\d+/)||['0'])[0]);
+    const total=firstPage.length+remaining;
+    let guard=0;
+    while(guard++<10&&more()){more().children[0].dispatch('click');await settle();}
+    check(app.results.children.filter(kid=>kid.tagName==='A').length===total,at('the continuation leaves matches unreachable — '+(total-firstPage.length)+' of '+total+' never rendered'));
+    check(!more(),at('the continuation survives after every match is shown'));
+  }
+
   // An empty toolkit has nothing to copy, so the button must say so. Switching the
   // directory to an empty list instead looks like the saved tools were lost.
   app.toast.textContent='';

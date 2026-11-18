@@ -553,6 +553,45 @@ try{
   // it; otherwise the next Tab restarts at the top of the page.
   check(await evaluate('document.activeElement===document.querySelector("[data-open-search]")'),'search: closing the dialog leaves focus on the page body');
 
+  // A broad query is normal — "model" matches thirty-two pages — and the other
+  // twenty used to be unreachable: a sentence told the reader to add a word and the
+  // results themselves had no way in. The list continues on demand, says how many
+  // are left, and puts the keyboard on the first row that had not been seen.
+  await visit('/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the longer result set');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'model'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: a broad query shows no results');
+  const pageState='JSON.stringify({links:document.querySelectorAll("#search-results a").length,button:document.querySelector(".search-more-button")?document.querySelector(".search-more-button").textContent:"",more:document.querySelector(".search-more")?document.querySelector(".search-more").textContent:"",count:document.querySelector("#search-count").textContent,ui:JSON.parse(document.querySelector("#page-data").textContent).ui})';
+  const firstPage=JSON.parse(await evaluate(pageState));
+  check(firstPage.links===12,'search: a broad query renders '+firstPage.links+' rows instead of one page of twelve');
+  check(firstPage.button!==''&&firstPage.button===firstPage.ui.searchShowMore,'search: the continuation button is missing or does not speak the page language ("'+firstPage.button+'")');
+  const remaining=Number((firstPage.more.match(/\d+/)||['0'])[0]);
+  const total=firstPage.links+remaining;
+  check(remaining>0,'search: the broad query did not exceed one page ('+total+' matches)');
+  if(remaining>0){
+    await evaluate('document.querySelector(".search-more-button").click()');
+    check(await until('document.querySelectorAll("#search-results a").length>'+firstPage.links),'search: the continuation button reveals nothing');
+    const secondPage=JSON.parse(await evaluate(pageState));
+    const expected=Math.min(firstPage.links+12,total);
+    check(secondPage.links===expected,'search: the continuation reveals '+secondPage.links+' rows instead of '+expected);
+    check(await evaluate('document.activeElement===document.querySelectorAll("#search-results a")['+firstPage.links+']'),'search: the continuation leaves the keyboard on the button it removed');
+    let guard=0;
+    while(guard++<6&&await evaluate('!!document.querySelector(".search-more-button")')){
+      await evaluate('document.querySelector(".search-more-button").click()');
+      await sleep(120);
+    }
+    const lastPage=JSON.parse(await evaluate(pageState));
+    check(!lastPage.button,'search: the continuation button survives after every match is shown');
+    check(lastPage.links===total,'search: only '+lastPage.links+' of '+total+' matches are reachable');
+    const fullCount=(lastPage.ui.searchCount||'{n}').replace('{n}',String(total));
+    check(lastPage.count===fullCount,'search: the visible count still reports a partial list ("'+lastPage.count+'")');
+    await evaluate('document.querySelector("[data-close-search]").click()');
+    await sleep(120);
+  }
+
   // Leaving a result and coming back means wanting the second match, not retyping
   // the query. The last query survives the navigation inside the tab and returns
   // selected, so the next keystroke replaces it instead of appending to it.
