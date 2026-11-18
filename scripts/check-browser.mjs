@@ -271,6 +271,28 @@ try{
     check(scroll<=inner+1,route+': content is '+scroll+'px wide at a 320px viewport, so 400% zoom scrolls sideways');
   }
 
+  // A detail page is read as a hierarchy, so its title has to stay the loudest thing
+  // on the page. The recommendation strips at the bottom reused the landing-page
+  // heading scale and rendered larger than the page title itself on a phone.
+  const outlineAt=async route=>{
+    await visit(route);
+    return JSON.parse(await evaluate(String.raw`JSON.stringify((()=>{
+      const size=el=>el?parseFloat(getComputedStyle(el).fontSize):null;
+      const shown=[...document.querySelectorAll("h2,h3")].filter(el=>{const r=el.getBoundingClientRect();return r.width>2&&r.height>2&&getComputedStyle(el).visibility!=="hidden";});
+      const top=shown.sort((a,b)=>size(b)-size(a))[0];
+      const strip=document.querySelector(".related-section h2");
+      return {h1:size(document.querySelector("h1")),top:top?{text:top.textContent.trim().slice(0,24),size:size(top)}:null,strip:size(strip),body:size(document.querySelector(".prose h2"))};
+    })())`));
+  };
+  for(const width of [320,1280]){
+    await viewport(width,900);
+    for(const route of ["/tools/claude/","/models/openai-gpt/"]){
+      const o=await outlineAt(route);
+      check(Boolean(o.top)&&o.top.size<o.h1,route+" at "+width+"px: the \""+(o.top?o.top.text:"")+"\" heading is "+o.top.size+"px under a "+o.h1+"px page title");
+      check(o.strip!==null&&Math.abs(o.strip-o.body)<0.1,route+" at "+width+"px: the related strip heading is "+o.strip+"px next to "+o.body+"px section headings");
+    }
+  }
+
   // A phone screen is smaller; that is not a reason for smaller text. These
   // labels and controls are already compact, so the phone size must not undercut
   // the desktop one — a media query that shrinks 11px to 9px makes the decisions
