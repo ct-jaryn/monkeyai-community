@@ -4,6 +4,7 @@ import os from 'node:os';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {ui} from '../src/i18n.mjs';
 
 // The DOM shim proves the scripts do the right thing with the nodes they are
 // given. It cannot prove that a browser lays the pages out, that the search dialog
@@ -1215,6 +1216,55 @@ try{
   await visit('/');
   check(await evaluate('getComputedStyle(document.querySelector(".hero-art")).display==="none"'),'print: the hero illustration still prints');
   await send('Emulation.setEmulatedMedia',{media:''});
+  // Scripts run the dialog, the filters and the save buttons, and a phone menu
+  // cannot open without them. With scripts blocked the page must drop the dead
+  // controls, lay the navigation out in the header, and say what still works.
+  await send('Emulation.setScriptExecutionDisabled',{value:true});
+  const noJsProbe=`JSON.stringify((()=>{
+    const display=selector=>{const el=document.querySelector(selector);return el?getComputedStyle(el).display:'absent';};
+    const note=document.querySelector('.noscript-note');
+    const nav=document.querySelector('.mobile-nav');
+    const first=document.querySelector('.tool-card,.model-card,.doc-result');
+    const navBox=nav?nav.getBoundingClientRect():null;
+    return {
+      trigger:display('[data-open-search]'),filters:display('.filter-bar'),save:display('[data-save]'),
+      copy:display('#copy-toolkit'),field:display('.directory-toolbar .search-field'),docsField:display('.docs-home-search .search-field'),
+      note:note?note.textContent:'',noteHeight:note?Math.round(note.getBoundingClientRect().height):0,
+      nav:nav?getComputedStyle(nav).display:'absent',navLinks:nav?[...nav.querySelectorAll('a')].filter(a=>a.getBoundingClientRect().height>0).length:0,
+      navBottom:navBox?Math.round(navBox.bottom):0,firstTop:first?Math.round(first.getBoundingClientRect().top):0,
+      tools:document.querySelectorAll('.tool-card').length,models:document.querySelectorAll('.model-card').length,
+      toolLinks:[...document.querySelectorAll('.tool-card a')].every(a=>(a.getAttribute('href')||'').includes('/tools/')),
+      scroll:document.documentElement.scrollWidth,inner:innerWidth
+    };
+  })())`;
+  const gone=state=>state==='none'||state==='absent';
+  for(const [route,width,locale,key,cards] of [['/tools/',390,'en','noScriptList','tools'],['/tools/',1280,'en','noScriptList','tools'],['/zh/tools/',390,'zh','noScriptList','tools'],['/docs/',390,'en','noScriptDocs','docs'],['/models/',1280,'en','noScriptList','models']]){
+    const label=route+' ('+width+'px)';
+    await viewport(width,900);
+    await visit(route);
+    const noJs=JSON.parse(await evaluate(noJsProbe));
+    check(noJs.trigger==='none',label+': the search trigger still invites a click when scripts cannot run');
+    check(gone(noJs.filters),label+': the filter bar still invites a click when scripts cannot run');
+    check(gone(noJs.save),label+': the save buttons still promise a toolkit when scripts cannot run');
+    check(gone(noJs.copy),label+': the copy button still promises a toolkit when scripts cannot run');
+    check(gone(noJs.field)&&gone(noJs.docsField),label+': a search field nothing can filter still invites typing');
+    check(noJs.note===ui[locale][key],label+': the no-script note is missing or in the wrong language ("'+noJs.note.slice(0,40)+'")');
+    check(noJs.noteHeight>0,label+': the no-script note is hidden');
+    check(noJs.scroll<=noJs.inner+1,label+': the no-script page is '+noJs.scroll+'px wide on a '+noJs.inner+'px screen');
+    if(width<=720){
+      check(noJs.nav==='grid'&&noJs.navLinks>=4,label+': the phone navigation stays collapsed when no script can open it ('+noJs.nav+'/'+noJs.navLinks+')');
+      check(noJs.navBottom<=noJs.firstTop,label+': the no-script navigation overlaps the content ('+noJs.navBottom+' > '+noJs.firstTop+')');
+    }else{
+      check(noJs.nav==='none',label+': the no-script navigation is shown twice on a wide screen');
+    }
+    if(cards==='tools'){
+      check(noJs.tools===14&&noJs.toolLinks,label+': the listings are no longer plain links without scripts ('+noJs.tools+' cards)');
+    }
+    if(cards==='models'){
+      check(noJs.models>=10,label+': only '+noJs.models+' model cards render without scripts');
+    }
+  }
+  await send('Emulation.setScriptExecutionDisabled',{value:false});
 }catch(error){
   failures.push('harness error: '+error.message);
 }finally{

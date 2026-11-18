@@ -929,6 +929,7 @@ const contrastPairs=[
   ['.doc-result-body>span','#fcfbf9'],
   ['.model-side-facts>span','#fcfbf9'],
   ['.not-found>span','#fcfbf9'],
+  ['.noscript-note','#f8f4fd'],
   ['.footer-heart','#f0ebf5'],
   ['.ribbon-inner','#f0ebf5'],
 ];
@@ -949,6 +950,23 @@ for(const [selector,background] of contrastPairs){
   expect(ratio>=4.5,`styles.css ${selector}`,`contrast ${ratio.toFixed(2)}:1 against ${background} is below the 4.5:1 minimum`);
   metrics.contrastPairsChecked++;
 }
+// Scripts run the dialog, the filters and the save buttons, and on a phone the menu
+// toggle cannot open the navigation either. A page that never says so leaves a
+// visitor clicking dead controls, and on a phone with no menu at all.
+const noscriptHead=/<noscript><style>[^<]*\[data-open-search\][^<]*\.mobile-nav\[hidden\]\{display:grid!important[^<]*<\/style><\/noscript>/;
+for(const file of ['index.html','tools/index.html','models/index.html','docs/index.html','404.html','zh/tools/index.html','es/models/index.html']){
+  expect(noscriptHead.test(read('dist/'+file)),file,'the no-script style is missing, does not drop the dead search trigger, or no longer reveals the mobile navigation');
+}
+for(const [file,locale,key] of [['tools/index.html','en','noScriptList'],['models/index.html','en','noScriptList'],['docs/index.html','en','noScriptDocs'],['zh/tools/index.html','zh','noScriptList'],['zh/docs/index.html','zh','noScriptDocs'],['es/models/index.html','es','noScriptList'],['es/docs/index.html','es','noScriptDocs']]){
+  const html=read('dist/'+file);
+  const note='<noscript><p class="noscript-note">'+ui[locale][key]+'</p></noscript>';
+  expect(html.includes(note),file,'the no-script note is missing or not in the page language');
+  for(const match of html.matchAll(/<noscript><p class="noscript-note">([^<]*)<\/p><\/noscript>/g)){
+    expect(match[1].trim().length>0,file,'the no-script note is empty');
+  }
+}
+expect(read('dist/tools/index.html').includes('class="toolkit-note"'),'tools','the toolkit promise is still shown when saving cannot run');
+
 console.log(JSON.stringify({status:issues.length?'failed':'passed',...metrics,issues:issues.length},null,2));
 if(issues.length){for(const message of issues)console.error(`- ${message}`);process.exitCode=1;}
 else console.log('All delivered routes, reciprocal language groups, static content, links, sources, and sitemap checks passed.');
