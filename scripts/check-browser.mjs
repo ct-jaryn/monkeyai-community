@@ -1153,6 +1153,29 @@ try{
   check(await evaluate('document.querySelector("#result-count").textContent==="1"&&document.querySelector("#result-label").textContent==="tool to explore"'),'tools: one saved tool is still counted as "1 tools"');
   await viewport(1280,900);
   await visit('/models/');
+  // A search that finds nothing used to end at a clear button, even when the answer
+  // sat on the other directory: "docker" and "mcp" name guides, not tools.
+  await viewport(1280,900);
+  await visit('/tools/?q=docker');
+  const crossDocs=JSON.parse(await evaluate('JSON.stringify((()=>{const a=document.querySelector("#empty-search-docs");return {empty:!document.querySelector("#empty-state").hidden,hidden:a.hidden,href:a.getAttribute("href"),text:a.textContent.trim(),height:Math.round(a.getBoundingClientRect().height)};})())'));
+  check(crossDocs.empty===true&&crossDocs.hidden===false,'/tools/?q=docker: the empty state does not offer the guides');
+  check(crossDocs.href==='/docs/?q=docker','/tools/: the guides link goes to "'+crossDocs.href+'"');
+  check(crossDocs.text.includes('docker')&&crossDocs.height>=24,'/tools/: the guides link reads "'+crossDocs.text+'" at '+crossDocs.height+'px');
+  await evaluate('(()=>{const i=document.querySelector("#tool-search");i.value="";i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await sleep(300);
+  check(await evaluate('document.querySelector("#empty-search-docs").hidden===true'),'/tools/: the guides link stays after the query is cleared');
+  await evaluate('document.querySelector("#empty-search-docs").click()');
+  await sleep(900);
+  check(await until('location.pathname==="/docs/"&&document.querySelector("#doc-search").value==="docker"'),'/tools/: following the guides link does not carry the query');
+  check(await evaluate('document.querySelectorAll("[data-doc]:not([hidden])").length>0'),'/docs/?q=docker: the carried query finds nothing');
+  await visit('/docs/?q=zzzz');
+  check(await evaluate('(()=>{const a=document.querySelector("#empty-search-tools");return !a.hidden&&a.getAttribute("href")==="/tools/?q=zzzz"&&a.textContent.includes("zzzz");})()'),'/docs/: an empty guide search does not offer the tools');
+  await visit('/zh/tools/?q=docker');
+  check(await evaluate('(()=>{const a=document.querySelector("#empty-search-docs");return a.getAttribute("href")==="/zh/docs/?q=docker"&&a.textContent.includes("docker");})()'),'/zh/tools/: the guides link is not localized');
+  // The next assertions measure /models/, so put the page back where they expect it.
+  await viewport(1280,900);
+  await visit('/models/');
+
   const modelName=await evaluate('document.querySelector("[data-model] h3").textContent');
   await evaluate('document.querySelector("#model-search").focus()');
   await send('Input.insertText',{text:modelName});
