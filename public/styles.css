@@ -90,7 +90,7 @@ body[data-locale=zh] h1,body[data-locale=zh] h2,body[data-locale=zh] h3{letter-s
 .comparison-model .product-logo{width:35px;height:35px;border-radius:8px;flex-shrink:0;padding:5px}
 .comparison-model strong{display:block;font-size:13px;line-height:1.5;font-weight:650;color:#5a426d}
 .comparison-model small{display:block;font-size:8px;color:#876996;margin-top:4px}
-.comparison-docs{display:flex;align-items:center;gap:5px;font-size:9px;color:#8964a7;margin-top:12px}
+.comparison-docs{display:flex;align-items:center;gap:5px;font-size:9px;color:#8964a7;margin-top:12px;min-height:24px}
 .comparison-docs .icon{width:11px;height:11px}
 .comparison-method{padding:65px 0 0;max-width:1000px;margin:auto}
 .comparison-method>h2{margin-top:15px;font-size:32px}

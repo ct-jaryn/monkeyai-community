@@ -1278,6 +1278,23 @@ try{
   check(Math.abs(matrixAfter.cell-matrixBefore.cell)<=2,'compare: the model name scrolls out of view');
   check(Math.abs(matrixAfter.head-matrixBefore.head)<=2,'compare: the column heading scrolls out of view');
   check(matrixAfter.data<matrixBefore.data-100,'compare: scrolling the matrix does not move its other columns');
+  // A matrix that fits has nothing to scroll, so a tab stop there is a keyboard stop
+  // with nothing to do; and the documentation links in its cells were 17px tall,
+  // under the 24px target size the rest of the site meets.
+  const compareFocus=async width=>{
+    await viewport(width,900);
+    await visit('/models/compare/');
+    return JSON.parse(await evaluate('JSON.stringify((()=>{const b=document.querySelector(".table-scroll");const d=[...document.querySelectorAll(".comparison-docs")].map(a=>Math.round(a.getBoundingClientRect().height));return {fits:b.scrollWidth<=b.clientWidth+1,tab:b.getAttribute("tabindex"),role:b.getAttribute("role"),label:(b.getAttribute("aria-label")||"").length,docs:Math.min(...d)};})())'));
+  };
+  const wideMatrix=await compareFocus(1280);
+  check(wideMatrix.fits===true,'compare: the matrix still overflows at 1280px, so the tab-stop check cannot tell the two states apart');
+  check(wideMatrix.tab===null,'/models/compare/ at 1280px: the matrix keeps a tab stop although nothing can scroll');
+  check(wideMatrix.role==='region'&&wideMatrix.label>10,'/models/compare/ at 1280px: the matrix loses its region label together with the tab stop');
+  check(wideMatrix.docs>=24,'/models/compare/ at 1280px: the documentation links are '+wideMatrix.docs+'px tall, under the 24px target size');
+  const narrowMatrix=await compareFocus(390);
+  check(narrowMatrix.tab==='0'&&narrowMatrix.role==='region'&&narrowMatrix.label>10,'/models/compare/ at 390px: the scrolling matrix is not reachable with the keyboard');
+  check(narrowMatrix.docs>=24,'/models/compare/ at 390px: the documentation links are '+narrowMatrix.docs+'px tall, under the 24px target size');
+
   // A printed guide should be the article alone: no site chrome, no clipped code.
   await viewport(1280,900);
   await send('Emulation.setEmulatedMedia',{media:'print'});

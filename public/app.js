@@ -204,7 +204,14 @@ const languageSwitch=$('.language-switch');languageSwitch?.addEventListener('tog
 (()=>{
   const box=document.querySelector('.table-scroll'),hint=document.querySelector('.table-scroll-hint');
   if(!box||!hint)return;
-  const mark=()=>hint.classList.toggle('is-visible',box.scrollWidth>box.clientWidth+1);
+  const mark=()=>{
+    const over=box.scrollWidth>box.clientWidth+1;
+    hint.classList.toggle('is-visible',over);
+    // A matrix that fits has nothing to scroll, so its tab stop only costs a
+    // keyboard user a stop where nothing can happen. The markup keeps the attribute
+    // for readers without scripts, who cannot ask for it back.
+    if(over)box.setAttribute('tabindex','0');else box.removeAttribute('tabindex');
+  };
   mark();
   addEventListener('resize',mark);
   if(window.ResizeObserver)new ResizeObserver(mark).observe(box);
