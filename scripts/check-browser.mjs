@@ -1291,7 +1291,13 @@ try{
   check(await evaluate('(()=>{const s=document.querySelector(".source-box");return !!s&&getComputedStyle(s).display!=="none"&&getComputedStyle(s).backgroundColor==="rgb(255, 255, 255)";})()'),'print: the source list loses its white background');
   await visit('/');
   check(await evaluate('getComputedStyle(document.querySelector(".hero-art")).display==="none"'),'print: the hero illustration still prints');
+  // The scroll note is written for a thumb, not for paper: on a printed matrix it
+  // would sit above a table that is fully visible.
+  await viewport(768,900);
+  await visit('/models/compare/');
+  check(await evaluate('getComputedStyle(document.querySelector(".table-scroll-hint")).display==="none"'),'print: the sideways-scroll note still prints above the comparison matrix');
   await send('Emulation.setEmulatedMedia',{media:''});
+  await viewport(1280,900);
   // Scripts run the dialog, the filters and the save buttons, and a phone menu
   // cannot open without them. With scripts blocked the page must drop the dead
   // controls, lay the navigation out in the header, and say what still works.
@@ -1447,6 +1453,23 @@ try{
   check(fromDetail.length===1&&fromDetail[0]==='cursor','a tool saved on its own page is listed as '+fromDetail.join(', ')+' under /tools/?category=saved');
   check(await evaluate('document.querySelector(".filter-chip[data-filter=saved] .saved-count").textContent.includes("(1)")'),'/tools/?category=saved shows no toolkit count after a save made on a detail page');
   await evaluate('try{localStorage.removeItem("monkeyai-toolkit-v1")}catch{}');
+
+  // The comparison matrix is wider than its box on everything below a laptop, and
+  // the note that explains the sideways scroll used to be tied to the phone
+  // breakpoint: at 768px and 860px the last columns were cut off and nothing said
+  // they could be reached. The note has to follow the overflow, at one size.
+  const hintAt=async width=>{
+    await viewport(width,900);
+    await visit('/models/compare/');
+    return JSON.parse(await evaluate('JSON.stringify((()=>{const t=document.querySelector(".table-scroll"),h=document.querySelector(".table-scroll-hint");const r=h.getBoundingClientRect();return {overflow:t.scrollWidth>t.clientWidth+1,shown:getComputedStyle(h).display!=="none"&&r.height>2,size:parseFloat(getComputedStyle(h).fontSize)};})())'));
+  };
+  const hintSizes=[];
+  for(const width of [390,768,860,1024,1280]){
+    const hint=await hintAt(width);
+    hintSizes.push(hint.size);
+    check(hint.shown===hint.overflow,'/models/compare/ at '+width+'px: the table '+(hint.overflow?'is cut off':'fits')+' while the scroll hint is '+(hint.shown?'shown':'hidden'));
+  }
+  check(new Set(hintSizes).size===1,'/models/compare/: the scroll hint is '+hintSizes.join('px, ')+'px across widths instead of one size');
 
   // Section ids are index based on every translation, so a reader three sections
   // into a guide who switches language should stay there instead of being sent

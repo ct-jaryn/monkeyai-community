@@ -196,3 +196,17 @@ const languageSwitch=$('.language-switch');languageSwitch?.addEventListener('tog
   mark();
   addEventListener('resize',mark);
 })();
+// The comparison matrix is wider than its box from a 1024px window all the way down
+// to a phone, but the hint that explains the sideways scroll was tied to the phone
+// breakpoint: at 768px and 860px the last columns were cut off with nothing saying
+// they could be reached. Follow the overflow itself and leave the media query as the
+// no-script fallback.
+(()=>{
+  const box=document.querySelector('.table-scroll'),hint=document.querySelector('.table-scroll-hint');
+  if(!box||!hint)return;
+  const mark=()=>hint.classList.toggle('is-visible',box.scrollWidth>box.clientWidth+1);
+  mark();
+  addEventListener('resize',mark);
+  if(window.ResizeObserver)new ResizeObserver(mark).observe(box);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(mark).catch(()=>{});
+})();
