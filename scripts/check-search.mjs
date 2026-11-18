@@ -47,7 +47,7 @@ function readPage(file){
   return JSON.parse(raw[1]);
 }
 
-function boot(pageData,fetchIndex,extra={}){
+function boot(pageData,fetchIndex,extra={},store={}){
   const dialog=makeEl('dialog'),input=makeEl('input'),results=makeEl('div'),toast=makeEl('div');
   const dataNode=makeEl('script');
   dataNode.textContent=JSON.stringify(pageData);
@@ -55,7 +55,7 @@ function boot(pageData,fetchIndex,extra={}){
   const document={createElement:makeEl,createTextNode:text=>{const node=makeEl('#text');node.textContent=text;return node;},querySelector:selector=>known[selector]??null,querySelectorAll:()=>[],addEventListener(){},body:makeEl('body')};
   const windowRef={addEventListener(){},matchMedia:()=>({matches:false,addEventListener(){}})};
   const state={requests:[],fetch:fetchIndex};
-  const globals={document,window:windowRef,navigator:{clipboard:{writeText:async()=>{}},platform:'MacIntel'},localStorage:{getItem:()=>null,setItem(){}},location:{search:'',pathname:'/'},history:{replaceState(){}},fetch:(...args)=>{state.requests.push(args[0]);return state.fetch(...args);},console,setTimeout,clearTimeout};
+  const globals={document,window:windowRef,navigator:{clipboard:{writeText:async()=>{}},platform:'MacIntel'},localStorage:{getItem:()=>store.value??null,setItem:(key,value)=>{store.writes=(store.writes||[]).concat([[key,value]]);store.value=value;}},location:{search:'',pathname:'/'},history:{replaceState(){}},fetch:(...args)=>{state.requests.push(args[0]);return state.fetch(...args);},console,setTimeout,clearTimeout};
   new Function('document','window','navigator','localStorage','location','history','fetch',clientSource)(globals.document,globals.window,globals.navigator,globals.localStorage,globals.location,globals.history,globals.fetch);
   return {dialog,input,results,toast,requests:state.requests,setFetch:fn=>{state.fetch=fn;}};
 }
@@ -272,6 +272,31 @@ function docsFilterRun(){
   check(empty.hidden===true,'docs: clearing hides the empty state again');
 }
 
+// A saved tool that was renamed or delisted leaves a slug behind that no card
+// carries: the chip counted it while the saved filter had nothing to show. Unknown
+// slugs must be dropped on load, and the stored list rewritten so the phantom does
+// not return on the next page.
+function staleSavedRun(){
+  const page=readPage('tools/index.html');
+  const live=page.tools[0].slug;
+  const chip=makeEl('span');
+  chip.dataset={label:'Saved'};
+  const run=stored=>{
+    const store={value:JSON.stringify(stored)};
+    boot(page,async()=>{throw new Error('the toolkit must not need the network');},{'.filter-chip[data-filter="saved"] .saved-count':chip},store);
+    return store;
+  };
+  const mixed=run([live,'gone-tool-from-an-older-release']);
+  check(chip.textContent==='Saved (1)',at2('a stale save is still counted')+' — '+chip.textContent);
+  check(mixed.writes?.length===1&&JSON.stringify(JSON.parse(mixed.writes[0][1]))===JSON.stringify([live]),at2('the stored list keeps a tool that no longer exists'));
+  const ghosts=run(['gone-a','gone-b']);
+  check(chip.textContent==='Saved',at2('an all-stale toolkit still shows a count')+' — '+chip.textContent);
+  check(ghosts.writes?.length===1&&ghosts.writes[0][1]==='[]',at2('an all-stale toolkit is not cleared from storage'));
+  const clean=run([live]);
+  check(!clean.writes,at2('a healthy toolkit is rewritten on every page load'));
+}
+const at2=label=>'toolkit: '+label;
+
 async function offlineRun(){
   const page=readPage('index.html');
   const app=boot(page,async()=>{throw new Error('offline');});
@@ -321,6 +346,7 @@ try{
   for(const [locale,file] of [['en','index.html'],['zh','zh/index.html'],['es','es/index.html']])await onlineRun(locale,file);
   await offlineRun();
   docsFilterRun();
+  staleSavedRun();
   clientKeyRun();
 }catch(error){
   failures.push('harness error: '+error.message);

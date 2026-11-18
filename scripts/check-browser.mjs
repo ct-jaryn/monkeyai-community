@@ -991,6 +991,22 @@ try{
   await visit('/tools/?category=saved');
   check(await evaluate('document.querySelector("#empty-state").hidden===false'),'toolkit: an empty saved view shows no message');
   check(await evaluate('/is empty/i.test(document.querySelector("#empty-state h2").textContent)'),'toolkit: an empty saved view does not explain how to save a tool');
+
+  // A tool that was renamed or delisted leaves a slug behind that no card carries.
+  // The chip counted it while the saved filter showed nothing, and a toolkit of
+  // nothing but ghosts still claimed to be occupied. Unknown slugs are dropped on
+  // load and the stored list rewritten, so the phantom does not return.
+  await evaluate('localStorage.setItem("monkeyai-toolkit-v1",JSON.stringify(["claude","gone-tool-from-an-older-release"]))');
+  await visit('/tools/');
+  check(await evaluate('(()=>{const kept=JSON.parse(localStorage.getItem("monkeyai-toolkit-v1")||"[]");return kept.length===1&&kept[0]==="claude";})()'),'toolkit: a saved tool that no longer exists survives in storage');
+  check(await evaluate("document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(1)')"),'toolkit: a stale save is still counted in the directory');
+  await evaluate('document.querySelector(".filter-chip[data-filter=saved]").click()');
+  check(await evaluate('document.querySelector("#result-count").textContent==="1"&&[...document.querySelectorAll("#tool-grid [data-tool]")].filter(card=>!card.hidden).length===1'),'toolkit: the saved filter does not match the count it advertises');
+  await evaluate('localStorage.setItem("monkeyai-toolkit-v1",JSON.stringify(["gone-a","gone-b"]))');
+  await visit('/tools/');
+  check(await evaluate("!document.querySelector('.filter-chip[data-filter=\"saved\"] .saved-count').textContent.includes('(')"),'toolkit: an all-stale toolkit still shows a count');
+  await evaluate('document.querySelector(".filter-chip[data-filter=saved]").click()');
+  check(await evaluate('document.querySelector("#empty-state").hidden===false&&document.querySelector("#empty-state h2").textContent===document.querySelector("#empty-state").dataset.savedEmpty'),'toolkit: an all-stale toolkit shows the wrong empty message');
   await visit('/tools/');
   // Selection must survive without colour: high-contrast modes and monochrome
   // printing drop the lavender fill, so a drawn tick is what distinguishes the
