@@ -106,6 +106,27 @@ const languageSwitch=$('.language-switch');languageSwitch?.addEventListener('tog
   let last=null;
   addEventListener('scroll',()=>{const y=Math.round(scrollY);if(y===last)return;last=y;sync();},{passive:true});
   addEventListener('resize',sync);
+  // Choosing a section on a phone closes the picker instead of leaving it open
+  // above the reader. A keyboard reader also needs the cursor to follow the jump,
+  // so the heading takes focus and wears the same ring as any other target.
+  for(const a of links){
+    a.addEventListener('click',e=>{
+      const target=document.getElementById(a.getAttribute('href').slice(1));
+      if(!target)return;
+      const picker=a.closest('.guide-toc');
+      if(picker)picker.open=false;
+      if(e.detail!==0)return;
+      // Keyboard: take the jump over so the position and the cursor agree. Left to
+      // the browser, the page scrolls while focus stays on a link that has left the
+      // screen, and the pending scroll is cancelled the moment the heading is focused.
+      e.preventDefault();
+      const heading=target.matches('h1,h2,h3')?target:target.querySelector('h1,h2,h3')||target;
+      if(!heading.hasAttribute('tabindex'))heading.setAttribute('tabindex','-1');
+      history.pushState(null,'','#'+target.id);
+      heading.focus({preventScroll:true});
+      target.scrollIntoView({block:'start'});
+    });
+  }
   sync();
 })();
 // A command wider than a phone screen scrolls inside its own box. Without a tab

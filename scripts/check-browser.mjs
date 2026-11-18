@@ -177,6 +177,11 @@ try{
   };
   await send('Page.enable');
   await send('Runtime.enable');
+  // A hidden page freezes smooth scrolling, so a jump animation started here would
+  // never advance and the position assertions would fail for the harness rather
+  // than for the site. Bringing the tab to the front keeps it visible.
+  await send('Page.bringToFront');
+  await send('Emulation.setFocusEmulationEnabled',{enabled:true});
 
   // Nine static subsets became two variable faces. A page should fetch at most two
   // font files, and weight 550 must lay out differently from 600 — proof that the
@@ -600,11 +605,14 @@ try{
   await sleep(300);
   await evaluate('history.back()');
   check(await until('location.pathname==="/tools/"',4000),'search: Back does not return to the directory');
-  await sleep(600);
+  // Chrome restores the old scroll offset after the navigation commits, and on a
+  // loaded machine that lands later than any fixed sleep would guess. Poll for the
+  // offset instead of sampling once, then report the last observed value.
+  const restored=await until('Math.round(scrollY)>='+(backBefore-80),3000);
   const backState=JSON.parse(await evaluate('JSON.stringify({open:document.querySelector("#search-dialog").open,cls:document.documentElement.classList.contains("scroll-locked"),overflow:getComputedStyle(document.documentElement).overflowY,scroll:Math.round(scrollY)})'));
   check(backState.open===false,'search: Back restores an open search dialog');
   check(backState.cls===false&&backState.overflow!=="hidden",'search: Back restores the page with scrolling locked');
-  check(backState.scroll>=backBefore-80,'search: Back returns to y='+backState.scroll+' instead of '+backBefore);
+  check(restored,'search: Back returns to y='+backState.scroll+' instead of '+backBefore);
   // Narrow screens keep the guide contents inside the article; wide screens use the
   // sticky rail. Reading this from the engine is the only way to know the cascade
   // and the breakpoint agree.
@@ -630,6 +638,54 @@ try{
   await evaluate('{const s=document.getElementById("section-3");scrollTo({top:s.getBoundingClientRect().top+scrollY-60,behavior:"instant"});}');
   await evaluate('dispatchEvent(new Event("scroll"))');
   check(await until("document.querySelector('.guide-toc nav a[href=\"#section-3\"]')?.getAttribute('aria-current')==='true'"),'guide at 390px: the in-page contents do not follow the reader');
+
+  // Picking a section on a phone should collapse the picker and, for a keyboard
+  // reader, move the cursor to the section itself. Without that the reader tabs
+  // through entries that are no longer on screen while the picker covers the text.
+  await viewport(390,844);
+  await visit('/docs/getting-started/');
+  await evaluate('document.querySelector(".guide-toc summary").focus()');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  check(await until('document.querySelector(".guide-toc").open===true'),'guide at 390px: Enter does not open the section picker');
+  await send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
+  check(await until('document.activeElement.matches(".guide-toc a")'),'guide at 390px: Tab does not reach the open picker entries');
+  // A headless page parks animation frames, so a smooth scroll started here never
+  // advances and the jump reads as a no-op even though it lands in a real browser.
+  // Pinning the behaviour to auto keeps the landing spot, focus and hash under test
+  // without making the result depend on sandbox timing.
+  await evaluate('{const s=document.createElement("style");s.textContent="html{scroll-behavior:auto !important}";document.head.append(s);}');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  check(await until('document.getElementById("section-1")?.getBoundingClientRect().top<200',2000),'guide at 390px: the chosen section never scrolls into view');
+  await sleep(150);
+  const picked=JSON.parse(await evaluate('JSON.stringify((()=>{const t=document.querySelector(".guide-toc");const h=document.activeElement;const sec=document.getElementById(location.hash.slice(1));return {open:t.open,tag:h.tagName,outline:h.tagName==="H2"?getComputedStyle(h).outlineStyle:"",top:sec?Math.round(sec.getBoundingClientRect().top):null,hash:location.hash};})())'));
+  check(picked.open===false,'guide at 390px: choosing a section leaves the picker open over the article');
+  check(picked.tag==='H2','guide at 390px: keyboard focus stays in the picker instead of following the jump');
+  check(picked.outline==='solid','guide at 390px: the section that took focus shows no ring');
+  check(picked.hash==='#section-1'&&picked.top>=60&&picked.top<=180,'guide at 390px: the chosen section lands at '+picked.top+'px instead of under the header');
+  // A tap collapses the picker too, but must not move focus into the article: the
+  // reader is not driving the page from the keyboard.
+  await visit('/docs/getting-started/');
+  const summaryPoint=JSON.parse(await evaluate('JSON.stringify((()=>{const r=document.querySelector(".guide-toc summary").getBoundingClientRect();return [r.x+r.width/2,r.y+r.height/2];})())'));
+  for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:summaryPoint[0],y:summaryPoint[1],button:'left',clickCount:1});
+  await sleep(200);
+  const thirdPoint=JSON.parse(await evaluate('JSON.stringify((()=>{const r=document.querySelectorAll(".guide-toc a")[2].getBoundingClientRect();return [r.x+r.width/2,r.y+r.height/2];})())'));
+  for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:thirdPoint[0],y:thirdPoint[1],button:'left',clickCount:1});
+  await sleep(900);
+  const tapped=JSON.parse(await evaluate('JSON.stringify({open:document.querySelector(".guide-toc").open,hash:location.hash,tag:document.activeElement.tagName})'));
+  check(tapped.open===false,'guide at 390px: a tap leaves the picker open over the article');
+  check(tapped.hash==='#section-3','guide at 390px: a tap on a section entry does not navigate to it');
+  check(tapped.tag!=='H2','guide at 390px: a tap moves keyboard focus into the article');
+  // The rail on a wide screen behaves the same for the keyboard.
+  await viewport(1280,900);
+  await visit('/docs/getting-started/');
+  await evaluate('document.querySelector(".toc a").focus()');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+  await sleep(700);
+  check(await evaluate('document.activeElement.tagName==="H2"'),'guide at 1280px: the rail does not hand focus to the section');
 
   // A long command scrolls inside its own box on a phone. That box needs a tab stop
   // and a name, or the end of the line is unreachable without a mouse.
