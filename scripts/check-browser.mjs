@@ -1350,6 +1350,83 @@ try{
   }
   await send('Emulation.setScriptExecutionDisabled',{value:false});
 
+  // Layout can only be judged on the painted page. This walks the text and image
+  // boxes of the main pages and asks the engine whether two of them really sit on
+  // top of each other: the centre of their intersection must be painted by one of
+  // the pair, and neither box may live in a positioned, clipped or collapsed
+  // subtree (menus, decorative layers and closed <details> overlap on purpose).
+  // The footer lockup bug above was exactly this shape — the wordmark painted over
+  // the logo — and nothing else in the suite would have noticed.
+  const overlapProbe=String.raw`JSON.stringify((()=>{
+    const name=el=>{const c=(el.className&&el.className.toString().trim().split(/\s+/)[0])||'';return el.tagName.toLowerCase()+(c?'.'+c:'');};
+    const ignored=el=>{
+      for(let n=el;n&&n!==document.body;n=n.parentElement){
+        const cs=getComputedStyle(n);
+        if(cs.position==='absolute'||cs.position==='fixed')return true;
+        if(n.tagName==='DETAILS'&&!n.open){
+          const s=[...n.children].find(c=>c.tagName==='SUMMARY');
+          if(s&&!s.contains(el))return true;
+        }
+        if(cs.overflow!=='visible'&&(n.clientHeight===0||n.clientWidth===0))return true;
+      }
+      return false;
+    };
+    const shown=el=>{const cs=getComputedStyle(el);if(cs.visibility==='hidden'||cs.display==='none'||Number(cs.opacity)===0)return false;const r=el.getBoundingClientRect();return r.width>2&&r.height>2;};
+    const items=[];
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    while(walker.nextNode()){
+      const text=walker.currentNode.textContent.trim();
+      if(!text)continue;
+      const el=walker.currentNode.parentElement;
+      if(!el||el.closest('script,style,noscript,[aria-hidden="true"]'))continue;
+      if(!shown(el)||ignored(el))continue;
+      items.push({el,text:text.slice(0,22),r:el.getBoundingClientRect()});
+    }
+    for(const el of document.querySelectorAll('img')){
+      if(!shown(el)||ignored(el))continue;
+      items.push({el,text:'<img>',r:el.getBoundingClientRect()});
+    }
+    const pairs=[];
+    for(let i=0;i<items.length;i++)for(let j=i+1;j<items.length;j++){
+      const a=items[i],b=items[j];
+      if(a.el===b.el||a.el.contains(b.el)||b.el.contains(a.el))continue;
+      const ox=Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left);
+      const oy=Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top);
+      if(ox<4||oy<4)continue;
+      pairs.push({a,b,ox,oy});
+    }
+    // elementFromPoint only sees the viewport, so each candidate pair is scrolled
+    // into view before the engine is asked what is painted at its centre.
+    const hits=[];
+    const restore=window.scrollY;
+    for(const p of pairs.slice(0,40)){
+      const cx=Math.max(p.a.r.left,p.b.r.left)+p.ox/2;
+      const cy=Math.max(p.a.r.top,p.b.r.top)+p.oy/2;
+      window.scrollTo({top:Math.max(0,cy-innerHeight/2),behavior:'instant'});
+      const ra=p.a.el.getBoundingClientRect(),rb=p.b.el.getBoundingClientRect();
+      const ox=Math.min(ra.right,rb.right)-Math.max(ra.left,rb.left);
+      const oy=Math.min(ra.bottom,rb.bottom)-Math.max(ra.top,rb.top);
+      if(ox<4||oy<4)continue;
+      const px=Math.max(ra.left,rb.left)+ox/2;
+      const py=Math.max(ra.top,rb.top)+oy/2;
+      if(px<0||py<0||px>=innerWidth||py>=innerHeight)continue;
+      const stack=document.elementsFromPoint(px,py);
+      if(!stack.some(n=>p.a.el===n||p.b.el===n||p.a.el.contains(n)||p.b.el.contains(n)))continue;
+      hits.push({a:name(p.a.el),b:name(p.b.el),ta:p.a.text,tb:p.b.text,x:Math.round(ox),y:Math.round(oy)});
+    }
+    window.scrollTo({top:restore,behavior:'instant'});
+    return hits;
+  })())`;
+  for(const width of [390,1280]){
+    await viewport(width,1200);
+    for(const route of ['/','/tools/','/models/compare/','/docs/getting-started/']){
+      await visit(route);
+      const hits=JSON.parse(await evaluate(overlapProbe));
+      const first=hits[0];
+      check(hits.length===0,route+' at '+width+'px: '+(first?'"'+first.ta+'" is painted over "'+first.tb+'" ('+first.x+'x'+first.y+'px)'+(hits.length>1?' and '+(hits.length-1)+' other overlapping pairs':''):'nothing')+' — two visible boxes share the same pixels');
+    }
+  }
+
   // Section ids are index based on every translation, so a reader three sections
   // into a guide who switches language should stay there instead of being sent
   // back to the top; an id the target page lacks is left off rather than dangling.
