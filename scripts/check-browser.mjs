@@ -1386,6 +1386,14 @@ try{
       const el=walker.currentNode.parentElement;
       if(!el||el.closest('script,style,noscript,[aria-hidden="true"]'))continue;
       if(!shown(el)||ignored(el))continue;
+      // A link or emphasis that wraps paints its own lines, but its union box also
+      // covers the space between them, so a neighbour on the next line looked like
+      // a collision. Compare the line boxes the browser actually paints instead.
+      const rects=Array.from(el.getClientRects());
+      if(rects.length>1&&/^inline/.test(getComputedStyle(el).display)){
+        for(const rect of rects)if(rect.width>2&&rect.height>2)items.push({el,text:text.slice(0,22),r:rect});
+        continue;
+      }
       items.push({el,text:text.slice(0,22),r:el.getBoundingClientRect()});
     }
     for(const el of document.querySelectorAll('img')){
@@ -1423,9 +1431,12 @@ try{
     window.scrollTo({top:restore,behavior:'instant'});
     return hits;
   })())`;
-  for(const width of [390,1280]){
+  // 768 is the width where the layouts switch: the phone nav is replaced by the
+  // desktop bar, the tool grid gains a column and the guide keeps its sidebar, so
+  // boxes that never met at 390 or 1280 can collide there.
+  for(const width of [390,768,1280]){
     await viewport(width,1200);
-    for(const route of ['/','/tools/','/models/compare/','/docs/getting-started/']){
+    for(const route of ['/','/tools/','/models/compare/','/docs/getting-started/','/community/','/zh/models/compare/']){
       await visit(route);
       const hits=JSON.parse(await evaluate(overlapProbe));
       const first=hits[0];
