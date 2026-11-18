@@ -977,6 +977,20 @@ try{
   await send('Input.insertText',{text:'mcp'});
   await evaluate('document.querySelector("#tool-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await until('document.querySelector("#result-count").textContent!=='+JSON.stringify(countBefore)),'tools: the result count does not change when the list is filtered');
+  // The dialog finds a tool by its licence name, so the directory's own box has to
+  // answer the same question: typing "GPL" used to empty the list while the dialog
+  // listed both GPL tools. The card also has to name the licence, or a matched card
+  // gives no reason for being there.
+  for(const [route,word,expected] of [['/tools/','GPL',['blender','comfyui']],['/tools/','MIT',['localai','ollama','orkas']],['/zh/tools/','GPL',['blender','comfyui']]]){
+    await visit(route);
+    await evaluate('(()=>{const i=document.querySelector("#tool-search");i.focus();i.value='+JSON.stringify(word)+';i.dispatchEvent(new Event("input",{bubbles:true}))})()');
+    await until('document.querySelectorAll("#tool-grid [data-tool]:not([hidden])").length>0');
+    const visible=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll("#tool-grid [data-tool]:not([hidden])")].map(c=>c.dataset.tool))'));
+    for(const slug of expected)check(visible.includes(slug),route+': searching "'+word+'" does not list /tools/'+slug+'/');
+    const tags=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll("#tool-grid [data-tool]:not([hidden]) .tool-license")].map(e=>e.textContent))'));
+    check(tags.some(t=>t.toUpperCase().includes(word)),route+': the cards found for "'+word+'" do not name the licence ("'+tags.slice(0,3).join(' / ')+'")');
+    check(await evaluate('document.querySelector("#empty-state").hidden'),route+': searching "'+word+'" still shows the empty state');
+  }
   // A copy button that copies nothing but empties the list reads as data loss.
   await visit('/tools/');
   await evaluate('document.querySelector("#copy-toolkit").click()');

@@ -565,11 +565,14 @@ if(largestPage){
   expect(largestPage[1]<=pageCeilingKB,largestPage[0],'page HTML is '+largestPage[1]+' KB, over the '+pageCeilingKB+' KB ceiling');
 }
 
-// Seven tools publish a licence link on their detail page. Reading the same fact
-// should not require opening every card, so the directory repeats it as a tag —
-// and the tag has to follow the data: a licensed tool carries it, a hosted
-// service does not. A hand-edited label or a rebuild that drops the span fails
-// here instead of quietly telling readers the wrong thing.
+// A licensed tool publishes its licence link on the detail page. Reading the same
+// fact should not require opening every card, so the directory repeats it as a tag
+// — and the tag has to follow the data: a licensed tool carries the open-source
+// wording, a hosted service does not. The licence name is printed beside the
+// summary and indexed for the search box, because it is the answer to "GPL" and
+// "MIT", which a reader types in the directory as readily as in the dialog. A hand-edited label or a
+// rebuild that drops the span fails here instead of quietly telling readers the
+// wrong thing.
 for(const locale of locales){
   const file=locale==='en'?'tools/index.html':locale+'/tools/index.html';
   const html=read('dist/'+file);
@@ -583,11 +586,21 @@ for(const locale of locales){
     seen.add(slug);
     const tag=(card.match(/<span class="license-tag">([^<]*)<\/span>/)||[])[1];
     if(expected.has(slug)){
+      const license=tools.find(t=>t.slug===slug).license.name;
       expect(tag===ui[locale].openSource,file,'card '+slug+' has no '+locale+' open-source tag');
       const opening=card.slice(0,card.indexOf('>'));
       expect(opening.includes(ui[locale].openSource.toLowerCase()),file,'card '+slug+' cannot be found by searching the open-source wording');
+      // The dialog finds a licensed tool by its licence name; the directory's own
+      // box has to answer the same query, or "GPL" empties the list here while the
+      // dialog lists both GPL tools.
+      expect(opening.toLowerCase().includes(license.toLowerCase()),file,'card '+slug+' cannot be found by searching its licence name '+license);
+      // A matched card has to say why it matched: the tag alone would answer "GPL"
+      // with a card that never mentions GPL.
+      const licenseLine=(card.match(/<p class="tool-license">([^<]*)<\/p>/)||[])[1]||'';
+      expect(licenseLine.includes(license),file,'card '+slug+' does not print the licence name '+license);
     }else{
       expect(tag===undefined,file,'card '+slug+' claims an open-source tag although it lists no licence');
+      expect(!card.includes('tool-license'),file,'card '+slug+' prints a licence line although it lists no licence');
     }
   }
   for(const slug of expected)expect(seen.has(slug),file,'licensed tool '+slug+' has no card on the directory page');
