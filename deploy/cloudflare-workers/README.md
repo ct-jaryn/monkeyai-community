@@ -5,12 +5,14 @@ Staging: `monkeyai-online-static-staging.jaryn1557.workers.dev` (noindex).
 
 ## Static-direct (2026-11-12)
 - `run_worker_first` is `/*` minus `/`, `/*/` (canonical trailing-slash pages) and static file types
-  (`/assets/*`, css, js, png, svg, ttf, woff2, json, xml, txt). Those are served by the assets layer with
+  (`/assets/*`, css, js, png, svg, webp, ttf, woff2, json, xml, txt). Those are served by the assets layer with
   no Worker invocation (free, not counted against the daily Workers request limit).
 - `worker.js` still runs for slashless paths (assets 307 -> 301), `/dir/index.html` (200), `/404.html` (404),
   dotfiles (403) and `/.well-known/acme-challenge/*` (origin passthrough).
 - `_headers` reproduces the Worker's headers for asset-first responses: nosniff, Referrer-Policy,
-  Cache-Control (images/fonts 86400, css/js/txt 14400, else no-cache), UTF-8 charset, workers.dev noindex.
+  Cache-Control (images/fonts 86400, css/js/txt 14400, hashed `/assets/*` a year immutable, else no-cache),
+  UTF-8 charset, workers.dev noindex. `scripts/check-deploy.mjs` compares both layers for every file type in
+  `dist`, so a cache rule changed in one place cannot silently diverge from the other.
 - http -> https and www -> apex 301 are done by a zone Single Redirect rule (Rules > Redirect Rules,
   phase `http_request_dynamic_redirect`), which excludes `/.well-known/acme-challenge/*`.
   The Worker keeps its own redirect code as a fallback.

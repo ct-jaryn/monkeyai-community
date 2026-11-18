@@ -16,6 +16,10 @@
   ! Cache-Control
   Cache-Control: public, max-age=86400
 
+/*.webp
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
 /*.ttf
   ! Cache-Control
   Cache-Control: public, max-age=86400
