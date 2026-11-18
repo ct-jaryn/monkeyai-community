@@ -529,6 +529,38 @@ try{
   // it; otherwise the next Tab restarts at the top of the page.
   check(await evaluate('document.activeElement===document.querySelector("[data-open-search]")'),'search: closing the dialog leaves focus on the page body');
 
+  // Leaving a result and coming back means wanting the second match, not retyping
+  // the query. The last query survives the navigation inside the tab and returns
+  // selected, so the next keystroke replaces it instead of appending to it.
+  await visit('/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the memory check');
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'workflow'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: no results for the memory check');
+  await sleep(600);
+  await visit('/tools/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open on the second page');
+  check(await evaluate('document.querySelector("#global-search").value==="workflow"'),'search: the last query is lost when the reader changes page');
+  const memoryState=JSON.parse(await evaluate('JSON.stringify((()=>{const i=document.querySelector("#global-search");return {from:i.selectionStart,to:i.selectionEnd,len:i.value.length};})())'));
+  check(memoryState.from===0&&memoryState.to===memoryState.len&&memoryState.len>0,'search: the restored query is not selected for replacement');
+  check(await until('document.querySelectorAll("#search-results a").length>0'),'search: the restored query shows no results');
+  // Clearing the box must clear the memory too. An empty field that reopens with the
+  // old words looks like the reader's edit was ignored.
+  await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  await sleep(600);
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(120);
+  await visit('/models/');
+  await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+  check(await until('document.querySelector("#search-dialog")?.open===true'),'search: the dialog does not open for the cleared-memory check');
+  check(await evaluate('document.querySelector("#global-search").value===""'),'search: a cleared query is restored from memory anyway');
+  check(await evaluate('document.querySelectorAll("#search-results a").length===0'),'search: a cleared query still renders the old results');
+  await evaluate('document.querySelector("[data-close-search]").click()');
+  await sleep(120);
+
   // A modal dialog should keep Tab inside it. Without a trap, focus lands on the
   // document body between the last control and the first, so the focus ring
   // disappears for one key press and screen readers lose the context.
