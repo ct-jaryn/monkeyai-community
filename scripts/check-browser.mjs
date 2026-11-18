@@ -353,6 +353,29 @@ try{
   const arrowHit=await evaluate('(()=>{const c=document.querySelector(".tool-card");const a=c.querySelector(".tool-arrow");const r=a.getBoundingClientRect();const el=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);const link=el&&el.closest("a");return link?link.getAttribute("href"):"none";})()');
   check(arrowHit==='/tools/'+JSON.parse(await evaluate('JSON.stringify(document.querySelector(".tool-card").dataset.tool)'))+'/','/tools/: the corner arrow resolves to "'+arrowHit+'" instead of the tool page');
 
+  // Cards in a row stretch to the same height, but the content above the footer
+  // differs: a two-line summary or an extra licence line pushed the divider and the
+  // domain row up or down inside otherwise equal cards, so every row looked ragged.
+  for(const width of [768,1280]){
+    await viewport(width,1000);
+    for(const route of ["/","/tools/"]){
+      await visit(route);
+      const spreads=JSON.parse(await evaluate(String.raw`JSON.stringify((()=>{
+        const rows=new Map();
+        for(const card of document.querySelectorAll(".tool-card")){
+          const foot=card.querySelector(".tool-bottom");
+          if(!foot)continue;
+          const key=Math.round(card.getBoundingClientRect().top+scrollY);
+          if(!rows.has(key))rows.set(key,[]);
+          rows.get(key).push(Math.round(foot.getBoundingClientRect().bottom+scrollY));
+        }
+        return [...rows.values()].filter(list=>list.length>1).map(list=>Math.max(...list)-Math.min(...list));
+      })())`));
+      check(spreads.length>0,route+" at "+width+"px: no card row was measured");
+      check(spreads.every(gap=>gap<=1),route+" at "+width+"px: card footers in one row sit "+Math.max(...spreads)+"px apart, so the dividers do not line up");
+    }
+  }
+
   // A card is one target on a phone: the title, the logo and the description all
   // sit inside the same link, so a thumb anywhere on the card opens the tool. The
   // bookmark stays on top and must keep working where it sits.
