@@ -467,6 +467,17 @@ try{
   check(await evaluate('document.querySelector("#search-count").textContent===document.querySelector("#search-status").textContent'),'search: a narrow query does not show its exact count');
   await evaluate('document.querySelector("#global-search").value="";document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
   check(await evaluate('document.querySelector("#search-count").hidden'),'search: the match count survives the query being cleared');
+  // Guides are indexed with their section headings and bullets, so a page can match
+  // on words its summary never mentions. The row then quotes the words around the
+  // match; repeating an unrelated summary leaves the reader guessing why it is there.
+  await evaluate('document.querySelector("#global-search").focus()');
+  await send('Input.insertText',{text:'permissions'});
+  await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+  check(await until('!!Array.from(document.querySelectorAll("#search-results a")).find(a=>a.getAttribute("href")==="/docs/models-and-mcp/")'),'search: a word that only appears in a guide section no longer finds that guide');
+  const keywordRow=JSON.parse(await evaluate("JSON.stringify((()=>{const a=Array.from(document.querySelectorAll('#search-results a')).find(x=>x.getAttribute('href')==='/docs/models-and-mcp/');const p=a&&a.querySelector('p');return {text:p?p.textContent:'',marks:p?p.querySelectorAll('mark').length:0};})())"));
+  check(/permissions/i.test(keywordRow.text),'search: a keyword-only result repeats a summary without the query ("'+keywordRow.text.slice(0,80)+'")');
+  check(keywordRow.marks>0,'search: the words that matched a keyword-only result are not highlighted');
+  check(keywordRow.text.length>30&&keywordRow.text.length<=240,'search: the keyword-only snippet has an odd length ('+keywordRow.text.length+' characters)');
   await evaluate('document.querySelector("[data-close-search]").click()');
   await sleep(150);
 

@@ -26,7 +26,9 @@ function searchItemsFor(l){
   return [...hub,
     ...models.map(m=>({title:m.name,description:m[l].tagline+' · '+m.provider,category:u.models,url:url(l,`models/${m.slug}`)})),
     ...tools.map(t=>({title:t.name,description:t[l].tagline,category:u[t.category],keywords:t.license?`${u.openSource} ${t.license.name}`:'',url:url(l,`tools/${t.slug}`)})),
-    ...guides.map(g=>({title:g[l].title,description:g[l].description,keywords:g[l].sections.flatMap(s=>[s.heading,...(s.bullets||[])]).join(' '),category:u.docs,url:url(l,`docs/${g.slug}`)}))];
+    ...guides.map(g=>({title:g[l].title,description:g[l].description,// Headings and bullets are joined with a marker so the dialog can quote the
+    // matching line without running one section into the next.
+    keywords:g[l].sections.flatMap(s=>[s.heading,...(s.bullets||[])]).join(' · '),category:u.docs,url:url(l,`docs/${g.slug}`)}))];
 }
 
 const config=JSON.parse(fs.readFileSync('site.config.json','utf8'));
