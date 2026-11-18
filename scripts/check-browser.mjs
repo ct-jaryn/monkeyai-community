@@ -798,6 +798,22 @@ try{
     check(low.length===0,route+': text under AA contrast ('+low.slice(0,3).map(item=>item.ratio+':1 needs '+item.need+' — '+item.cls).join(', ')+')');
   }
 
+  // A licence name is a term of use: "GNU GPL" does not say which version a reader
+  // is bound by, and someone deciding whether a modified local build can be shared
+  // needs that version. The detail page states the SPDX name and links to the
+  // licensor, and the translated pages carry the same name with their own label.
+  const licenseProbe='JSON.stringify((()=>{const link=[...document.querySelectorAll("aside a[href]")].find(a=>a.href.indexOf("blender.org/about/license")>=0);const small=link?link.closest("small"):null;return {text:small?small.textContent.trim():"",href:link?link.getAttribute("href"):"",rel:link?link.getAttribute("rel"):"",target:link?link.getAttribute("target"):""};})())';
+  await viewport(390,844);
+  await visit('/tools/blender/');
+  const licenseRow=JSON.parse(await evaluate(licenseProbe));
+  check(/GPL-3\.0-or-later/.test(licenseRow.text),'tools: the licence line does not name the GPL version ('+licenseRow.text+')');
+  check(licenseRow.href==='https://www.blender.org/about/license/','tools: the licence name does not link to the licensor page ('+licenseRow.href+')');
+  check(licenseRow.target==='_blank'&&licenseRow.rel.indexOf('noopener')>=0,'tools: the licence link is not opened safely in a new tab');
+  await visit('/zh/tools/blender/');
+  const zhLicense=JSON.parse(await evaluate(licenseProbe));
+  check(/GPL-3\.0-or-later/.test(zhLicense.text),'tools: the Chinese licence line drops the SPDX name ('+zhLicense.text+')');
+  check(!/^License:/.test(zhLicense.text),'tools: the Chinese licence line keeps the English label ('+zhLicense.text+')');
+
   // The mobile menu and the saved-tool toggle both write to the live DOM; the shim
   // only checks the handlers, so the browser confirms the visible result.
   await viewport(390,844);

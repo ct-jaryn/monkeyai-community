@@ -593,6 +593,20 @@ for(const locale of locales){
   for(const slug of expected)expect(seen.has(slug),file,'licensed tool '+slug+' has no card on the directory page');
 }
 
+// A licence name is a term of use, not decoration. "GNU GPL" leaves the version
+// open, and a reader deciding whether a modified build can be shared needs it; a
+// spaced name is also hard to match against the SPDX identifiers the rest of the
+// data uses. Every name is therefore one SPDX-style token, a GPL carries its
+// version, and the link points at the licensor's https page.
+const SPDX_ID=/^[A-Za-z0-9][A-Za-z0-9.+-]*$/;
+for(const t of tools){
+  if(!t.license)continue;
+  expect(SPDX_ID.test(t.license.name),'src/data/tools.json','licence "'+t.license.name+'" for '+t.slug+' is not a single SPDX-style identifier');
+  if(/GPL/i.test(t.license.name))expect(/[0-9]/.test(t.license.name),'src/data/tools.json','licence "'+t.license.name+'" for '+t.slug+' names a GPL without a version');
+  expect(/^https:\/\//.test(t.license.url||''),'src/data/tools.json','licence link for '+t.slug+' is not an https URL');
+}
+
+
 // Tool pages print the date their facts were checked. A browser can only trust
 // that date if the structured data carries it too, so the two are compared page
 // by page; adding the date to the visible copy alone would leave crawlers
