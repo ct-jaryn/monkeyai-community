@@ -498,6 +498,30 @@ try{
     await evaluate('document.querySelector("[data-close-search]").click()');
     await sleep(120);
   }
+  // A quote of the matching line is only useful if it reads as one line. The
+  // character window that holds a sentence in English covers four sections in
+  // Chinese, so these two languages are asked the same question the English
+  // check above asks: does the row quote the matching bullet, and only that.
+  for(const [route,word,href] of [['/zh/','先了解工','/zh/docs/getting-started/'],['/es/','Conoce','/es/docs/getting-started/']]){
+    await viewport(1280,900);
+    await visit(route);
+    await evaluate('document.dispatchEvent(new KeyboardEvent("keydown",{key:"k",metaKey:true,ctrlKey:true,bubbles:true}))');
+    check(await until('document.querySelector("#search-dialog")?.open===true'),route+': the search dialog does not open for the snippet check');
+    await evaluate('document.querySelector("#global-search").focus()');
+    await send('Input.insertText',{text:word});
+    await evaluate('document.querySelector("#global-search").dispatchEvent(new Event("input",{bubbles:true}))');
+    check(await until('!!Array.from(document.querySelectorAll("#search-results a")).find(a=>a.getAttribute("href")==='+JSON.stringify(href)+')'),route+': searching "'+word+'" does not find '+href);
+    const rowProbe='JSON.stringify((()=>{const a=Array.from(document.querySelectorAll("#search-results a")).find(x=>x.getAttribute("href")==='+JSON.stringify(href)+');const p=a?a.querySelector("p"):null;return {text:p?p.textContent:"",cls:p?p.className:"",marks:p?p.querySelectorAll("mark").length:0};})())';
+    const row=JSON.parse(await evaluate(rowProbe));
+    check(row.cls==='search-snippet',route+': the row repeats a summary instead of quoting the matching line for "'+word+'"');
+    check(row.marks>0,route+': the quoted line does not mark the word that matched ('+word+')');
+    check(row.text.indexOf(' · ')<0,route+': the quote splices several sections together ("'+row.text.slice(0,70)+'")');
+    check(!/…$/.test(row.text),route+': a quote that ends on a section boundary still closes with an ellipsis ("'+row.text+'")');
+    check(row.text.length<120,route+': one matching bullet is quoted as '+row.text.length+' characters');
+    await evaluate('document.querySelector("[data-close-search]").click()');
+    await sleep(120);
+  }
+
   // The checks below read English copy, so leave the browser on an English page.
   await viewport(1280,900);
   await visit('/');
