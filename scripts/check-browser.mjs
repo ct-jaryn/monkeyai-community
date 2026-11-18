@@ -1427,6 +1427,27 @@ try{
     }
   }
 
+  // Two links cross a page boundary, so the DOM shim cannot see them: a URL that
+  // carries the model filter has to arrive with that filter applied, and a tool
+  // saved on its own page has to turn up in the directory's saved view.
+  await viewport(1280,1000);
+  await visit('/models/?access=open-weights');
+  const deepFilter=JSON.parse(await evaluate('JSON.stringify({pressed:[...document.querySelectorAll("[data-model-filter]")].map(b=>b.dataset.modelFilter+":"+b.getAttribute("aria-pressed")),shown:[...document.querySelectorAll("[data-model]")].filter(c=>!c.hidden).map(c=>c.dataset.access),count:document.querySelector("#model-result-count").textContent.trim()})'));
+  const pressedOnce=deepFilter.pressed.filter(p=>p.endsWith(':true'));
+  check(pressedOnce.join(',')==='open-weights:true','/models/?access=open-weights marks '+deepFilter.pressed.join(', ')+' instead of the open-weights filter alone');
+  check(deepFilter.shown.length>0&&deepFilter.shown.every(a=>a==='open-weights'),'/models/?access=open-weights lists '+deepFilter.shown.join(', ')+' cards');
+  check(deepFilter.count===String(deepFilter.shown.length),'/models/ says "'+deepFilter.count+'" while the open-weights filter leaves '+deepFilter.shown.length+' cards');
+  await evaluate('try{localStorage.removeItem("monkeyai-toolkit-v1")}catch{}');
+  await visit('/tools/cursor/');
+  check(await evaluate('!!document.querySelector("[data-save]")'),'/tools/cursor/ has no save control, so the tool cannot be added from its own page');
+  await evaluate('document.querySelector("[data-save]").click()');
+  await sleep(250);
+  await visit('/tools/?category=saved');
+  const fromDetail=JSON.parse(await evaluate('JSON.stringify([...document.querySelectorAll("#tool-grid [data-tool]")].filter(c=>!c.hidden).map(c=>c.dataset.tool))'));
+  check(fromDetail.length===1&&fromDetail[0]==='cursor','a tool saved on its own page is listed as '+fromDetail.join(', ')+' under /tools/?category=saved');
+  check(await evaluate('document.querySelector(".filter-chip[data-filter=saved] .saved-count").textContent.includes("(1)")'),'/tools/?category=saved shows no toolkit count after a save made on a detail page');
+  await evaluate('try{localStorage.removeItem("monkeyai-toolkit-v1")}catch{}');
+
   // Section ids are index based on every translation, so a reader three sections
   // into a guide who switches language should stay there instead of being sent
   // back to the top; an id the target page lacks is left off rather than dangling.
