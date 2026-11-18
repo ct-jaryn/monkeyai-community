@@ -1185,6 +1185,16 @@ try{
   await viewport(1280,900);
   await visit('/models/');
   check(await evaluate('document.querySelector("#model-result-count").parentElement.getAttribute("aria-live")==="polite"'),'models: the result count is not a live region');
+  // The model directory ends the same way: a query nobody matches still leaves the
+  // provider guides one click away.
+  await visit('/models/?q=zzzz');
+  check(await evaluate('(()=>{const a=document.querySelector("#empty-search-docs"),e=document.querySelector("#model-empty");return !e.hidden&&!a.hidden&&a.getAttribute("href")==="/docs/?q=zzzz"&&a.textContent.includes("zzzz");})()'),'/models/: an empty model search does not offer the guides');
+  await visit('/zh/models/?q=zzzz');
+  check(await evaluate('document.querySelector("#empty-search-docs").getAttribute("href")==="/zh/docs/?q=zzzz"'),'/zh/models/: the guides link is not localized');
+  await evaluate('(()=>{const i=document.querySelector("#model-search");i.value="";i.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await sleep(300);
+  check(await evaluate('document.querySelector("#empty-search-docs").hidden===true'),'/models/: the guides link stays after the query is cleared');
+  await visit('/models/');
   // A chip that only says "Open weights" makes a reader click to learn how many
   // models that is, and after a query it hides whether the access type still has
   // matches; the count answers both before the click.
