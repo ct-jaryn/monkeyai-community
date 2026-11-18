@@ -46,9 +46,10 @@ function fingerprintAsset(file){const bytes=fs.readFileSync(path.join('public',f
 const stylesheet=fingerprintAsset('styles.css');
 // Scripts run the dialog, the filters and the save buttons, and on a phone the menu
 // toggle cannot open the navigation either. With scripts blocked those controls are
-// dead, so the head carries a style that removes them and lays the navigation out in
-// the header instead; the directory and the guide index explain the rest in place.
-const noscriptStyle='<noscript><style>[data-open-search],.mobile-toggle,.filter-bar,#copy-toolkit,[data-save],.toolkit-note,.directory-toolbar .search-field,.docs-home-search .search-field{display:none!important}@media(max-width:720px){.header{height:auto}.header-inner{padding-block:12px}.mobile-nav[hidden]{display:grid!important;position:static;padding:0 0 10px;background:transparent;border:0;box-shadow:none}}</style></noscript>';
+// dead, so the head carries a style that removes them (including the copy buttons on
+// code samples) and lays the navigation out in the header instead; the directory and
+// the guide index explain the rest in place.
+const noscriptStyle='<noscript><style>[data-open-search],.mobile-toggle,.filter-bar,#copy-toolkit,[data-save],.copy-code,.toolkit-note,.directory-toolbar .search-field,.docs-home-search .search-field{display:none!important}@media(max-width:720px){.header{height:auto}.header-inner{padding-block:12px}.mobile-nav[hidden]{display:grid!important;position:static;padding:0 0 10px;background:transparent;border:0;box-shadow:none}}</style></noscript>';
 // Both variable faces are painted above the fold on every page (Manrope sets the
 // headings, DM Sans the body). Announcing them early lets the download run
 // alongside the stylesheet instead of waiting for it to parse; crossorigin matches

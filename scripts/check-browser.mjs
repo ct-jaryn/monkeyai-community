@@ -1264,6 +1264,14 @@ try{
       check(noJs.models>=10,label+': only '+noJs.models+' model cards render without scripts');
     }
   }
+  // Every button on this site is run by the script: with it blocked a visible one
+  // is a control that cannot do anything, whatever page it sits on.
+  for(const route of ['/','/tools/','/models/','/docs/','/docs/install-with-official-installer/','/models/compare/','/404.html']){
+    await viewport(1280,900);
+    await visit(route);
+    const dead=JSON.parse(await evaluate(`JSON.stringify([...document.querySelectorAll('button,[role="button"],[onclick]')].filter(el=>{const box=el.getBoundingClientRect();const cs=getComputedStyle(el);return box.width>0&&box.height>0&&cs.display!=='none'&&cs.visibility!=='hidden';}).map(el=>(el.className||el.id||el.tagName)+' '+(el.textContent||'').trim().slice(0,20)))`));
+    check(dead.length===0,route+': '+dead.length+' button(s) stay clickable with no script to run them ('+dead.slice(0,3).join(', ')+')');
+  }
   await send('Emulation.setScriptExecutionDisabled',{value:false});
 }catch(error){
   failures.push('harness error: '+error.message);

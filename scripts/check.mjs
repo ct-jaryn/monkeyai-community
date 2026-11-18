@@ -956,6 +956,7 @@ for(const [selector,background] of contrastPairs){
 const noscriptHead=/<noscript><style>[^<]*\[data-open-search\][^<]*\.mobile-nav\[hidden\]\{display:grid!important[^<]*<\/style><\/noscript>/;
 for(const file of ['index.html','tools/index.html','models/index.html','docs/index.html','404.html','zh/tools/index.html','es/models/index.html']){
   expect(noscriptHead.test(read('dist/'+file)),file,'the no-script style is missing, does not drop the dead search trigger, or no longer reveals the mobile navigation');
+  expect(read('dist/'+file).includes('.copy-code'),file,'the code copy buttons are not hidden when scripts cannot run');
 }
 for(const [file,locale,key] of [['tools/index.html','en','noScriptList'],['models/index.html','en','noScriptList'],['docs/index.html','en','noScriptDocs'],['zh/tools/index.html','zh','noScriptList'],['zh/docs/index.html','zh','noScriptDocs'],['es/models/index.html','es','noScriptList'],['es/docs/index.html','es','noScriptDocs']]){
   const html=read('dist/'+file);
