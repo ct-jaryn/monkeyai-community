@@ -4,14 +4,20 @@
 
 An independent, multilingual community for practical MonkeyAI guides, AI tools and model discovery. Explore the website at [monkeyai.online](https://monkeyai.online/). English, 简体中文 and Español are available.
 
-**Everyone is welcome to help maintain the site.** Suggest an AI tool or a GitHub repository, report a problem, improve a guide or translation, or open a pull request:
+## Overview
 
-- [Prepare an email draft for a tool suggestion](mailto:contact@monkeyai.online?subject=MonkeyAI%20Community%20tool%20suggestion) (this opens a draft; it is not delivered until you send it)
-- [Report a website issue](https://github.com/ct-jaryn/monkeyai-community/issues/new?template=bug-report.yml)
-- [Browse issues](https://github.com/ct-jaryn/monkeyai-community/issues) and [pull requests](https://github.com/ct-jaryn/monkeyai-community/pulls)
-- Read [CONTRIBUTING.md](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md), and the [security policy](SECURITY.md)
+This repository holds the source of the community website: a static, dependency-free site generator plus the English, Chinese and Spanish content behind it. It publishes practical guides, a tool directory, sourced model-family profiles and community pages, and it documents how listings are reviewed so that a listing reads as a reviewed record rather than an advertisement.
 
-欢迎推荐 AI 工具和 GitHub 仓库，也欢迎提交 Issue、PR、文档与翻译。Puedes proponer herramientas y repositorios, informar de problemas y mejorar el sitio en español.
+- **Live:** https://monkeyai.online/
+- **Stack:** Node.js static generator (`scripts/build.mjs`), no npm dependencies, no runtime framework
+- **Deploy:** Cloudflare Workers static assets (`deploy/cloudflare-workers/`)
+- **Languages:** `en`, `zh`, `es`
+
+This is an enthusiast community, independent of Chaitin and the upstream [MonkeyCode](https://github.com/chaitin/MonkeyCode) project. Product issues belong in the upstream tracker; this repository maintains the community website and directory. A listing or contribution does not imply endorsement by the original project or its maintainers.
+
+## Listing and sponsorship terms
+
+These paragraphs are part of the published policy and are asserted by `scripts/check-community.mjs`; edit them in all three languages together.
 
 AI tools from small companies, startups and independent developers can apply for free review by emailing contact@monkeyai.online. Review follows queue order, with no fixed date and no guarantee of approval. A GitHub account is not required. Products from large or well-known companies are not eligible for free review and need a paid listing, starting at Express for $7. Non-AI tools need the same paid listing. A labelled home-page feature is $15 for 30 days. An approved listing may also be listed on our related sister directories. Current price, refund, and placement terms are on the [sponsor page](https://globalaiproductindex.com/sponsors/#express-listing). Listing pages describe purpose and limits honestly, or say that a limit is unknown, and include a disclaimer. This site does not own, operate, or endorse third-party products. Visitors judge legality, copyright, platform terms, privacy, and security. Paid placements are labelled Sponsored. These notes do not claim to remove legal responsibility. The mailto link only prepares a draft and nothing is delivered until you send it. Code changes still use pull requests.
 
@@ -19,39 +25,7 @@ AI tools from small companies, startups and independent developers can apply for
 
 Las herramientas de IA de empresas pequeñas, startups y desarrolladores independientes pueden solicitar la revisión gratuita escribiendo a contact@monkeyai.online, sin cuenta de GitHub. La revisión sigue el orden de la cola, sin fecha fija y sin garantía de aprobación. Los productos de empresas grandes o conocidas no pueden optar a la revisión gratuita y necesitan una ficha de pago, desde Express a 7 USD. Las herramientas que no son de IA necesitan la misma ficha de pago. La portada etiquetada cuesta 15 USD por 30 días, según las condiciones vigentes. Una ficha aprobada puede figurar también en nuestros directorios hermanos relacionados. Cada ficha describe con honestidad el uso y los límites conocidos, o que son desconocidos, e incluye un aviso. Este sitio no posee, no opera ni respalda productos de terceros. Quien visita juzga legalidad, derechos de autor, condiciones, privacidad y seguridad. Lo pagado se marca como Sponsored. Estas notas no eliminan la responsabilidad legal. El enlace mailto solo prepara un borrador y no se entrega hasta que lo envías. Los cambios de código siguen en pull requests.
 
-This is an enthusiast community, independent of Chaitin and the upstream [MonkeyCode](https://github.com/chaitin/MonkeyCode) project. Product issues belong in the upstream tracker; this repository maintains the community website and directory. A listing or contribution does not imply endorsement by the original project or its maintainers.
-
-## Run locally
-
-Requires Node.js 20+ and Python 3. There are no npm dependencies to install. `scripts/check-search.mjs` runs the delivered browser script against a small DOM shim, so the search dialog and the guide-index filter are tested without installing a browser. It also fails when the client script reads an interface string that the page data does not carry, because that omission once left the dialog silent. The same run compares the four interface tables key by key across English, Chinese and Spanish: a string that exists in one language and not another falls back to English, or to nothing, at the point where a visitor needs it, so a missing or blank translation is a failed check. The two woff2 files in `public/fonts` are the Latin subsets of the DM Sans and Manrope variable families, so the intermediate weights the stylesheet asks for (550, 650, 750) lay out as written instead of snapping to the nearest static file. `npm run check` fails when page text uses a character the subsets no longer cover (CJK and symbols such as ≠ render from system fonts). The subsets carry only the characters the built pages print, because every unused glyph still ships an outline and a delta set per weight: `python3 scripts/subset-fonts.py` reads `dist/` and rewrites both fonts with `docs/font-coverage.json`, and it takes `--from DIR` with the full upstream files when new text needs a glyph that was cut. `npm run check:browser` also fails if a page fetches more than two font files or if weight 550 lays out exactly like 600, which is what a lost weight axis looks like. The brand mark ships as a 256px WebP with the 128px PNG kept as the fallback and touch icon, so `check:browser` fails when a modern browser downloads the PNG or when the tab icon is the full-size logo. Raster tool logos ship a WebP twin beside the original PNG and the directory must render that twin: `check:browser` fails when a tool card falls back to the PNG or when the raster logos on `/tools/` add up to more than 20KB. A tool that publishes a licence prints it on its directory card (an open-source tag alone does not say MIT or GPL), and the card is indexed by that name, so typing `GPL` in the directory's own search box returns the GPL tools instead of an empty state while the dialog lists them: `npm run check` and `npm run check:browser` both fail if the licence line or that search term disappears. Every run also prints the shipped sizes and fails on a stylesheet over 80 KB, a client script over 40 KB, a search index over 120 KB, or a page over 120 KB, so a duplicated asset shows up as a failed check instead of a slower page. An `aside` is a complementary landmark, and two unnamed ones on a page are read out identically, so every aside must carry a name that resolves to a heading on the page.
-
-```sh
-npm run build
-npm run check
-npm run dev
-```
-
-Open `http://127.0.0.1:4173/`. Build generates static output in `dist/` and `route-manifest.json`. **It clears `dist/` on every build:** work in a clean checkout and back up any local-only files there first. The preview server handles directory URLs and missing pages.
-
-## Look at the result
-
-A local Chrome can render the built site without any automation server, which is how layout and breakpoints get checked in environments without a browser integration:
-
-```sh
-cd dist && python3 -m http.server 8797 --bind 127.0.0.1 &
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new --disable-gpu --hide-scrollbars --user-data-dir=/tmp/mai-chrome \
-  --window-size=1120,1100 --screenshot=/tmp/page.png \
-  http://127.0.0.1:8797/docs/getting-started/
-```
-
-Headless Chrome refuses to lay out narrower than 500 CSS pixels from the command line, so the screenshot flag cannot reach phone widths; `npm run check:browser` overrides the viewport through the DevTools protocol instead.
-
-`npm run check:browser` starts its own local server and a throwaway Chrome profile, then drives the site the way a visitor would: phone-width pages must not scroll sideways and their controls must stay at least 24 px tall, the keyboard shortcut must open search, load results and announce how many matched, a query with more matches than fit one page must reveal the rest on request in the page's language (twelve used to be the end of the road while the count said thirty-two), Enter must open the top result, Escape must close it and return focus to the trigger, Tab must stay inside the dialog, the first Tab on a page must reveal the skip link and the first twelve stops must each paint a two-pixel ring, a blank dialog must offer topics that really match and mark the typed word in what it returns, a failed index request must offer a retry that keeps the query, the guide contents must appear at exactly one width and must mark the section the reader is in, a code sample that scrolls sideways must be reachable with the keyboard, a filtered guide index must land on a heading when nothing matches and return focus to the search box when cleared, the mobile menu must open, close on Escape and on a click outside, and mark the section the visitor is already in with a name and a different colour that still passes AA, the language menu must close on Escape and return focus to its summary, opening search must close the navigation menu, a missing page must still offer working search, a filtered guide index must survive a shared link, saving a tool must reach storage and be counted in the directory while a save whose tool is no longer listed is dropped from storage instead of being counted above an empty list, a refused clipboard must show a labelled, already-selected list where the click happened so one copy key finishes the job, printing a guide must drop the site header, footer, sidebar and in-page contents and print code samples in full instead of a clipped scroll box, the selected filter must carry a tick as well as a fill so its state survives high-contrast modes and monochrome printing, the comparison matrix must keep its model-name column at the left edge when a phone reader scrolls it sideways, no visible text may fall below AA contrast against the colour it is painted on (apart from text inside an illustration), while filtering either directory must announce the new count and call a single tool or model family singular. On a heavily loaded machine Chrome can take over a minute to open its debugging port, so the startup wait is configurable: `CHECK_BROWSER_START_MS=120000 npm run check:browser`. It exits 0 with `"status": "skipped"` when no Chrome or Chromium is found, and it is not part of `npm run check` because the rest of the checks must run without a browser.
-
-Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials. The public Workers static-asset files for the live site are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository.
-
-## Project layout
+## Repository layout
 
 | Path | Purpose |
 | --- | --- |
@@ -66,8 +40,69 @@ Search-engine verification values are optional. For a deployment that needs them
 | `deploy/cloudflare-workers/` | Live Workers static-asset config. No zone credentials or tokens. |
 | `docs/logo-sources.json`, `docs/research/` | Asset provenance and source research |
 
+## Getting started
+
+Requires Node.js 20+ and Python 3. There are no npm dependencies to install.
+
+```sh
+npm run build
+npm run check
+npm run dev
+```
+
+Open `http://127.0.0.1:4173/`. Build generates static output in `dist/` and `route-manifest.json`.
+
+**The build clears `dist/` on every run:** work in a clean checkout and back up any local-only files there first. The preview server handles directory URLs and missing pages.
+
+Search-engine verification values are optional. For a deployment that needs them, provide `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` as environment variables, or use an ignored `site.config.local.json` on your own machine. Do not commit local settings or credentials.
+
+## Verification
+
+| Command | What it checks |
+| --- | --- |
+| `npm run build` | Regenerates `dist/` and `route-manifest.json` from `src/` |
+| `npm run check` | Runs the whole `scripts/check*.mjs` chain: site output, search behaviour, AI-robots, community links, language parity, Worker config and deploy config |
+| `npm run check:browser` | Drives the built site in a throwaway Chrome profile: phone-width layout, 24 px minimum control height, search and keyboard flows, focus rings, mobile menu, language menu, print styles |
+
+`scripts/check-search.mjs` runs the delivered browser script against a small DOM shim, so the search dialog and the guide-index filter are tested without installing a browser. It also fails when the client script reads an interface string that the page data does not carry. The same run compares the interface tables key by key across English, Chinese and Spanish, so a blank or missing translation is a failed check.
+
+Fonts: the two woff2 files in `public/fonts` are Latin subsets of the DM Sans and Manrope variable families. `npm run check` fails when page text uses a character the subsets no longer cover (CJK and symbols such as ≠ render from system fonts). `python3 scripts/subset-fonts.py` reads `dist/` and rewrites both fonts with `docs/font-coverage.json`; it takes `--from DIR` with the full upstream files when new text needs a glyph that was cut.
+
+`npm run check:browser` starts its own local server and a throwaway Chrome profile, then drives the site the way a visitor would. It also fails when a page fetches more than two font files or when weight 550 lays out exactly like 600, and when a tool card falls back to a PNG twin or the raster logos on `/tools/` exceed 20KB.
+
+A local Chrome can render the built site without any automation server:
+
+```sh
+cd dist && python3 -m http.server 8797 --bind 127.0.0.1 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --hide-scrollbars --user-data-dir=/tmp/mai-chrome \
+  --window-size=1120,1100 --screenshot=/tmp/page.png \
+  http://127.0.0.1:8797/docs/getting-started/
+```
+
+Headless Chrome refuses to lay out narrower than 500 CSS pixels from the command line, so the screenshot flag cannot reach phone widths; `npm run check:browser` overrides the viewport through the DevTools protocol instead.
+
+## Deployment
+
+The live site is served from Cloudflare Workers static assets. The public Workers static-asset files are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository.
+
+`scripts/check-deploy.mjs` validates the deploy configuration as part of `npm run check`, so a change that would break the published asset layout fails locally before it reaches the zone. The `Build and check` workflow (`.github/workflows/check.yml`) is manual only; it does not deploy.
+
 ## Privacy, licensing and safety
 
 The site has no account system. Saved tools use browser localStorage and search runs locally. The hosting provider may process request logs or provide analytics; see the live site's About page. Never submit credentials, private URLs, personal data or confidential logs to this public repository.
+
+## Contributing
+
+**Everyone is welcome to help maintain the site.** Suggest an AI tool or a GitHub repository, report a problem, improve a guide or translation, or open a pull request:
+
+- [Prepare an email draft for a tool suggestion](mailto:contact@monkeyai.online?subject=MonkeyAI%20Community%20tool%20suggestion) (this opens a draft; it is not delivered until you send it)
+- [Report a website issue](https://github.com/ct-jaryn/monkeyai-community/issues/new?template=bug-report.yml)
+- [Browse issues](https://github.com/ct-jaryn/monkeyai-community/issues) and [pull requests](https://github.com/ct-jaryn/monkeyai-community/pulls)
+- Read [CONTRIBUTING.md](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md), and the [security policy](SECURITY.md)
+
+欢迎推荐 AI 工具和 GitHub 仓库，也欢迎提交 Issue、PR、文档与翻译。Puedes proponer herramientas y repositorios, informar de problemas y mejorar el sitio en español.
+
+## License
 
 Original repository contributions are available under the [MIT License](LICENSE). Third-party logos, trademarks and fonts have separate terms; see [THIRD_PARTY.md](THIRD_PARTY.md). Guides are independent summaries and do not replace the official documentation. Tool listings are reviewed and are not endorsements or paid rankings.
