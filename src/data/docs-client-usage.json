@@ -1,5 +1,326 @@
 [
   {
+    "slug": "choose-a-monkeyai-client",
+    "category": "Start here",
+    "docGroup": "start",
+    "reviewed": "2026-11-26",
+    "readMinutes": 8,
+    "sourceUrls": [
+      "https://work.baizhi.cloud/#clients",
+      "https://github.com/chaitin/MonkeyCode/blob/main/README.md",
+      "https://demo.work.baizhi.cloud/",
+      "https://apps.apple.com/cn/app/id6829699295",
+      "https://release.monkeycode-ai.com/public/monkeyai/mobile/apk/MonkeyAI-latest.apk",
+      "https://release.monkeycode-ai.com/public/monkeyai/desktop/win7/x64/MonkeyAI-latest-win7-x64.exe",
+      "https://release.monkeycode-ai.com/public/monkeyai/desktop/linux/x64/MonkeyAI-latest-linux-amd64.deb",
+      "https://release.monkeycode-ai.com/public/monkeyai/desktop/linux/arm64/MonkeyAI-latest-linux-arm64.AppImage",
+      "https://release.monkeycode-ai.com/public/monkeyai/desktop/linux/arm64/MonkeyAI-latest-linux-arm64.deb"
+    ],
+    "en": {
+      "title": "Choose a MonkeyAI client",
+      "description": "Pick a browser demo, desktop package, phone client, or your own server from the labels checked on 2026-11-26.",
+      "sections": [
+        {
+          "heading": "Choose by the job, not by a stale list",
+          "paragraphs": [
+            "Open the browser demo when you want to try MonkeyAI, called 百智办公 in Chinese, without installing anything. Install a desktop client when the work stays on a computer you control. Use a phone client only where the official download section currently offers one. Host the server yourself when the team must administer the machine. The official homepage checked on 2026-11-26 and the GitHub README checked the same day do not list the same platforms.",
+            "This page is for someone deciding how to open the product. It is not a price list, a seat limit, or a ranking against other products. The homepage also shows a free and paid plan table and a comparison with other products. Those figures and comparisons are not copied here. This site did not negotiate or test them, and plan terms stay on the official site."
+          ],
+          "bullets": [
+            "The browser demo is a shared environment. Do not upload sensitive files.",
+            "A download label is not a test. This page did not install the clients."
+          ]
+        },
+        {
+          "heading": "What the download section offered on 2026-11-26",
+          "paragraphs": [
+            "The table follows the client controls on the official homepage, in the section marked clients, as saved on 2026-11-26. A control with an empty address and the label 敬请期待 does not download anything. Linux x64 and Linux ARM are menus labeled 选择下载格式, and each menu links an AppImage and a deb package. UnionTech UOS links the Linux x64 AppImage. Kylin has no file on the page; the label is the Kylin app market.",
+            "The README in chaitin/MonkeyCode on the same date still lists only the browser demo, Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64. It marks Android, iOS, Linux ARM64, and HarmonyOS desktop as coming soon, and it does not mention the Windows 7 build, UnionTech UOS, Kylin, or HarmonyOS phone. When the two pages disagree, use the download section you can open that day, and look again before you forward a link.",
+            "Requests on 2026-11-26 for the Android package, the Windows 7 installer, the Linux x64 deb, and the Linux ARM AppImage and deb each returned HTTP 200. The Android response was an Android package of 42,786,493 bytes, last modified 2026-11-23 06:04:11 GMT. Those files were not installed, so a successful response does not establish what the app can do."
+          ],
+          "bullets": [
+            "Send people to the current download section, not to a copied installer address.",
+            "Record the date you looked. These labels were different on 2026-11-10."
+          ],
+          "table": {
+            "caption": "Official homepage client controls checked on 2026-11-26. The packages were not installed.",
+            "headers": [
+              "Entry",
+              "Open it when",
+              "Do not assume"
+            ],
+            "rows": [
+              [
+                "Web demo",
+                "You want to try a task in the browser. The control opens demo.work.baizhi.cloud.",
+                "It is a shared demo, not your team's server."
+              ],
+              [
+                "Windows x64 and Win7 x64",
+                "The computer is 64-bit Windows, or it needs the separate Windows 7 installer.",
+                "The two installers are different files. The README lists only Windows x64."
+              ],
+              [
+                "macOS Apple Silicon and Intel",
+                "The Mac uses Apple Silicon or Intel. The homepage links a disk image for each.",
+                "The iPhone store listing is not a Mac download."
+              ],
+              [
+                "Linux x64, Linux ARM, UOS, Kylin",
+                "You need Linux x64, Linux ARM64, or UnionTech UOS. UOS uses the x64 AppImage.",
+                "Kylin has no direct file on this page. HarmonyOS is not in this row."
+              ],
+              [
+                "Android",
+                "You intend to use the Android control on the homepage.",
+                "HTTP 200 and a package type do not prove the same features as the desktop client."
+              ],
+              [
+                "iOS on the China App Store",
+                "The iPhone can open the China listing 百智办公平台, id 6829699295.",
+                "The listing checked the same day says iPhone, iOS 16.6 or later, Simplified and Traditional Chinese, developer 北京长亭科技有限公司, and a free label on that store page. It also says the app was not verified for macOS, and lists macOS 13.5 or later on Apple silicon if a Mac runs it. Other countries' stores were not checked. A store free label is not the team's plan."
+              ],
+              [
+                "HarmonyOS phone and desktop",
+                "You need a native HarmonyOS client.",
+                "Both controls are disabled and labeled coming soon. There is no file on the page."
+              ],
+              [
+                "Your own server",
+                "The team must administer the server. The homepage and the README both call 1 CPU core and 1 GB of RAM a lightweight start, and both show a one-line installer that passes curl -k.",
+                "That memory line is not a capacity guarantee. Use Install MonkeyAI on Linux with the official installer, which keeps TLS verification on and asks you to read the script first."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Keep phone apps and remote control apart",
+          "paragraphs": [
+            "Settings, then Device, can let another signed-in computer drive a desktop session that is already running. An account guide reviewed on 2026-11-10 said a phone using that path only reaches the desktop client. That sentence is about the remote-control setting, not about whether a store listing exists.",
+            "The China App Store description checked on 2026-11-26 says the iPhone app can connect to the computer and take over a task that is already running there. This page did not install the app, so that sentence is the store's claim, not a result from this community. A remote desktop session does not prove that every desktop feature exists on the phone."
+          ],
+          "bullets": [
+            "Leave the desktop awake if someone will drive that session from elsewhere.",
+            "Read Manage accounts, devices and local settings before you turn remote access on."
+          ]
+        },
+        {
+          "heading": "What to do next",
+          "paragraphs": [
+            "Open the official homepage and read the download control for your system before you copy a link into a chat. If the label is coming soon, stop. If you only need to judge the product, follow Try the hosted demo before installing anything and use sample files. If you need a server the team controls, follow Install MonkeyAI on Linux with the official installer.",
+            "This community site does not operate the demo, the store listing, or the release files. Ask the administrator which models and tools receive task content before you upload anything confidential."
+          ],
+          "bullets": [
+            "Use the server address your administrator gave you for a real team. Use the demo address only while learning.",
+            "Check the download section again on the day you send the link."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "选择 MonkeyAI 客户端",
+      "description": "按 2026-11-26 核对的标注，在浏览器演示、桌面安装包、手机客户端和自建服务器之间选择。",
+      "sections": [
+        {
+          "heading": "按要完成的事选择，不要沿用过期名单",
+          "paragraphs": [
+            "只想先试用 MonkeyAI（中文产品名百智办公）、暂时不安装时，打开浏览器演示。工作留在自己控制的电脑上时，安装桌面客户端。只有官网下载区当前提供手机客户端时，才使用手机端。团队必须自己管理服务器时，再自行部署。2026-11-26 核对的官网首页和同一天核对的 GitHub README，列出的平台并不相同。",
+            "本页帮助决定从哪里进入产品。它不是价格表，不写席位上限，也不给其他产品排名。官网首页另有免费版与付费版对照，以及和其他产品的比较。那些数字和比较没有抄到这里。本站没有洽谈或测试那些方案，方案条款以官网当前页面为准。"
+          ],
+          "bullets": [
+            "浏览器演示是共享环境，不要上传敏感文件。",
+            "下载标注不是实测。本页没有安装这些客户端。"
+          ]
+        },
+        {
+          "heading": "2026-11-26 下载区实际提供什么",
+          "paragraphs": [
+            "下表对应官网首页 clients 区块在 2026-11-26 保存下来的客户端控件。地址为空且标注「敬请期待」的控件不会下载文件。Linux x64 和 Linux ARM 是标注为「选择下载格式」的菜单，每个菜单都链到 AppImage 和 deb。统信 UOS 指向 Linux x64 的 AppImage。银河麒麟在该页没有文件，标注是麒麟应用市场。",
+            "同一天的 chaitin/MonkeyCode README 仍只列出浏览器演示、Windows x64、macOS Apple Silicon、macOS Intel 和 Linux x64。它把 Android、iOS、Linux ARM64 和鸿蒙桌面标为敬请期待，并且没有提到 Windows 7 兼容版、统信 UOS、银河麒麟或鸿蒙手机。两页不一致时，以你当天能打开的下载区为准，转发链接前再看一次。",
+            "2026-11-26 请求 Android 安装包、Windows 7 安装包、Linux x64 的 deb，以及 Linux ARM 的 AppImage 和 deb，均返回 HTTP 200。Android 的响应是一个 Android 安装包，大小为 42,786,493 字节，Last-Modified 为 2026-11-23 06:04:11 GMT。这些文件都没有安装，因此响应成功并不能说明应用能做什么。"
+          ],
+          "bullets": [
+            "把人指到当前下载区，不要转发复制下来的安装包地址。",
+            "记下查看日期。2026-11-10 的标注与这次不同。"
+          ],
+          "table": {
+            "caption": "2026-11-26 核对的官网首页客户端控件。安装包未安装。",
+            "headers": [
+              "入口",
+              "适合什么时候打开",
+              "不要默认"
+            ],
+            "rows": [
+              [
+                "浏览器演示",
+                "想在浏览器里试一项任务。该控件打开 demo.work.baizhi.cloud。",
+                "它是共享演示，不是你的团队服务器。"
+              ],
+              [
+                "Windows x64 与 Win7 x64",
+                "电脑是 64 位 Windows，或者需要单独的 Windows 7 兼容安装包。",
+                "两个安装包是不同文件。README 只列出 Windows x64。"
+              ],
+              [
+                "macOS Apple Silicon 与 Intel",
+                "Mac 是 Apple Silicon 或 Intel。首页分别为两者提供磁盘镜像。",
+                "iPhone 的商店页面不是 Mac 下载。"
+              ],
+              [
+                "Linux x64、Linux ARM、UOS、麒麟",
+                "需要 Linux x64、Linux ARM64 或统信 UOS。UOS 使用 x64 AppImage。",
+                "麒麟在本页没有直接文件。鸿蒙不在这一行。"
+              ],
+              [
+                "Android 客户端",
+                "准备使用首页上的 Android 控件。",
+                "HTTP 200 和安装包类型不能证明它与桌面客户端功能相同。"
+              ],
+              [
+                "中国区 App Store 的 iOS",
+                "iPhone 可以打开中国区页面「百智办公平台」，id 为 6829699295。",
+                "同一天核对的页面写明适用于 iPhone，系统为 iOS 16.6 或更高版本，语言为简体中文和繁体中文，开发者是北京长亭科技有限公司，并在该商店页标为免费。页面还写明未针对 macOS 验证；若在 Mac 上运行，则列出 macOS 13.5 或更高版本以及 Apple 芯片。其他国家或地区的商店没有核对。商店上的免费标注不是团队方案。"
+              ],
+              [
+                "鸿蒙手机与鸿蒙桌面",
+                "需要鸿蒙原生客户端。",
+                "两个控件都已禁用，并标注敬请期待。页面上没有文件。"
+              ],
+              [
+                "自建服务器",
+                "团队必须自己管理服务器。首页和 README 都把 1 核 CPU 与 1 GB 内存称为轻量起步，并都给出带 curl -k 的一行安装命令。",
+                "这行内存说明不是容量保证。请使用本站《使用官方安装器在 Linux 上安装 MonkeyAI》，该指南保留 TLS 证书校验，并要求先阅读脚本。"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "把手机应用和远程控制分开",
+          "paragraphs": [
+            "「设置 → 设备」可以让另一台已登录的电脑操控一台正在运行的桌面会话。2026-11-10 复核的账号指南说，手机走这条路径时只是访问这台桌面客户端。那句话说的是远程控制开关，不是商店里有没有客户端。",
+            "2026-11-26 核对的中国区 App Store 描述说，iPhone 应用可以连接电脑，并接管电脑上已经在执行的任务。本页没有安装该应用，因此这句话是商店的说明，不是本社区的实测结果。远程桌面会话不能证明手机端具备每一项桌面功能。"
+          ],
+          "bullets": [
+            "如果有人要从别处操控这台桌面，请让它保持唤醒。",
+            "打开远程访问之前，先读《管理账号、设备与本机设置》。"
+          ]
+        },
+        {
+          "heading": "接下来做什么",
+          "paragraphs": [
+            "把链接发到聊天之前，先打开官网首页，看你这台系统对应的下载控件。如果标注是敬请期待，就停在这里。如果只想判断产品是否合适，按《先试用免部署 Demo，再决定是否安装》操作，并使用示例文件。如果团队需要自己管理服务器，按《使用官方安装器在 Linux 上安装 MonkeyAI》操作。",
+            "本社区站点不运营演示环境、商店页面或发布文件。上传机密资料之前，先问管理员任务内容会发给哪些模型和工具。"
+          ],
+          "bullets": [
+            "正式团队使用管理员提供的服务器地址。演示地址只在学习时使用。",
+            "在发送链接的当天再看一次下载区。"
+          ]
+        }
+      ]
+    },
+    "es": {
+      "title": "Elige un cliente de MonkeyAI",
+      "description": "Elige la demo en el navegador, un paquete de escritorio, un cliente de teléfono o tu propio servidor según las etiquetas revisadas el 2026-11-26.",
+      "sections": [
+        {
+          "heading": "Elige según la tarea, no según una lista antigua",
+          "paragraphs": [
+            "Abre la demo del navegador cuando quieras probar MonkeyAI, llamado 百智办公 en chino, sin instalar nada. Instala un cliente de escritorio cuando el trabajo se quede en un ordenador que controlas. Usa un cliente de teléfono solo donde la sección oficial de descargas lo ofrezca ahora. Aloja el servidor tú mismo cuando el equipo deba administrarlo. La página oficial revisada el 2026-11-26 y el README de GitHub revisado el mismo día no enumeran las mismas plataformas.",
+            "Esta página sirve para decidir cómo abrir el producto. No es una lista de precios, un límite de puestos ni una clasificación frente a otros productos. La página oficial también muestra una tabla de planes gratuito y de pago y una comparación con otros productos. Esas cifras y comparaciones no se copian aquí. Este sitio no las negoció ni las probó, y las condiciones siguen en el sitio oficial."
+          ],
+          "bullets": [
+            "La demo del navegador es un entorno compartido. No subas archivos sensibles.",
+            "Una etiqueta de descarga no es una prueba. Esta página no instaló los clientes."
+          ]
+        },
+        {
+          "heading": "Qué ofrecía la sección de descargas el 2026-11-26",
+          "paragraphs": [
+            "La tabla sigue los controles de cliente de la página oficial, en la sección clients, tal como se guardó el 2026-11-26. Un control con la dirección vacía y la etiqueta 敬请期待 no descarga nada. Linux x64 y Linux ARM son menús etiquetados 选择下载格式, y cada menú enlaza un AppImage y un paquete deb. UnionTech UOS enlaza el AppImage de Linux x64. Kylin no tiene archivo en la página; la etiqueta es el mercado de aplicaciones Kylin.",
+            "El README de chaitin/MonkeyCode en la misma fecha sigue incluyendo solo la demo del navegador, Windows x64, macOS Apple Silicon, macOS Intel y Linux x64. Marca Android, iOS, Linux ARM64 y el escritorio HarmonyOS como próximos, y no menciona la versión para Windows 7, UnionTech UOS, Kylin ni el teléfono HarmonyOS. Cuando las dos páginas no coincidan, usa la sección de descargas que puedas abrir ese día y vuelve a mirarla antes de reenviar un enlace.",
+            "Las solicitudes del 2026-11-26 del paquete Android, el instalador de Windows 7, el deb de Linux x64 y el AppImage y el deb de Linux ARM devolvieron HTTP 200. La respuesta de Android fue un paquete Android de 42.786.493 bytes, con Last-Modified 2026-11-23 06:04:11 GMT. Esos archivos no se instalaron, así que una respuesta correcta no establece lo que hace la aplicación."
+          ],
+          "bullets": [
+            "Envía a la gente a la sección de descargas actual, no a una dirección de instalador copiada.",
+            "Anota la fecha en que miraste. El 2026-11-10 las etiquetas eran distintas."
+          ],
+          "table": {
+            "caption": "Controles de cliente de la página oficial revisados el 2026-11-26. Los paquetes no se instalaron.",
+            "headers": [
+              "Entrada",
+              "Ábrela cuando",
+              "No des por hecho"
+            ],
+            "rows": [
+              [
+                "Demo web",
+                "Quieres probar una tarea en el navegador. El control abre demo.work.baizhi.cloud.",
+                "Es una demo compartida, no el servidor de tu equipo."
+              ],
+              [
+                "Windows x64 y Win7 x64",
+                "El ordenador es Windows de 64 bits o necesita el instalador aparte compatible con Windows 7.",
+                "Los dos instaladores son archivos distintos. El README solo incluye Windows x64."
+              ],
+              [
+                "macOS Apple Silicon e Intel",
+                "El Mac usa Apple Silicon o Intel. La página enlaza una imagen de disco para cada uno.",
+                "La ficha de iPhone en la tienda no es una descarga para Mac."
+              ],
+              [
+                "Linux x64, Linux ARM, UOS y Kylin",
+                "Necesitas Linux x64, Linux ARM64 o UnionTech UOS. UOS usa el AppImage x64.",
+                "Kylin no tiene un archivo directo en esta página. HarmonyOS no está en esta fila."
+              ],
+              [
+                "Cliente Android",
+                "Vas a usar el control de Android de la página oficial.",
+                "Un HTTP 200 y un tipo de paquete no demuestran las mismas funciones que el cliente de escritorio."
+              ],
+              [
+                "iOS en el App Store de China",
+                "El iPhone puede abrir la ficha de China 百智办公平台, id 6829699295.",
+                "La ficha revisada el mismo día indica iPhone, iOS 16.6 o posterior, chino simplificado y tradicional, desarrollador 北京长亭科技有限公司 y una etiqueta de gratis en esa página de la tienda. También dice que la app no se verificó para macOS y, si se ejecuta en un Mac, indica macOS 13.5 o posterior con chip de Apple. No se comprobaron las tiendas de otros países. La etiqueta gratis de la tienda no es el plan del equipo."
+              ],
+              [
+                "Teléfono y escritorio HarmonyOS",
+                "Necesitas un cliente nativo de HarmonyOS.",
+                "Los dos controles están desactivados y etiquetados como próximos. No hay archivo en la página."
+              ],
+              [
+                "Tu propio servidor",
+                "El equipo debe administrar el servidor. La página oficial y el README llaman a 1 núcleo de CPU y 1 GB de RAM un inicio ligero, y ambos muestran un instalador de una línea que usa curl -k.",
+                "Esa cifra de memoria no es una garantía de capacidad. Usa Instala MonkeyAI en Linux con el instalador oficial, que mantiene la verificación TLS y pide leer el script antes."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Separa las apps de teléfono del control remoto",
+          "paragraphs": [
+            "Ajustes y luego Dispositivo pueden permitir que otro ordenador con la sesión iniciada maneje una sesión de escritorio que ya se está ejecutando. Una guía de cuentas revisada el 2026-11-10 decía que un teléfono que usa esa vía solo alcanza el cliente de escritorio. Esa frase habla del ajuste de control remoto, no de si existe una ficha en la tienda.",
+            "La descripción del App Store de China revisada el 2026-11-26 dice que la app de iPhone puede conectarse al ordenador y tomar una tarea que ya se esté ejecutando allí. Esta página no instaló la app, así que esa frase es la afirmación de la tienda, no un resultado de esta comunidad. Una sesión de escritorio remoto no demuestra que todas las funciones de escritorio existan en el teléfono."
+          ],
+          "bullets": [
+            "Deja el escritorio despierto si alguien va a manejar esa sesión desde otro sitio.",
+            "Lee Gestiona cuentas, dispositivos y ajustes locales antes de activar el acceso remoto."
+          ]
+        },
+        {
+          "heading": "Qué hacer después",
+          "paragraphs": [
+            "Abre la página oficial y lee el control de descarga de tu sistema antes de copiar un enlace en un chat. Si la etiqueta dice que llega pronto, detente. Si solo necesitas juzgar el producto, sigue Prueba la demo alojada antes de instalar nada y usa archivos de ejemplo. Si necesitas un servidor que controle el equipo, sigue Instala MonkeyAI en Linux con el instalador oficial.",
+            "Este sitio de la comunidad no opera la demo, la ficha de la tienda ni los archivos de publicación. Pregunta al administrador qué modelos y herramientas reciben el contenido de la tarea antes de subir algo confidencial."
+          ],
+          "bullets": [
+            "Para un equipo real usa la dirección de servidor que te dio el administrador. Usa la dirección de demo solo mientras aprendes.",
+            "Vuelve a mirar la sección de descargas el día en que envíes el enlace."
+          ]
+        }
+      ]
+    }
+  },
+  {
     "slug": "projects-tasks-sessions",
     "category": "Start here",
     "docGroup": "start",
@@ -393,13 +714,16 @@
     "slug": "account-and-device-settings",
     "category": "Start here",
     "docGroup": "start",
-    "reviewed": "2026-11-13",
+    "reviewed": "2026-11-26",
     "readMinutes": 6,
     "sourceUrls": [
       "https://work.docs.baizhi.cloud/node/01a15cb5-daf3-7259-a20c-401453d2667b",
       "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d",
       "https://work.docs.baizhi.cloud/node/01a16771-ca0b-7c85-b168-649eb1fea408",
-      "https://github.com/chaitin/MonkeyCode/pull/1505"
+      "https://github.com/chaitin/MonkeyCode/pull/1505",
+      "https://work.baizhi.cloud/#clients",
+      "https://github.com/chaitin/MonkeyCode/blob/main/README.md",
+      "https://apps.apple.com/cn/app/id6829699295"
     ],
     "en": {
       "title": "Manage accounts, devices and local settings",
@@ -419,7 +743,7 @@
         {
           "heading": "Remote device access is not a mobile client",
           "paragraphs": [
-            "Settings, then Device, offers Allow other devices to access remotely. The v20261029 changelog adds an Add device guide for connecting another computer on the same account. With it on, another computer signed in to the same account can drive the desktop session that is already running here. The official account guide reviewed on 2026-11-10 is explicit that this is not a native phone app: Android and iOS clients are not available yet and are marked as coming soon, and a phone that connects is only reaching this desktop client. The v20261103 changelog adds a server-side mobile pairing API with QR codes, pairing-code confirmation, and PKCE, but that does not by itself publish a phone client or a user-facing pairing workflow. The upstream fix merged on 2026-11-10 adds resources:manage to the fixed pairing scope. Login credentials already issued do not gain that permission automatically, so pair again by scanning the code. The same changelog also says changing the password revokes pairing authorizations that have not yet been redeemed. The v20261029 changelog also says an installed and authorized Linux server can be connected by device ID, then opened in the workspace after it comes online.",
+            "Settings, then Device, offers Allow other devices to access remotely. The v20261029 changelog adds an Add device guide for connecting another computer on the same account. With it on, another computer signed in to the same account can drive the desktop session that is already running here. Turning this on lets another computer drive the desktop session. It is not the same thing as installing a phone app. The official homepage checked on 2026-11-26 links an Android package and a China App Store listing named 百智办公平台, while the README checked the same day still marks Android and iOS as coming soon. An account guide reviewed on 2026-11-10 said a phone that connects through this setting only reaches the desktop client. The v20261103 changelog adds a server-side mobile pairing API with QR codes, pairing-code confirmation, and PKCE. The China App Store description checked on 2026-11-26 says the iPhone app can connect to the computer and take over a task already running there. This page did not install that app, so the store sentence is the store's claim, not a result from this community. The upstream fix merged on 2026-11-10 adds resources:manage to the fixed pairing scope. Login credentials already issued do not gain that permission automatically, so pair again by scanning the code. The same changelog also says changing the password revokes pairing authorizations that have not yet been redeemed. The v20261029 changelog also says an installed and authorized Linux server can be connected by device ID, then opened in the workspace after it comes online.",
             "That means the computer must stay running and online for remote access to work. Closing the window is not quitting: the application keeps running in the tray and the service stays up. Quitting the application stops the local execution service and disconnects the other devices. The remote-control guide reviewed on 2026-11-10 also says the remote window can continue ordinary tasks but cannot create design tasks, and an offline device remains listed but cannot be opened. The v20261030 changelog also fixes a case where a remotely created task required a manual sidebar refresh on the controlled computer. The v20261029 changelog adds device renaming. The v20261030 changelog says signing out shows “Signing out…”, returns to the login page when finished, and can be retried if it fails. The same release also fixes delayed task title, running-state, and ordering updates across devices, plus a running marker disappearing while a background sub-agent is still working. It also fixes private-server certificate verification blocking login, model calls, connector use, or adding a device, and an install command failing after the installer file was renamed. The v20261029 changelog also fixes remote connections that did not recover after a brief service interruption, and terminals or files that could not be opened after an upgrade. The v20261029 changelog says online devices can be opened directly, while offline devices or devices without remote access show handling guidance. The v20261027 changelog also fixes remote devices that could not be reached after login during a network problem; if that happened before the upgrade, sign in again once afterward.",
             "The v20261112 changelog adds a Remote connection entry in the sidebar that shows the current device, and the account menu can switch to another device; use it to confirm which computer will run a task before starting."
           ],
@@ -459,7 +783,7 @@
         {
           "heading": "远程设备访问不等于手机客户端",
           "paragraphs": [
-            "进入「设置 → 设备」，可以设置是否允许其他设备远程访问。v20261029 更新日志新增「添加设备」引导，方便接入同一账号下的其他电脑。开启后，同一账号下的另一台电脑可以远程控制这台已经在运行的桌面会话。2026-11-10 复核的官方账号指南明确指出这不是手机原生应用：Android、iOS 客户端仍未提供，并标注为即将支持；即使用手机连上，也只是访问这台桌面客户端。v20261103 更新日志新增了手机扫码配对登录的服务端接口，支持二维码、配对码确认和 PKCE 校验；这本身并不等于已经发布手机客户端或面向用户的配对操作流程。2026-11-10 合并的上游修复为扫码配对的固定权限增加 resources:manage；已经签发的登录凭据不会自动获得该权限，需要重新扫码配对。同一更新日志还说明，修改密码时会同步撤销尚未兑换的配对授权。v20261029 更新日志还说明，可通过设备 ID 连接已安装并授权的 Linux 服务器，等待上线后再打开工作台。",
+            "进入「设置 → 设备」，可以设置是否允许其他设备远程访问。v20261029 更新日志新增「添加设备」引导，方便接入同一账号下的其他电脑。开启后，同一账号下的另一台电脑可以远程控制这台已经在运行的桌面会话。打开这个开关可以让另一台电脑操控正在运行的桌面会话，这和安装手机应用不是一回事。2026-11-26 核对的官网首页链到 Android 安装包和中国区 App Store 上名为百智办公平台的页面，而同一天核对的 README 仍把 Android 和 iOS 标为敬请期待。2026-11-10 复核的账号指南说，手机通过这个设置连上时只是访问这台桌面客户端。v20261103 更新日志新增了手机扫码配对登录的服务端接口，支持二维码、配对码确认和 PKCE 校验。2026-11-26 核对的中国区 App Store 描述说，iPhone 应用可以连接电脑并接管已经在电脑上执行的任务。本页没有安装该应用，因此商店里的这句话是商店的说明，不是本社区的实测结果。2026-11-10 合并的上游修复为扫码配对的固定权限增加 resources:manage；已经签发的登录凭据不会自动获得该权限，需要重新扫码配对。同一更新日志还说明，修改密码时会同步撤销尚未兑换的配对授权。v20261029 更新日志还说明，可通过设备 ID 连接已安装并授权的 Linux 服务器，等待上线后再打开工作台。",
             "因此这台电脑必须保持运行并联网，远程访问才可用。只关窗口不算退出：应用会缩到托盘继续运行，服务不会中断；真正退出应用才会停止本机的执行服务，其他设备也会断开。2026-11-10 复核的远程控制指南还说明，远程窗口可以继续普通任务，但暂不支持创建设计任务；离线设备会出现在列表中，却不能打开。v20261030 更新日志还修复了远程新建任务后被控电脑侧栏需手动刷新才显示的问题；v20261029 更新日志支持给设备重命名；v20261030 更新日志说明退出登录时会显示「正在退出登录…」，完成后返回登录页，失败可重试。v20261030 更新日志还修复了多端任务标题、运行状态和排序更新不及时，以及后台子代理仍在执行时运行标记消失的问题；部分私有化服务器因证书验证导致登录、模型调用、连接器使用或添加设备失败，以及安装文件改名保存后安装命令无法使用的问题。v20261029 更新日志还修复了远程服务短暂异常后无法自动恢复连接，以及升级后终端不可用或文件无法打开的问题。v20261029 更新日志说明，在线设备可直接打开，离线或未开启远程访问时可查看处理提示。v20261027 更新日志还修复了网络异常时登录后无法连接远程设备的问题；如果升级前遇到过，升级后请重新登录一次。",
             "v20261112 更新日志在侧栏新增「远程连接」，直接显示当前设备，并可从账号菜单切换设备；开始任务前可先用它确认任务会在哪台电脑上执行。"
           ],
@@ -499,7 +823,7 @@
         {
           "heading": "El acceso remoto no es un cliente móvil",
           "paragraphs": [
-            "Ajustes y luego Dispositivo ofrece Permitir el acceso remoto desde otros dispositivos. El registro v20261029 añade una guía de Añadir dispositivo para conectar otro equipo con la misma cuenta. Con la opción activa, otro equipo con la misma cuenta puede manejar la sesión de escritorio que ya se ejecuta aquí. La guía oficial de cuentas revisada el 10-11-2026 lo dice con claridad: no es una aplicación nativa para el teléfono, los clientes Android e iOS aún no están disponibles y figuran como próximos, y un teléfono que se conecta solo alcanza este cliente de escritorio. El registro de cambios v20261103 añade una API de servidor para el emparejamiento móvil con códigos QR, confirmación del código y PKCE, pero eso por sí solo no publica un cliente móvil ni un flujo de emparejamiento para el usuario. La corrección de upstream fusionada el 2026-11-10 añade resources:manage al alcance fijo del emparejamiento. Las credenciales de inicio ya emitidas no reciben ese permiso automáticamente, así que hay que volver a emparejar escaneando el código. El mismo registro también indica que cambiar la contraseña revoca las autorizaciones de emparejamiento que aún no se han canjeado. El registro v20261029 también indica que un servidor Linux instalado y autorizado puede conectarse por ID de dispositivo y abrirse en el espacio de trabajo cuando esté en línea.",
+            "Ajustes y luego Dispositivo ofrece Permitir el acceso remoto desde otros dispositivos. El registro v20261029 añade una guía de Añadir dispositivo para conectar otro equipo con la misma cuenta. Con la opción activa, otro equipo con la misma cuenta puede manejar la sesión de escritorio que ya se ejecuta aquí. Activar esta opción permite que otro ordenador maneje la sesión de escritorio. No es lo mismo que instalar una app de teléfono. La página oficial comprobada el 2026-11-26 enlaza un paquete Android y una ficha del App Store de China llamada 百智办公平台, mientras que el README comprobado el mismo día sigue marcando Android e iOS como próximos. Una guía de cuentas revisada el 2026-11-10 decía que un teléfono que se conecta por este ajuste solo alcanza el cliente de escritorio. El registro de cambios v20261103 añade una API de servidor para el emparejamiento móvil con códigos QR, confirmación del código y PKCE. La descripción del App Store de China comprobada el 2026-11-26 dice que la app de iPhone puede conectarse al ordenador y tomar una tarea que ya se esté ejecutando allí. Esta página no instaló esa app, así que la frase de la tienda es la afirmación de la tienda, no un resultado de esta comunidad. La corrección de upstream fusionada el 2026-11-10 añade resources:manage al alcance fijo del emparejamiento. Las credenciales de inicio ya emitidas no reciben ese permiso automáticamente, así que hay que volver a emparejar escaneando el código. El mismo registro también indica que cambiar la contraseña revoca las autorizaciones de emparejamiento que aún no se han canjeado. El registro v20261029 también indica que un servidor Linux instalado y autorizado puede conectarse por ID de dispositivo y abrirse en el espacio de trabajo cuando esté en línea.",
             "Por eso el equipo debe seguir encendido y en línea para que el acceso remoto funcione. Cerrar la ventana no es salir: la aplicación sigue en la bandeja y el servicio se mantiene. Salir de la aplicación detiene el servicio de ejecución local y desconecta los demás dispositivos. La guía de control remoto revisada el 10-11-2026 también indica que la ventana remota puede continuar tareas normales, pero no crear tareas de diseño, y que un dispositivo sin conexión sigue en la lista pero no se puede abrir. El registro de cambios v20261030 también corrige un caso en el que una tarea creada de forma remota exigía actualizar manualmente la barra lateral del equipo controlado. El registro v20261029 añade el cambio de nombre de dispositivos. El registro v20261030 indica que al cerrar sesión aparece «Cerrando sesión…», vuelve a la página de acceso al terminar y se puede reintentar si falla. La misma versión también corrige retrasos al actualizar el título, el estado y el orden de las tareas entre dispositivos, y que desaparezca la marca de ejecución mientras un subagente sigue trabajando. Además corrige fallos de acceso, llamadas al modelo, conectores o alta de dispositivos por verificación de certificados en servidores privados, y que el comando de instalación deje de funcionar tras renombrar el archivo del instalador. El registro v20261029 también corrige conexiones remotas que no se recuperaban tras una interrupción breve del servicio, y terminales o archivos que no se podían abrir después de una actualización. El registro v20261029 indica que los dispositivos en línea se pueden abrir directamente, y los desconectados o sin acceso remoto muestran una indicación. El registro v20261027 también corrige dispositivos remotos que no se podían conectar tras iniciar sesión cuando había un problema de red; si ocurrió antes de actualizar, vuelve a iniciar sesión una vez.",
             "El registro v20261112 añade en la barra lateral una entrada «Conexión remota» que muestra el dispositivo actual, y el menú de la cuenta permite cambiar de dispositivo; úsala para confirmar en qué equipo se ejecutará una tarea antes de empezar."
           ],
