@@ -89,7 +89,7 @@ Checked against `origin/main` on 2026-11-26.
 - **Site:** an independent community guide for MonkeyAI (百智办公 in Chinese), plus a reviewed tool directory and sourced model-family profiles. English, simplified Chinese, and Spanish stay in parallel. It is not the product site and not a copy of a sister directory.
 - **`origin/main`:** `dd3792b5d1fed0b834192acaef5970821431bc9d` (merge of pull request #9, 2026-11-26). That merge is the client-choice and SEO/GEO pass.
 - **Production:** that merge is already on https://monkeyai.online/. The operator recorded the production publish as 2026-11-27. A fetch on 2026-11-26 17:56 UTC opened https://monkeyai.online/docs/choose-a-monkeyai-client/ and the page showed the guide reviewed 2026-11-26. Do not describe that content as waiting to be published.
-- **This branch:** `cursor/seo-geo-readme-20261127-0a1c`. It adds the knowledge-base guide and corrects server sizing and installer ports from official pages fetched on 2026-11-26. It is not production. Opening the pull request does not deploy it.
+- **This branch:** `cursor/seo-geo-readme-20261127-0a1c`, pull request [#10](https://github.com/ct-jaryn/monkeyai-community/pull/10). It adds the knowledge-base guide and corrects server sizing and installer ports from official pages fetched on 2026-11-26. It is not production. Opening the pull request does not deploy it.
 - **Left untouched:** pull request #2 (`pranshuchittora:add-agent-qa-20261110`) and the zone Redirect Rules. Redirects for http to https and www to the apex stay in Cloudflare (Rules > Redirect Rules). This repository does not contain that rule; `worker.js` only keeps a fallback.
 
 ## Deployment
