@@ -31,6 +31,20 @@ for(const g of guides){
       (ts.bullets||[]).forEach((b,j)=>{
         if(b===(es.bullets||[])[j])error(g.slug+'/'+l,`section ${i+1} bullet ${j+1} is still English`);
       });
+      const shape=section=>{
+        if(!section.table)return 'none';
+        const rows=(section.table.rows||[]).map(row=>row.length).join(',');
+        return `${(section.table.headers||[]).length}|${rows}`;
+      };
+      if(shape(es)!==shape(ts))error(g.slug+'/'+l,`section ${i+1} table shape differs from English`);
+      if(es.table&&ts.table){
+        const cells=[ts.table.caption,...(ts.table.headers||[]),...(ts.table.rows||[]).flat()];
+        const english=[es.table.caption,...(es.table.headers||[]),...(es.table.rows||[]).flat()];
+        cells.forEach((cell,j)=>{
+          if(cell===english[j])error(g.slug+'/'+l,`section ${i+1} table cell ${j+1} is still English`);
+          if(l==='zh'&&!hasCJK(cell)&&hasLatinWord(cell))error(g.slug+'/zh',`section ${i+1} table cell ${j+1} contains no Chinese text`);
+        });
+      }
     });
   }
 }

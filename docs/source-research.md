@@ -25,6 +25,18 @@ The README instructs demo desktop users to connect to `https://demo.work.baizhi.
 
 Platform support, demo access, versions, and plan entitlements can change. The guides therefore direct readers to upstream for current builds and do not copy product pricing, live star counts, competitor comparisons, or service promises.
 
+### Download-section recheck, 2026-11-26
+
+The homepage at https://work.baizhi.cloud/ was fetched again on 2026-11-26, including the HTML of the `clients` section, and the README at https://github.com/chaitin/MonkeyCode/blob/main/README.md was read the same day. The two pages do not list the same clients.
+
+The homepage controls that day linked a browser demo at https://demo.work.baizhi.cloud/, an Android package, a China App Store listing for 百智办公平台 (https://apps.apple.com/cn/app/id6829699295), Windows x64, a separate Windows 7 x64 build, macOS Apple Silicon, macOS Intel, Linux x64 (AppImage and deb), Linux ARM64 (AppImage and deb), and UnionTech UOS via the Linux x64 AppImage. Kylin had an empty address and the label 麒麟应用市场. HarmonyOS phone and HarmonyOS desktop were disabled and labeled 敬请期待.
+
+The README still listed only the browser demo, Windows x64, macOS Apple Silicon, macOS Intel, and Linux x64, and still marked Android, iOS, Linux ARM64, and HarmonyOS desktop as forthcoming. It did not mention the Windows 7 build, UnionTech UOS, Kylin, or HarmonyOS phone.
+
+HEAD requests the same day returned HTTP 200 for the Android package, the Windows 7 installer, the Linux x64 deb, and the Linux ARM AppImage and deb. The Android response identified an Android package of 42,786,493 bytes with Last-Modified 2026-11-23 06:04:11 GMT. None of those packages was installed. The App Store listing said the app is for iPhone, requires iOS 16.6 or later, lists Simplified and Traditional Chinese, names 北京长亭科技有限公司 as the developer, is labeled free on that store page, and was not verified for macOS. That store label is not a team plan, and other storefronts were not checked.
+
+The homepage and the README both still show 1 CPU core and 1 GB of RAM as a lightweight start, and both still show a one-line installer that passes `curl -k`. Those lines are not a capacity guarantee and are not the command the installation guide recommends. Plan prices and the homepage comparison with other products were not copied.
+
 ## Verified deployment boundaries
 
 The main README describes a lightweight starting configuration of one CPU core and 1 GB of memory. It does not establish a capacity guarantee for every workload.
