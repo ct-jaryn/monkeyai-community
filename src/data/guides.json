@@ -369,7 +369,7 @@
         {
           "heading": "Organize resources for a team",
           "paragraphs": [
-            "The upstream project describes shared models, knowledge bases, skills, experts, MCP connectors, and rules. These resources help a team reuse context and instructions instead of rebuilding every task from scratch. Availability and configuration details belong to your server's documentation and administrator settings.",
+            "The upstream project describes shared models, knowledge bases, skills, experts, MCP connectors, and rules. These resources help a team reuse context and instructions instead of rebuilding every task from scratch. Creating a knowledge base, learning its documents and sharing it without treating delete as a small edit are covered in the knowledge-base guide. Availability and configuration details belong to your server's documentation and administrator settings.",
             "Keep resource descriptions clear: what the resource is for, who maintains it, what inputs it expects, and what must be reviewed. Give a reusable workflow a specific name rather than an overly broad promise. Administrators can manage resource access, audit usage, view statistics, and handle resource usage and billing."
           ],
           "bullets": [
@@ -419,7 +419,7 @@
         {
           "heading": "让团队资源便于复用",
           "paragraphs": [
-            "上游介绍的共享资源包括模型、知识库、技能、专家、MCP 连接器和规则。这些资源帮助团队复用背景和指令，减少每次从零说明任务的成本。具体可用类型和配置方法，应结合服务器版本、管理员设置与官方文档确认。",
+            "上游介绍的共享资源包括模型、知识库、技能、专家、MCP 连接器和规则。这些资源帮助团队复用背景和指令，减少每次从零说明任务的成本。如何创建知识库、让文档完成学习，以及共享时不要把删除当成一次小改动，写在知识库指南里。具体可用类型和配置方法，应结合服务器版本、管理员设置与官方文档确认。",
             "共享资源的说明应写清用途、维护者、所需输入和验收要求。给流程起一个具体名称，通常比承诺“解决所有问题”更有帮助。管理员可以控制资源访问，记录使用审计、查看统计，并进行资源用量和计费管理。底层服务变化后，应重新检查依赖它的共享指令。"
           ],
           "bullets": [
@@ -469,7 +469,7 @@
         {
           "heading": "Organiza recursos comprensibles para el equipo",
           "paragraphs": [
-            "El proyecto describe modelos compartidos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas. Sirven para reutilizar contexto e instrucciones. La disponibilidad y los detalles de configuración dependen del servidor y de los ajustes del administrador; consulta su documentación para conocer las opciones concretas.",
+            "El proyecto describe modelos compartidos, bases de conocimiento, habilidades, expertos, conectores MCP y reglas. Sirven para reutilizar contexto e instrucciones. Crear una base de conocimiento, aprender sus documentos y compartirla sin tratar el borrado como un cambio menor está en la guía de la base de conocimiento. La disponibilidad y los detalles de configuración dependen del servidor y de los ajustes del administrador; consulta su documentación para conocer las opciones concretas.",
             "Describe para qué sirve cada recurso, quién lo mantiene, qué entradas espera y qué debe comprobarse. Un nombre específico ayuda más que una promesa demasiado amplia. Los administradores pueden controlar el acceso, auditar el uso, consultar estadísticas y gestionar el consumo y la facturación de los recursos."
           ],
           "bullets": [
@@ -490,19 +490,26 @@
         }
       ]
     },
-    "reviewed": "2026-11-10"
+    "reviewed": "2026-11-10",
+    "relatedSlugs": [
+      "use-a-knowledge-base",
+      "configure-team-model",
+      "skills-and-experts"
+    ]
   },
   {
     "slug": "self-hosting",
     "category": "Self-hosting",
-    "readMinutes": 7,
+    "readMinutes": 8,
     "sourceUrls": [
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/README.md",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/docker-compose.yml",
       "https://github.com/chaitin/MonkeyCode/blob/0d525d063d54efe2788c2b7e4c29980d0b82c17e/monkeyai/.env.example",
       "https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d",
-      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d"
+      "https://work.docs.baizhi.cloud/node/01a1443f-50c0-7147-9b6e-a90e7ebea26d",
+      "https://work.docs.baizhi.cloud/node/01a216b9-eec1-7d42-a924-410c28f56aaf",
+      "https://work.docs.baizhi.cloud/node/01a21729-cb65-74f1-b5d5-4618fd87cabf"
     ],
     "en": {
       "title": "Plan a self-hosted MonkeyAI workspace",
@@ -511,7 +518,7 @@
         {
           "heading": "Decide what your server will own",
           "paragraphs": [
-            "Self-hosting lets your team manage the server, stored team data, access, backups, and upgrades. The upstream README describes a lightweight starting configuration of one CPU core and 1 GB of memory. Treat this as a starting point, not a capacity guarantee: actual requirements depend on team size, storage, configured services, and workload. The v20261026 changelog says MonkeyAI was publicly released as open source and supports private deployment and enterprise team administration. Open source and private deployment do not mean external models, tools, or hosted services are free; check current prices, quotas, and licenses with the provider and in the product.",
+            "Self-hosting lets your team manage the server, stored team data, access, backups, and upgrades. The upstream README describes a lightweight starting configuration of one CPU core and 1 GB of memory. Treat that line as the README's lightweight start, not as a measured capacity. The installation tutorial checked on 2026-11-26 still lists at least 1 core, 1 GB of memory and 15 GB of free disk, and a separate page the same day gives a headcount table. Neither line sizes a machine that runs a local model. The section below keeps those sources apart. The v20261026 changelog says MonkeyAI was publicly released as open source and supports private deployment and enterprise team administration. Open source and private deployment do not mean external models, tools, or hosted services are free; check current prices, quotas, and licenses with the provider and in the product.",
             "Before installation, choose an administrator, a server address, and a plan for backups and maintenance. Review the current official deployment documentation. This community guide explains the decisions and checks around deployment; it does not replace the upstream operating instructions or claim that an installation has been tested on your infrastructure."
           ],
           "bullets": [
@@ -552,6 +559,57 @@
             "Avoid using the demonstration server as your production team space.",
             "Use upstream issues for reproducible product problems without including secrets."
           ]
+        },
+        {
+          "heading": "Separate the server floor from a local-model machine",
+          "paragraphs": [
+            "The machine-sizing page checked on 2026-11-26 says it estimates whether capacity fits, not how fast a task runs. It says the server minimum still follows the installation tutorial: Linux on amd64 or arm64, at least 1 core, 1 GB of memory, and 15 GB of free disk. When models are reached through an external API, that page says you usually should not size the server by its video-memory rules. It also says the count is how many tasks run at once on that machine, not how many people are on the team. This site did not run those workloads.",
+            "The server-requirements page, published on 2026-11-26, is a different table. It describes one centralized Linux server for the company. It says the minimum column fits a stable headcount that has not turned on a knowledge base, and the recommended column leaves room for growth, a knowledge base, or long-term audit logs. Its storage note is an office estimate, not a measurement by this community: about 50 MB of session and log data per person per month, about 600 GB a year at 1,000 people, plus about 1 GB of raw knowledge-base files per person. It says 2 TB at that headcount covers more than two years, and it suggests mounting the data disk at /data. The first row is labeled as the free edition on that page. This site did not check what that edition includes."
+          ],
+          "bullets": [
+            "Use the headcount table for the MonkeyAI server when models stay on an external API.",
+            "Use the machine-sizing page, not this table, when the same computer must hold a local model, a retrieval index, or video generation."
+          ],
+          "table": {
+            "caption": "Server suggestions on the official page checked on 2026-11-26. The page writes C for cores. Not a benchmark by this site.",
+            "headers": [
+              "Headcount on that page",
+              "Minimum",
+              "Recommended"
+            ],
+            "rows": [
+              [
+                "Up to 10, labeled free edition",
+                "1 core, 1G / 100G",
+                "4 cores, 8G / 400G"
+              ],
+              [
+                "50 people",
+                "4 cores, 4G / 200G",
+                "8 cores, 16G / 500G"
+              ],
+              [
+                "100 people",
+                "4 cores, 8G / 400G",
+                "8 cores, 16G / 600G"
+              ],
+              [
+                "300 people",
+                "8 cores, 16G / 600G",
+                "16 cores, 32G / 1T"
+              ],
+              [
+                "1000 people",
+                "16 cores, 32G / 1T",
+                "32 cores, 64G / 2T"
+              ],
+              [
+                "3000 or more",
+                "32 cores, 64G / 2T",
+                "64 cores, 128G / 4T"
+              ]
+            ]
+          }
         }
       ]
     },
@@ -562,7 +620,7 @@
         {
           "heading": "确定自己负责的运行范围",
           "paragraphs": [
-            "自托管让团队自行管理服务器、团队数据、访问权限、备份和升级。上游 README 给出的轻量起步配置是 1 核 CPU、1 GB 内存。这是起点，不是容量保证；真实资源需求还取决于团队人数、存储量、配置服务和任务负载。v20261026 更新日志说明，百智办公正式对外开源发布，并支持私有化部署与企业级团队管控。开源和私有化部署不等于外部模型、工具或托管服务没有费用，当前价格、额度和授权仍需在服务商与产品中核对。正式使用前应按实际情况评估。",
+            "自托管让团队自行管理服务器、团队数据、访问权限、备份和升级。上游 README 给出的轻量起步配置是 1 核 CPU、1 GB 内存。这是 README 里的轻量起步，不是实测容量。2026-11-26 核对的安装教程仍写明不少于 1 核、1 GB 内存和 15 GB 可用磁盘，同一天的另一页给出按人数的服务器表。这两处都不是本机运行语言模型的整机规格。下一节把这些来源分开。v20261026 更新日志说明，百智办公正式对外开源发布，并支持私有化部署与企业级团队管控。开源和私有化部署不等于外部模型、工具或托管服务没有费用，当前价格、额度和授权仍需在服务商与产品中核对。正式使用前应按实际情况评估。",
             "安装前先确定管理员、服务器访问地址，以及备份和维护安排。请阅读当前官方部署文档。本社区指南解释部署前后的决策与检查，不替代上游运维说明，也不表示已经在你的基础设施上完成安装验证。第一次部署适合先放在测试环境，熟悉流程后再接入团队资料。"
           ],
           "bullets": [
@@ -603,6 +661,57 @@
             "不要把演示环境当作正式业务空间。",
             "公开排错信息前移除密码、令牌和私有资料。"
           ]
+        },
+        {
+          "heading": "分开服务器下限和本机模型",
+          "paragraphs": [
+            "2026-11-26 核对的整机选型页写明，它评估的是容量够不够放下，不是实测能跑多快。服务端最低配置仍以安装教程为准：Linux（amd64 或 arm64），不少于 1 核、1 GB 内存和 15 GB 可用磁盘。模型走外部 API 时，该页说明通常不必按显存规则来选服务器。它还写明，规模指的是同一台机器上同时运行的任务数，不是团队总人数。本站没有运行这些负载。",
+            "2026-11-26 发布的服务器资源需求页是另一张表。它描述一台集中式 Linux 服务器供全公司使用，并说明最低配置适用于人员规模稳定、尚未启用知识库的场景；推荐配置留出增长余量，适用于人员持续增加、启用知识库或需长期保存审计记录。存储说明是办公场景的估算，不是本社区的测量：人均每月约 50 MB 会话与日志，1000 人规模一年约 600 GB，知识库另按人均约 1 GB 原始文件预留。该页认为这一规模配置 2 TB 可覆盖两年以上，并建议把数据盘独立挂载到 /data。第一行在该页标为免费版。本站没有核对该版本包含什么。"
+          ],
+          "bullets": [
+            "外部 API 时按人数看服务器。",
+            "本机跑模型或视频时看整机选型。"
+          ],
+          "table": {
+            "caption": "2026-11-26 的官方服务器建议，不是本站跑分。",
+            "headers": [
+              "人数",
+              "最低",
+              "推荐"
+            ],
+            "rows": [
+              [
+                "10 人以内（页上写免费版）",
+                "1 核，1G / 100G",
+                "4 核，8G / 400G"
+              ],
+              [
+                "50 人",
+                "4 核，4G / 200G",
+                "8 核，16G / 500G"
+              ],
+              [
+                "100 人",
+                "4 核，8G / 400G",
+                "8 核，16G / 600G"
+              ],
+              [
+                "300 人",
+                "8 核，16G / 600G",
+                "16 核，32G / 1T"
+              ],
+              [
+                "1000 人",
+                "16 核，32G / 1T",
+                "32 核，64G / 2T"
+              ],
+              [
+                "3000 人及以上",
+                "32 核，64G / 2T",
+                "64 核，128G / 4T"
+              ]
+            ]
+          }
         }
       ]
     },
@@ -613,7 +722,7 @@
         {
           "heading": "Define qué administrará tu equipo",
           "paragraphs": [
-            "El alojamiento propio permite gestionar el servidor, los datos del equipo, el acceso, las copias y las actualizaciones. El README describe una configuración inicial ligera de un núcleo de CPU y 1 GB de memoria. Es un punto de partida, no una garantía de capacidad: la demanda depende del equipo, el almacenamiento y las tareas. El registro v20261026 indica que MonkeyAI se publicó como código abierto y admite despliegue privado y administración de equipo empresarial. El código abierto y el despliegue privado no significan que los modelos externos, las herramientas o los servicios alojados sean gratuitos; confirma precios, cuotas y licencias actuales con el proveedor y en el producto.",
+            "El alojamiento propio permite gestionar el servidor, los datos del equipo, el acceso, las copias y las actualizaciones. El README describe una configuración inicial ligera de un núcleo de CPU y 1 GB de memoria. Es el inicio ligero del README, no una capacidad medida. El tutorial de instalación revisado el 2026-11-26 sigue pidiendo al menos 1 núcleo, 1 GB de memoria y 15 GB de disco libre, y otra página del mismo día da una tabla por número de personas. Ninguna de las dos cifra el tamaño de una máquina que ejecuta un modelo local. La sección siguiente separa esas fuentes. El registro v20261026 indica que MonkeyAI se publicó como código abierto y admite despliegue privado y administración de equipo empresarial. El código abierto y el despliegue privado no significan que los modelos externos, las herramientas o los servicios alojados sean gratuitos; confirma precios, cuotas y licencias actuales con el proveedor y en el producto.",
             "Antes de instalar, asigna un administrador, elige una dirección y prepara un plan de mantenimiento y copias. Lee la documentación de despliegue vigente. Esta guía explica decisiones y comprobaciones; no sustituye las instrucciones operativas ni afirma que la instalación se haya validado en tu infraestructura."
           ],
           "bullets": [
@@ -654,10 +763,66 @@
             "Separa demostración y producción.",
             "Elimina secretos al comunicar problemas reproducibles al proyecto."
           ]
+        },
+        {
+          "heading": "Separa el mínimo del servidor de una máquina con modelo local",
+          "paragraphs": [
+            "La página de dimensionado de la máquina revisada el 2026-11-26 dice que estima si la capacidad cabe, no lo rápido que corre una tarea. Dice que el mínimo del servidor sigue el tutorial de instalación: Linux amd64 o arm64, al menos 1 núcleo, 1 GB de memoria y 15 GB de disco libre. Cuando los modelos se alcanzan por una API externa, esa página dice que normalmente no hay que dimensionar el servidor por las reglas de memoria de vídeo. También dice que la cifra es cuántas tareas corren a la vez en esa máquina, no cuántas personas hay en el equipo. Este sitio no ejecutó esas cargas.",
+            "La página de requisitos del servidor, publicada el 2026-11-26, es otra tabla. Describe un servidor Linux centralizado para toda la empresa. Dice que la columna mínima encaja con una plantilla estable que no ha activado una base de conocimiento, y que la columna recomendada deja margen para el crecimiento, una base de conocimiento o registros de auditoría a largo plazo. Su nota de almacenamiento es una estimación de oficina, no una medición de esta comunidad: unos 50 MB de sesiones y registros por persona y mes, unos 600 GB al año con 1.000 personas, más cerca de 1 GB de archivos originales de la base de conocimiento por persona. Dice que 2 TB con esa plantilla cubre más de dos años, y sugiere montar el disco de datos en /data. La primera fila está etiquetada como edición gratuita en esa página. Este sitio no comprobó qué incluye esa edición."
+          ],
+          "bullets": [
+            "Usa la tabla por personas para el servidor MonkeyAI cuando los modelos siguen en una API externa.",
+            "Usa la página de dimensionado, no esta tabla, cuando el mismo equipo debe alojar un modelo local, un índice de recuperación o generación de vídeo."
+          ],
+          "table": {
+            "caption": "Sugerencias de servidor en la página oficial revisada el 2026-11-26. La página escribe C para núcleos. No es una prueba de este sitio.",
+            "headers": [
+              "Plantilla en esa página",
+              "Mínimo",
+              "Recomendado"
+            ],
+            "rows": [
+              [
+                "Hasta 10, etiquetada edición gratuita",
+                "1 núcleo, 1G / 100G",
+                "4 núcleos, 8G / 400G"
+              ],
+              [
+                "50 personas",
+                "4 núcleos, 4G / 200G",
+                "8 núcleos, 16G / 500G"
+              ],
+              [
+                "100 personas",
+                "4 núcleos, 8G / 400G",
+                "8 núcleos, 16G / 600G"
+              ],
+              [
+                "300 personas",
+                "8 núcleos, 16G / 600G",
+                "16 núcleos, 32G / 1T"
+              ],
+              [
+                "1000 personas",
+                "16 núcleos, 32G / 1T",
+                "32 núcleos, 64G / 2T"
+              ],
+              [
+                "3000 o más",
+                "32 núcleos, 64G / 2T",
+                "64 núcleos, 128G / 4T"
+              ]
+            ]
+          }
         }
       ]
     },
-    "reviewed": "2026-11-10"
+    "reviewed": "2026-11-26",
+    "relatedSlugs": [
+      "install-with-official-installer",
+      "use-a-knowledge-base",
+      "choose-a-monkeyai-client"
+    ]
   },
   {
     "slug": "contributing",
