@@ -82,11 +82,31 @@ cd dist && python3 -m http.server 8797 --bind 127.0.0.1 &
 
 Headless Chrome refuses to lay out narrower than 500 CSS pixels from the command line, so the screenshot flag cannot reach phone widths; `npm run check:browser` overrides the viewport through the DevTools protocol instead.
 
+## Maintainer status
+
+Checked against `origin/main` on 2026-11-26.
+
+- **Site:** an independent community guide for MonkeyAI (百智办公 in Chinese), plus a reviewed tool directory and sourced model-family profiles. English, simplified Chinese, and Spanish stay in parallel. It is not the product site and not a copy of a sister directory.
+- **`origin/main`:** `dd3792b5d1fed0b834192acaef5970821431bc9d` (merge of pull request #9, 2026-11-26). That merge is the client-choice and SEO/GEO pass.
+- **Production:** that merge is already on https://monkeyai.online/. The operator recorded the production publish as 2026-11-27. A fetch on 2026-11-26 17:56 UTC opened https://monkeyai.online/docs/choose-a-monkeyai-client/ and the page showed the guide reviewed 2026-11-26. Do not describe that content as waiting to be published.
+- **This branch:** `cursor/seo-geo-readme-20261127-0a1c`, pull request [#10](https://github.com/ct-jaryn/monkeyai-community/pull/10). It adds the knowledge-base guide and corrects server sizing and installer ports from official pages fetched on 2026-11-26. It is not production. Opening the pull request does not deploy it.
+- **Left untouched:** pull request #2 (`pranshuchittora:add-agent-qa-20261110`) and the zone Redirect Rules. Redirects for http to https and www to the apex stay in Cloudflare (Rules > Redirect Rules). This repository does not contain that rule; `worker.js` only keeps a fallback.
+
 ## Deployment
 
-The live site is served from Cloudflare Workers static assets. The public Workers static-asset files are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository.
+Preview locally with `npm run dev` and open `http://127.0.0.1:4173/`. The live site is Cloudflare Workers static assets. The Worker files are in `deploy/cloudflare-workers/`. Zone credentials, tokens, and account data are not stored in this repository. Staging, recorded there as `monkeyai-online-static-staging.jaryn1557.workers.dev`, is noindex. This repository does not document a second staging command.
 
-`scripts/check-deploy.mjs` validates the deploy configuration as part of `npm run check`, so a change that would break the published asset layout fails locally before it reaches the zone. The `Build and check` workflow (`.github/workflows/check.yml`) is manual only; it does not deploy.
+`scripts/check-deploy.mjs` validates the deploy configuration as part of `npm run check`. The `Build and check` workflow (`.github/workflows/check.yml`) is manual only. It does not deploy, and a content change is not a reason to run it.
+
+The production publish already used by this repository is:
+
+```bash
+npm run build && npm run check
+cp deploy/cloudflare-workers/_headers dist/_headers   # the generator no longer writes _headers
+cd deploy/cloudflare-workers && npx wrangler@4.160.0 deploy --config wrangler.jsonc --keep-vars
+```
+
+Rollback, when a deploy has already happened, is `npx wrangler rollback <previous-version-id>` from that same directory. Leave the zone Redirect Rule in place. Do not run the deploy from a content pull request.
 
 ## Privacy, licensing and safety
 

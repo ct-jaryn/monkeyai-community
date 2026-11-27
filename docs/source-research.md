@@ -71,6 +71,19 @@ Collection used the web browsing service; its egress region was not supplied. In
 
 Research establishes source attribution and the facts above. It does not establish successful deployment, actual model/connector execution, account access, third-party tool compatibility, search indexing, SEO rankings, or AI citation performance.
 
+## Recheck, 2026-11-26
+
+Fetched the same day, from the server-rendered pages, and not by running an installer or signing in:
+
+- [安装部署](https://work.docs.baizhi.cloud/node/01a14442-25b2-7c57-80f6-9436f2f5387d), page `updated_at` 2026-11-24. Linux amd64 or arm64, root, at least 1 core, at least 1 GB of memory, at least 15 GB free disk. Network row: port 443 with a default self-signed certificate; automatic domain certificates need public 80 and 443. The published online command is a `bash -c` one-liner with `curl -fsSL`, which runs the script immediately and keeps TLS verification. The finished screen is described as listing the access address, administrator account, and a random password.
+- [安装与登录问题](https://work.docs.baizhi.cloud/node/01a1443e-a1e4-7f37-84a0-0c78fb01686c), `updated_at` 2026-11-26. A new install defaults to self-signed HTTPS on 80 and 443. Ports 8080 and 8443 are Compose fallbacks that an older instance may still use. A pull that stops with no space left on device should have at least 15 GB free. The online package is described as about 4 MB and can change by version. The earlier 7 to 8 GB image-set figure is not on this page.
+- [本机部署的整机选型](https://work.docs.baizhi.cloud/node/01a216b9-eec1-7d42-a924-410c28f56aaf), `updated_at` 2026-11-26. Capacity fit, not a speed test. External-API servers are not sized by the video-memory rules. The count is concurrent tasks on one machine, not team headcount.
+- [服务器资源需求](https://work.docs.baizhi.cloud/node/01a21729-cb65-74f1-b5d5-4618fd87cabf), `updated_at` 2026-11-26. Headcount table for one centralized Linux server. The minimum column is for a stable headcount without a knowledge base. Storage figures are the page's office estimate.
+- [知识库创建与使用](https://work.docs.baizhi.cloud/node/01a1f6ec-ffc8-7c1b-a91e-48f59f53341c), `updated_at` 2026-11-24. Member path: reuse an existing base, create a personal one for Markdown and TXT, learn before chat can retrieve, share as read-only or read-write, and treat delete as removing the whole base.
+- [chaitin/MonkeyCode README](https://github.com/chaitin/MonkeyCode/blob/main/README.md), raw file fetched the same day. Still says 1 core and 1 GB, with no disk figure, and the install one-liner still passes `curl -k`. Android and Linux ARM64 are still marked forthcoming on that README. The homepage client list was not fetched again in this pass.
+
+No package was installed, and no knowledge base was created.
+
 ## Editorial choices
 
 - English is the international default, with Chinese and Spanish help content.

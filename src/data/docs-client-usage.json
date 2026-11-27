@@ -107,7 +107,7 @@
         {
           "heading": "What to do next",
           "paragraphs": [
-            "Open the official homepage and read the download control for your system before you copy a link into a chat. If the label is coming soon, stop. If you only need to judge the product, follow Try the hosted demo before installing anything and use sample files. If you need a server the team controls, follow Install MonkeyAI on Linux with the official installer.",
+            "Open the official homepage and read the download control for your system before you copy a link into a chat. If the label is coming soon, stop. If you only need to judge the product, follow Try the hosted demo before installing anything and use sample files. If you need a server the team controls, follow Install MonkeyAI on Linux with the official installer. If you are sizing that server, read the self-hosting guide: the 1 core and 1 GB line is not the size of a machine that runs a local model, and the installation tutorial checked on 2026-11-26 also lists 15 GB of free disk.",
             "This community site does not operate the demo, the store listing, or the release files. Ask the administrator which models and tools receive task content before you upload anything confidential."
           ],
           "bullets": [
@@ -208,7 +208,7 @@
         {
           "heading": "接下来做什么",
           "paragraphs": [
-            "把链接发到聊天之前，先打开官网首页，看你这台系统对应的下载控件。如果标注是敬请期待，就停在这里。如果只想判断产品是否合适，按《先试用免部署 Demo，再决定是否安装》操作，并使用示例文件。如果团队需要自己管理服务器，按《使用官方安装器在 Linux 上安装 MonkeyAI》操作。",
+            "把链接发到聊天之前，先打开官网首页，看你这台系统对应的下载控件。如果标注是敬请期待，就停在这里。如果只想判断产品是否合适，按《先试用免部署 Demo，再决定是否安装》操作，并使用示例文件。如果团队需要自己管理服务器，按《使用官方安装器在 Linux 上安装 MonkeyAI》操作。 如果要估算这台服务器的容量，请读自托管指南：1 核和 1 GB 并不是本机运行语言模型的整机规格，2026-11-26 核对的安装教程还写明不少于 15 GB 可用磁盘。",
             "本社区站点不运营演示环境、商店页面或发布文件。上传机密资料之前，先问管理员任务内容会发给哪些模型和工具。"
           ],
           "bullets": [
@@ -309,7 +309,7 @@
         {
           "heading": "Qué hacer después",
           "paragraphs": [
-            "Abre la página oficial y lee el control de descarga de tu sistema antes de copiar un enlace en un chat. Si la etiqueta dice que llega pronto, detente. Si solo necesitas juzgar el producto, sigue Prueba la demo alojada antes de instalar nada y usa archivos de ejemplo. Si necesitas un servidor que controle el equipo, sigue Instala MonkeyAI en Linux con el instalador oficial.",
+            "Abre la página oficial y lee el control de descarga de tu sistema antes de copiar un enlace en un chat. Si la etiqueta dice que llega pronto, detente. Si solo necesitas juzgar el producto, sigue Prueba la demo alojada antes de instalar nada y usa archivos de ejemplo. Si necesitas un servidor que controle el equipo, sigue Instala MonkeyAI en Linux con el instalador oficial. Si vas a dimensionar ese servidor, lee la guía de alojamiento propio: la línea de 1 núcleo y 1 GB no es el tamaño de una máquina que ejecuta un modelo local, y el tutorial de instalación revisado el 2026-11-26 también pide 15 GB de disco libre.",
             "Este sitio de la comunidad no opera la demo, la ficha de la tienda ni los archivos de publicación. Pregunta al administrador qué modelos y herramientas reciben el contenido de la tarea antes de subir algo confidencial."
           ],
           "bullets": [
@@ -318,7 +318,13 @@
           ]
         }
       ]
-    }
+    },
+    "relatedSlugs": [
+      "try-the-hosted-demo",
+      "install-with-official-installer",
+      "account-and-device-settings",
+      "self-hosting"
+    ]
   },
   {
     "slug": "projects-tasks-sessions",
